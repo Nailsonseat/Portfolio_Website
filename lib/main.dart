@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         body: ChangeNotifierProvider(
           child: const LaunchPage(),
-          create: (_) => LaunchPageAnimationProvider(),
+          create: (_) => LaunchPageProvider(),
         ),
       ),
     );
