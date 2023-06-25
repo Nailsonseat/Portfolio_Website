@@ -43,6 +43,9 @@ dependencies:
   provider: ^6.0.5
   auto_size_text: ^3.0.0
   go_router: ^8.2.0
+  google_fonts: ^5.1.0
+  line_icons: ^2.0.1
+  url_launcher: ^6.1.11
 
 dev_dependencies:
   flutter_test:
@@ -100,3 +103,6 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+  assets:
+    - lib/assets/
+
