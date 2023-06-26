@@ -9,9 +9,67 @@ import 'package:url_launcher/url_launcher.dart';
 class HomePage extends StatelessWidget {
    HomePage({super.key});
 
+   void _redirectMyDiscord() async {
+     try {
+       if (!await launchUrl(Uri.parse('https://discord.com/channels/@me/Nailsonseat#1059/'))) {
+         throw ('Error launching url');
+       }
+     } catch (error) {
+       Logger().e(error);
+     }
+   }
 
+   void _redirectMyWhatsapp() async {
+     String number = '919520515864';
+     String message = '?text=Hi%20my%20name%20is';
+     try {
+       if (!await launchUrl(Uri.parse('https://wa.me/$number$message'))) {
+         throw ('Error launching url');
+       }
+     } catch (error) {
+       Logger().e(error);
+     }
+   }
 
-  final ScrollController _scrollController = ScrollController();
+   void _sendMeMail() async {
+     String view = 'cm'; // Compose view
+     String fullscreen = '1'; // Fullscreen view
+     String to = 'aadarshv3@gmail.com'; // Receiver's email
+     String subject = 'Enquiry%20about'; // Subject of email
+     String body = 'Hi%20Aadarsh,%20'; // Body of email
+
+     String link = 'https://mail.google.com/mail/?view=$view&fs=$fullscreen&to=$to&su=$subject&body=$body';
+     try {
+       if (!await launchUrl(Uri.parse(link))) {
+         throw ('Error launching url');
+       }
+     } catch (error) {
+       Logger().e(error);
+     }
+   }
+
+   void _redirectMyGithub() async {
+     String link = 'https://github.com/Nailsonseat';
+     try {
+       if (!await launchUrl(Uri.parse(link))) {
+         throw ('Error launching url');
+       }
+     } catch (error) {
+       Logger().e(error);
+     }
+   }
+
+   void _redirectMyLinkedIn() async {
+     String link = 'https://www.linkedin.com/in/aadarsh-verma-7b4339229/';
+     try {
+       if (!await launchUrl(Uri.parse(link))) {
+         throw ('Error launching url');
+       }
+     } catch (error) {
+       Logger().e(error);
+     }
+   }
+
 
   @override
   Widget build(BuildContext context) {
