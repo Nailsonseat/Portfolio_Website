@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:line_icons/line_icons.dart';
@@ -263,33 +264,53 @@ class HomePage extends StatelessWidget {
                   width: width,
                   padding: EdgeInsets.only(top: 50),
                   color: Colors.transparent,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Text(
-                        'About Me',
-                        style: GoogleFonts.martianMono(
-                          fontSize: 60,
-                          decoration: TextDecoration.underline,
-                          fontWeight: FontWeight.bold,
-                          decorationStyle: TextDecorationStyle.double,
-                          decorationThickness: 0.5,
+                  child: Container(
+                    margin: EdgeInsets.symmetric(horizontal: 150,vertical: 70),
+                    padding: EdgeInsets.symmetric(horizontal: 80,vertical: 30),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      color: Colors.grey[200],
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey,
+                          offset: Offset(0, 0),
+                          blurRadius: 1.0,
                         ),
-                      ),
-                      SizedBox(height: 50,),
-                      FutureBuilder(
-                        future: rootBundle.loadString("lib/assets/about.txt"),
-                        builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
-                          if (snapshot.hasData) {
-                            return Text(snapshot.data!);
-                          }
+                      ],
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        SelectableText(
+                          'About me',
+                          style: GoogleFonts.workSans(
+                            fontSize: 55,
+                            //decoration: TextDecoration.underline,
+                            //fontWeight: FontWeight.bold,
+                            //decorationStyle: TextDecorationStyle.double,
+                            decorationThickness: 0.5,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 40,
+                        ),
+                        FutureBuilder(
+                          future: rootBundle.loadString("lib/assets/about.txt"),
+                          builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
+                            if (snapshot.hasData) {
+                              return SelectableText(
+                                snapshot.data!,
+                                style: GoogleFonts.robotoMono(fontSize: 20),
+                              );
+                            }
 
-                          return Center(
-                            child: CircularProgressIndicator(),
-                          );
-                        },
-                      ),
-                    ],
+                            return Center(
+                              child: CircularProgressIndicator(),
+                            );
+                          },
+                        ),
+                      ],
+                    ),
                   ),
                 )
               ],
