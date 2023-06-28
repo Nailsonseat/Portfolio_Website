@@ -2,9 +2,11 @@
 class Assets {
   Assets._();
 
+  static const String assetsAbout = 'lib/assets/about.txt';
   static const String assetsProfilePic = 'lib/assets/profile_pic.jpg';
   static const String assetsProfilePicFlipped = 'lib/assets/profile_pic_flipped.jpg';
   static const String fontsQuicksandVariableFontWeight = 'lib/fonts/Quicksand-VariableFont_weight.ttf';
+  static const String generatedAssets = 'lib/generated/assets.dart';
   static const String libMain = 'lib/main.dart';
   static const String libRoutes = 'lib/routes.dart';
   static const String pagesHomePage = 'lib/pages/home_page.dart';
