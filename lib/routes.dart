@@ -15,7 +15,7 @@ final GoRouter routes = GoRouter(
         GoRoute(
           path: 'home',
           pageBuilder: (context, state) => CustomTransitionPage(
-            child: const HomePage(),
+            child: HomePage(),
             key: state.pageKey,
             transitionDuration: const Duration(milliseconds: 1000),
             transitionsBuilder: (_, animation, ___, child) {
