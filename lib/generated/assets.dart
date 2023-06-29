@@ -2,15 +2,20 @@
 class Assets {
   Assets._();
 
-  static const String assetsAbout = 'lib/assets/about.txt';
-  static const String assetsProfilePic = 'lib/assets/profile_pic.jpg';
-  static const String assetsProfilePicFlipped = 'lib/assets/profile_pic_flipped.jpg';
   static const String fontsQuicksandVariableFontWeight = 'lib/fonts/Quicksand-VariableFont_weight.ttf';
   static const String generatedAssets = 'lib/generated/assets.dart';
+  static const String homeHomeMain = 'lib/pages/home/home_main.dart';
+  static const String homeHomePageOne = 'lib/pages/home/home_page_one.dart';
+  static const String homeHomePageTwo = 'lib/pages/home/home_page_two.dart';
+  static const String homePageOneBackground = 'lib/components/home/page_one_background.dart';
+  static const String homePageOneButtonGradient = 'lib/components/home/page_one_button_gradient.dart';
+  static const String homePageOneProfilePicBackground = 'lib/components/home/page_one_profile_pic_background.dart';
+  static const String imagesProfilePic = 'lib/assets/images/profile_pic.jpg';
+  static const String imagesProfilePicFlipped = 'lib/assets/images/profile_pic_flipped.jpg';
+  static const String launchLaunchPage = 'lib/pages/launch/launch_page.dart';
   static const String libMain = 'lib/main.dart';
   static const String libRoutes = 'lib/routes.dart';
-  static const String pagesHomePage = 'lib/pages/home_page.dart';
-  static const String pagesLaunchPage = 'lib/pages/launch_page.dart';
   static const String providersLaunchPageAnimationProvider = 'lib/providers/launch_page_animation_provider.dart';
+  static const String textAboutMe = 'lib/assets/text/about_me.txt';
 
 }
