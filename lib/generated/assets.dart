@@ -2,6 +2,8 @@
 class Assets {
   Assets._();
 
+  static const String aboutMeAboutMe = 'lib/assets/text/about_me/about_me.txt';
+  static const String aboutMeEducation = 'lib/assets/text/about_me/education.txt';
   static const String fontsQuicksandVariableFontWeight = 'lib/fonts/Quicksand-VariableFont_weight.ttf';
   static const String generatedAssets = 'lib/generated/assets.dart';
   static const String homeHomeMain = 'lib/pages/home/home_main.dart';
@@ -16,6 +18,6 @@ class Assets {
   static const String libMain = 'lib/main.dart';
   static const String libRoutes = 'lib/routes.dart';
   static const String providersLaunchPageAnimationProvider = 'lib/providers/launch_page_animation_provider.dart';
-  static const String textAboutMe = 'lib/assets/text/about_me.txt';
+  static const String providersScrollToTopProvider = 'lib/providers/scroll_to_top_provider.dart';
 
 }
