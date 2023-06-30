@@ -109,4 +109,5 @@ flutter:
     - lib/assets/
     - lib/assets/text/about_me/about_me.txt
     - lib/assets/text/about_me/education.txt
+    - lib/assets/icons/slack.png
 
