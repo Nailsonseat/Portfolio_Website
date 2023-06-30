@@ -12,6 +12,7 @@ class Assets {
   static const String homePageOneBackground = 'lib/components/home/page_one_background.dart';
   static const String homePageOneButtonGradient = 'lib/components/home/page_one_button_gradient.dart';
   static const String homePageOneProfilePicBackground = 'lib/components/home/page_one_profile_pic_background.dart';
+  static const String iconsSlack = 'lib/assets/icons/slack.png';
   static const String imagesProfilePic = 'lib/assets/images/profile_pic.jpg';
   static const String imagesProfilePicFlipped = 'lib/assets/images/profile_pic_flipped.jpg';
   static const String launchLaunchPage = 'lib/pages/launch/launch_page.dart';
@@ -19,5 +20,7 @@ class Assets {
   static const String libRoutes = 'lib/routes.dart';
   static const String providersLaunchPageAnimationProvider = 'lib/providers/launch_page_animation_provider.dart';
   static const String providersScrollToTopProvider = 'lib/providers/scroll_to_top_provider.dart';
+  static const String textAboutMeAboutMe = 'lib/assets/text/about_me/about_me.txt';
+  static const String textAboutMeEducation = 'lib/assets/text/about_me/education.txt';
 
 }
