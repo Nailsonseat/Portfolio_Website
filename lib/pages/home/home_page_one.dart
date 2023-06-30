@@ -1,12 +1,9 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:logger/logger.dart';
 import 'package:portfolio_website/components/home/page_one_background.dart';
 import 'package:url_launcher/url_launcher.dart';
-
 import '../../components/home/page_one_button_gradient.dart';
 import '../../components/home/page_one_profile_pic_background.dart';
 
@@ -75,6 +72,19 @@ class HomePageOne extends StatelessWidget {
     }
   }
 
+  void _redirectMySlack() async {
+    String body = 'https://slack.com/app_redirect?channel=';
+    String chanelId = 'D01DN9HBGLV';
+    String link = body + chanelId;
+    try {
+      if (!await launchUrl(Uri.parse(link))) {
+        throw ('Error launching url');
+      }
+    } catch (error) {
+      Logger().e(error);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
@@ -114,12 +124,12 @@ class HomePageOne extends StatelessWidget {
             ),
             child: CircleAvatar(
               radius: width / 12.3375 < 80 ? 80 : width / 12.3375,
-              backgroundImage: const NetworkImage('lib/assets/profile_pic.jpg'),
+              backgroundImage: const NetworkImage('lib/assets/images/profile_pic.jpg'),
             ),
           ),
           Container(
             margin: EdgeInsets.only(top: 150, left: width / 5.64),
-            width: 524,
+            width: 624,
             height: 822,
             //color: Colors.lightGreenAccent,
             child: Column(
@@ -161,6 +171,11 @@ class HomePageOne extends StatelessWidget {
                         onPressed: () => _redirectMyLinkedIn(),
                         icon: const Icon(LineIcons.linkedin),
                         iconSize: 45,
+                        color: Colors.lightBlueAccent,
+                      ),
+                      IconButton(
+                        onPressed: () => _redirectMySlack(),
+                        icon: SizedBox(width: 55,height: 55,child: Image.asset('lib/assets/icons/slack.png'),),
                         color: Colors.lightBlueAccent,
                       ),
                       IconButton(
