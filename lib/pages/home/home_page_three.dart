@@ -1,6 +1,8 @@
 
 import 'package:animated_toggle_switch/animated_toggle_switch.dart';
 import 'package:flutter/material.dart';
+import 'package:portfolio_website/providers/project_slider_provider.dart';
+import 'package:provider/provider.dart';
 
 class HomePageThree extends StatelessWidget {
   const HomePageThree({super.key});
@@ -26,22 +28,32 @@ class HomePageThree extends StatelessWidget {
               style: TextStyle(fontSize: 50),
             ),
           ),
-          AnimatedToggleSwitch<int>.size(
-            current: value,
-            values: const [0, 1, 2, 3],
-            iconOpacity: 0.2,
-            borderRadius: BorderRadius.circular(50),
-            indicatorSize: Size(width = 100,height = double.infinity),
-            iconAnimationType: AnimationType.onHover,
-            indicatorAnimationType: AnimationType.onHover,
-            iconBuilder: (value, size) {
-              return Center(child: Text('Hello',style: TextStyle(fontSize: 20),));
-            },
-            borderWidth: 0.0,
-            borderColor: Colors.transparent,
-            colorBuilder: (i) => i.isEven == true ? Colors.amber : Colors.red,
-            onChanged: (i) {
-              return Future.delayed(Duration(seconds: 1));
+          SizedBox(height: 50,),
+          Consumer<ProjectSliderProvider>(
+            builder: (_, sliderProvider, __) {
+              return AnimatedToggleSwitch<int>.size(
+                height: 80,
+                current: sliderProvider.value,
+                borderColorBuilder: (i) => Colors.black,
+                values: List<int>.generate(sliderProvider.options.length, (i) => i),
+                iconOpacity: 0.2,
+                borderRadius: BorderRadius.circular(50),
+                indicatorSize: Size.fromWidth(300),
+                boxShadow: const [
+                  BoxShadow(
+                    color: Colors.grey,
+                    offset: Offset(0, 0),
+                    blurRadius: 2.0,
+                  ),
+                ],
+                iconAnimationType: AnimationType.onHover,
+                indicatorAnimationType: AnimationType.onHover,
+                iconBuilder: (value, size) => sliderProvider.optionBuilder(value, size),
+                borderWidth: 0.1,
+                borderColor: Colors.transparent,
+                colorBuilder: (i) => sliderProvider.optionColor(i),
+                onChanged: (i) => sliderProvider.onChanged(i),
+              );
             },
           ),
         ],
