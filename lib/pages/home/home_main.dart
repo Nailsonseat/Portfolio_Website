@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio_website/pages/home/home_page_one.dart';
+import 'package:portfolio_website/pages/home/home_page_three.dart';
 import 'package:portfolio_website/pages/home/home_page_two.dart';
 import 'package:portfolio_website/providers/scroll_to_top_provider.dart';
 import 'package:provider/provider.dart';
@@ -55,6 +56,7 @@ class HomeMain extends StatelessWidget {
               children: [
                 HomePageOne(),
                 HomePageTwo(),
+                HomePageThree()
               ],
             ),
           ),
