@@ -4,10 +4,12 @@ class Assets {
 
   static const String aboutMeAboutMe = 'lib/assets/text/about_me/about_me.txt';
   static const String aboutMeEducation = 'lib/assets/text/about_me/education.txt';
+  static const String assetsIconsSlack = 'lib/assets/icons/slack.png';
   static const String fontsQuicksandVariableFontWeight = 'lib/fonts/Quicksand-VariableFont_weight.ttf';
   static const String generatedAssets = 'lib/generated/assets.dart';
   static const String homeHomeMain = 'lib/pages/home/home_main.dart';
   static const String homeHomePageOne = 'lib/pages/home/home_page_one.dart';
+  static const String homeHomePageThree = 'lib/pages/home/home_page_three.dart';
   static const String homeHomePageTwo = 'lib/pages/home/home_page_two.dart';
   static const String homePageOneBackground = 'lib/components/home/page_one_background.dart';
   static const String homePageOneButtonGradient = 'lib/components/home/page_one_button_gradient.dart';
@@ -19,6 +21,7 @@ class Assets {
   static const String libMain = 'lib/main.dart';
   static const String libRoutes = 'lib/routes.dart';
   static const String providersLaunchPageAnimationProvider = 'lib/providers/launch_page_animation_provider.dart';
+  static const String providersProjectSliderProvider = 'lib/providers/project_slider_provider.dart';
   static const String providersScrollToTopProvider = 'lib/providers/scroll_to_top_provider.dart';
   static const String textAboutMeAboutMe = 'lib/assets/text/about_me/about_me.txt';
   static const String textAboutMeEducation = 'lib/assets/text/about_me/education.txt';
