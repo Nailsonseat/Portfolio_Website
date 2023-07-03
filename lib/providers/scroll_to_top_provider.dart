@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 
-class ScrollTopProvider extends ChangeNotifier{
-
+class ScrollTopProvider extends ChangeNotifier {
   final ScrollController _scrollController = ScrollController();
   bool _showFloatingButton = false;
 
@@ -10,6 +9,7 @@ class ScrollTopProvider extends ChangeNotifier{
   }
 
   ScrollController get scrollController => _scrollController;
+
   bool get showFloatingButton => _showFloatingButton;
 
   void _scrollListener() {
@@ -24,6 +24,14 @@ class ScrollTopProvider extends ChangeNotifier{
   void scrollToTop() {
     _scrollController.animateTo(
       0,
+      duration: const Duration(milliseconds: 500),
+      curve: Curves.easeInOut,
+    );
+  }
+
+  void scrollToProjects(double singlePageHeight) {
+    _scrollController.animateTo(
+      (singlePageHeight * 2) - 80,
       duration: const Duration(milliseconds: 500),
       curve: Curves.easeInOut,
     );
