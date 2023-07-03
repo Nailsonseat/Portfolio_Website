@@ -3,10 +3,11 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:logger/logger.dart';
 import 'package:portfolio_website/components/home/page_one_background.dart';
+import 'package:portfolio_website/providers/scroll_to_top_provider.dart';
+import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../components/home/page_one_button_gradient.dart';
 import '../../components/home/page_one_profile_pic_background.dart';
-
 
 class HomePageOne extends StatelessWidget {
   const HomePageOne({super.key});
@@ -93,9 +94,7 @@ class HomePageOne extends StatelessWidget {
     width = width < 800 ? 800 : width;
     return Container(
       decoration: const BoxDecoration(
-        boxShadow: <BoxShadow>[
-          BoxShadow(color: Colors.black54, blurRadius: 20.0, offset: Offset(0.0, 0.75))
-        ],
+        boxShadow: <BoxShadow>[BoxShadow(color: Colors.black54, blurRadius: 20.0, offset: Offset(0.0, 0.75))],
       ),
       child: Stack(
         children: [
@@ -157,8 +156,7 @@ class HomePageOne extends StatelessWidget {
                 Container(
                   margin: const EdgeInsets.only(top: 20),
                   height: 80,
-                  decoration:
-                  BoxDecoration(color: Colors.grey[200], borderRadius: BorderRadius.circular(40)),
+                  decoration: BoxDecoration(color: Colors.grey[200], borderRadius: BorderRadius.circular(40)),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
@@ -175,7 +173,11 @@ class HomePageOne extends StatelessWidget {
                       ),
                       IconButton(
                         onPressed: () => _redirectMySlack(),
-                        icon: SizedBox(width: 55,height: 55,child: Image.asset('lib/assets/icons/slack.png'),),
+                        icon: SizedBox(
+                          width: 55,
+                          height: 55,
+                          child: Image.asset('lib/assets/icons/slack.png'),
+                        ),
                         color: Colors.lightBlueAccent,
                       ),
                       IconButton(
@@ -229,7 +231,8 @@ class HomePageOne extends StatelessWidget {
                         width: 200,
                         height: 50,
                         child: TextButton(
-                          onPressed: () {},
+                          onPressed: () =>
+                              Provider.of<ScrollTopProvider>(context, listen: false).scrollToProjects(height),
                           style: TextButton.styleFrom(
                             backgroundColor: Colors.transparent,
                             padding: EdgeInsets.zero,
