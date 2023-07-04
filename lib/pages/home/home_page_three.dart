@@ -1,5 +1,6 @@
 import 'package:animated_toggle_switch/animated_toggle_switch.dart';
 import 'package:flutter/material.dart';
+import 'package:portfolio_website/providers/project_page_provider.dart';
 import 'package:portfolio_website/providers/project_slider_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -14,13 +15,13 @@ class HomePageThree extends StatelessWidget {
 
     return Container(
       width: width,
-      height: height * 2.5 - 80,
+      height: height * 7.5 - 80,
       padding: EdgeInsets.only(top: 50, bottom: 50),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Padding(
-            padding: const EdgeInsets.only(left: 150),
+          const Padding(
+            padding: EdgeInsets.only(left: 150),
             child: Text(
               "Projects",
               style: TextStyle(fontSize: 60),
@@ -62,100 +63,66 @@ class HomePageThree extends StatelessWidget {
           SizedBox(
             height: 50,
           ),
-          IntrinsicHeight(
-            child: Container(
-              //height: height * 1.5,
-              decoration: BoxDecoration(color: Colors.grey[100], borderRadius: BorderRadius.circular(20)),
-              margin: const EdgeInsets.symmetric(horizontal: 90),
-              padding: const EdgeInsets.only(top: 100, bottom: 100),
-              child: Stack(
-                children: [
-                  Opacity(
-                    opacity: 1.0, // Adjust the opacity value to control the level of fading
-                    child: SizedBox.expand(
-                      child: Wrap(
-                        alignment: WrapAlignment.spaceAround,
-                        direction: Axis.horizontal,
-                        runAlignment: WrapAlignment.spaceEvenly,
-                        runSpacing: 50,
-                        children: [
-                          SizedBox(
-                            width: 500,
-                            height: 650,
-                            child: Container(
-                              decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(35)),
-                              child: Align(
-                                alignment: Alignment.topCenter,
-                                child: Column(
-                                  children: [
-                                    ClipRRect(
-                                      borderRadius: BorderRadius.only(topLeft: Radius.circular(35),topRight: Radius.circular(35)),
-                                      child: Image.asset(
-                                        'lib/assets/images/project_images/acharya_setu.jpg',
+          Consumer<ProjectPageProvider>(
+            builder: (_, projectProvider, __) {
+              return IntrinsicHeight(
+                child: Container(
+                  //height: height * 1.5,
+                  decoration: BoxDecoration(color: Colors.grey[100], borderRadius: BorderRadius.circular(20)),
+                  margin: const EdgeInsets.symmetric(horizontal: 90),
+                  padding: const EdgeInsets.only(top: 100, bottom: 100),
+                  child: Stack(
+                    children: [
+                      Opacity(
+                        opacity: 1.0, // Adjust the opacity value to control the level of fading
+                        child: SizedBox.expand(
+                          child: Wrap(
+                            alignment: WrapAlignment.spaceAround,
+                            direction: Axis.horizontal,
+                            runAlignment: WrapAlignment.spaceEvenly,
+                            runSpacing: 80,
+                            children: [
+                              for (Project i in projectProvider.projects)
+                                SizedBox(
+                                  width: 500,
+                                  height: 650,
+                                  child: Container(
+                                    decoration:
+                                        BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(35)),
+                                    child: Align(
+                                      alignment: Alignment.topCenter,
+                                      child: Column(
+                                        children: [
+                                          ClipRRect(
+                                            borderRadius: const BorderRadius.only(
+                                                topLeft: Radius.circular(35), topRight: Radius.circular(35)),
+                                            child: i.image,
+                                          ),
+                                          Align(
+                                            alignment: Alignment.centerLeft,
+                                            child: Padding(
+                                              padding: const EdgeInsets.only(left: 30),
+                                              child: Text(
+                                                i.title,
+                                                style: const TextStyle(fontSize: 30),
+                                              ),
+                                            ),
+                                          )
+                                        ],
                                       ),
                                     ),
-                                    Align(
-                                      alignment: Alignment.centerLeft,
-                                      child: Padding(
-                                        padding: EdgeInsets.only(left: 30),
-                                        child: Text("Aharya Setu",style: TextStyle(fontSize: 35),),
-                                      ),
-                                    )
-                                  ],
+                                  ),
                                 ),
-                              ),
-                            ),
+                            ],
                           ),
-                          SizedBox(
-                            width: 450,
-                            height: 500,
-                            child: Container(
-                              decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(35)),
-                            ),
-                          ),
-                          SizedBox(
-                            width: 450,
-                            height: 500,
-                            child: Container(
-                              decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(35)),
-                            ),
-                          ),
-                          SizedBox(
-                            width: 450,
-                            height: 500,
-                            child: Container(
-                              decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(35)),
-                            ),
-                          ),
-                          SizedBox(
-                            width: 450,
-                            height: 500,
-                            child: Container(
-                              decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(35)),
-                            ),
-                          ),
-                          SizedBox(
-                            width: 450,
-                            height: 500,
-                            child: Container(
-                              decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(35)),
-                            ),
-                          ),
-                          SizedBox(
-                            width: 450,
-                            height: 500,
-                            child: Container(
-                              decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(35)),
-                            ),
-                          ),
-                        ],
+                        ),
                       ),
-                    ),
+                      //Center(child: CircularProgressIndicator()),
+                    ],
                   ),
-                  //Center(child: CircularProgressIndicator()),
-                ],
-              ),
-            ),
+                ),
+              );
+            },
           ),
         ],
       ),
