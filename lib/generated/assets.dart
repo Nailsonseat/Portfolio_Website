@@ -20,10 +20,20 @@ class Assets {
   static const String launchLaunchPage = 'lib/pages/launch/launch_page.dart';
   static const String libMain = 'lib/main.dart';
   static const String libRoutes = 'lib/routes.dart';
+  static const String projectImagesAcharyaSetu = 'lib/assets/images/project_images/acharya_setu.jpg';
+  static const String projectImagesDataInIpl = 'lib/assets/images/project_images/data_in_ipl.png';
+  static const String projectImagesECommerceBehaviourUnderstanding = 'lib/assets/images/project_images/e_commerce_behaviour_understanding.png';
+  static const String projectImagesHolaBot = 'lib/assets/images/project_images/hola_bot.png';
+  static const String projectImagesHospitalManagementUtility = 'lib/assets/images/project_images/hospital_management_utility.png';
+  static const String projectImagesKastor = 'lib/assets/images/project_images/kastor.png';
+  static const String projectImagesMachineLearning = 'lib/assets/images/project_images/machine_Learning.png';
+  static const String projectImagesMessaging = 'lib/assets/images/project_images/messaging.png';
+  static const String projectImagesPortfolio = 'lib/assets/images/project_images/portfolio.png';
+  static const String projectImagesSnake = 'lib/assets/images/project_images/snake.png';
+  static const String projectImagesYoshopScraper = 'lib/assets/images/project_images/yoshop_scraper.png';
   static const String providersLaunchPageAnimationProvider = 'lib/providers/launch_page_animation_provider.dart';
+  static const String providersProjectPageProvider = 'lib/providers/project_page_provider.dart';
   static const String providersProjectSliderProvider = 'lib/providers/project_slider_provider.dart';
   static const String providersScrollToTopProvider = 'lib/providers/scroll_to_top_provider.dart';
-  static const String textAboutMeAboutMe = 'lib/assets/text/about_me/about_me.txt';
-  static const String textAboutMeEducation = 'lib/assets/text/about_me/education.txt';
 
 }
