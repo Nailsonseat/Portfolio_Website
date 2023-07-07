@@ -32,6 +32,7 @@ class Assets {
   static const String projectImagesYoshopScraper = 'lib/assets/images/project_images/yoshop_scraper.png';
   static const String projectsAllProjectsPage = 'lib/pages/projects/all_projects_page.dart';
   static const String projectsDevelopmentsProjectsPage = 'lib/pages/projects/developments_projects_page.dart';
+  static const String projectsMlProjectsApge = 'lib/pages/projects/ml_projects_page.dart';
   static const String projectsProjectPageBrowser = 'lib/pages/projects/project_page_browser.dart';
   static const String projectsProjectPageMain = 'lib/pages/projects/project_page_main.dart';
   static const String providersLaunchPageAnimationProvider = 'lib/providers/launch_page_animation_provider.dart';
