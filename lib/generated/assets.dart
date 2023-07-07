@@ -3,14 +3,12 @@ class Assets {
   Assets._();
 
   static const String aboutMeAboutMe = 'lib/assets/text/about_me/about_me.txt';
+  static const String aboutMeAboutMePage = 'lib/pages/about_me/about_me_page.dart';
   static const String aboutMeEducation = 'lib/assets/text/about_me/education.txt';
-  static const String assetsIconsSlack = 'lib/assets/icons/slack.png';
   static const String fontsQuicksandVariableFontWeight = 'lib/fonts/Quicksand-VariableFont_weight.ttf';
   static const String generatedAssets = 'lib/generated/assets.dart';
   static const String homeHomeMain = 'lib/pages/home/home_main.dart';
-  static const String homeHomePageOne = 'lib/pages/home/home_page_one.dart';
-  static const String homeHomePageThree = 'lib/pages/home/home_page_three.dart';
-  static const String homeHomePageTwo = 'lib/pages/home/home_page_two.dart';
+  static const String homeHomePage = 'lib/pages/home/home_page.dart';
   static const String homePageOneBackground = 'lib/components/home/page_one_background.dart';
   static const String homePageOneButtonGradient = 'lib/components/home/page_one_button_gradient.dart';
   static const String homePageOneProfilePicBackground = 'lib/components/home/page_one_profile_pic_background.dart';
@@ -31,6 +29,7 @@ class Assets {
   static const String projectImagesPortfolio = 'lib/assets/images/project_images/portfolio.png';
   static const String projectImagesSnake = 'lib/assets/images/project_images/snake.png';
   static const String projectImagesYoshopScraper = 'lib/assets/images/project_images/yoshop_scraper.png';
+  static const String projectsProjectPageMain = 'lib/pages/projects/project_page_main.dart';
   static const String providersLaunchPageAnimationProvider = 'lib/providers/launch_page_animation_provider.dart';
   static const String providersProjectPageProvider = 'lib/providers/project_page_provider.dart';
   static const String providersProjectSliderProvider = 'lib/providers/project_slider_provider.dart';

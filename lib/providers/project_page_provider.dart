@@ -10,7 +10,18 @@ class Project {
 }
 
 class ProjectPageProvider extends ChangeNotifier {
-  int opacity = 0;
+  double opacity = 1;
+
+  void toggleFade(){
+    if(opacity == 1){
+      opacity = 0.5;
+      notifyListeners();
+      return;
+    }
+    opacity = 1;
+    notifyListeners();
+    return;
+  }
 
   List<Project> projects = [
     Project(
