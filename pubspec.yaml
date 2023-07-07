@@ -111,4 +111,5 @@ flutter:
     - lib/assets/images/project_images/
     - lib/assets/text/about_me/
     - lib/assets/images/profile_pic/
+    - lib/assets/images/miscellaneous/
 
