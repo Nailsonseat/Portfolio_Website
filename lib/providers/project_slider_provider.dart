@@ -5,9 +5,11 @@ class ProjectSliderProvider extends ChangeNotifier {
 
   final List<String> options = ["All projects", "Software development", "Machine Learning"];
 
-  Future<void> onChanged(int selectedValue) async {
-    return Future.delayed(const Duration(seconds: 1), () {
+  Future<void> onChanged(int selectedValue,Function toggleFade) async {
+    toggleFade();
+    return Future.delayed(const Duration(milliseconds: 1400), () {
       value = selectedValue;
+      toggleFade();
       notifyListeners();
     });
   }
