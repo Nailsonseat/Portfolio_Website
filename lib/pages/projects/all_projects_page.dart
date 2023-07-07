@@ -47,13 +47,22 @@ class AllProjectsPage extends StatelessWidget {
                               ),
                             ),
                           ),
-                          Container(
+                          Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 30),
                             child: Text(
                               i.briefDescription,
                               style: GoogleFonts.robotoMono(fontSize: 16),
                             ),
-                          )
+                          ),
+                          Expanded(
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                OutlinedButton(onPressed: (){}, child: Text("Read more",style: TextStyle(fontSize: 20),)),
+                                OutlinedButton(onPressed: (){}, child: Text("Source",style: TextStyle(fontSize: 20),)),
+                              ],
+                            ),
+                          ),
                         ],
                       ),
                     ),
