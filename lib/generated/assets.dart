@@ -16,6 +16,7 @@ class Assets {
   static const String launchLaunchPage = 'lib/pages/launch/launch_page.dart';
   static const String libMain = 'lib/main.dart';
   static const String libRoutes = 'lib/routes.dart';
+  static const String miscellaneousUnderConstruction = 'lib/assets/images/miscellaneous/under_construction.png';
   static const String profilePicProfilePic = 'lib/assets/images/profile_pic/profile_pic.jpg';
   static const String profilePicProfilePicFlipped = 'lib/assets/images/profile_pic/profile_pic_flipped.jpg';
   static const String projectImagesAcharyaSetu = 'lib/assets/images/project_images/acharya_setu.jpg';
@@ -29,6 +30,8 @@ class Assets {
   static const String projectImagesPortfolio = 'lib/assets/images/project_images/portfolio.png';
   static const String projectImagesSnake = 'lib/assets/images/project_images/snake.png';
   static const String projectImagesYoshopScraper = 'lib/assets/images/project_images/yoshop_scraper.png';
+  static const String projectsAllProjectsPage = 'lib/pages/projects/all_projects_page.dart';
+  static const String projectsProjectPageBrowser = 'lib/pages/projects/project_page_browser.dart';
   static const String projectsProjectPageMain = 'lib/pages/projects/project_page_main.dart';
   static const String providersLaunchPageAnimationProvider = 'lib/providers/launch_page_animation_provider.dart';
   static const String providersProjectPageProvider = 'lib/providers/project_page_provider.dart';
