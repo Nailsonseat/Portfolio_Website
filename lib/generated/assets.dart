@@ -15,11 +15,11 @@ class Assets {
   static const String homePageOneButtonGradient = 'lib/components/home/page_one_button_gradient.dart';
   static const String homePageOneProfilePicBackground = 'lib/components/home/page_one_profile_pic_background.dart';
   static const String iconsSlack = 'lib/assets/icons/slack.png';
-  static const String imagesProfilePic = 'lib/assets/images/profile_pic.jpg';
-  static const String imagesProfilePicFlipped = 'lib/assets/images/profile_pic_flipped.jpg';
   static const String launchLaunchPage = 'lib/pages/launch/launch_page.dart';
   static const String libMain = 'lib/main.dart';
   static const String libRoutes = 'lib/routes.dart';
+  static const String profilePicProfilePic = 'lib/assets/images/profile_pic/profile_pic.jpg';
+  static const String profilePicProfilePicFlipped = 'lib/assets/images/profile_pic/profile_pic_flipped.jpg';
   static const String projectImagesAcharyaSetu = 'lib/assets/images/project_images/acharya_setu.jpg';
   static const String projectImagesDataInIpl = 'lib/assets/images/project_images/data_in_ipl.png';
   static const String projectImagesECommerceBehaviourUnderstanding = 'lib/assets/images/project_images/e_commerce_behaviour_understanding.png';
