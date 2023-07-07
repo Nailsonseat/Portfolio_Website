@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 import '../../providers/project_page_provider.dart';
@@ -50,7 +51,7 @@ class AllProjectsPage extends StatelessWidget {
                             padding: const EdgeInsets.symmetric(horizontal: 30),
                             child: Text(
                               i.briefDescription,
-                              style: const TextStyle(fontSize: 18),
+                              style: GoogleFonts.robotoMono(fontSize: 16),
                             ),
                           )
                         ],
