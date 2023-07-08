@@ -1,0 +1,10 @@
+Namaste! I am a 2nd year student from the city of Lucknow, Uttar Pradesh, India.
+I have been on this journey for about 5 years till now, started in my 10th grade when I wrote my first code and have been on the keyboard ever since, And my passion for software development and machine learning has grown immensely over the years.
+During my high school years, I dived headfirst into the world of programming. I was captivated by the power of code to bring ideas to life and solve real-world problems.
+I started with the basics, learning languages like C++, As I continued my education, I realized the vast potential of machine learning and artificial intelligence.
+The ability to teach computers to learn and make intelligent decisions fascinated me.
+I delved into the field, studying algorithms, data structures, and statistical models.
+I explored topics such as supervised and unsupervised learning, neural networks, and deep learning. Applying these concepts to real-world scenarios for analyzing large datasets for valuable insights.
+Alongside my academic pursuits, I actively participated in coding competitions and hackathons. These events provided a platform to showcase my skills, collaborate with like-minded individuals, and push my boundaries.
+I relished the opportunity to work under pressure, think creatively, and develop innovative solutions within tight time constraints. Looking ahead, I am excited about the endless possibilities that lie ahead in the field of software development and machine learning.
+I am eager to continue learning, exploring new technologies, and contributing to groundbreaking projects.
