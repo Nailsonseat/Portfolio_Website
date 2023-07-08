@@ -17,17 +17,17 @@ class HomePageTwo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
-    double height = MediaQuery.of(context).size.height;
+    // double height = MediaQuery.of(context).size.height;
     width = width < 800 ? 800 : width;
 
     return Container(
-      height: height,
+      // height: height,
       width: width,
       padding: const EdgeInsets.only(top: 50),
       color: Colors.transparent,
       child: Container(
         margin: const EdgeInsets.symmetric(horizontal: 150, vertical: 70),
-        padding: const EdgeInsets.symmetric(horizontal: 80, vertical: 30),
+        padding: const EdgeInsets.only(left: 80, right: 80, top: 30, bottom: 80),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
           color: Colors.grey[200],
@@ -45,7 +45,7 @@ class HomePageTwo extends StatelessWidget {
             SelectableText(
               'About me',
               style: GoogleFonts.inter(
-                fontSize: 55,
+                fontSize: width / 35.89090909,
                 //decoration: TextDecoration.underline,
                 //fontWeight: FontWeight.bold,
                 //decorationStyle: TextDecorationStyle.double,
@@ -55,22 +55,24 @@ class HomePageTwo extends StatelessWidget {
             const SizedBox(
               height: 40,
             ),
-            FutureBuilder<({String aboutMe, String education})>(
-              future: getMyInfo(),
-              builder: (BuildContext context, AsyncSnapshot <({String aboutMe, String education})> snapshot) {
-                if (snapshot.hasData) {
-                      String aboutMe = snapshot.data?.aboutMe ?? '';
-                      String education = snapshot.data?.education ?? '';
-                  return SelectableText(
-                    aboutMe + education,
-                    style: GoogleFonts.robotoMono(fontSize: 20),
-                  );
-                }
+            IntrinsicHeight(
+              child: FutureBuilder<({String aboutMe, String education})>(
+                future: getMyInfo(),
+                builder: (BuildContext context, AsyncSnapshot<({String aboutMe, String education})> snapshot) {
+                  if (snapshot.hasData) {
+                    String aboutMe = snapshot.data?.aboutMe ?? '';
+                    String education = snapshot.data?.education ?? '';
+                    return SelectableText(
+                      aboutMe + education,
+                      style: GoogleFonts.robotoMono(fontSize: width / 98.7),
+                    );
+                  }
 
-                return const Center(
-                  child: CircularProgressIndicator(),
-                );
-              },
+                  return const Center(
+                    child: CircularProgressIndicator(),
+                  );
+                },
+              ),
             ),
           ],
         ),
