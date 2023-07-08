@@ -122,9 +122,11 @@ class HomePageOne extends StatelessWidget {
                 ),
               ],
             ),
-            child: CircleAvatar(
-              radius: width / 12.3375 < 80 ? 80 : width / 12.3375,
-              backgroundImage: const NetworkImage('lib/assets/images/profile_pic/profile_pic.png'),
+            child: ClipOval(
+              child: SizedBox(
+                width:  width / 6.16875 < 160 ? 160 : width / 6.16875,
+                  height:  width / 6.16875 < 160 ? 160 : width / 6.16875,
+                  child: Image.asset('lib/assets/images/profile_pic/profile_pic.png')),
             ),
           ),
           Container(
