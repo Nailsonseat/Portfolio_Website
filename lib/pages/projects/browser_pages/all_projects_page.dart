@@ -1,13 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:logger/logger.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 
-import '../../providers/project_page_provider.dart';
-
-
+import '../../../providers/project_page_provider.dart';
 
 class AllProjectsPage extends StatelessWidget {
   const AllProjectsPage({super.key});
+
+  void _redirectTo(String link) async {
+    try {
+      if (!await launchUrl(Uri.parse(link))) {
+        throw ('Error launching url');
+      }
+    } catch (error) {
+      Logger().e(error);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -27,13 +37,12 @@ class AllProjectsPage extends StatelessWidget {
                     width: 500,
                     height: 650,
                     child: Container(
-                      decoration:
-                      BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(35)),
+                      decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(35)),
                       child: Column(
                         children: [
                           ClipRRect(
-                            borderRadius: const BorderRadius.only(
-                                topLeft: Radius.circular(35), topRight: Radius.circular(35)),
+                            borderRadius:
+                                const BorderRadius.only(topLeft: Radius.circular(35), topRight: Radius.circular(35)),
                             child: i.image,
                           ),
                           Align(
@@ -58,8 +67,20 @@ class AllProjectsPage extends StatelessWidget {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
-                                OutlinedButton(onPressed: (){}, child: Text("Read more",style: TextStyle(fontSize: 20),)),
-                                OutlinedButton(onPressed: (){}, child: Text("Source",style: TextStyle(fontSize: 20),)),
+                                OutlinedButton(
+                                  onPressed: () {},
+                                  child: const Text(
+                                    "Read more",
+                                    style: TextStyle(fontSize: 20),
+                                  ),
+                                ),
+                                OutlinedButton(
+                                  onPressed: () => _redirectTo(i.source),
+                                  child: const Text(
+                                    "Source",
+                                    style: TextStyle(fontSize: 20),
+                                  ),
+                                ),
                               ],
                             ),
                           ),
