@@ -78,8 +78,11 @@ class LaunchPage extends StatelessWidget {
                                 color: Colors.grey[200],
                                 child: Row(
                                   children: [
-                                    AutoSizeText('I do ',
-                                        style: TextStyle(fontSize: width / 39.5, fontFamily: 'Quicksand'),minFontSize: 20,),
+                                    AutoSizeText(
+                                      'I do ',
+                                      style: TextStyle(fontSize: width / 39.5, fontFamily: 'Quicksand'),
+                                      minFontSize: 20,
+                                    ),
                                     AnimatedTextKit(
                                       onFinished: () => context.go('/home'),
                                       repeatForever: false,
