@@ -93,6 +93,7 @@ class HomePageOne extends StatelessWidget {
 
     width = width < 800 ? 800 : width;
     return Container(
+      height: height - 80,
       decoration: const BoxDecoration(
         boxShadow: <BoxShadow>[BoxShadow(color: Colors.black54, blurRadius: 20.0, offset: Offset(0.0, 0.75))],
       ),
