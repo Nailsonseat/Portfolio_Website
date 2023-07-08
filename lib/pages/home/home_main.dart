@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio_website/pages/home/home_page.dart';
-import 'package:portfolio_website/pages/projects/project_page_main.dart';
+import 'package:portfolio_website/pages/projects/project_browser_main.dart';
 import 'package:portfolio_website/pages/about_me/about_me_page.dart';
 import 'package:portfolio_website/providers/scroll_to_top_provider.dart';
 import 'package:provider/provider.dart';

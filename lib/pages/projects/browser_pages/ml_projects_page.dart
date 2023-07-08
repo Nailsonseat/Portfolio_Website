@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../providers/project_page_provider.dart';
+import '../../../providers/project_page_provider.dart';
 
 class MLProjectsPage extends StatelessWidget {
   const MLProjectsPage({super.key});

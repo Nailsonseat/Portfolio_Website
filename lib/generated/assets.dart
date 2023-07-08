@@ -5,6 +5,9 @@ class Assets {
   static const String aboutMeAboutMe = 'lib/assets/text/about_me/about_me.txt';
   static const String aboutMeAboutMePage = 'lib/pages/about_me/about_me_page.dart';
   static const String aboutMeEducation = 'lib/assets/text/about_me/education.txt';
+  static const String browserPagesAllProjectsPage = 'lib/pages/projects/browser_pages/all_projects_page.dart';
+  static const String browserPagesDevelopmentsProjectsPage = 'lib/pages/projects/browser_pages/developments_projects_page.dart';
+  static const String browserPagesMlProjectsPage = 'lib/pages/projects/browser_pages/ml_projects_page.dart';
   static const String fontsQuicksandVariableFontWeight = 'lib/fonts/Quicksand-VariableFont_weight.ttf';
   static const String generatedAssets = 'lib/generated/assets.dart';
   static const String homeHomeMain = 'lib/pages/home/home_main.dart';
@@ -30,11 +33,8 @@ class Assets {
   static const String projectImagesPortfolio = 'lib/assets/images/project_images/portfolio.png';
   static const String projectImagesSnake = 'lib/assets/images/project_images/snake.png';
   static const String projectImagesYoshopScraper = 'lib/assets/images/project_images/yoshop_scraper.png';
-  static const String projectsAllProjectsPage = 'lib/pages/projects/all_projects_page.dart';
-  static const String projectsDevelopmentsProjectsPage = 'lib/pages/projects/developments_projects_page.dart';
-  static const String projectsMlProjectsApge = 'lib/pages/projects/ml_projects_page.dart';
-  static const String projectsProjectPageBrowser = 'lib/pages/projects/project_page_browser.dart';
-  static const String projectsProjectPageMain = 'lib/pages/projects/project_page_main.dart';
+  static const String projectsProjectPageBrowser = 'lib/pages/projects/project_browser_page.dart';
+  static const String projectsProjectPageMain = 'lib/pages/projects/project_browser_main.dart';
   static const String providersLaunchPageAnimationProvider = 'lib/providers/launch_page_animation_provider.dart';
   static const String providersProjectPageProvider = 'lib/providers/project_page_provider.dart';
   static const String providersProjectSliderProvider = 'lib/providers/project_slider_provider.dart';
