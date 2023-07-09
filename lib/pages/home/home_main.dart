@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio_website/pages/home/home_page.dart';
 import 'package:portfolio_website/pages/projects/project_browser_main.dart';
@@ -11,6 +12,7 @@ class HomeMain extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
     width = width < 800 ? 800 : width;
 
     ScrollTopProvider scrollProvider = Provider.of<ScrollTopProvider>(context, listen: false);
@@ -21,12 +23,12 @@ class HomeMain extends StatelessWidget {
         elevation: 1,
         shadowColor: Colors.black,
         backgroundColor: Colors.white,
-        toolbarHeight: 80,
+        toolbarHeight: height / 13.15 < 60 ? 60 : height / 13.15,
         leading: IconButton(
           icon: const Icon(Icons.menu),
           onPressed: () {},
         ),
-        title: const Text('Aadarsh Verma'),
+        title:  AutoSizeText('Aadarsh Verma',minFontSize: 16,),
       ),
       floatingActionButton: Consumer<ScrollTopProvider>(builder: (context, scrollProvider, _) {
         return scrollProvider.showFloatingButton
@@ -56,7 +58,7 @@ class HomeMain extends StatelessWidget {
               children: [
                 HomePageOne(),
                 HomePageTwo(),
-                HomePageThree()
+                HomePageThree(),
               ],
             ),
           ),
