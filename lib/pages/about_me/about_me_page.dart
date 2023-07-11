@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class HomePageTwo extends StatelessWidget {
-  const HomePageTwo({super.key});
+class AboutMePage extends StatelessWidget {
+  const AboutMePage({super.key});
 
   Future<({String aboutMe, String education})> getMyInfo() async {
     String aboutMe = await rootBundle.loadString("lib/assets/text/about_me/about_me.txt");
@@ -17,17 +17,16 @@ class HomePageTwo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
-    // double height = MediaQuery.of(context).size.height;
     width = width < 800 ? 800 : width;
 
     return Container(
-      // height: height,
       width: width,
       padding: const EdgeInsets.only(top: 50),
       color: Colors.transparent,
       child: Container(
-        margin:  EdgeInsets.symmetric(horizontal: width/13.16, vertical: width/28.2),
-        padding:  EdgeInsets.only(left: width/24.675, right: width/24.675, top: width/65.8, bottom: width/24.675),
+        margin: EdgeInsets.symmetric(horizontal: width / 13.16, vertical: width / 28.2),
+        padding:
+            EdgeInsets.only(left: width / 24.675, right: width / 24.675, top: width / 65.8, bottom: width / 24.675),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
           color: Colors.grey[200],
