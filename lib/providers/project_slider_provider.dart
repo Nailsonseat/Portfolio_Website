@@ -5,7 +5,7 @@ class ProjectSliderProvider extends ChangeNotifier {
 
   final List<String> options = ["All projects", "Software development", "Machine Learning"];
 
-  Future<void> onChanged(int selectedValue,Function toggleFade) async {
+  Future<void> onChanged(int selectedValue, Function toggleFade) async {
     toggleFade();
     return Future.delayed(const Duration(milliseconds: 1400), () {
       value = selectedValue;
@@ -14,21 +14,23 @@ class ProjectSliderProvider extends ChangeNotifier {
     });
   }
 
-  Center optionBuilder(int value, Size size) {
+  Center optionBuilder(int value, double width) {
     return Center(
       child: Text(
         options[value],
-        style: const TextStyle(fontSize: 20),
+        style: TextStyle(fontSize: width / 98.7),
       ),
     );
   }
 
   Color optionColor(int selectedValue) {
-
-    switch(selectedValue){
-      case 0: return Colors.tealAccent;
-      case 1: return Colors.orange;
-      case 2: return Colors.lightBlueAccent;
+    switch (selectedValue) {
+      case 0:
+        return Colors.tealAccent;
+      case 1:
+        return Colors.orange;
+      case 2:
+        return Colors.lightBlueAccent;
     }
     return Colors.transparent;
   }
