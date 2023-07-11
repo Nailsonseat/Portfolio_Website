@@ -9,8 +9,8 @@ import 'package:url_launcher/url_launcher.dart';
 import '../../components/home/page_one_button_gradient.dart';
 import '../../components/home/page_one_profile_pic_background.dart';
 
-class HomePageOne extends StatelessWidget {
-  const HomePageOne({super.key});
+class HomeLandingPage extends StatelessWidget {
+  const HomeLandingPage({super.key});
 
   void _redirectMyDiscord() async {
     try {
@@ -124,16 +124,16 @@ class HomePageOne extends StatelessWidget {
             ),
             child: ClipOval(
               child: SizedBox(
-                  width: width / 6.16875 < 160 ? 160 : width / 6.16875,
-                  height: width / 6.16875 < 160 ? 160 : width / 6.16875,
-                  child: Image.asset('lib/assets/images/profile_pic/profile_pic.png')),
+                width: width / 6.16875 < 160 ? 160 : width / 6.16875,
+                height: width / 6.16875 < 160 ? 160 : width / 6.16875,
+                child: Image.asset('lib/assets/images/profile_pic/profile_pic.png'),
+              ),
             ),
           ),
           Container(
             margin: EdgeInsets.only(top: 150, left: width / 5.64),
             width: 624,
             height: 822,
-            //color: Colors.lightGreenAccent,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

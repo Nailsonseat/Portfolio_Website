@@ -37,23 +37,25 @@ class HomeMain extends StatelessWidget {
           style: TextStyle(fontSize: _appBarFontSize(width, height)),
         ),
       ),
-      floatingActionButton: Consumer<ScrollTopProvider>(builder: (context, scrollProvider, _) {
-        return scrollProvider.showFloatingButton
-            ? Container(
-                height: width / 24.675,
-                width: width / 24.675,
-                margin: const EdgeInsets.only(bottom: 25, right: 25),
-                child: FloatingActionButton(
-                  onPressed: scrollProvider.scrollToTop,
-                  backgroundColor: Colors.greenAccent,
-                  child: Icon(
-                    Icons.arrow_upward,
-                    size: width / 65.8,
+      floatingActionButton: Consumer<ScrollTopProvider>(
+        builder: (context, scrollProvider, _) {
+          return scrollProvider.showFloatingButton
+              ? Container(
+                  height: width / 24.675,
+                  width: width / 24.675,
+                  margin: const EdgeInsets.only(bottom: 25, right: 25),
+                  child: FloatingActionButton(
+                    onPressed: scrollProvider.scrollToTop,
+                    backgroundColor: Colors.greenAccent,
+                    child: Icon(
+                      Icons.arrow_upward,
+                      size: width / 65.8,
+                    ),
                   ),
-                ),
-              )
-            : Container();
-      }),
+                )
+              : Container();
+        },
+      ),
       body: SizedBox(
         width: width,
         child: SingleChildScrollView(
@@ -63,9 +65,9 @@ class HomeMain extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             child: Column(
               children: [
-                HomePageOne(),
-                HomePageTwo(),
-                HomePageThree(),
+                HomeLandingPage(),
+                AboutMePage(),
+                ProjectPageMain(),
               ],
             ),
           ),
