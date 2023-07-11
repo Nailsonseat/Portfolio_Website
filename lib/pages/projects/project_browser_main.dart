@@ -5,8 +5,8 @@ import 'package:portfolio_website/providers/project_page_provider.dart';
 import 'package:portfolio_website/providers/project_slider_provider.dart';
 import 'package:provider/provider.dart';
 
-class HomePageThree extends StatelessWidget {
-  const HomePageThree({super.key});
+class ProjectPageMain extends StatelessWidget {
+  const ProjectPageMain({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -37,13 +37,21 @@ class HomePageThree extends StatelessWidget {
               child: Consumer<ProjectSliderProvider>(
                 builder: (_, sliderProvider, __) {
                   return AnimatedToggleSwitch<int>.size(
-                    height: width/24.675,
+                    height: width / 24.675,
                     current: sliderProvider.value,
                     borderColorBuilder: (i) => Colors.black,
                     values: List<int>.generate(sliderProvider.options.length, (i) => i),
                     iconOpacity: 0.75,
+                    loadingIconBuilder: (_, __) => SizedBox(
+                      width: width / 65.8,
+                      height: width / 65.8,
+                      child: CircularProgressIndicator(
+                        color: Colors.black,
+                        strokeWidth: width / 493.5,
+                      ),
+                    ),
                     borderRadius: BorderRadius.circular(50),
-                    indicatorSize: Size.fromWidth(width/6.58),
+                    indicatorSize: Size.fromWidth(width / 6.58),
                     boxShadow: const [
                       BoxShadow(
                         color: Colors.grey,
