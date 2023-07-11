@@ -8,9 +8,15 @@ import 'package:provider/provider.dart';
 class HomeMain extends StatelessWidget {
   const HomeMain({super.key});
 
+  _appBarFontSize(double width, double height) {
+    double fontSize = height * width / 83065.92;
+    return fontSize < 16 ? 16 : fontSize;
+  }
+
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
     width = width < 800 ? 800 : width;
 
     ScrollTopProvider scrollProvider = Provider.of<ScrollTopProvider>(context, listen: false);
@@ -21,25 +27,28 @@ class HomeMain extends StatelessWidget {
         elevation: 1,
         shadowColor: Colors.black,
         backgroundColor: Colors.white,
-        toolbarHeight: 80,
+        toolbarHeight: height / 13.15 < 60 ? 60 : height / 13.15,
         leading: IconButton(
           icon: const Icon(Icons.menu),
           onPressed: () {},
         ),
-        title: const Text('Aadarsh Verma'),
+        title: Text(
+          'Aadarsh Verma',
+          style: TextStyle(fontSize: _appBarFontSize(width, height)),
+        ),
       ),
       floatingActionButton: Consumer<ScrollTopProvider>(builder: (context, scrollProvider, _) {
         return scrollProvider.showFloatingButton
             ? Container(
-                height: 80,
-                width: 80,
+                height: width / 24.675,
+                width: width / 24.675,
                 margin: const EdgeInsets.only(bottom: 25, right: 25),
                 child: FloatingActionButton(
                   onPressed: scrollProvider.scrollToTop,
                   backgroundColor: Colors.greenAccent,
-                  child: const Icon(
+                  child: Icon(
                     Icons.arrow_upward,
-                    size: 30,
+                    size: width / 65.8,
                   ),
                 ),
               )
@@ -56,7 +65,7 @@ class HomeMain extends StatelessWidget {
               children: [
                 HomePageOne(),
                 HomePageTwo(),
-                HomePageThree()
+                HomePageThree(),
               ],
             ),
           ),

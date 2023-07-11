@@ -21,6 +21,10 @@ class AllProjectsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    double width = MediaQuery.of(context).size.width;
+    width = width < 800 ? 800 : width;
+
     return Consumer<ProjectPageProvider>(
       builder: (_, projectProvider, __) {
         return Opacity(
@@ -30,12 +34,12 @@ class AllProjectsPage extends StatelessWidget {
               alignment: WrapAlignment.spaceAround,
               direction: Axis.horizontal,
               runAlignment: WrapAlignment.spaceEvenly,
-              runSpacing: 80,
+              runSpacing: width/24.675,
               children: [
                 for (Project i in projectProvider.projects)
                   SizedBox(
-                    width: 500,
-                    height: 650,
+                    width: width/3.948,
+                    height: width/3.03692,
                     child: Container(
                       decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(35)),
                       child: Column(
@@ -49,18 +53,18 @@ class AllProjectsPage extends StatelessWidget {
                             heightFactor: 2,
                             alignment: Alignment.centerLeft,
                             child: Padding(
-                              padding: const EdgeInsets.only(left: 30),
+                              padding:  EdgeInsets.only(left: width/65.8),
                               child: Text(
                                 i.title,
-                                style: const TextStyle(fontSize: 30),
+                                style:  TextStyle(fontSize: width/65.8),
                               ),
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 30),
+                            padding:  EdgeInsets.symmetric(horizontal: width/65.8),
                             child: Text(
                               i.briefDescription,
-                              style: GoogleFonts.robotoMono(fontSize: 16),
+                              style: GoogleFonts.robotoMono(fontSize: width/123.375),
                             ),
                           ),
                           Expanded(
@@ -69,16 +73,18 @@ class AllProjectsPage extends StatelessWidget {
                               children: [
                                 OutlinedButton(
                                   onPressed: () {},
-                                  child: const Text(
+                                  style: OutlinedButton.styleFrom(fixedSize: Size(width/11, width/56.4)),
+                                  child: Text(
                                     "Read more",
-                                    style: TextStyle(fontSize: 20),
+                                    style: TextStyle(fontSize: width/98.7),
                                   ),
                                 ),
                                 OutlinedButton(
                                   onPressed: () => _redirectTo(i.source),
-                                  child: const Text(
+                                  style: OutlinedButton.styleFrom(fixedSize: Size(width/11, width/56.4)),
+                                  child: Text(
                                     "Source",
-                                    style: TextStyle(fontSize: 20),
+                                    style: TextStyle(fontSize: width/98.7),
                                   ),
                                 ),
                               ],
