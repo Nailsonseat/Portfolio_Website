@@ -22,28 +22,28 @@ class HomePageThree extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Padding(
-              padding: EdgeInsets.only(left: 150),
+            Padding(
+              padding: EdgeInsets.only(left: width / 13.16),
               child: Text(
                 "Projects",
-                style: TextStyle(fontSize: 60),
+                style: TextStyle(fontSize: width / 32.9),
               ),
             ),
             const SizedBox(
               height: 50,
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 150),
+              padding: EdgeInsets.only(left: width / 13.16),
               child: Consumer<ProjectSliderProvider>(
                 builder: (_, sliderProvider, __) {
                   return AnimatedToggleSwitch<int>.size(
-                    height: 80,
+                    height: width/24.675,
                     current: sliderProvider.value,
                     borderColorBuilder: (i) => Colors.black,
                     values: List<int>.generate(sliderProvider.options.length, (i) => i),
                     iconOpacity: 0.75,
                     borderRadius: BorderRadius.circular(50),
-                    indicatorSize: const Size.fromWidth(300),
+                    indicatorSize: Size.fromWidth(width/6.58),
                     boxShadow: const [
                       BoxShadow(
                         color: Colors.grey,
@@ -53,7 +53,7 @@ class HomePageThree extends StatelessWidget {
                     ],
                     iconAnimationType: AnimationType.onHover,
                     indicatorAnimationType: AnimationType.onHover,
-                    iconBuilder: (value, size) => sliderProvider.optionBuilder(value, size),
+                    iconBuilder: (value, size) => sliderProvider.optionBuilder(value, width),
                     borderWidth: 0.1,
                     borderColor: Colors.transparent,
                     colorBuilder: (i) => sliderProvider.optionColor(i),
