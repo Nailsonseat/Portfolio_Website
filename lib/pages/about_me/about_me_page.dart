@@ -26,8 +26,8 @@ class HomePageTwo extends StatelessWidget {
       padding: const EdgeInsets.only(top: 50),
       color: Colors.transparent,
       child: Container(
-        margin: const EdgeInsets.symmetric(horizontal: 150, vertical: 70),
-        padding: const EdgeInsets.only(left: 80, right: 80, top: 30, bottom: 80),
+        margin:  EdgeInsets.symmetric(horizontal: width/13.16, vertical: width/28.2),
+        padding:  EdgeInsets.only(left: width/24.675, right: width/24.675, top: width/65.8, bottom: width/24.675),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
           color: Colors.grey[200],
