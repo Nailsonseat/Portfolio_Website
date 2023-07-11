@@ -124,8 +124,8 @@ class HomePageOne extends StatelessWidget {
             ),
             child: ClipOval(
               child: SizedBox(
-                width:  width / 6.16875 < 160 ? 160 : width / 6.16875,
-                  height:  width / 6.16875 < 160 ? 160 : width / 6.16875,
+                  width: width / 6.16875 < 160 ? 160 : width / 6.16875,
+                  height: width / 6.16875 < 160 ? 160 : width / 6.16875,
                   child: Image.asset('lib/assets/images/profile_pic/profile_pic.png')),
             ),
           ),
@@ -142,7 +142,7 @@ class HomePageOne extends StatelessWidget {
                   style: GoogleFonts.comfortaa(
                     color: Colors.white,
                     textStyle: const TextStyle(fontWeight: FontWeight.bold),
-                    fontSize: 70,
+                    fontSize: width / 28.2,
                     shadows: [
                       const Shadow(
                         offset: Offset(-1, 1), // Specify the shadow offset
@@ -154,11 +154,13 @@ class HomePageOne extends StatelessWidget {
                 ),
                 Text(
                   'A student excited about AI and Software development',
-                  style: GoogleFonts.merriweatherSans(fontSize: 20, color: Colors.white),
+                  style: GoogleFonts.merriweatherSans(
+                      fontSize: width / 98.7 < 15 ? 15 : width / 98.7, color: Colors.white),
                 ),
                 Container(
                   margin: const EdgeInsets.only(top: 20),
-                  height: 80,
+                  height: width / 24.675,
+                  width: width / 3.163461,
                   decoration: BoxDecoration(color: Colors.grey[200], borderRadius: BorderRadius.circular(40)),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -166,12 +168,12 @@ class HomePageOne extends StatelessWidget {
                       IconButton(
                         onPressed: () => _redirectMyGithub(),
                         icon: Icon(LineIcons.github, color: Colors.grey[700]),
-                        iconSize: 45,
+                        iconSize: width / 43.866666666,
                       ),
                       IconButton(
                         onPressed: () => _redirectMyLinkedIn(),
                         icon: const Icon(LineIcons.linkedin),
-                        iconSize: 45,
+                        iconSize: width / 43.866666666,
                         color: Colors.lightBlueAccent,
                       ),
                       IconButton(
@@ -186,19 +188,19 @@ class HomePageOne extends StatelessWidget {
                       IconButton(
                         onPressed: () => _sendMeMail(),
                         icon: const Icon(LineIcons.envelope),
-                        iconSize: 45,
+                        iconSize: width / 43.866666666,
                         color: Colors.redAccent,
                       ),
                       IconButton(
                         onPressed: () => _redirectMyDiscord(),
                         icon: const Icon(LineIcons.discord),
-                        iconSize: 45,
+                        iconSize: width / 43.866666666,
                         color: Colors.indigoAccent,
                       ),
                       IconButton(
                         onPressed: () => _redirectMyWhatsapp(),
                         icon: const Icon(LineIcons.whatSApp),
-                        iconSize: 45,
+                        iconSize: width / 43.866666666,
                         color: Colors.green,
                       ),
                     ],
@@ -208,8 +210,8 @@ class HomePageOne extends StatelessWidget {
                   height: 50,
                 ),
                 Container(
-                  width: 200,
-                  height: 50,
+                  width: width / 9.87,
+                  height: width / 39.48 < 15 ? 15 : width / 39.48,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(5.0),
                     color: Colors.transparent, // Set the background color to transparent
@@ -231,8 +233,8 @@ class HomePageOne extends StatelessWidget {
                         ), // Your custom paint widget
                       ), // Your custom paint widget
                       SizedBox(
-                        width: 200,
-                        height: 50,
+                        width: width / 9.87,
+                        height: width / 39.48 < 15 ? 15 : width / 39.48,
                         child: TextButton(
                           onPressed: () =>
                               Provider.of<ScrollTopProvider>(context, listen: false).scrollToProjects(height),
@@ -246,7 +248,7 @@ class HomePageOne extends StatelessWidget {
                           ),
                           child: Text(
                             "See My Work",
-                            style: TextStyle(fontSize: 20, color: Colors.grey[100]),
+                            style: TextStyle(fontSize: width / 98.7 < 13 ? 13 : width / 98.7, color: Colors.grey[100]),
                           ),
                         ),
                       ),
