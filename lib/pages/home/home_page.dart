@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:logger/logger.dart';
 import 'package:portfolio_website/components/home/page_one_background.dart';
-import 'package:portfolio_website/providers/scroll_to_top_provider.dart';
+import 'package:portfolio_website/providers/scroll_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../components/home/page_one_button_gradient.dart';
@@ -90,22 +90,23 @@ class HomeLandingPage extends StatelessWidget {
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
-
     width = width < 800 ? 800 : width;
+    ScrollTopProvider scrollProvider = Provider.of<ScrollTopProvider>(context, listen: false);
+
     return Container(
-      height: height - 80,
+      height: height - scrollProvider.appBarHeight,
       decoration: const BoxDecoration(
         boxShadow: <BoxShadow>[BoxShadow(color: Colors.black54, blurRadius: 20.0, offset: Offset(0.0, 0.75))],
       ),
       child: Stack(
         children: [
           CustomPaint(
-            size: Size(width, height - 80),
+            size: Size(width, height - scrollProvider.appBarHeight),
             //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
             painter: ProfilePictureBackground(),
           ),
           CustomPaint(
-            size: Size(width, height - 80),
+            size: Size(width, height - scrollProvider.appBarHeight),
             // You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
             painter: PageOneBackground(),
           ),
