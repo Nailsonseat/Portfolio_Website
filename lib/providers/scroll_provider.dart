@@ -4,6 +4,8 @@ class ScrollTopProvider extends ChangeNotifier {
   final ScrollController _scrollController = ScrollController();
   bool _showFloatingButton = false;
 
+  late double appBarHeight;
+
   ScrollTopProvider() {
     _scrollController.addListener(_scrollListener);
   }
@@ -31,7 +33,7 @@ class ScrollTopProvider extends ChangeNotifier {
 
   void scrollToProjects(double singlePageHeight) {
     _scrollController.animateTo(
-      (singlePageHeight * 2) - 80,
+      (singlePageHeight * 2) - appBarHeight,
       duration: const Duration(milliseconds: 500),
       curve: Curves.easeInOut,
     );
