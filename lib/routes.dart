@@ -5,7 +5,7 @@ import 'package:portfolio_website/pages/launch/launch_page.dart';
 import 'package:portfolio_website/providers/launch_page_animation_provider.dart';
 import 'package:portfolio_website/providers/project_page_provider.dart';
 import 'package:portfolio_website/providers/project_slider_provider.dart';
-import 'package:portfolio_website/providers/scroll_to_top_provider.dart';
+import 'package:portfolio_website/providers/scroll_provider.dart';
 import 'package:provider/provider.dart';
 
 final GoRouter routes = GoRouter(

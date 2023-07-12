@@ -38,6 +38,6 @@ class Assets {
   static const String providersLaunchPageAnimationProvider = 'lib/providers/launch_page_animation_provider.dart';
   static const String providersProjectPageProvider = 'lib/providers/project_page_provider.dart';
   static const String providersProjectSliderProvider = 'lib/providers/project_slider_provider.dart';
-  static const String providersScrollToTopProvider = 'lib/providers/scroll_to_top_provider.dart';
+  static const String providersScrollToTopProvider = 'lib/providers/scroll_provider.dart';
 
 }
