@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio_website/pages/home/home_page.dart';
-import 'package:portfolio_website/pages/projects/project_browser_main.dart';
 import 'package:portfolio_website/pages/about_me/about_me_page.dart';
-import 'package:portfolio_website/providers/scroll_to_top_provider.dart';
+import 'package:portfolio_website/providers/scroll_provider.dart';
 import 'package:provider/provider.dart';
+
+import '../project_browser/project_browser_main.dart';
 
 class HomeMain extends StatelessWidget {
   const HomeMain({super.key});
@@ -20,6 +21,7 @@ class HomeMain extends StatelessWidget {
     width = width < 800 ? 800 : width;
 
     ScrollTopProvider scrollProvider = Provider.of<ScrollTopProvider>(context, listen: false);
+    scrollProvider.appBarHeight = height / 13.15 < 60 ? 60 : height / 13.15;
 
     return Scaffold(
       appBar: AppBar(
@@ -27,7 +29,7 @@ class HomeMain extends StatelessWidget {
         elevation: 1,
         shadowColor: Colors.black,
         backgroundColor: Colors.white,
-        toolbarHeight: height / 13.15 < 60 ? 60 : height / 13.15,
+        toolbarHeight: scrollProvider.appBarHeight,
         leading: IconButton(
           icon: const Icon(Icons.menu),
           onPressed: () {},
