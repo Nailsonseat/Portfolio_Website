@@ -34,7 +34,7 @@ class ScrollTopProvider extends ChangeNotifier {
   }
 
   void scrollToProjectDescription(double position) {
-    _homeScrollController.animateTo(
+    _detailedProjectScrollController.animateTo(
       position,
       duration: const Duration(milliseconds: 500),
       curve: Curves.easeInOut,
