@@ -20,7 +20,7 @@ class HomeMain extends StatelessWidget {
     double height = MediaQuery.of(context).size.height;
     width = width < 800 ? 800 : width;
 
-    ScrollTopProvider scrollProvider = Provider.of<ScrollTopProvider>(context, listen: false);
+    ScrollProvider scrollProvider = Provider.of<ScrollProvider>(context, listen: false);
     scrollProvider.appBarHeight = height / 13.15 < 60 ? 60 : height / 13.15;
 
     return Scaffold(
@@ -39,7 +39,7 @@ class HomeMain extends StatelessWidget {
           style: TextStyle(fontSize: _appBarFontSize(width, height)),
         ),
       ),
-      floatingActionButton: Consumer<ScrollTopProvider>(
+      floatingActionButton: Consumer<ScrollProvider>(
         builder: (context, scrollProvider, _) {
           return scrollProvider.showFloatingButton
               ? Container(
@@ -61,7 +61,7 @@ class HomeMain extends StatelessWidget {
       body: SizedBox(
         width: width,
         child: SingleChildScrollView(
-          controller: scrollProvider.scrollController,
+          controller: scrollProvider.homeScrollController,
           scrollDirection: Axis.vertical,
           child: const SingleChildScrollView(
             scrollDirection: Axis.horizontal,

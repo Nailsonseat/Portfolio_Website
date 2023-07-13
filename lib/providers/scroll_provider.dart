@@ -1,13 +1,13 @@
 import 'package:flutter/cupertino.dart';
 
-class ScrollTopProvider extends ChangeNotifier {
+class ScrollProvider extends ChangeNotifier {
   final ScrollController _homeScrollController = ScrollController();
   final ScrollController _detailedProjectScrollController = ScrollController();
   bool _showFloatingButton = false;
 
   late double appBarHeight;
 
-  ScrollTopProvider() {
+  ScrollProvider() {
     _homeScrollController.addListener(_scrollListener);
   }
 
