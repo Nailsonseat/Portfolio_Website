@@ -14,7 +14,7 @@ class ProjectPageTemplate extends StatelessWidget {
     double height = MediaQuery.of(context).size.height;
     width = width < 800 ? 800 : width;
 
-    ScrollTopProvider scrollProvider = Provider.of<ScrollTopProvider>(context, listen: false);
+    ScrollProvider scrollProvider = Provider.of<ScrollProvider>(context, listen: false);
 
     return Scaffold(
       appBar: AppBar(

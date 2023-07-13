@@ -91,7 +91,7 @@ class HomeLandingPage extends StatelessWidget {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
     width = width < 800 ? 800 : width;
-    ScrollTopProvider scrollProvider = Provider.of<ScrollTopProvider>(context, listen: false);
+    ScrollProvider scrollProvider = Provider.of<ScrollProvider>(context, listen: false);
 
     return Container(
       height: height - scrollProvider.appBarHeight,
@@ -238,7 +238,7 @@ class HomeLandingPage extends StatelessWidget {
                         height: width / 39.48 < 15 ? 15 : width / 39.48,
                         child: TextButton(
                           onPressed: () =>
-                              Provider.of<ScrollTopProvider>(context, listen: false).scrollToProjects(height),
+                              Provider.of<ScrollProvider>(context, listen: false).scrollToProjects(height),
                           style: TextButton.styleFrom(
                             backgroundColor: Colors.transparent,
                             padding: EdgeInsets.zero,
