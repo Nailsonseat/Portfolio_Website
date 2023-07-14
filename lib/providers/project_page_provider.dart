@@ -67,7 +67,7 @@ class ProjectPageProvider extends ChangeNotifier {
         title: 'Data Into IPL',
         image: Image.asset('lib/assets/images/project_images/data_in_ipl.png'),
         source: "https://github.com/Nailsonseat/Data_into_IPL",
-        pagePath: '/home/template',
+        pagePath: '/home/Data_Into_IPL',
         briefDescription:
             "This model predicts how much runs a team will score in the first 6 overs (also called power play). It uses data of players, their teams and the matches won by them, ever since the IPL started in 2008. ",
         description: ''),
