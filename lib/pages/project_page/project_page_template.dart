@@ -3,11 +3,24 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:logger/logger.dart';
+import 'package:portfolio_website/components/projects/project_component.dart';
 import 'package:provider/provider.dart';
+import '../../components/projects/text_section.dart';
 import '../../providers/scroll_provider.dart';
 
 class ProjectPageTemplate extends StatelessWidget {
-  const ProjectPageTemplate({super.key});
+  const ProjectPageTemplate({
+    super.key,
+    required this.projectTitle,
+    required this.bannerImage,
+    required this.textSections,
+    required this.projectComponents,
+  });
+
+  final List<TextSection> textSections;
+  final List<ProjectComponent> projectComponents;
+  final String bannerImage;
+  final String projectTitle;
 
   double _projectBannerHeight(double width) => width / 2.193333333; // 900
   double _projectBannerWidth(double width) => width / 1.316; // 1500
@@ -28,7 +41,7 @@ class ProjectPageTemplate extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Acharya Setu'),
+        title: Text(projectTitle),
         toolbarHeight: scrollProvider.appBarHeight,
         shadowColor: Colors.black,
         backgroundColor: Colors.white,
@@ -53,9 +66,9 @@ class ProjectPageTemplate extends StatelessWidget {
                           child: Container(
                             height: _projectBannerHeight(width),
                             width: _projectBannerWidth(width),
-                            decoration: const BoxDecoration(
+                            decoration: BoxDecoration(
                               image: DecorationImage(
-                                image: AssetImage('lib/assets/images/project_images/acharya_setu.jpg'),
+                                image: AssetImage(bannerImage),
                                 fit: BoxFit.fill,
                               ),
                               color: Colors.white,
@@ -140,6 +153,8 @@ class ProjectPageTemplate extends StatelessWidget {
                                         style: TextStyle(fontSize: width / 56.4), // 35
                                       ),
                                     ),
+                                    for (ProjectComponent i in projectComponents)
+                                      TextButton(onPressed: () {}, child: Text(i.title))
                                   ],
                                 ),
                               ),
@@ -149,31 +164,8 @@ class ProjectPageTemplate extends StatelessWidget {
                               child: Padding(
                                 padding: EdgeInsets.symmetric(horizontal: width / 19.74), // 100
                                 child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Container(
-                                      alignment: Alignment.centerLeft,
-                                      child: Text(
-                                        "Description",
-                                        style: TextStyle(fontSize: width / 35.890909), // 55
-                                      ),
-                                    ),
-                                    Container(
-                                      key: key,
-                                      height: 900,
-                                      child: SizedBox.expand(
-                                        child: AutoSizeText(
-                                          "Progress was made",
-                                          style: GoogleFonts.robotoMono(fontSize: width / 98.7),
-                                        ),
-                                      ),
-                                      margin: const EdgeInsets.symmetric(vertical: 60),
-                                      padding: EdgeInsets.all(width / 24.675),
-                                      decoration: BoxDecoration(
-                                          color: Colors.grey[100], borderRadius: BorderRadius.circular(30)),
-                                    ),
-                                  ],
-                                ),
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: _buildTextSections(textSections, width)),
                               ),
                             ),
                           ],
