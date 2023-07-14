@@ -59,7 +59,7 @@ class ProjectPageProvider extends ChangeNotifier {
         title: "E-commerce Shopper's Behaviour Understanding",
         image: Image.asset('lib/assets/images/project_images/e_commerce_behaviour_understanding.png'),
         source: "https://github.com/Nailsonseat/E-commerce-Shopper-s-Behaviour-Understanding",
-        pagePath: '/home/template',
+        pagePath: '/home/Ecommerce_Shoppers_Behaviour_and_Understanding',
         briefDescription:
             "My first Kaggle competition. This model predicts whether a person is going to buy a product based on a variety of factors ranging from time spent on product's page to current season to user's device info and bounce and exit rates. ",
         description: ''),
