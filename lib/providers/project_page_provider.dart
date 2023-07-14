@@ -99,7 +99,7 @@ class ProjectPageProvider extends ChangeNotifier {
         title: 'Yoshop Web Scraper',
         image: Image.asset('lib/assets/images/project_images/yoshop_scraper.png'),
         source: "https://github.com/Nailsonseat/Yoshop-Web-Scraper",
-        pagePath: '/home/template',
+        pagePath: '/home/Yoshop_Web_Scraper',
         briefDescription:
             "A web scraping project which scraps number of products category wise. It scrapes using Beautiful Soup and Selenium like libraries.",
         description: ''),

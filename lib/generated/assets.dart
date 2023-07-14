@@ -45,6 +45,7 @@ class Assets {
   static const String projectsPortfolioWebsite = 'lib/pages/project_page/projects/portfolio_website.dart';
   static const String projectsProjectComponent = 'lib/components/projects/project_component.dart';
   static const String projectsTextSection = 'lib/components/projects/text_section.dart';
+  static const String projectsYoshopWebCcraper = 'lib/pages/project_page/projects/yoshop_web_scraper.dart';
   static const String providersLaunchPageAnimationProvider = 'lib/providers/launch_page_animation_provider.dart';
   static const String providersProjectPageProvider = 'lib/providers/project_page_provider.dart';
   static const String providersProjectSliderProvider = 'lib/providers/project_slider_provider.dart';
