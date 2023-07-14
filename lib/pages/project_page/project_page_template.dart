@@ -1,15 +1,15 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:line_icons/line_icons.dart';
+import 'package:logger/logger.dart';
 import 'package:provider/provider.dart';
-
 import '../../providers/scroll_provider.dart';
 
 class ProjectPageTemplate extends StatelessWidget {
   const ProjectPageTemplate({super.key});
 
   double _projectBannerHeight(double width) => width / 2.193333333; // 900
-
   double _projectBannerWidth(double width) => width / 1.316; // 1500
 
   @override
@@ -53,18 +53,20 @@ class ProjectPageTemplate extends StatelessWidget {
                           child: Container(
                             height: _projectBannerHeight(width),
                             width: _projectBannerWidth(width),
-                            decoration: BoxDecoration(
-                                image: DecorationImage(
-                                    image: AssetImage('lib/assets/images/project_images/acharya_setu.jpg'),
-                                    fit: BoxFit.fill),
-                                color: Colors.white),
+                            decoration: const BoxDecoration(
+                              image: DecorationImage(
+                                image: AssetImage('lib/assets/images/project_images/acharya_setu.jpg'),
+                                fit: BoxFit.fill,
+                              ),
+                              color: Colors.white,
+                            ),
                             child: ShaderMask(
                               blendMode: BlendMode.dstIn,
                               child: Container(
                                 color: Colors.white,
                               ),
                               shaderCallback: (Rect bounds) {
-                                return LinearGradient(
+                                return const LinearGradient(
                                   begin: Alignment.centerLeft,
                                   end: Alignment.centerRight,
                                   colors: [Colors.white, Colors.transparent],
@@ -82,8 +84,10 @@ class ProjectPageTemplate extends StatelessWidget {
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Text(
+                              AutoSizeText(
                                 'Acharya Setu',
+                                maxLines: 2,
+                                minFontSize: 80,
                                 style: GoogleFonts.comfortaa(
                                   fontSize: 110,
                                   shadows: [
@@ -101,7 +105,7 @@ class ProjectPageTemplate extends StatelessWidget {
                       ],
                     ),
                     Container(
-                      padding: EdgeInsets.only(top: 200),
+                      padding: EdgeInsets.only(top: width / 9.87), // 200
                       decoration: BoxDecoration(
                         color: Colors.white,
                         boxShadow: [
@@ -109,7 +113,7 @@ class ProjectPageTemplate extends StatelessWidget {
                             color: Colors.grey.withOpacity(0.5),
                             spreadRadius: 5,
                             blurRadius: 10,
-                            offset: Offset(0, 3), // changes the position of the shadow
+                            offset: const Offset(0, 3), // changes the position of the shadow
                           ),
                         ],
                       ),
@@ -118,25 +122,27 @@ class ProjectPageTemplate extends StatelessWidget {
                         child: Row(
                           children: [
                             Expanded(
+                              flex: 3,
                               child: Container(
-                                //margin: EdgeInsets.only(top: 200),
-                                color: Colors.tealAccent,
+                                decoration: BoxDecoration(
+                                  borderRadius: const BorderRadius.only(topRight: Radius.circular(30)),
+                                  color: Colors.grey[100],
+                                ),
                                 child: Column(
                                   children: <Widget>[
                                     Consumer<ScrollProvider>(builder: (_, scrollProvider, __) {
-                                      return SizedBox(height: 15 + scrollProvider.tableOfContentsOffset);
+                                      return SizedBox(height: width / 112.8 + scrollProvider.tableOfContentsOffset);
                                     }),
                                     Align(
                                       alignment: Alignment.center,
                                       child: Text(
                                         'Table of contents',
-                                        style: TextStyle(fontSize: 30),
+                                        style: TextStyle(fontSize: width / 56.4), // 35
                                       ),
-                                    )
+                                    ),
                                   ],
                                 ),
                               ),
-                              flex: 3,
                             ),
                             Expanded(
                               flex: 9,
@@ -177,18 +183,20 @@ class ProjectPageTemplate extends StatelessWidget {
                   ],
                 ),
                 Positioned(
-                  top: _projectBannerHeight(width) - 40,
-                  left: width / 2 - 40,
+                  top: _projectBannerHeight(width) - width / 49.35,
+                  left: width / 2 - width / 49.35,
                   child: SizedBox(
-                    width: 80,
-                    height: 80,
+                    width: width / 24.675,
+                    height: width / 24.675,
                     child: FloatingActionButton(
-                      onPressed: () => scrollProvider.scrollToProjectDescription(_projectBannerHeight(width) + 150),
+                      onPressed: () =>
+                          scrollProvider.scrollToProjectDescription(_projectBannerHeight(width) + width / 13.16),
+                      // width / 13.16 = 150
+                      shape: const CircleBorder(),
                       child: Icon(
                         LineIcons.arrowDown,
-                        size: 30,
+                        size: width / 65.8,
                       ),
-                      shape: CircleBorder(),
                     ),
                   ),
                 )
