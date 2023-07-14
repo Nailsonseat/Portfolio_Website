@@ -120,10 +120,10 @@ class ProjectPageProvider extends ChangeNotifier {
             "This projects has my entire machine learning journey where I hard code and implement various machine learning algorithms from scratch without using any machine learning library. ",
         description: ''),
     Project(
-        title: 'Classic Snake By 2D Focused Frames per second',
+        title: 'Classic Snake Focused Frames per Second',
         image: Image.asset('lib/assets/images/project_images/snake.png'),
         source: "https://github.com/Nailsonseat/Classic-Snake-By-2D-Focused-Frames-per-second",
-        pagePath: '/home/template',
+        pagePath: '/home/Classic_Snake_FFPS',
         briefDescription:
             "My first ever project! The classic snake game with a twist! It only updates the screen where data is updated. It records high score and saves it along with the options for snake customization as well!",
         description: ''),

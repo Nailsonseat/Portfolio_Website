@@ -5,6 +5,7 @@ import 'package:portfolio_website/pages/launch/launch_page.dart';
 import 'package:portfolio_website/pages/project_page/projects/Kastor.dart';
 import 'package:portfolio_website/pages/project_page/projects/Letstalkk.dart';
 import 'package:portfolio_website/pages/project_page/projects/acharya_setu.dart';
+import 'package:portfolio_website/pages/project_page/projects/classic_snake_ffps.dart';
 import 'package:portfolio_website/pages/project_page/projects/data_into_ipl.dart';
 import 'package:portfolio_website/pages/project_page/projects/ecommerce_shoppers_behaviour_and_understanding.dart';
 import 'package:portfolio_website/pages/project_page/projects/holomorphic_bot.dart';
@@ -52,6 +53,7 @@ final GoRouter routes = GoRouter(
             GoRoute(path: 'Yoshop_Web_Scraper', pageBuilder: (context, state) => MaterialPage(child: YoshopWebScraper())),
             GoRoute(path: 'Hola_Bot', pageBuilder: (context, state) => MaterialPage(child: HolomorphicBot())),
             GoRoute(path: 'Machine_Learning', pageBuilder: (context, state) => MaterialPage(child: MachineLearning())),
+            GoRoute(path: 'Classic_Snake_FFPS', pageBuilder: (context, state) => MaterialPage(child: ClassicSnakeFFPS())),
           ],
         ),
       ],
