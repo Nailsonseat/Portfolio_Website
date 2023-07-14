@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:portfolio_website/pages/home/home_main.dart';
 import 'package:portfolio_website/pages/launch/launch_page.dart';
 import 'package:portfolio_website/pages/project_page/projects/Kastor.dart';
+import 'package:portfolio_website/pages/project_page/projects/Letstalkk.dart';
 import 'package:portfolio_website/pages/project_page/projects/acharya_setu.dart';
 import 'package:portfolio_website/pages/project_page/projects/data_into_ipl.dart';
 import 'package:portfolio_website/pages/project_page/projects/ecommerce_shoppers_behaviour_and_understanding.dart';
@@ -44,6 +45,7 @@ final GoRouter routes = GoRouter(
             GoRoute(path: 'Data_Into_IPL', pageBuilder: (context, state) => MaterialPage(child: DataIntoIPL())),
             GoRoute(path: 'Portfolio_Website', pageBuilder: (context, state) => MaterialPage(child: PortfolioWebsite())),
             GoRoute(path: 'Kastor', pageBuilder: (context, state) => MaterialPage(child: Kastor())),
+            GoRoute(path: 'LetsTalkk', pageBuilder: (context, state) => MaterialPage(child: LetsTalkk())),
           ],
         ),
       ],
