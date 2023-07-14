@@ -25,6 +25,35 @@ class ProjectPageTemplate extends StatelessWidget {
   double _projectBannerHeight(double width) => width / 2.193333333; // 900
   double _projectBannerWidth(double width) => width / 1.316; // 1500
 
+  List<Widget> _buildTextSections(List textSections, double width) {
+    List<Widget> builtSections = [];
+    for (TextSection i in textSections) {
+      builtSections.addAll([
+        Container(
+          alignment: Alignment.centerLeft,
+          child: Text(
+            i.title,
+            style: TextStyle(fontSize: width / 35.890909), // 55
+          ),
+        ),
+        Container(
+          key: key,
+          height: 900,
+          margin: const EdgeInsets.symmetric(vertical: 60),
+          padding: EdgeInsets.all(width / 24.675),
+          decoration: BoxDecoration(color: Colors.grey[100], borderRadius: BorderRadius.circular(30)),
+          child: SizedBox.expand(
+            child: AutoSizeText(
+              i.body,
+              style: GoogleFonts.robotoMono(fontSize: width / 98.7), // 20
+            ),
+          ),
+        ),
+      ]);
+    }
+    return builtSections;
+  }
+
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
