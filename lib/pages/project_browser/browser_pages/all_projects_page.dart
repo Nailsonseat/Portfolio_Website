@@ -72,7 +72,7 @@ class AllProjectsPage extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
                                 OutlinedButton(
-                                  onPressed: () => context.go('/home/template'),
+                                  onPressed: () => context.go(i.pagePath),
                                   style: OutlinedButton.styleFrom(fixedSize: Size(width / 11, width / 56.4)),
                                   child: Text(
                                     "Read more",
