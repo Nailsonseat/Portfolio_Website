@@ -127,7 +127,7 @@ class ProjectPageTemplate extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               AutoSizeText(
-                                'Acharya Setu',
+                                projectTitle,
                                 maxLines: 2,
                                 minFontSize: 80,
                                 style: GoogleFonts.comfortaa(
