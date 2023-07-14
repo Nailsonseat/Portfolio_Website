@@ -2,7 +2,6 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:line_icons/line_icons.dart';
-import 'package:logger/logger.dart';
 import 'package:portfolio_website/components/projects/project_component.dart';
 import 'package:provider/provider.dart';
 import '../../components/projects/text_section.dart';
@@ -39,16 +38,13 @@ class ProjectPageTemplate extends StatelessWidget {
           ),
         ),
         Container(
-          key: containerKey,
-          height: 900,
+          width: double.infinity,
           margin: const EdgeInsets.symmetric(vertical: 60),
           padding: EdgeInsets.all(width / 24.675),
           decoration: BoxDecoration(color: Colors.grey[100], borderRadius: BorderRadius.circular(30)),
-          child: SizedBox.expand(
-            child: AutoSizeText(
-              i.body,
-              style: GoogleFonts.robotoMono(fontSize: width / 98.7), // 20
-            ),
+          child: Text(
+            i.body,
+            style: GoogleFonts.robotoMono(fontSize: width / 98.7), // 20
           ),
         ),
       ]);
@@ -64,8 +60,8 @@ class ProjectPageTemplate extends StatelessWidget {
     ScrollProvider scrollProvider = Provider.of<ScrollProvider>(context, listen: false);
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      RenderBox renderer = containerKey.currentContext!.findRenderObject() as RenderBox;
-      Logger().w(renderer.size.height);
+      //RenderBox renderer = containerKey.currentContext!.findRenderObject() as RenderBox;
+      //Logger().w(renderer.size.height);
     });
 
     return Scaffold(
@@ -182,8 +178,9 @@ class ProjectPageTemplate extends StatelessWidget {
                                         style: TextStyle(fontSize: width / 56.4), // 35
                                       ),
                                     ),
-                                    for (ProjectComponent i in projectComponents)
-                                      TextButton(onPressed: () {}, child: Text(i.title))
+                                    /*for (ProjectComponent i in projectComponents)
+                                      TextButton(onPressed: () {}, child: Text(i.title))*/
+                                    Image.asset("lib/assets/images/miscellaneous/under_construction.png")
                                   ],
                                 ),
                               ),
