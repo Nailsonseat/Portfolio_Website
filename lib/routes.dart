@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:portfolio_website/pages/home/home_main.dart';
 import 'package:portfolio_website/pages/launch/launch_page.dart';
 import 'package:portfolio_website/pages/project_page/projects/acharya_setu.dart';
+import 'package:portfolio_website/pages/project_page/projects/ecommerce_shoppers_behaviour_and_understanding.dart';
 import 'package:portfolio_website/pages/project_page/projects/hospital_management_utility.dart';
 import 'package:portfolio_website/providers/launch_page_animation_provider.dart';
 import 'package:portfolio_website/providers/project_slider_provider.dart';
@@ -36,6 +37,7 @@ final GoRouter routes = GoRouter(
           routes: [
             GoRoute(path: 'Acharya_Setu', pageBuilder: (context, state) => MaterialPage(child: AcharyaSetu())),
             GoRoute(path: 'Hospital_Management_Utility', pageBuilder: (context, state) => MaterialPage(child: HospitalManagementUtility())),
+            GoRoute(path: 'Ecommerce_Shoppers_Behaviour_and_Understanding', pageBuilder: (context, state) => MaterialPage(child: EcommerceShoppersBehaviourAndUnderstanding())),
           ],
         ),
       ],
