@@ -37,8 +37,9 @@ class Assets {
   static const String projectImagesYoshopScraper = 'lib/assets/images/project_images/yoshop_scraper.png';
   static const String projectPageProjectPageTemplate = 'lib/pages/project_page/project_page_template.dart';
   static const String projectsAcharyaSetu = 'lib/pages/project_page/projects/acharya_setu.dart';
-  static const String projectsJumpToSection = 'lib/components/projects/project_component.dart';
-  static const String projectsTextSections = 'lib/components/projects/text_section.dart';
+  static const String projectsHospitalManagementUtility = 'lib/pages/project_page/projects/hospital_management_utility.dart';
+  static const String projectsProjectComponent = 'lib/components/projects/project_component.dart';
+  static const String projectsTextSection = 'lib/components/projects/text_section.dart';
   static const String providersLaunchPageAnimationProvider = 'lib/providers/launch_page_animation_provider.dart';
   static const String providersProjectPageProvider = 'lib/providers/project_page_provider.dart';
   static const String providersProjectSliderProvider = 'lib/providers/project_slider_provider.dart';
