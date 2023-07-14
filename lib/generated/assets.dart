@@ -41,6 +41,7 @@ class Assets {
   static const String projectsEcommerceShoppersBehaviourAndUnderstanding = 'lib/pages/project_page/projects/ecommerce_shoppers_behaviour_and_understanding.dart';
   static const String projectsHospitalManagementUtility = 'lib/pages/project_page/projects/hospital_management_utility.dart';
   static const String projectsKastor = 'lib/pages/project_page/projects/Kastor.dart';
+  static const String projectsLetstalkk = 'lib/pages/project_page/projects/Letstalkk.dart';
   static const String projectsPortfolioWebsite = 'lib/pages/project_page/projects/portfolio_website.dart';
   static const String projectsProjectComponent = 'lib/components/projects/project_component.dart';
   static const String projectsTextSection = 'lib/components/projects/text_section.dart';

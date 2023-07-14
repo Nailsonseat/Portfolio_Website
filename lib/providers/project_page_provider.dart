@@ -91,7 +91,7 @@ class ProjectPageProvider extends ChangeNotifier {
         title: 'LetsTalkk',
         image: Image.asset('lib/assets/images/project_images/messaging.png'),
         source: "https://github.com/Nailsonseat/LetsTalkk",
-        pagePath: '/home/template',
+        pagePath: '/home/LetsTalkk',
         briefDescription:
             "A unique fusion of a chat app between whatsapp and discord that provides features like discord but with the easy to navigate UI of whatsapp like realtime chat apps.",
         description: ''),
