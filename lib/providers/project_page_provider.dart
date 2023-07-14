@@ -83,7 +83,7 @@ class ProjectPageProvider extends ChangeNotifier {
         title: 'Kastor',
         image: Image.asset('lib/assets/images/project_images/kastor.png'),
         source: "https://github.com/Nailsonseat/Kastor",
-        pagePath: '/home/template',
+        pagePath: '/home/Kastor',
         briefDescription:
             "This is a Website that is supposed to fetch game prices from different platforms using web scraping and give you the best deal. Just like Trivago but for Games! ",
         description: ''),
