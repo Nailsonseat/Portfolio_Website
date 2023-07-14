@@ -40,6 +40,7 @@ class Assets {
   static const String projectsDataIntoIpl = 'lib/pages/project_page/projects/data_into_ipl.dart';
   static const String projectsEcommerceShoppersBehaviourAndUnderstanding = 'lib/pages/project_page/projects/ecommerce_shoppers_behaviour_and_understanding.dart';
   static const String projectsHospitalManagementUtility = 'lib/pages/project_page/projects/hospital_management_utility.dart';
+  static const String projectsPortfolioWebsite = 'lib/pages/project_page/projects/portfolio_website.dart';
   static const String projectsProjectComponent = 'lib/components/projects/project_component.dart';
   static const String projectsTextSection = 'lib/components/projects/text_section.dart';
   static const String providersLaunchPageAnimationProvider = 'lib/providers/launch_page_animation_provider.dart';

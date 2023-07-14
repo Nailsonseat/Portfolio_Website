@@ -75,7 +75,7 @@ class ProjectPageProvider extends ChangeNotifier {
         title: 'Portfolio Website',
         image: Image.asset('lib/assets/images/project_images/portfolio.png'),
         source: "https://github.com/Nailsonseat/Portfolio_Website",
-        pagePath: '/home/template',
+        pagePath: '/home/Portfolio_Website',
         briefDescription:
             "A website to showcase myself, my work and progress in a beautiful website, with easy to digest descriptions of each and every one of my project. ",
         description: ''),
