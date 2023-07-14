@@ -7,6 +7,7 @@ import 'package:portfolio_website/pages/project_page/projects/Letstalkk.dart';
 import 'package:portfolio_website/pages/project_page/projects/acharya_setu.dart';
 import 'package:portfolio_website/pages/project_page/projects/data_into_ipl.dart';
 import 'package:portfolio_website/pages/project_page/projects/ecommerce_shoppers_behaviour_and_understanding.dart';
+import 'package:portfolio_website/pages/project_page/projects/holomorphic_bot.dart';
 import 'package:portfolio_website/pages/project_page/projects/hospital_management_utility.dart';
 import 'package:portfolio_website/pages/project_page/projects/portfolio_website.dart';
 import 'package:portfolio_website/pages/project_page/projects/yoshop_web_scraper.dart';
@@ -48,6 +49,7 @@ final GoRouter routes = GoRouter(
             GoRoute(path: 'Kastor', pageBuilder: (context, state) => MaterialPage(child: Kastor())),
             GoRoute(path: 'LetsTalkk', pageBuilder: (context, state) => MaterialPage(child: LetsTalkk())),
             GoRoute(path: 'Yoshop_Web_Scraper', pageBuilder: (context, state) => MaterialPage(child: YoshopWebScraper())),
+            GoRoute(path: 'Hola_Bot', pageBuilder: (context, state) => MaterialPage(child: HolomorphicBot())),
           ],
         ),
       ],
