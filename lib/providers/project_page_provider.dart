@@ -107,7 +107,7 @@ class ProjectPageProvider extends ChangeNotifier {
         title: 'Holomorphic Bot',
         image: Image.asset('lib/assets/images/project_images/hola_bot.png'),
         source: "https://github.com/Nailsonseat/Hola_bot",
-        pagePath: '/home/template',
+        pagePath: '/home/Hola_bot',
         briefDescription:
             "A tri-wheeler holomorphic bot that is able to traverse and move its limbs in all directions.",
         description: ''),
