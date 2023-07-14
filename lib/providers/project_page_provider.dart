@@ -51,7 +51,7 @@ class ProjectPageProvider extends ChangeNotifier {
         title: 'Hospital Management Utility',
         image: Image.asset('lib/assets/images/project_images/hospital_management_utility.png'),
         source: "https://github.com/Nailsonseat/Hospital-Management-Utility",
-        pagePath: '/home/template',
+        pagePath: '/home/Hospital_Management_Utility',
         briefDescription:
             "A hospital management software fully implemented in C++ that keeps records of patients and assigns them a appointment time, with 30 minutes of gaps with no overlapping of appointments. This also comes with a search engine with filters to find patients. ",
         description: ''),
