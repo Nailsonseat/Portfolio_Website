@@ -7,18 +7,18 @@ import 'package:provider/provider.dart';
 import '../../../providers/project_page_provider.dart';
 
 class AcharyaSetu extends StatelessWidget {
-  AcharyaSetu({super.key});
-
-  final List<TextSection> textSections = [
-    TextSection(title: "Description", body: "This is a project"),
-    TextSection(title: "Description", body: "This is a project"),
-  ];
-  final List<ProjectComponent> projectComponents = [ProjectComponent(title: "Description", subComponents: [])];
+  const AcharyaSetu({super.key});
 
   @override
   Widget build(BuildContext context) {
     ProjectPageProvider projectPageProvider = Provider.of<ProjectPageProvider>(context, listen: false);
     Project project = projectPageProvider.getProject("Acharya Setu");
+
+    final List<ProjectComponent> projectComponents = [ProjectComponent(title: "Description", subComponents: [])];
+    final List<TextSection> textSections = [
+      TextSection(title: "Description", body: '${project.briefDescription}\n${project.description}')
+    ];
+
     return ProjectPageTemplate(
       projectTitle: project.title,
       bannerImage: "lib/assets/images/project_images/acharya_setu.jpg",
