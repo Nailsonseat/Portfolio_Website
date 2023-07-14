@@ -6,9 +6,11 @@ class ScrollProvider extends ChangeNotifier {
   bool _showFloatingButton = false;
 
   late double appBarHeight;
+  double tableOfContentsOffset = 0;
 
   ScrollProvider() {
     _homeScrollController.addListener(_scrollListener);
+    _detailedProjectScrollController.addListener(_tableOfContentsListner);
   }
 
   ScrollController get homeScrollController => _homeScrollController;
@@ -21,6 +23,15 @@ class ScrollProvider extends ChangeNotifier {
       _showFloatingButton = true;
     } else {
       _showFloatingButton = false;
+    }
+    notifyListeners();
+  }
+
+  void _tableOfContentsListner(){
+    if (_detailedProjectScrollController.offset>1100){
+      tableOfContentsOffset = _detailedProjectScrollController.offset - 1100;
+    }else{
+      tableOfContentsOffset = 0;
     }
     notifyListeners();
   }

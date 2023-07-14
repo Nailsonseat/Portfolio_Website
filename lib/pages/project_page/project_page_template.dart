@@ -104,20 +104,68 @@ class ProjectPageTemplate extends StatelessWidget {
                       ),
                       height: height,
                       width: width,
-                      child: Column(
-                        children: [
-                          SizedBox(height: 200),
-                          Container(
-                            padding: EdgeInsets.only(left: 100),
-                            child: Align(
-                              alignment: Alignment.centerLeft,
-                              child: Text(
-                                "Description",
-                                style: TextStyle(fontSize: 55),
+                      child: IntrinsicHeight(
+                        child: Row(
+                          children: [
+                            Expanded(
+                              child: Container(
+                                //margin: EdgeInsets.only(top: 200),
+                                color: Colors.tealAccent,
+                                child: Column(
+                                  children: <Widget>[
+                                    Consumer<ScrollProvider>(builder: (_, scrollProvider, __) {
+                                      return SizedBox(height: 15 + scrollProvider.tableOfContentsOffset);
+                                    }),
+                                    Align(
+                                      alignment: Alignment.center,
+                                      child: Text(
+                                        'Table of contents',
+                                        style: TextStyle(fontSize: 30),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ),
+                              flex: 3,
+                            ),
+                            Expanded(
+                              flex: 9,
+                              child: Column(
+                                children: [
+                                  // SizedBox(height: 200),
+                                  Container(
+                                    padding: EdgeInsets.only(left: 100),
+                                    alignment: Alignment.centerLeft,
+                                    child: Text(
+                                      "Description",
+                                      style: TextStyle(fontSize: 55),
+                                    ),
+                                  ),
+                                  Container(
+                                    height: 900,
+                                    margin: EdgeInsets.symmetric(horizontal: 100, vertical: 60),
+                                    decoration:
+                                        BoxDecoration(color: Colors.grey[100], borderRadius: BorderRadius.circular(30)),
+                                  ),
+                                  Container(
+                                    alignment: Alignment.centerLeft,
+                                    padding: EdgeInsets.only(left: 100),
+                                    child: Text(
+                                      "Progress and milestones",
+                                      style: TextStyle(fontSize: 55),
+                                    ),
+                                  ),
+                                  Container(
+                                    height: 900,
+                                    margin: EdgeInsets.symmetric(horizontal: 100, vertical: 60),
+                                    decoration:
+                                        BoxDecoration(color: Colors.grey[100], borderRadius: BorderRadius.circular(30)),
+                                  ),
+                                ],
                               ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                   ],
