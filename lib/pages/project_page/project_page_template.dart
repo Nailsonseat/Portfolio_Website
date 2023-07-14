@@ -8,10 +8,13 @@ import '../../providers/scroll_provider.dart';
 class ProjectPageTemplate extends StatelessWidget {
   const ProjectPageTemplate({super.key});
 
+  double _projectBannerHeight(double width) => width / 2.193333333; // 900
+
+  double _projectBannerWidth(double width) => width / 1.316; // 1500
+
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
-    double height = MediaQuery.of(context).size.height;
     width = width < 800 ? 800 : width;
 
     ScrollProvider scrollProvider = Provider.of<ScrollProvider>(context, listen: false);
@@ -41,8 +44,8 @@ class ProjectPageTemplate extends StatelessWidget {
                         Align(
                           alignment: Alignment.centerRight,
                           child: Container(
-                            height: 900,
-                            width: 1500,
+                            height: _projectBannerHeight(width),
+                            width: _projectBannerWidth(width),
                             decoration: BoxDecoration(
                                 image: DecorationImage(
                                     image: AssetImage('lib/assets/images/project_images/acharya_setu.jpg'),
@@ -67,8 +70,8 @@ class ProjectPageTemplate extends StatelessWidget {
                         Container(
                           alignment: Alignment.centerLeft,
                           margin: const EdgeInsets.only(left: 230),
-                          height: 900,
-                          width: 1500,
+                          height: _projectBannerHeight(width),
+                          width: _projectBannerWidth(width),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
@@ -91,6 +94,7 @@ class ProjectPageTemplate extends StatelessWidget {
                       ],
                     ),
                     Container(
+                      padding: EdgeInsets.only(top: 200),
                       decoration: BoxDecoration(
                         color: Colors.white,
                         boxShadow: [
@@ -102,7 +106,6 @@ class ProjectPageTemplate extends StatelessWidget {
                           ),
                         ],
                       ),
-                      height: height,
                       width: width,
                       child: IntrinsicHeight(
                         child: Row(
@@ -171,13 +174,13 @@ class ProjectPageTemplate extends StatelessWidget {
                   ],
                 ),
                 Positioned(
-                  top: 900 - 40,
+                  top: _projectBannerHeight(width) - 40,
                   left: width / 2 - 40,
                   child: SizedBox(
                     width: 80,
                     height: 80,
                     child: FloatingActionButton(
-                      onPressed: () => scrollProvider.scrollToProjectDescription(900+200),
+                      onPressed: () => scrollProvider.scrollToProjectDescription(_projectBannerHeight(width) + 150),
                       child: Icon(
                         LineIcons.arrowDown,
                         size: 30,
