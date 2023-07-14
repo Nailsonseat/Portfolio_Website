@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:portfolio_website/pages/home/home_main.dart';
 import 'package:portfolio_website/pages/launch/launch_page.dart';
-import 'package:portfolio_website/pages/project_page/project_page_template.dart';
+import 'package:portfolio_website/pages/project_page/projects/acharya_setu.dart';
 import 'package:portfolio_website/providers/launch_page_animation_provider.dart';
-import 'package:portfolio_website/providers/project_page_provider.dart';
 import 'package:portfolio_website/providers/project_slider_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -21,7 +20,6 @@ final GoRouter routes = GoRouter(
             child: MultiProvider(
               providers: [
                 ChangeNotifierProvider(create: (_) => ProjectSliderProvider()),
-                ChangeNotifierProvider(create: (_) => ProjectPageProvider()),
               ],
               child: const HomeMain(),
             ),
@@ -35,8 +33,8 @@ final GoRouter routes = GoRouter(
             },
           ),
           routes: [
-            GoRoute(path: 'template',pageBuilder:(context,state)=> const MaterialPage(child: ProjectPageTemplate())),
-          ]
+            GoRoute(path: 'Acharya_Setu', pageBuilder: (context, state) => MaterialPage(child: AcharyaSetu())),
+          ],
         ),
       ],
     ),
