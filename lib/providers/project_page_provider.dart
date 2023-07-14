@@ -113,9 +113,9 @@ class ProjectPageProvider extends ChangeNotifier {
         description: ''),
     Project(
         title: 'Machine Learning',
-        image: Image.asset('lib/assets/images/project_images/machine_Learning.png'),
+        image: Image.asset('lib/assets/images/project_images/machine_learning.png'),
         source: "https://github.com/Nailsonseat/Machine-Learning",
-        pagePath: '/home/template',
+        pagePath: '/home/Machine_Learning',
         briefDescription:
             "This projects has my entire machine learning journey where I hard code and implement various machine learning algorithms from scratch without using any machine learning library. ",
         description: ''),

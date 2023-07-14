@@ -30,7 +30,7 @@ class Assets {
   static const String projectImagesHolaBot = 'lib/assets/images/project_images/hola_bot.png';
   static const String projectImagesHospitalManagementUtility = 'lib/assets/images/project_images/hospital_management_utility.png';
   static const String projectImagesKastor = 'lib/assets/images/project_images/kastor.png';
-  static const String projectImagesMachineLearning = 'lib/assets/images/project_images/machine_Learning.png';
+  static const String projectImagesMachineLearning = 'lib/assets/images/project_images/machine_learning.png';
   static const String projectImagesMessaging = 'lib/assets/images/project_images/messaging.png';
   static const String projectImagesPortfolio = 'lib/assets/images/project_images/portfolio.png';
   static const String projectImagesSnake = 'lib/assets/images/project_images/snake.png';
@@ -43,6 +43,7 @@ class Assets {
   static const String projectsHospitalManagementUtility = 'lib/pages/project_page/projects/hospital_management_utility.dart';
   static const String projectsKastor = 'lib/pages/project_page/projects/Kastor.dart';
   static const String projectsLetstalkk = 'lib/pages/project_page/projects/Letstalkk.dart';
+  static const String projectsMachineLearning = 'lib/pages/project_page/projects/machine_learning.dart';
   static const String projectsPortfolioWebsite = 'lib/pages/project_page/projects/portfolio_website.dart';
   static const String projectsProjectComponent = 'lib/components/projects/project_component.dart';
   static const String projectsTextSection = 'lib/components/projects/text_section.dart';
