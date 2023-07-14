@@ -19,6 +19,13 @@ class ProjectPageTemplate extends StatelessWidget {
 
     ScrollProvider scrollProvider = Provider.of<ScrollProvider>(context, listen: false);
 
+    GlobalKey key = GlobalKey();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      RenderBox renderer = key.currentContext!.findRenderObject() as RenderBox;
+      Logger().w(renderer.size.height);
+    });
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Acharya Setu'),
@@ -133,38 +140,34 @@ class ProjectPageTemplate extends StatelessWidget {
                             ),
                             Expanded(
                               flex: 9,
-                              child: Column(
-                                children: [
-                                  // SizedBox(height: 200),
-                                  Container(
-                                    padding: EdgeInsets.only(left: 100),
-                                    alignment: Alignment.centerLeft,
-                                    child: Text(
-                                      "Description",
-                                      style: TextStyle(fontSize: 55),
+                              child: Padding(
+                                padding: EdgeInsets.symmetric(horizontal: width / 19.74), // 100
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Container(
+                                      alignment: Alignment.centerLeft,
+                                      child: Text(
+                                        "Description",
+                                        style: TextStyle(fontSize: width / 35.890909), // 55
+                                      ),
                                     ),
-                                  ),
-                                  Container(
-                                    height: 900,
-                                    margin: EdgeInsets.symmetric(horizontal: 100, vertical: 60),
-                                    decoration:
-                                        BoxDecoration(color: Colors.grey[100], borderRadius: BorderRadius.circular(30)),
-                                  ),
-                                  Container(
-                                    alignment: Alignment.centerLeft,
-                                    padding: EdgeInsets.only(left: 100),
-                                    child: Text(
-                                      "Progress and milestones",
-                                      style: TextStyle(fontSize: 55),
+                                    Container(
+                                      key: key,
+                                      height: 900,
+                                      child: SizedBox.expand(
+                                        child: AutoSizeText(
+                                          "Progress was made",
+                                          style: GoogleFonts.robotoMono(fontSize: width / 98.7),
+                                        ),
+                                      ),
+                                      margin: const EdgeInsets.symmetric(vertical: 60),
+                                      padding: EdgeInsets.all(width / 24.675),
+                                      decoration: BoxDecoration(
+                                          color: Colors.grey[100], borderRadius: BorderRadius.circular(30)),
                                     ),
-                                  ),
-                                  Container(
-                                    height: 900,
-                                    margin: EdgeInsets.symmetric(horizontal: 100, vertical: 60),
-                                    decoration:
-                                        BoxDecoration(color: Colors.grey[100], borderRadius: BorderRadius.circular(30)),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
                             ),
                           ],
