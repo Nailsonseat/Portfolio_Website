@@ -10,8 +10,8 @@ class MachineLearning extends StatelessWidget {
   MachineLearning({super.key});
 
   final List<TextSection> textSections = [
-    TextSection(title: "Description", body: "This is a project for machine learning"),
-    TextSection(title: "Description", body: "This is a project"),
+    TextSection(title: "Description", bodyPath: "This is a project for machine learning"),
+    TextSection(title: "Description", bodyPath: "This is a project"),
   ];
   final List<ProjectComponent> projectComponents = [ProjectComponent(title: "Description", subComponents: [])];
 
