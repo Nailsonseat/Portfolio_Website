@@ -1,6 +1,6 @@
 class TextSection {
   String title;
-  String body;
+  String bodyPath;
 
-  TextSection({required this.title, required this.body});
+  TextSection({required this.title, required this.bodyPath});
 }
