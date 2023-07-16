@@ -1,5 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:portfolio_website/components/projects/project_component.dart';
@@ -26,6 +28,8 @@ class ProjectPageTemplate extends StatelessWidget {
 
   final GlobalKey containerKey = GlobalKey();
 
+  Future<String> _loadHtmlFile(String path) async => await rootBundle.loadString(path);
+
   List<Widget> _buildTextSections(List textSections, double width) {
     List<Widget> builtSections = [];
     for (TextSection i in textSections) {
@@ -42,10 +46,42 @@ class ProjectPageTemplate extends StatelessWidget {
           margin: const EdgeInsets.symmetric(vertical: 60),
           padding: EdgeInsets.all(width / 24.675),
           decoration: BoxDecoration(color: Colors.grey[100], borderRadius: BorderRadius.circular(30)),
-          child: Text(
-            i.body,
-            style: GoogleFonts.robotoMono(fontSize: width / 98.7), // 20
+          child: FutureBuilder<String>(
+            future: _loadHtmlFile(i.bodyPath),
+            builder: (context, snapshot) {
+              if (snapshot.hasData) {
+                return SingleChildScrollView(
+                  child: HtmlWidget(
+                    snapshot.data!, // HTML content from the file
+                    customStylesBuilder: (node) {
+                      if (node.localName == 'h1') {
+                        return {
+                          'color': 'black',
+                          'font-size': '26px',
+                        };
+                      } else if (node.localName == 'p') {
+                        return {
+                          'color': 'red',
+                          'font-weight': 'bold',
+                        };
+                      }
+                      return null; // Return null for other elements, no custom styles needed.
+                    },
+                    textStyle: const TextStyle(fontSize: 16),
+                  ),
+                );
+              } else if (snapshot.hasError) {
+                return const Center(
+                  child: Text('Error loading HTML file'),
+                );
+              } else {
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              }
+            },
           ),
+
         ),
       ]);
     }

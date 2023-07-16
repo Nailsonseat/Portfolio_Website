@@ -16,7 +16,7 @@ class AcharyaSetu extends StatelessWidget {
 
     final List<ProjectComponent> projectComponents = [ProjectComponent(title: "Description", subComponents: [])];
     final List<TextSection> textSections = [
-      TextSection(title: "Description", body: '${project.briefDescription}\n${project.description}')
+      TextSection(title: "Description", bodyPath: 'lib/pages/project_page/projects/acharya_setu_description.html')
     ];
 
     return ProjectPageTemplate(
