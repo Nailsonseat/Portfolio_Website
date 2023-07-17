@@ -54,15 +54,15 @@ class ProjectPageTemplate extends StatelessWidget {
                   child: HtmlWidget(
                     snapshot.data!, // HTML content from the file
                     customStylesBuilder: (node) {
-                      if (node.localName == 'h1') {
+                      if (node.localName == 'ul') {
                         return {
                           'color': 'black',
-                          'font-size': '26px',
+                          'font-size': '18px',
                         };
                       } else if (node.localName == 'p') {
                         return {
-                          'color': 'red',
-                          'font-weight': 'bold',
+                          'color': 'black',
+                          'font-size':'18px'
                         };
                       }
                       return null; // Return null for other elements, no custom styles needed.
