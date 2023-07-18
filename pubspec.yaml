@@ -113,5 +113,5 @@ flutter:
     - lib/assets/text/about_me/
     - lib/assets/images/profile_pic/
     - lib/assets/images/miscellaneous/
-    - lib/pages/project_page/projects/
+    - lib/pages/project_page/projects/acharya_setu/description.html
 

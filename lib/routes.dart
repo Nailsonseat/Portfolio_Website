@@ -4,7 +4,7 @@ import 'package:portfolio_website/pages/home/home_main.dart';
 import 'package:portfolio_website/pages/launch/launch_page.dart';
 import 'package:portfolio_website/pages/project_page/projects/Kastor.dart';
 import 'package:portfolio_website/pages/project_page/projects/Letstalkk.dart';
-import 'package:portfolio_website/pages/project_page/projects/acharya_setu.dart';
+import 'package:portfolio_website/pages/project_page/projects/acharya_setu/acharya_setu.dart';
 import 'package:portfolio_website/pages/project_page/projects/classic_snake_ffps.dart';
 import 'package:portfolio_website/pages/project_page/projects/data_into_ipl.dart';
 import 'package:portfolio_website/pages/project_page/projects/ecommerce_shoppers_behaviour_and_understanding.dart';
