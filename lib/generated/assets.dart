@@ -6,7 +6,7 @@ class Assets {
   static const String aboutMeAboutMePage = 'lib/pages/about_me/about_me_page.dart';
   static const String aboutMeEducation = 'lib/assets/text/about_me/education.txt';
   static const String acharyaSetuAcharyaSetu = 'lib/pages/project_page/projects/acharya_setu/acharya_setu.dart';
-  static const String acharyaSetuAcharyaSetuDescription = 'lib/pages/project_page/projects/acharya_setu/description.html';
+  static const String acharyaSetuDescription = 'lib/pages/project_page/projects/acharya_setu/description.html';
   static const String browserPagesAllProjectsPage = 'lib/pages/project_browser/browser_pages/all_projects_page.dart';
   static const String browserPagesDevelopmentsProjectsPage = 'lib/pages/project_browser/browser_pages/developments_projects_page.dart';
   static const String browserPagesMlProjectsPage = 'lib/pages/project_browser/browser_pages/ml_projects_page.dart';
@@ -38,6 +38,8 @@ class Assets {
   static const String projectImagesSnake = 'lib/assets/images/project_images/snake.png';
   static const String projectImagesYoshopScraper = 'lib/assets/images/project_images/yoshop_scraper.png';
   static const String projectPageProjectPageTemplate = 'lib/pages/project_page/project_page_template.dart';
+  static const String projectPageUnderConstructionTemplate = 'lib/pages/project_page/under_construction_template.html';
+  static const String projectsAcharyaSetuDescription = 'lib/pages/project_page/projects/acharya_setu/description.html';
   static const String projectsClassicSnakeFfps = 'lib/pages/project_page/projects/classic_snake_ffps.dart';
   static const String projectsDataIntoIpl = 'lib/pages/project_page/projects/data_into_ipl.dart';
   static const String projectsEcommerceShoppersBehaviourAndUnderstanding = 'lib/pages/project_page/projects/ecommerce_shoppers_behaviour_and_understanding.dart';
