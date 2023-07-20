@@ -46,11 +46,7 @@ class ProjectPageProvider extends ChangeNotifier {
         pagePath: '/home/Acharya_Setu',
         briefDescription:
             "My most ambitious project ever, This app aims to reduce a teacher's time in non teaching activities, since only 19% of a teachers time is actually sent on teaching. The app provides a huge set of features to manipulate and create questions at the click of a button.",
-        description: 'This Cross platform application gets many birds with one stone.\n\n'
-            '• Randomized questions for each and every student for a specific question template.\n'
-            '• Randomized question sets for a group of students, the user has the choice to divide the question set/bank in any number of sets, even one set of questions per student.\n\n'
-            '• Easy to maintain and shareable question banks\n'
-            '• Uses GPT API to to generate, extend and segment questions on a click of a button\n'),
+        description: ''),
     Project(
         title: 'Hospital Management Utility',
         image: Image.asset('lib/assets/images/project_images/hospital_management_utility.png'),
