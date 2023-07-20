@@ -42,7 +42,7 @@ dependencies:
   percent_indicator: ^4.2.3
   provider: ^6.0.5
   auto_size_text: ^3.0.0
-  go_router: ^9.0.3
+  go_router: ^9.1.0
   google_fonts: ^5.1.0
   line_icons: ^2.0.3
   url_launcher: ^6.1.12
@@ -113,16 +113,16 @@ flutter:
     - lib/assets/text/about_me/
     - lib/assets/images/profile_pic/
     - lib/assets/images/miscellaneous/
-    - lib/pages/project_page/projects/acharya_setu/
-    - lib/pages/project_page/
-    - lib/pages/project_page/projects/classic_snake_ffps/
-    - lib/pages/project_page/projects/data_into_ipl/
-    - lib/pages/project_page/projects/ecommerce_shoppers_behaviour_and_understanding/
-    - lib/pages/project_page/projects/holomorphic_bot/
-    - lib/pages/project_page/projects/hospital_management_utility/
-    - lib/pages/project_page/projects/kastor/
-    - lib/pages/project_page/projects/letstalkk/
-    - lib/pages/project_page/projects/machine_learning/
-    - lib/pages/project_page/projects/portfolio_website/
-    - lib/pages/project_page/projects/yoshop_web_scraper/
+    - lib/pages/projects/acharya_setu/
+    - lib/pages/projects/classic_snake_ffps/
+    - lib/pages/projects/data_into_ipl/
+    - lib/pages/projects/ecommerce_shoppers_behaviour_and_understanding/
+    - lib/pages/projects/holomorphic_bot/
+    - lib/pages/projects/hospital_management_utility/
+    - lib/pages/projects/kastor/
+    - lib/pages/projects/letstalkk/
+    - lib/pages/projects/machine_learning/
+    - lib/pages/projects/portfolio_website/
+    - lib/pages/projects/templates/
+    - lib/pages/projects/yoshop_web_scraper/
 
