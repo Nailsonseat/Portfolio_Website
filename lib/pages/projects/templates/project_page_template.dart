@@ -6,8 +6,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:portfolio_website/components/projects/project_component.dart';
 import 'package:provider/provider.dart';
-import '../../components/projects/text_section.dart';
-import '../../providers/scroll_provider.dart';
+import '../../../components/projects/text_section.dart';
+import '../../../providers/scroll_provider.dart';
 
 class ProjectPageTemplate extends StatelessWidget {
   ProjectPageTemplate({
