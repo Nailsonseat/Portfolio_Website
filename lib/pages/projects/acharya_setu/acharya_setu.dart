@@ -1,9 +1,9 @@
 import 'package:portfolio_website/components/projects/project_component.dart';
 import 'package:portfolio_website/components/projects/text_section.dart';
-import 'package:portfolio_website/pages/project_page/project_page_template.dart';
+import 'package:portfolio_website/pages/projects/templates/project_page_template.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../../../../providers/project_page_provider.dart';
+import '../../../providers/project_page_provider.dart';
 
 class AcharyaSetu extends StatelessWidget {
   const AcharyaSetu({super.key});
@@ -15,7 +15,8 @@ class AcharyaSetu extends StatelessWidget {
 
     final List<ProjectComponent> projectComponents = [ProjectComponent(title: "Description", subComponents: [])];
     final List<TextSection> textSections = [
-      TextSection(title: "Description", bodyPath: 'lib/pages/project_page/projects/acharya_setu/description.html')
+      TextSection(title: "Description", bodyPath: 'lib/pages/projects/acharya_setu/description.html'),
+      TextSection(title: "Under Construction...", bodyPath: 'lib/pages/projects/templates/under_construction_template.html'),
     ];
 
     return ProjectPageTemplate(
