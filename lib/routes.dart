@@ -2,17 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:portfolio_website/pages/home/home_main.dart';
 import 'package:portfolio_website/pages/launch/launch_page.dart';
-import 'package:portfolio_website/pages/project_page/projects/Kastor.dart';
-import 'package:portfolio_website/pages/project_page/projects/Letstalkk.dart';
-import 'package:portfolio_website/pages/project_page/projects/acharya_setu/acharya_setu.dart';
-import 'package:portfolio_website/pages/project_page/projects/classic_snake_ffps.dart';
-import 'package:portfolio_website/pages/project_page/projects/data_into_ipl.dart';
-import 'package:portfolio_website/pages/project_page/projects/ecommerce_shoppers_behaviour_and_understanding.dart';
-import 'package:portfolio_website/pages/project_page/projects/holomorphic_bot.dart';
-import 'package:portfolio_website/pages/project_page/projects/hospital_management_utility.dart';
-import 'package:portfolio_website/pages/project_page/projects/machine_learning.dart';
-import 'package:portfolio_website/pages/project_page/projects/portfolio_website.dart';
-import 'package:portfolio_website/pages/project_page/projects/yoshop_web_scraper.dart';
+import 'package:portfolio_website/pages/projects/kastor/kastor.dart';
+import 'package:portfolio_website/pages/projects/letstalkk/letstalkk.dart';
+import 'package:portfolio_website/pages/projects/acharya_setu/acharya_setu.dart';
+import 'package:portfolio_website/pages/projects/classic_snake_ffps/classic_snake_ffps.dart';
+import 'package:portfolio_website/pages/projects/data_into_ipl/data_into_ipl.dart';
+import 'package:portfolio_website/pages/projects/ecommerce_shoppers_behaviour_and_understanding/ecommerce_shoppers_behaviour_and_understanding.dart';
+import 'package:portfolio_website/pages/projects/holomorphic_bot/holomorphic_bot.dart';
+import 'package:portfolio_website/pages/projects/hospital_management_utility/hospital_management_utility.dart';
+import 'package:portfolio_website/pages/projects/machine_learning/machine_learning.dart';
+import 'package:portfolio_website/pages/projects/portfolio_website/portfolio_website.dart';
+import 'package:portfolio_website/pages/projects/yoshop_web_scraper/yoshop_web_scraper.dart';
 import 'package:portfolio_website/providers/launch_page_animation_provider.dart';
 import 'package:portfolio_website/providers/project_slider_provider.dart';
 import 'package:provider/provider.dart';
@@ -43,7 +43,7 @@ final GoRouter routes = GoRouter(
             },
           ),
           routes: [
-            GoRoute(path: 'Acharya_Setu', pageBuilder: (context, state) => MaterialPage(child: AcharyaSetu())),
+            GoRoute(path: 'Acharya_Setu', pageBuilder: (context, state) => const MaterialPage(child: AcharyaSetu())),
             GoRoute(path: 'Hospital_Management_Utility', pageBuilder: (context, state) => MaterialPage(child: HospitalManagementUtility())),
             GoRoute(path: 'Ecommerce_Shoppers_Behaviour_and_Understanding', pageBuilder: (context, state) => MaterialPage(child: EcommerceShoppersBehaviourAndUnderstanding())),
             GoRoute(path: 'Data_Into_IPL', pageBuilder: (context, state) => MaterialPage(child: DataIntoIPL())),

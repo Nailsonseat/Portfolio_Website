@@ -113,5 +113,16 @@ flutter:
     - lib/assets/text/about_me/
     - lib/assets/images/profile_pic/
     - lib/assets/images/miscellaneous/
-    - lib/pages/project_page/projects/acharya_setu/description.html
+    - lib/pages/project_page/projects/acharya_setu/
+    - lib/pages/project_page/
+    - lib/pages/project_page/projects/classic_snake_ffps/
+    - lib/pages/project_page/projects/data_into_ipl/
+    - lib/pages/project_page/projects/ecommerce_shoppers_behaviour_and_understanding/
+    - lib/pages/project_page/projects/holomorphic_bot/
+    - lib/pages/project_page/projects/hospital_management_utility/
+    - lib/pages/project_page/projects/kastor/
+    - lib/pages/project_page/projects/letstalkk/
+    - lib/pages/project_page/projects/machine_learning/
+    - lib/pages/project_page/projects/portfolio_website/
+    - lib/pages/project_page/projects/yoshop_web_scraper/
 
