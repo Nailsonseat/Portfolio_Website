@@ -9,8 +9,8 @@ class PortfolioWebsite extends StatelessWidget {
   PortfolioWebsite({super.key});
 
   final List<TextSection> textSections = [
-    TextSection(title: "Description", bodyPath: "This is a project for my portfolio"),
-    TextSection(title: "Description", bodyPath: "This is a project"),
+    TextSection(title: "Description", bodyPath: "lib/pages/projects/portfolio_website/description.html"),
+    TextSection(title: "Under Construction...", bodyPath: "lib/pages/projects/templates/under_construction_template.html"),
   ];
   final List<ProjectComponent> projectComponents = [ProjectComponent(title: "Description", subComponents: [])];
 
