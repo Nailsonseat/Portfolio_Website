@@ -13,6 +13,8 @@ class Assets {
   static const String classicSnakeFfpsClassicSnakeFfps = 'lib/pages/projects/classic_snake_ffps/classic_snake_ffps.dart';
   static const String classicSnakeFfpsDescription = 'lib/pages/projects/classic_snake_ffps/description.html';
   static const String dataIntoIplDataIntoIpl = 'lib/pages/projects/data_into_ipl/data_into_ipl.dart';
+  static const String dataIntoIplDescription = 'lib/pages/projects/data_into_ipl/description.html';
+  static const String ecommerceShoppersBehaviourAndUnderstandingDescription = 'lib/pages/projects/ecommerce_shoppers_behaviour_and_understanding/description.html';
   static const String ecommerceShoppersBehaviourAndUnderstandingEcommerceShoppersBehaviourAndUnderstanding = 'lib/pages/projects/ecommerce_shoppers_behaviour_and_understanding/ecommerce_shoppers_behaviour_and_understanding.dart';
   static const String fontsQuicksandVariableFontWeight = 'lib/fonts/Quicksand-VariableFont_weight.ttf';
   static const String generatedAssets = 'lib/generated/assets.dart';
