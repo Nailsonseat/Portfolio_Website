@@ -63,6 +63,7 @@ class Assets {
   static const String providersScrollProvider = 'lib/providers/scroll_provider.dart';
   static const String templatesProjectPageTemplate = 'lib/pages/projects/templates/project_page_template.dart';
   static const String templatesUnderConstructionTemplate = 'lib/pages/projects/templates/under_construction_template.html';
+  static const String yoshopWebScraperDescription = 'lib/pages/projects/yoshop_web_scraper/description.html';
   static const String yoshopWebScraperYoshopWebScraper = 'lib/pages/projects/yoshop_web_scraper/yoshop_web_scraper.dart';
 
 }
