@@ -11,6 +11,7 @@ class Assets {
   static const String browserPagesDevelopmentsProjectsPage = 'lib/pages/project_browser/browser_pages/developments_projects_page.dart';
   static const String browserPagesMlProjectsPage = 'lib/pages/project_browser/browser_pages/ml_projects_page.dart';
   static const String classicSnakeFfpsClassicSnakeFfps = 'lib/pages/projects/classic_snake_ffps/classic_snake_ffps.dart';
+  static const String classicSnakeFfpsDescription = 'lib/pages/projects/classic_snake_ffps/description.html';
   static const String dataIntoIplDataIntoIpl = 'lib/pages/projects/data_into_ipl/data_into_ipl.dart';
   static const String ecommerceShoppersBehaviourAndUnderstandingEcommerceShoppersBehaviourAndUnderstanding = 'lib/pages/projects/ecommerce_shoppers_behaviour_and_understanding/ecommerce_shoppers_behaviour_and_understanding.dart';
   static const String fontsQuicksandVariableFontWeight = 'lib/fonts/Quicksand-VariableFont_weight.ttf';
