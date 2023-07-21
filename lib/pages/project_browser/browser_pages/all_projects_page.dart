@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:logger/logger.dart';
 import 'package:provider/provider.dart';
@@ -71,7 +72,7 @@ class AllProjectsPage extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
                                 OutlinedButton(
-                                  onPressed: () {},
+                                  onPressed: () => context.go(i.pagePath),
                                   style: OutlinedButton.styleFrom(fixedSize: Size(width / 11, width / 56.4)),
                                   child: Text(
                                     "Read more",

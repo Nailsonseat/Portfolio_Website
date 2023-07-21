@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_web_plugins/flutter_web_plugins.dart';
+import 'package:portfolio_website/providers/project_page_provider.dart';
+import 'package:portfolio_website/providers/scroll_provider.dart';
 import 'package:portfolio_website/routes.dart';
+import 'package:provider/provider.dart';
 
 
 void main() {
@@ -13,13 +16,19 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      title: 'Portfolio Website',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => ScrollProvider()),
+        ChangeNotifierProvider(create: (_) => ProjectPageProvider()),
+      ],
+      child: MaterialApp.router(
+        title: 'Portfolio Website',
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          useMaterial3: true,
+        ),
+        routerConfig: routes,
       ),
-      routerConfig: routes,
     );
   }
 }

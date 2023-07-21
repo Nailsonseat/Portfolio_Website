@@ -1,6 +1,6 @@
 import 'package:animated_toggle_switch/animated_toggle_switch.dart';
 import 'package:flutter/material.dart';
-import 'package:portfolio_website/pages/projects/project_browser_page.dart';
+import 'package:portfolio_website/pages/project_browser/project_browser_page.dart';
 import 'package:portfolio_website/providers/project_page_provider.dart';
 import 'package:portfolio_website/providers/project_slider_provider.dart';
 import 'package:provider/provider.dart';

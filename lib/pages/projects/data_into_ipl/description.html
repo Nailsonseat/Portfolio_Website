@@ -1,0 +1,60 @@
+<div>
+    <h1>Predictive Model for IPL Power Play Score</h1>
+    <p>
+        The Predictive Model for IPL Power Play Score is a data-driven solution that uses
+        scikit-learn, numpy, matplotlib's pyplot, and pandas to predict the number of runs scored by
+        a team during the first 6 overs of an IPL match, also known as the power play. This model is
+        a part of a research initiative at IIT Madras to analyze the data from the IPL competition
+        since its inception in 2008. The model is designed to provide valuable insights into team
+        performance and help cricket enthusiasts make informed predictions.
+    </p>
+    <h2>Data Sources</h2>
+    <p>
+        The model is built using two datasets:
+    </p>
+    <ol>
+        <li>
+            <strong>Ball by Ball Dataset:</strong> This dataset contains detailed information about
+            individual deliveries in each match, including features like innings, overs, ball
+            number, batter, bowler, extras, runs scored, wickets, and other relevant data. The
+            dataset is used to understand the dynamics of each delivery and its impact on the team's
+            performance.
+        </li>
+        <li>
+            <strong>Matches Result Dataset:</strong> This dataset provides comprehensive
+            match-related information, such as the city, date, season, teams competing, venue, toss
+            details, winning team, margin of victory, and players of the match. It helps in
+            analyzing the overall match outcomes and understanding the context of each match.
+        </li>
+    </ol>
+    <h2>Model Implementation</h2>
+    <p>
+        The predictive model utilizes various machine learning techniques provided by scikit-learn
+        to perform both classification and regression tasks:
+    </p>
+    <ul>
+        <li>
+            <strong>Classification:</strong> This approach assumes that the runs scored by a batsman
+            fall in the range [0,8] and thus produces label in this range and then averages the runs
+            that the team may score in the first 36 balls of the game.
+        </li>
+        <li>
+            <strong>Regression:</strong> This approach tries to calculate the average run that the
+            batsman will score per ball, and then spans it for 36 balls.
+        </li>
+    </ul>
+    <h2>Data Preprocessing</h2>
+    <p>
+        Prior to model training, the datasets are cleaned and preprocessed using pandas to handle
+        missing values, convert categorical variables into numerical representations, and perform
+        feature engineering to extract valuable insights from the data. The processed data is then
+        split into training and testing sets to evaluate the model's performance accurately.
+    </p>
+    <h2>Model Evaluation and Visualization</h2>
+    <p>
+        The predictive model is evaluated using metrics such as accuracy, mean squared error, and
+        other relevant measures. Matplotlib's pyplot is employed to visualize the results,
+        displaying the predicted power play scores and match outcomes, as well as comparing them
+        with actual results to assess the model's accuracy.
+    </p>
+</div>
