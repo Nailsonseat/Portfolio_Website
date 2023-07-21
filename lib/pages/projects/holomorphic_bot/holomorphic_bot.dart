@@ -9,8 +9,8 @@ class HolomorphicBot extends StatelessWidget {
   HolomorphicBot({super.key});
 
   final List<TextSection> textSections = [
-    TextSection(title: "Description", bodyPath: "This is a project for web scraping"),
-    TextSection(title: "Description", bodyPath: "This is a project"),
+    TextSection(title: "Description", bodyPath: "lib/pages/projects/holomorphic_bot/description.html"),
+    TextSection(title: "Description", bodyPath: "lib/pages/projects/templates/under_construction_template.html"),
   ];
   final List<ProjectComponent> projectComponents = [ProjectComponent(title: "Description", subComponents: [])];
 
