@@ -10,8 +10,8 @@ class DataIntoIPL extends StatelessWidget {
   DataIntoIPL({super.key});
 
   final List<TextSection> textSections = [
-    TextSection(title: "Description", bodyPath: "This is a project for IPL"),
-    TextSection(title: "Description", bodyPath: "This is a project"),
+    TextSection(title: "Description", bodyPath: "lib/pages/projects/data_into_ipl/description.html"),
+    TextSection(title: "Under Construction...", bodyPath: "lib/pages/projects/templates/under_construction_template.html"),
   ];
   final List<ProjectComponent> projectComponents = [ProjectComponent(title: "Description", subComponents: [])];
 
