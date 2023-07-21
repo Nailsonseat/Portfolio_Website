@@ -28,6 +28,7 @@ class Assets {
   static const String hospitalManagementUtilityDescription = 'lib/pages/projects/hospital_management_utility/description.html';
   static const String hospitalManagementUtilityHospitalManagementUtility = 'lib/pages/projects/hospital_management_utility/hospital_management_utility.dart';
   static const String iconsSlack = 'lib/assets/icons/slack.png';
+  static const String kastorDescription = 'lib/pages/projects/kastor/description.html';
   static const String kastorKastor = 'lib/pages/projects/kastor/kastor.dart';
   static const String launchLaunchPage = 'lib/pages/launch/launch_page.dart';
   static const String letstalkkLetstalkk = 'lib/pages/projects/letstalkk/letstalkk.dart';

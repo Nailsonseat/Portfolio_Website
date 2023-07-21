@@ -9,8 +9,8 @@ class Kastor extends StatelessWidget {
   Kastor({super.key});
 
   final List<TextSection> textSections = [
-    TextSection(title: "Description", bodyPath: "This is a project for trivago for games"),
-    TextSection(title: "Description", bodyPath: "This is a project"),
+    TextSection(title: "Description", bodyPath: "lib/pages/projects/kastor/description.html"),
+    TextSection(title: "Under Construction...", bodyPath: "lib/pages/projects/templates/under_construction_template.html"),
   ];
   final List<ProjectComponent> projectComponents = [ProjectComponent(title: "Description", subComponents: [])];
 
