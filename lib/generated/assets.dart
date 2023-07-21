@@ -18,12 +18,14 @@ class Assets {
   static const String ecommerceShoppersBehaviourAndUnderstandingEcommerceShoppersBehaviourAndUnderstanding = 'lib/pages/projects/ecommerce_shoppers_behaviour_and_understanding/ecommerce_shoppers_behaviour_and_understanding.dart';
   static const String fontsQuicksandVariableFontWeight = 'lib/fonts/Quicksand-VariableFont_weight.ttf';
   static const String generatedAssets = 'lib/generated/assets.dart';
+  static const String holomorphicBotDescription = 'lib/pages/projects/holomorphic_bot/description.html';
   static const String holomorphicBotHolomorphicBot = 'lib/pages/projects/holomorphic_bot/holomorphic_bot.dart';
   static const String homeHomeMain = 'lib/pages/home/home_main.dart';
   static const String homeHomePage = 'lib/pages/home/home_page.dart';
   static const String homePageOneBackground = 'lib/components/home/page_one_background.dart';
   static const String homePageOneButtonGradient = 'lib/components/home/page_one_button_gradient.dart';
   static const String homePageOneProfilePicBackground = 'lib/components/home/page_one_profile_pic_background.dart';
+  static const String hospitalManagementUtilityDescription = 'lib/pages/projects/hospital_management_utility/description.html';
   static const String hospitalManagementUtilityHospitalManagementUtility = 'lib/pages/projects/hospital_management_utility/hospital_management_utility.dart';
   static const String iconsSlack = 'lib/assets/icons/slack.png';
   static const String kastorKastor = 'lib/pages/projects/kastor/kastor.dart';
