@@ -35,6 +35,7 @@ class Assets {
   static const String letstalkkLetstalkk = 'lib/pages/projects/letstalkk/letstalkk.dart';
   static const String libMain = 'lib/main.dart';
   static const String libRoutes = 'lib/routes.dart';
+  static const String machineLearningDescription = 'lib/pages/projects/machine_learning/description.html';
   static const String machineLearningMachineLearning = 'lib/pages/projects/machine_learning/machine_learning.dart';
   static const String miscellaneousUnderConstruction = 'lib/assets/images/miscellaneous/under_construction.png';
   static const String portfolioWebsitePortfolioWebsite = 'lib/pages/projects/portfolio_website/portfolio_website.dart';
