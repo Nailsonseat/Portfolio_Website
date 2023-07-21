@@ -1,0 +1,89 @@
+<div>
+    <h1>E-commerce Shopper's Behaviour Understanding using Machine Learning</h1>
+    <p>
+        The "E-commerce Shopper's Behaviour Understanding" is my first Kaggle
+        competition project that aims to predict whether a user is likely to buy a product on an
+        e-commerce website based on a wide range of factors. This data-driven model leverages
+        various machine learning algorithms to analyze user behavior and offer insights into their
+        purchase intentions.
+    </p>
+
+    <h2>Data Description:</h2>
+    <p>
+        The dataset comprises several features that capture user interactions with the e-commerce
+        website. The first six columns represent the number of visits and total duration spent on
+        different pages, including HomePage, LandingPage, and ProductDescriptionPage. GoogleMetrics
+        like Bounce Rate, Exit Rate, and Page Value provide crucial metrics indicating user
+        engagement and behavior on the website. Additionally, seasonal attributes and various user
+        demographics like OS, Search Engine, Zone, Customer Type, Gender, and more are used as
+        self-explanatory variables to further understand customer behavior.
+    </p>
+
+    <h2>Algorithms and Techniques:</h2>
+    <p>
+        The project incorporates a wide range of machine learning classifiers to analyze and predict
+        user behavior. The following algorithms have been utilized:
+    </p>
+    <ul>
+        <li><b>K-Nearest Neighbors (KNN) Classifier:</b></li>
+        <p>
+            KNN is used to classify users based on their similarity to others in the dataset. It
+            predicts whether a user will buy a product by considering the behaviors of similar
+            users.
+        </p>
+        <li><b>Support Vector Machine (SVM) Classifier:</b></li>
+        <p>
+            SVM is applied to create a hyperplane that optimally separates users into purchase and
+            non-purchase categories, maximizing the margin between the two classes.
+        </p>
+        <li><b>XGBoost (Extreme Gradient Boosting) Classifier:</b></li>
+        <p>
+            XGBoost is a powerful boosting technique that creates an ensemble of weak learners to
+            improve predictive accuracy.
+        </p>
+        <li><b>Decision Tree Classifier:</b></li>
+        <p>
+            Decision trees are used to create a hierarchical model that splits users based on the
+            most influential features to make predictions.
+        </p>
+        <li><b>Random Forest Classifier:</b></li>
+        <p>
+            Random Forests are an ensemble method that leverages multiple decision trees to achieve
+            better generalization and reduce overfitting.
+        </p>
+        <li><b>Multilayer Perceptron (MLP) Classifier:</b></li>
+        <p>
+            MLP is a deep learning model that uses artificial neural networks to learn complex
+            patterns in the data.
+        </p>
+        <li><b>Ensemble Learning:</b></li>
+        <p>
+            The project employs ensemble techniques such as bagging and boosting to combine the
+            predictions of multiple models for improved accuracy and robustness.
+        </p>
+        <li><b>Voting Classifier:</b></li>
+        <p>
+            In the final stage, a voting classifier is implemented, combining the outputs of three
+            classifiers: Decision Tree Classifier, Bagged Decision Tree Classifier, and MLP
+            Classifier. The voting classifier selects the most frequent class predicted by the
+            individual models, leading to a robust and balanced prediction.
+        </p>
+    </ul>
+
+    <h2>Hyperparameter Tuning:</h2>
+    <p>
+        To optimize the performance of each classifier, hyperparameter tuning is conducted.
+        Hyperparameter tuning involves searching for the best set of hyperparameters that maximize
+        the model's predictive capabilities. Techniques like Grid Search or Random Search are
+        employed to fine-tune the model parameters.
+    </p>
+
+    <p>
+        The "E-commerce Shopper's Behaviour Understanding" project represents a
+        significant step in analyzing customer behavior and predicting purchase decisions in the
+        e-commerce domain. With the integration of various machine learning algorithms, ensemble
+        techniques, and hyperparameter tuning, the model offers valuable insights to e-commerce
+        businesses, enabling them to make data-driven decisions and enhance the shopping experience
+        for their customers.
+    </p>
+</div>
