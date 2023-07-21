@@ -31,6 +31,7 @@ class Assets {
   static const String kastorDescription = 'lib/pages/projects/kastor/description.html';
   static const String kastorKastor = 'lib/pages/projects/kastor/kastor.dart';
   static const String launchLaunchPage = 'lib/pages/launch/launch_page.dart';
+  static const String letstalkkDescription = 'lib/pages/projects/letstalkk/description.html';
   static const String letstalkkLetstalkk = 'lib/pages/projects/letstalkk/letstalkk.dart';
   static const String libMain = 'lib/main.dart';
   static const String libRoutes = 'lib/routes.dart';
