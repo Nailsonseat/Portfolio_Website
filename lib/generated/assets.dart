@@ -38,6 +38,7 @@ class Assets {
   static const String machineLearningDescription = 'lib/pages/projects/machine_learning/description.html';
   static const String machineLearningMachineLearning = 'lib/pages/projects/machine_learning/machine_learning.dart';
   static const String miscellaneousUnderConstruction = 'lib/assets/images/miscellaneous/under_construction.png';
+  static const String portfolioWebsiteDescription = 'lib/pages/projects/portfolio_website/description.html';
   static const String portfolioWebsitePortfolioWebsite = 'lib/pages/projects/portfolio_website/portfolio_website.dart';
   static const String profilePicProfilePic = 'lib/assets/images/profile_pic/profile_pic.png';
   static const String profilePicProfilePicFlipped = 'lib/assets/images/profile_pic/profile_pic_flipped.png';
