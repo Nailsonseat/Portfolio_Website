@@ -1,10 +1,9 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:portfolio_website/components/projects/banner_image.dart';
+import 'package:portfolio_website/components/projects/banner_title.dart';
 import 'package:portfolio_website/components/projects/project_component.dart';
 import 'package:provider/provider.dart';
 import '../../../components/projects/text_section.dart';
@@ -61,10 +60,7 @@ class ProjectPageTemplate extends StatelessWidget {
                           'font-size': '18px',
                         };
                       } else if (node.localName == 'p') {
-                        return {
-                          'color': 'black',
-                          'font-size':'18px'
-                        };
+                        return {'color': 'black', 'font-size': '18px'};
                       }
                       return null; // Return null for other elements, no custom styles needed.
                     },
@@ -82,7 +78,6 @@ class ProjectPageTemplate extends StatelessWidget {
               }
             },
           ),
-
         ),
       ]);
     }
@@ -123,33 +118,10 @@ class ProjectPageTemplate extends StatelessWidget {
                   children: <Widget>[
                     Stack(
                       children: [
-                        BannerImage(height: _projectBannerHeight(width),width: _projectBannerWidth(width),image: bannerImage,),
-                        Container(
-                          alignment: Alignment.centerLeft,
-                          margin: const EdgeInsets.only(left: 230),
-                          height: _projectBannerHeight(width),
-                          width: _projectBannerWidth(width),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              AutoSizeText(
-                                projectTitle,
-                                maxLines: 2,
-                                minFontSize: 80,
-                                style: GoogleFonts.comfortaa(
-                                  fontSize: 110,
-                                  shadows: [
-                                    const Shadow(
-                                      offset: Offset(0, 2), // Specify the shadow offset
-                                      color: Colors.grey,
-                                      blurRadius: 3, // Specify the blur radius of the shadow
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
+                        BannerImage(
+                            height: _projectBannerHeight(width), width: _projectBannerWidth(width), image: bannerImage),
+                        BannerTitle(
+                            height: _projectBannerHeight(width), width: _projectBannerWidth(width), title: projectTitle)
                       ],
                     ),
                     Container(
