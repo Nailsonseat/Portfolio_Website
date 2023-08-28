@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:line_icons/line_icons.dart';
+import 'package:portfolio_website/components/projects/banner_image.dart';
 import 'package:portfolio_website/components/projects/project_component.dart';
 import 'package:provider/provider.dart';
 import '../../../components/projects/text_section.dart';
@@ -122,34 +123,7 @@ class ProjectPageTemplate extends StatelessWidget {
                   children: <Widget>[
                     Stack(
                       children: [
-                        Align(
-                          alignment: Alignment.centerRight,
-                          child: Container(
-                            height: _projectBannerHeight(width),
-                            width: _projectBannerWidth(width),
-                            decoration: BoxDecoration(
-                              image: DecorationImage(
-                                image: AssetImage(bannerImage),
-                                fit: BoxFit.fill,
-                              ),
-                              color: Colors.white,
-                            ),
-                            child: ShaderMask(
-                              blendMode: BlendMode.dstIn,
-                              child: Container(
-                                color: Colors.white,
-                              ),
-                              shaderCallback: (Rect bounds) {
-                                return const LinearGradient(
-                                  begin: Alignment.centerLeft,
-                                  end: Alignment.centerRight,
-                                  colors: [Colors.white, Colors.transparent],
-                                  stops: [0.1, 0.7],
-                                ).createShader(bounds);
-                              },
-                            ),
-                          ),
-                        ),
+                        BannerImage(height: _projectBannerHeight(width),width: _projectBannerWidth(width),image: bannerImage,),
                         Container(
                           alignment: Alignment.centerLeft,
                           margin: const EdgeInsets.only(left: 230),
