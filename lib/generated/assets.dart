@@ -55,7 +55,6 @@ class Assets {
   static const String projectImagesPortfolio = 'lib/assets/images/project_images/portfolio.png';
   static const String projectImagesSnake = 'lib/assets/images/project_images/snake.png';
   static const String projectImagesYoshopScraper = 'lib/assets/images/project_images/yoshop_scraper.png';
-  static const String projectsBannerImage = 'lib/components/projects/banner_image.dart';
   static const String projectsProjectComponent = 'lib/components/projects/project_component.dart';
   static const String projectsTextSection = 'lib/components/projects/text_section.dart';
   static const String providersLaunchPageAnimationProvider = 'lib/providers/launch_page_animation_provider.dart';
