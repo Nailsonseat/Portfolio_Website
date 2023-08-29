@@ -6,6 +6,7 @@ import 'package:portfolio_website/components/projects/banner_image.dart';
 import 'package:portfolio_website/components/projects/banner_title.dart';
 import 'package:portfolio_website/components/projects/project_component.dart';
 import 'package:provider/provider.dart';
+import 'package:timelines/timelines.dart';
 import '../../../components/projects/text_section.dart';
 import '../../../providers/scroll_provider.dart';
 
@@ -171,9 +172,15 @@ class ProjectPageTemplate extends StatelessWidget {
                               flex: 9,
                               child: Padding(
                                 padding: EdgeInsets.symmetric(horizontal: width / 19.74), // 100
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: _buildTextSections(textSections, width),
+                                child: FixedTimeline.tileBuilder(
+                                  theme: TimelineTheme.of(context).copyWith(
+                                    nodePosition: 0,
+                                  ),
+                                  builder: TimelineTileBuilder.fromStyle(
+                                    contentsAlign: ContentsAlign.basic,
+                                    contentsBuilder: (context, index) => _buildTextSections(textSections, width)[index],
+                                    itemCount: _buildTextSections(textSections, width).length,
+                                  ),
                                 ),
                               ),
                             ),
