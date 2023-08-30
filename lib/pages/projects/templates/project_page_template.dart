@@ -36,6 +36,7 @@ class ProjectPageTemplate extends StatelessWidget {
     for (TextSection i in textSections) {
       builtSections.addAll([
         Container(
+          margin: EdgeInsets.symmetric(horizontal: width / 35.74),
           alignment: Alignment.centerLeft,
           child: Text(
             i.title,
@@ -44,9 +45,9 @@ class ProjectPageTemplate extends StatelessWidget {
         ),
         Container(
           width: double.infinity,
-          margin: const EdgeInsets.symmetric(vertical: 60),
+          margin: EdgeInsets.symmetric(vertical: 60, horizontal: width / 35.74),
           padding: EdgeInsets.all(width / 24.675),
-          decoration: BoxDecoration(color: Colors.grey[100], borderRadius: BorderRadius.circular(30)),
+          decoration: BoxDecoration(color: Colors.deepPurple[50]?.withOpacity(0.7), borderRadius: BorderRadius.circular(30)),
           child: FutureBuilder<String>(
             future: _loadHtmlFile(i.bodyPath),
             builder: (context, snapshot) {
@@ -169,15 +170,36 @@ class ProjectPageTemplate extends StatelessWidget {
                               ),
                             ),
                             Expanded(
-                              flex: 9,
+                              flex: 10,
                               child: Padding(
-                                padding: EdgeInsets.symmetric(horizontal: width / 19.74), // 100
+                                padding: EdgeInsets.symmetric(horizontal: width / 35.74), // 100
                                 child: FixedTimeline.tileBuilder(
                                   theme: TimelineTheme.of(context).copyWith(
                                     nodePosition: 0,
                                   ),
-                                  builder: TimelineTileBuilder.fromStyle(
+                                  builder: TimelineTileBuilder.connected(
                                     contentsAlign: ContentsAlign.basic,
+                                    connectorBuilder: (context, index, type) {
+                                      if (index == 2) {
+                                        return const DashedLineConnector(thickness: 3,gap: 6,color: Colors.black,);
+                                      }
+                                      return const SolidLineConnector(
+                                        color: Colors.black,
+                                      );
+                                    },
+                                    indicatorBuilder: (context, index) {
+                                      return ContainerIndicator(
+                                        child: Container(
+                                          width: 70,
+                                          height: 90,
+                                          decoration: BoxDecoration(
+                                            color: Colors.transparent,
+                                            borderRadius: BorderRadius.circular(20),
+                                            border: Border.all(color: Colors.lightBlueAccent)
+                                          ),
+                                        ),
+                                      );
+                                    },
                                     contentsBuilder: (context, index) => _buildTextSections(textSections, width)[index],
                                     itemCount: _buildTextSections(textSections, width).length,
                                   ),
