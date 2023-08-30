@@ -5,8 +5,8 @@ import 'package:line_icons/line_icons.dart';
 import 'package:portfolio_website/components/projects/banner_image.dart';
 import 'package:portfolio_website/components/projects/banner_title.dart';
 import 'package:portfolio_website/components/projects/project_component.dart';
+import 'package:portfolio_website/components/projects/time_line.dart';
 import 'package:provider/provider.dart';
-import 'package:timelines/timelines.dart';
 import '../../../components/projects/text_section.dart';
 import '../../../providers/scroll_provider.dart';
 
@@ -31,8 +31,8 @@ class ProjectPageTemplate extends StatelessWidget {
 
   Future<String> _loadHtmlFile(String path) async => await rootBundle.loadString(path);
 
-  List<Widget> _buildTextSections(List textSections, double width) {
-    List<Widget> builtSections = [];
+  List<Container> _buildTextSections(List textSections, double width) {
+    List<Container> builtSections = [];
     for (TextSection i in textSections) {
       builtSections.addAll([
         Container(
@@ -47,7 +47,7 @@ class ProjectPageTemplate extends StatelessWidget {
           width: double.infinity,
           margin: EdgeInsets.symmetric(vertical: 60, horizontal: width / 35.74),
           padding: EdgeInsets.all(width / 24.675),
-          decoration: BoxDecoration(color: Colors.deepPurple[50]?.withOpacity(0.7), borderRadius: BorderRadius.circular(30)),
+          decoration: BoxDecoration(color: Colors.deepPurpleAccent[100]?.withOpacity(0.2), borderRadius: BorderRadius.circular(30)),
           child: FutureBuilder<String>(
             future: _loadHtmlFile(i.bodyPath),
             builder: (context, snapshot) {
@@ -66,7 +66,7 @@ class ProjectPageTemplate extends StatelessWidget {
                       }
                       return null; // Return null for other elements, no custom styles needed.
                     },
-                    textStyle: const TextStyle(fontSize: 16),
+                    textStyle: TextStyle(fontSize: width/123.625),
                   ),
                 );
               } else if (snapshot.hasError) {
@@ -173,37 +173,7 @@ class ProjectPageTemplate extends StatelessWidget {
                               flex: 10,
                               child: Padding(
                                 padding: EdgeInsets.symmetric(horizontal: width / 35.74), // 100
-                                child: FixedTimeline.tileBuilder(
-                                  theme: TimelineTheme.of(context).copyWith(
-                                    nodePosition: 0,
-                                  ),
-                                  builder: TimelineTileBuilder.connected(
-                                    contentsAlign: ContentsAlign.basic,
-                                    connectorBuilder: (context, index, type) {
-                                      if (index == 2) {
-                                        return const DashedLineConnector(thickness: 3,gap: 6,color: Colors.black,);
-                                      }
-                                      return const SolidLineConnector(
-                                        color: Colors.black,
-                                      );
-                                    },
-                                    indicatorBuilder: (context, index) {
-                                      return ContainerIndicator(
-                                        child: Container(
-                                          width: 70,
-                                          height: 90,
-                                          decoration: BoxDecoration(
-                                            color: Colors.transparent,
-                                            borderRadius: BorderRadius.circular(20),
-                                            border: Border.all(color: Colors.lightBlueAccent)
-                                          ),
-                                        ),
-                                      );
-                                    },
-                                    contentsBuilder: (context, index) => _buildTextSections(textSections, width)[index],
-                                    itemCount: _buildTextSections(textSections, width).length,
-                                  ),
-                                ),
+                                child: ProjectTimeLine(textSections: _buildTextSections(textSections, width),),
                               ),
                             ),
                           ],
