@@ -1,8 +1,8 @@
+import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
+import 'package:ionicons/ionicons.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:timelines/timelines.dart';
-
-
 
 class ProjectTimeLine extends StatelessWidget {
   const ProjectTimeLine({super.key, required this.textSections});
@@ -11,7 +11,6 @@ class ProjectTimeLine extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     final int length = textSections.length;
     return FixedTimeline.tileBuilder(
       theme: TimelineTheme.of(context).copyWith(
@@ -21,7 +20,11 @@ class ProjectTimeLine extends StatelessWidget {
         contentsAlign: ContentsAlign.basic,
         connectorBuilder: (context, index, type) {
           if (index == 2) {
-            return const DashedLineConnector(thickness: 3,gap: 6,color: Colors.black,);
+            return const DashedLineConnector(
+              thickness: 3,
+              gap: 6,
+              color: Colors.black,
+            );
           }
           return const SolidLineConnector(
             color: Colors.black,
@@ -33,11 +36,11 @@ class ProjectTimeLine extends StatelessWidget {
               width: 70,
               height: 90,
               decoration: BoxDecoration(
-                  color: Colors.deepPurpleAccent[100],
-                  borderRadius: BorderRadius.circular(20),
-                 // border: Border.all(color: Colors.lightBlueAccent)
+                color: Colors.deepPurpleAccent[100],
+                borderRadius: BorderRadius.circular(20),
+                // border: Border.all(color: Colors.lightBlueAccent)
               ),
-              child: const Icon(Icons.description_outlined ,color: Colors.white,size: 32),
+              child: const Icon(EvaIcons.fileText, color: Colors.white, size: 32),
             ),
           );
         },
