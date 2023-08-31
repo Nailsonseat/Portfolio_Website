@@ -40,6 +40,7 @@ class HospitalManagementUtility extends StatelessWidget {
       timelineIcons: timelineIcons,
       containerColor: containerColor,
       timelineBlockColor: timelineBlockColor,
+      primaryColor: containerColor,
       projectComponents: projectComponents,
     );
   }

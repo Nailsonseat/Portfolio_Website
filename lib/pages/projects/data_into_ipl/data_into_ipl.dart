@@ -41,6 +41,7 @@ class DataIntoIPL extends StatelessWidget {
       timelineIcons: timelineIcons,
       containerColor: containerColor,
       timelineBlockColor: timelineBlockColor,
+      primaryColor: containerColor,
       projectComponents: projectComponents,
     );
   }

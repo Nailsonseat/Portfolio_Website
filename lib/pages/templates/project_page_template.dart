@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
-import 'package:hexcolor/hexcolor.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:portfolio_website/components/projects/banner_image.dart';
 import 'package:portfolio_website/components/projects/banner_title.dart';
@@ -21,6 +20,7 @@ class ProjectPageTemplate extends StatelessWidget {
     required this.timelineIcons,
     required this.containerColor,
     required this.timelineBlockColor,
+    required this.primaryColor,
   });
 
   final List<TextSection> textSections;
@@ -30,6 +30,7 @@ class ProjectPageTemplate extends StatelessWidget {
   final List<IconData> timelineIcons;
   final Color containerColor;
   final Color timelineBlockColor;
+  final Color primaryColor;
 
   double _projectBannerHeight(double width) => width / 2.193333333; // 900
   double _projectBannerWidth(double width) => width / 1.316; // 1500
@@ -111,7 +112,7 @@ class ProjectPageTemplate extends StatelessWidget {
         title: Text(projectTitle),
         toolbarHeight: scrollProvider.appBarHeight,
         shadowColor: Colors.black,
-        backgroundColor: Colors.white,
+        backgroundColor: primaryColor,
         elevation: 1,
       ),
       backgroundColor: Colors.white,
@@ -201,7 +202,7 @@ class ProjectPageTemplate extends StatelessWidget {
                     width: width / 24.675,
                     height: width / 24.675,
                     child: FloatingActionButton(
-                      backgroundColor: HexColor('#eccdf7'),
+                      backgroundColor: primaryColor,
                       onPressed: () =>
                           scrollProvider.scrollToProjectDescription(_projectBannerHeight(width) + width / 13.16),
                       // width / 13.16 = 150
