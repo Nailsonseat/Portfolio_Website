@@ -5,10 +5,11 @@ import 'package:line_icons/line_icons.dart';
 import 'package:timelines/timelines.dart';
 
 class ProjectTimeLine extends StatelessWidget {
-  const ProjectTimeLine({super.key, required this.textSections, required this.timelineIcons});
+  const ProjectTimeLine({super.key, required this.textSections, required this.timelineIcons, required this.timelineBlockColor});
 
   final List<Widget> textSections;
   final List<IconData> timelineIcons;
+  final Color timelineBlockColor;
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +38,7 @@ class ProjectTimeLine extends StatelessWidget {
               width: 70,
               height: 90,
               decoration: BoxDecoration(
-                color: Colors.deepPurpleAccent[100],
+                color: timelineBlockColor,
                 borderRadius: BorderRadius.circular(20),
                 // border: Border.all(color: Colors.lightBlueAccent)
               ),
