@@ -7,6 +7,7 @@ import 'package:portfolio_website/components/projects/banner_title.dart';
 import 'package:portfolio_website/components/projects/project_component.dart';
 import 'package:portfolio_website/components/projects/timeline.dart';
 import 'package:provider/provider.dart';
+import '../../components/projects/table_of_contents_header.dart';
 import '../../components/projects/text_section.dart';
 import '../../providers/scroll_provider.dart';
 
@@ -156,24 +157,37 @@ class ProjectPageTemplate extends StatelessWidget {
                               flex: 3,
                               child: Container(
                                 decoration: BoxDecoration(
-                                  borderRadius: const BorderRadius.only(topRight: Radius.circular(30)),
+                                  borderRadius: const BorderRadius.only(topRight: Radius.circular(50)),
                                   color: containerColor,
                                 ),
                                 child: Column(
                                   children: <Widget>[
                                     Consumer<ScrollProvider>(builder: (_, scrollProvider, __) {
-                                      return SizedBox(height: width / 112.8 + scrollProvider.tableOfContentsOffset);
+                                      return SizedBox(height: 0 + scrollProvider.tableOfContentsOffset);
                                     }),
-                                    Align(
-                                      alignment: Alignment.center,
-                                      child: Text(
-                                        'Table of contents',
-                                        style: TextStyle(fontSize: width / 56.4), // 35
+                                    Stack(
+                                      children:[
+                                        ClipRRect(
+                                        borderRadius: const BorderRadius.only(topRight: Radius.circular(50)),
+                                        child: CustomPaint(
+                                          size: Size(width*0.3,(280).toDouble()), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
+                                          painter: TOCHeader(shapeColor: timelineBlockColor),
+                                        ),
                                       ),
+                                        Container(
+                                          height: 150,
+                                          alignment: Alignment.center,
+                                          child: Text(
+                                            'Table of contents',
+                                            style: TextStyle(fontSize: width / 56.4,color: Colors.white), // 35
+                                          ),
+                                        ),
+                                      ]
                                     ),
+
                                     /*for (ProjectComponent i in projectComponents)
                                       TextButton(onPressed: () {}, child: Text(i.title))*/
-                                    Image.asset("lib/assets/images/miscellaneous/under_construction.png")
+                                    //Image.asset("lib/assets/images/miscellaneous/under_construction.png")
                                   ],
                                 ),
                               ),
