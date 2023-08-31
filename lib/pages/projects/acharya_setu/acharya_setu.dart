@@ -1,4 +1,5 @@
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
+import 'package:hexcolor/hexcolor.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:portfolio_website/components/projects/project_component.dart';
@@ -29,7 +30,7 @@ class AcharyaSetu extends StatelessWidget {
       LineIcons.hardHat
     ];
 
-    final Color containerColor = Colors.deepPurpleAccent[100]!.withOpacity(0.2);
+    final Color containerColor = HexColor('#ebddff');
 
     final Color timelineBlockColor = Colors.deepPurpleAccent[100]!;
 
@@ -40,6 +41,7 @@ class AcharyaSetu extends StatelessWidget {
       timelineIcons: timelineIcons,
       containerColor: containerColor,
       timelineBlockColor: timelineBlockColor,
+      primaryColor: containerColor,
       projectComponents: projectComponents,
     );
   }
