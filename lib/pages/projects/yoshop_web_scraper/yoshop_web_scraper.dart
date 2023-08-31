@@ -1,4 +1,5 @@
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
+import 'package:hexcolor/hexcolor.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:portfolio_website/components/projects/project_component.dart';
@@ -24,7 +25,9 @@ class YoshopWebScraper extends StatelessWidget {
     LineIcons.hardHat
   ];
 
-  final Color containerColor = Colors.deepPurpleAccent[100]!.withOpacity(0.2);
+  final Color containerColor = HexColor('#e2f8fd');
+
+  final Color timelineBlockColor = HexColor('#7677d2');
 
   @override
   Widget build(BuildContext context) {
@@ -36,6 +39,7 @@ class YoshopWebScraper extends StatelessWidget {
       textSections: textSections,
       timelineIcons: timelineIcons,
       containerColor: containerColor,
+      timelineBlockColor: timelineBlockColor,
       projectComponents: projectComponents,
     );
   }

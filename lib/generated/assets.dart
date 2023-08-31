@@ -55,14 +55,17 @@ class Assets {
   static const String projectImagesPortfolio = 'lib/assets/images/project_images/portfolio.png';
   static const String projectImagesSnake = 'lib/assets/images/project_images/snake.png';
   static const String projectImagesYoshopScraper = 'lib/assets/images/project_images/yoshop_scraper.png';
+  static const String projectsBannerImage = 'lib/components/projects/banner_image.dart';
+  static const String projectsBannerTitle = 'lib/components/projects/banner_title.dart';
   static const String projectsProjectComponent = 'lib/components/projects/project_component.dart';
   static const String projectsTextSection = 'lib/components/projects/text_section.dart';
+  static const String projectsTimeline = 'lib/components/projects/timeline.dart';
   static const String providersLaunchPageAnimationProvider = 'lib/providers/launch_page_animation_provider.dart';
   static const String providersProjectPageProvider = 'lib/providers/project_page_provider.dart';
   static const String providersProjectSliderProvider = 'lib/providers/project_slider_provider.dart';
   static const String providersScrollProvider = 'lib/providers/scroll_provider.dart';
-  static const String templatesProjectPageTemplate = 'lib/pages/projects/templates/project_page_template.dart';
-  static const String templatesUnderConstructionTemplate = 'lib/pages/projects/templates/under_construction_template.html';
+  static const String templatesProjectPageTemplate = 'lib/pages/templates/project_page_template.dart';
+  static const String templatesUnderConstructionTemplate = 'lib/pages/templates/under_construction_template.html';
   static const String yoshopWebScraperDescription = 'lib/pages/projects/yoshop_web_scraper/description.html';
   static const String yoshopWebScraperYoshopWebScraper = 'lib/pages/projects/yoshop_web_scraper/yoshop_web_scraper.dart';
 
