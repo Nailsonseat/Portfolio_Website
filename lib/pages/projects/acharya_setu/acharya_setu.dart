@@ -31,12 +31,15 @@ class AcharyaSetu extends StatelessWidget {
 
     final Color containerColor = Colors.deepPurpleAccent[100]!.withOpacity(0.2);
 
+    final Color timelineBlockColor = Colors.deepPurpleAccent[100]!;
+
     return ProjectPageTemplate(
       projectTitle: project.title,
       bannerImage: "lib/assets/images/project_images/acharya_setu.jpg",
       textSections: textSections,
       timelineIcons: timelineIcons,
       containerColor: containerColor,
+      timelineBlockColor: timelineBlockColor,
       projectComponents: projectComponents,
     );
   }

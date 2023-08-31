@@ -1,4 +1,5 @@
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
+import 'package:hexcolor/hexcolor.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:portfolio_website/components/projects/project_component.dart';
@@ -13,7 +14,7 @@ class HolomorphicBot extends StatelessWidget {
 
   final List<TextSection> textSections = [
     TextSection(title: "Description", bodyPath: "lib/pages/projects/holomorphic_bot/description.html"),
-    TextSection(title: "Description", bodyPath: "lib/pages/projects/templates/under_construction_template.html"),
+    TextSection(title: "Description", bodyPath: "lib/pages/templates/under_construction_template.html"),
   ];
   final List<ProjectComponent> projectComponents = [ProjectComponent(title: "Description", subComponents: [])];
 
@@ -24,7 +25,9 @@ class HolomorphicBot extends StatelessWidget {
     LineIcons.hardHat
   ];
 
-  final Color containerColor = Colors.deepPurpleAccent[100]!.withOpacity(0.2);
+  final Color containerColor = HexColor('#f7e1d7');
+
+  final Color timelineBlockColor = HexColor('#f29c73');
 
   @override
   Widget build(BuildContext context) {
@@ -36,6 +39,7 @@ class HolomorphicBot extends StatelessWidget {
       textSections: textSections,
       timelineIcons: timelineIcons,
       containerColor: containerColor,
+      timelineBlockColor: timelineBlockColor,
       projectComponents: projectComponents,
     );
   }

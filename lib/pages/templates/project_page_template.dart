@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
+import 'package:hexcolor/hexcolor.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:portfolio_website/components/projects/banner_image.dart';
 import 'package:portfolio_website/components/projects/banner_title.dart';
@@ -17,7 +18,9 @@ class ProjectPageTemplate extends StatelessWidget {
     required this.bannerImage,
     required this.textSections,
     required this.projectComponents,
-    required this.timelineIcons, required this.containerColor,
+    required this.timelineIcons,
+    required this.containerColor,
+    required this.timelineBlockColor,
   });
 
   final List<TextSection> textSections;
@@ -26,6 +29,7 @@ class ProjectPageTemplate extends StatelessWidget {
   final String projectTitle;
   final List<IconData> timelineIcons;
   final Color containerColor;
+  final Color timelineBlockColor;
 
   double _projectBannerHeight(double width) => width / 2.193333333; // 900
   double _projectBannerWidth(double width) => width / 1.316; // 1500
@@ -180,6 +184,7 @@ class ProjectPageTemplate extends StatelessWidget {
                                 child: ProjectTimeLine(
                                   textSections: _buildTextSections(textSections, width),
                                   timelineIcons: timelineIcons,
+                                  timelineBlockColor: timelineBlockColor,
                                 ),
                               ),
                             ),
@@ -196,6 +201,7 @@ class ProjectPageTemplate extends StatelessWidget {
                     width: width / 24.675,
                     height: width / 24.675,
                     child: FloatingActionButton(
+                      backgroundColor: HexColor('#eccdf7'),
                       onPressed: () =>
                           scrollProvider.scrollToProjectDescription(_projectBannerHeight(width) + width / 13.16),
                       // width / 13.16 = 150
