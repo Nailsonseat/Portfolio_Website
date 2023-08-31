@@ -5,9 +5,10 @@ import 'package:line_icons/line_icons.dart';
 import 'package:timelines/timelines.dart';
 
 class ProjectTimeLine extends StatelessWidget {
-  const ProjectTimeLine({super.key, required this.textSections});
+  const ProjectTimeLine({super.key, required this.textSections, required this.timelineIcons});
 
   final List<Widget> textSections;
+  final List<IconData> timelineIcons;
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +41,7 @@ class ProjectTimeLine extends StatelessWidget {
                 borderRadius: BorderRadius.circular(20),
                 // border: Border.all(color: Colors.lightBlueAccent)
               ),
-              child: const Icon(EvaIcons.fileText, color: Colors.white, size: 32),
+              child: Icon(timelineIcons[index], color: Colors.white, size: 32),
             ),
           );
         },

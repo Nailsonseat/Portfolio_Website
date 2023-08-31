@@ -5,10 +5,10 @@ import 'package:line_icons/line_icons.dart';
 import 'package:portfolio_website/components/projects/banner_image.dart';
 import 'package:portfolio_website/components/projects/banner_title.dart';
 import 'package:portfolio_website/components/projects/project_component.dart';
-import 'package:portfolio_website/components/projects/time_line.dart';
+import 'package:portfolio_website/components/projects/timeline.dart';
 import 'package:provider/provider.dart';
-import '../../../components/projects/text_section.dart';
-import '../../../providers/scroll_provider.dart';
+import '../../components/projects/text_section.dart';
+import '../../providers/scroll_provider.dart';
 
 class ProjectPageTemplate extends StatelessWidget {
   ProjectPageTemplate({
@@ -17,12 +17,15 @@ class ProjectPageTemplate extends StatelessWidget {
     required this.bannerImage,
     required this.textSections,
     required this.projectComponents,
+    required this.timelineIcons, required this.containerColor,
   });
 
   final List<TextSection> textSections;
   final List<ProjectComponent> projectComponents;
   final String bannerImage;
   final String projectTitle;
+  final List<IconData> timelineIcons;
+  final Color containerColor;
 
   double _projectBannerHeight(double width) => width / 2.193333333; // 900
   double _projectBannerWidth(double width) => width / 1.316; // 1500
@@ -47,7 +50,8 @@ class ProjectPageTemplate extends StatelessWidget {
           width: double.infinity,
           margin: EdgeInsets.symmetric(vertical: 60, horizontal: width / 35.74),
           padding: EdgeInsets.all(width / 24.675),
-          decoration: BoxDecoration(color: Colors.deepPurpleAccent[100]?.withOpacity(0.2), borderRadius: BorderRadius.circular(30)),
+          decoration: BoxDecoration(
+              color: containerColor, borderRadius: BorderRadius.circular(30)),
           child: FutureBuilder<String>(
             future: _loadHtmlFile(i.bodyPath),
             builder: (context, snapshot) {
@@ -66,7 +70,7 @@ class ProjectPageTemplate extends StatelessWidget {
                       }
                       return null; // Return null for other elements, no custom styles needed.
                     },
-                    textStyle: TextStyle(fontSize: width/123.625),
+                    textStyle: TextStyle(fontSize: width / 123.625),
                   ),
                 );
               } else if (snapshot.hasError) {
@@ -148,7 +152,7 @@ class ProjectPageTemplate extends StatelessWidget {
                               child: Container(
                                 decoration: BoxDecoration(
                                   borderRadius: const BorderRadius.only(topRight: Radius.circular(30)),
-                                  color: Colors.grey[100],
+                                  color: containerColor,
                                 ),
                                 child: Column(
                                   children: <Widget>[
@@ -173,7 +177,10 @@ class ProjectPageTemplate extends StatelessWidget {
                               flex: 10,
                               child: Padding(
                                 padding: EdgeInsets.symmetric(horizontal: width / 35.74), // 100
-                                child: ProjectTimeLine(textSections: _buildTextSections(textSections, width),),
+                                child: ProjectTimeLine(
+                                  textSections: _buildTextSections(textSections, width),
+                                  timelineIcons: timelineIcons,
+                                ),
                               ),
                             ),
                           ],
