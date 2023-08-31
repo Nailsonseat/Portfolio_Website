@@ -126,6 +126,6 @@ flutter:
     - lib/pages/projects/letstalkk/
     - lib/pages/projects/machine_learning/
     - lib/pages/projects/portfolio_website/
-    - lib/pages/projects/templates/
     - lib/pages/projects/yoshop_web_scraper/
+    - lib/pages/templates/
 
