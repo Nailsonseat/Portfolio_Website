@@ -56,8 +56,7 @@ class ProjectPageTemplate extends StatelessWidget {
           width: double.infinity,
           margin: EdgeInsets.symmetric(vertical: 60, horizontal: width / 35.74),
           padding: EdgeInsets.all(width / 24.675),
-          decoration: BoxDecoration(
-              color: containerColor, borderRadius: BorderRadius.circular(30)),
+          decoration: BoxDecoration(color: containerColor, borderRadius: BorderRadius.circular(30)),
           child: FutureBuilder<String>(
             future: _loadHtmlFile(i.bodyPath),
             builder: (context, snapshot) {
@@ -151,9 +150,12 @@ class ProjectPageTemplate extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
     width = width < 800 ? 800 : width;
 
     ScrollProvider scrollProvider = Provider.of<ScrollProvider>(context, listen: false);
+    scrollProvider.bannerHeight = _projectBannerHeight(width);
+    scrollProvider.width = width;
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
       //RenderBox renderer = containerKey.currentContext!.findRenderObject() as RenderBox;
@@ -162,7 +164,7 @@ class ProjectPageTemplate extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(projectTitle),
+        title: Text(projectTitle,style: TextStyle(fontSize: 25),),
         toolbarHeight: scrollProvider.appBarHeight,
         shadowColor: Colors.black,
         backgroundColor: primaryColor,
@@ -217,28 +219,30 @@ class ProjectPageTemplate extends StatelessWidget {
                                     Consumer<ScrollProvider>(builder: (_, scrollProvider, __) {
                                       return SizedBox(height: 0 + scrollProvider.tableOfContentsOffset);
                                     }),
-                                    Stack(
-                                      children:[
-                                        ClipRRect(
+                                    Stack(children: [
+                                      ClipRRect(
                                         borderRadius: const BorderRadius.only(topRight: Radius.circular(50)),
                                         child: CustomPaint(
-                                          size: Size(width*0.3,(280).toDouble()), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
+                                          size: Size(width * 0.3, (height / 4.192).toDouble()),
+                                          //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
                                           painter: TOCHeader(shapeColor: timelineBlockColor),
                                         ),
                                       ),
-                                        Container(
-                                          height: 150,
-                                          alignment: Alignment.center,
-                                          child: Text(
-                                            'Table of contents',
-                                            style: TextStyle(fontSize: width / 56.4,color: Colors.white), // 35
+                                      Column(
+                                        children: [
+                                          Container(
+                                            height: height / 8.0615384615,
+                                            margin: EdgeInsets.only(bottom: 30),
+                                            alignment: Alignment.center,
+                                            child: Text(
+                                              'Table of contents',
+                                              style: TextStyle(fontSize: width / 56.4, color: Colors.white), // 35
+                                            ),
                                           ),
-                                        ),
-                                      ]
-                                    ),
-
-                                    /*for (ProjectComponent i in projectComponents)
-                                      TextButton(onPressed: () {}, child: Text(i.title))*/
+                                          createTableOfContents(),
+                                        ],
+                                      ),
+                                    ]),
                                     //Image.asset("lib/assets/images/miscellaneous/under_construction.png")
                                   ],
                                 ),

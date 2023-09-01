@@ -1,3 +1,4 @@
+import 'dart:math';
 import 'package:flutter/cupertino.dart';
 
 class ScrollProvider extends ChangeNotifier {
@@ -6,14 +7,19 @@ class ScrollProvider extends ChangeNotifier {
   bool _showFloatingButton = false;
 
   late double appBarHeight;
+  late double bannerHeight;
+  late double width;
   double tableOfContentsOffset = 0;
 
   ScrollProvider() {
     _homeScrollController.addListener(_scrollListener);
-    _detailedProjectScrollController.addListener(_tableOfContentsListner);
+    _detailedProjectScrollController.addListener(() {
+      _tableOfContentsListner(bannerHeight, width);
+    });
   }
 
   ScrollController get homeScrollController => _homeScrollController;
+
   ScrollController get detailedProjectScrollController => _detailedProjectScrollController;
 
   bool get showFloatingButton => _showFloatingButton;
@@ -27,10 +33,10 @@ class ScrollProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  void _tableOfContentsListner(){
-    if (_detailedProjectScrollController.offset>1100){
-      tableOfContentsOffset = _detailedProjectScrollController.offset - 1100;
-    }else{
+  void _tableOfContentsListner(double height, double width) {
+    if (_detailedProjectScrollController.offset > height) {
+      tableOfContentsOffset = max(0, _detailedProjectScrollController.offset - height - width / 9.87);
+    } else {
       tableOfContentsOffset = 0;
     }
     notifyListeners();
