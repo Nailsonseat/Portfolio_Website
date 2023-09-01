@@ -14,7 +14,7 @@ class EcommerceShoppersBehaviourAndUnderstanding extends StatelessWidget {
 
   final List<TextSection> textSections = [
     TextSection(title: "Description", bodyPath: "lib/pages/projects/ecommerce_shoppers_behaviour_and_understanding/description.html"),
-    TextSection(title: "Under Construction...", bodyPath: "lib/pages/projects/templates/under_construction_template.html"),
+    TextSection(title: "Under Construction...", bodyPath: "lib/pages/templates/under_construction_template.html"),
   ];
   final List<ProjectComponent> projectComponents = [ProjectComponent(title: "Description", subComponents: [])];
 

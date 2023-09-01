@@ -17,10 +17,10 @@ class AcharyaSetu extends StatelessWidget {
     ProjectPageProvider projectPageProvider = Provider.of<ProjectPageProvider>(context, listen: false);
     Project project = projectPageProvider.getProject("Acharya Setu");
 
-    final List<ProjectComponent> projectComponents = [ProjectComponent(title: "Description", subComponents: [])];
+    final List<ProjectComponent> projectComponents = [ProjectComponent(title: "Description", subComponents: ["Dummy1","Dummy2","Dummy3"])];
     final List<TextSection> textSections = [
       TextSection(title: "Description", bodyPath: 'lib/pages/projects/acharya_setu/description.html'),
-      TextSection(title: "Under Construction...", bodyPath: 'lib/pages/projects/templates/under_construction_template.html')
+      TextSection(title: "Under Construction...", bodyPath: 'lib/pages/templates/under_construction_template.html')
     ];
 
     final List<IconData> timelineIcons = [
