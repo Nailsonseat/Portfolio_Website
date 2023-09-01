@@ -96,6 +96,58 @@ class ProjectPageTemplate extends StatelessWidget {
     return builtSections;
   }
 
+  Column createTableOfContents() {
+    List<Widget> contents = [];
+    for (ProjectComponent i in projectComponents) {
+      contents.addAll([
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(Icons.circle,color: timelineBlockColor,),
+            TextButton(
+              onPressed: () {},
+              child: Text(
+                i.title,
+                style: TextStyle(fontSize: 30),
+              ),
+            ),
+          ],
+        ),
+        Divider(
+          height: 2,
+          indent: 50,
+          endIndent: 50,
+        )
+      ]);
+      for (String j in i.subComponents) {
+        contents.addAll([
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(Icons.circle,color: timelineBlockColor,),
+              Container(
+                padding: EdgeInsets.all(15),
+                child: TextButton(
+                  onPressed: () {},
+                  child: Text(
+                    j,
+                    style: TextStyle(fontSize: 20),
+                  ),
+                ),
+              ),
+            ],
+          ),
+          Divider(
+            height: 2,
+          ),
+        ]);
+      }
+    }
+    return Column(
+      children: contents,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
