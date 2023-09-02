@@ -7,8 +7,9 @@ import 'package:provider/provider.dart';
 
 
 void main() {
-  runApp(const MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
   setUrlStrategy(PathUrlStrategy());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
