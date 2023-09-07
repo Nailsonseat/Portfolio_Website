@@ -49,11 +49,11 @@ dependencies:
   logger: ^2.0.1
   flutter_markdown: ^0.6.17+2
   animated_toggle_switch: ^0.7.0
-  flutter_widget_from_html: ^0.10.4
   timelines: ^0.1.0
   ionicons: ^0.2.2
   eva_icons_flutter: ^3.1.0
   hexcolor: ^3.0.1
+  flutter_html: ^3.0.0-beta.2
 
 dev_dependencies:
   flutter_test:
