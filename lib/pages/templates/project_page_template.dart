@@ -61,22 +61,26 @@ class ProjectPageTemplate extends StatelessWidget {
             future: _loadHtmlFile(i.bodyPath),
             builder: (context, snapshot) {
               if (snapshot.hasData) {
-                return SingleChildScrollView(
-                  child: HtmlWidget(
-                    snapshot.data!, // HTML content from the file
-                    customStylesBuilder: (node) {
-                      if (node.localName == 'ul') {
-                        return {
-                          'color': 'black',
-                          'font-size': '18px',
-                        };
-                      } else if (node.localName == 'p') {
-                        return {'color': 'black', 'font-size': '18px'};
-                      }
-                      return null; // Return null for other elements, no custom styles needed.
-                    },
-                    textStyle: TextStyle(fontSize: width / 123.625),
-                  ),
+                return Consumer<ProjectComponentsConstraintsProvider>(
+                  builder: (context, provider, _) {
+                    return SizedBox(
+                      height: provider.textContainerHeights[i], // Replace with the height from your provider
+                      child: Html(
+                        data: snapshot.data,
+                        extensions: [
+                          TagWrapExtension(
+                            tagsToWrap: {"body"},
+                            builder: (child) {
+                              return Container(
+                                key: componentsConstraintsProvider.textKeys[i],
+                                child: child,
+                              );
+                            },
+                          ),
+                        ],
+                      ),
+                    );
+                  },
                 );
               } else if (snapshot.hasError) {
                 return const Center(
