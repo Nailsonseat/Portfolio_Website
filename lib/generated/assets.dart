@@ -7,6 +7,7 @@ class Assets {
   static const String aboutMeEducation = 'lib/assets/text/about_me/education.txt';
   static const String acharyaSetuAcharyaSetu = 'lib/pages/projects/acharya_setu/acharya_setu.dart';
   static const String acharyaSetuDescription = 'lib/pages/projects/acharya_setu/description.html';
+  static const String acharyaSetuTechstack = 'lib/pages/projects/acharya_setu/techstack.html';
   static const String browserPagesAllProjectsPage = 'lib/pages/project_browser/browser_pages/all_projects_page.dart';
   static const String browserPagesDevelopmentsProjectsPage = 'lib/pages/project_browser/browser_pages/developments_projects_page.dart';
   static const String browserPagesMlProjectsPage = 'lib/pages/project_browser/browser_pages/ml_projects_page.dart';
@@ -44,6 +45,10 @@ class Assets {
   static const String profilePicProfilePicFlipped = 'lib/assets/images/profile_pic/profile_pic_flipped.png';
   static const String projectBrowserProjectBrowserMain = 'lib/pages/project_browser/project_browser_main.dart';
   static const String projectBrowserProjectBrowserPage = 'lib/pages/project_browser/project_browser_page.dart';
+  static const String projectCss3SvgrepoCom = 'lib/assets/project/css-3-svgrepo-com.svg';
+  static const String projectDartSvgrepoCom = 'lib/assets/project/dart-svgrepo-com.svg';
+  static const String projectFlutterSvgrepoCom = 'lib/assets/project/flutter-svgrepo-com.svg';
+  static const String projectHtml5SvgrepoCom = 'lib/assets/project/html-5-svgrepo-com.svg';
   static const String projectImagesAcharyaSetu = 'lib/assets/images/project_images/acharya_setu.jpg';
   static const String projectImagesDataInIpl = 'lib/assets/images/project_images/data_in_ipl.png';
   static const String projectImagesECommerceBehaviourUnderstanding = 'lib/assets/images/project_images/e_commerce_behaviour_understanding.png';
@@ -62,10 +67,10 @@ class Assets {
   static const String projectsTextSection = 'lib/components/projects/text_section.dart';
   static const String projectsTimeline = 'lib/components/projects/timeline.dart';
   static const String providersLaunchPageAnimationProvider = 'lib/providers/launch_page_animation_provider.dart';
+  static const String providersProjectComponentConstraintProvider = 'lib/providers/project_component_constraint_provider.dart';
   static const String providersProjectPageProvider = 'lib/providers/project_page_provider.dart';
   static const String providersProjectSliderProvider = 'lib/providers/project_slider_provider.dart';
   static const String providersScrollProvider = 'lib/providers/scroll_provider.dart';
-  static const String templatesProfilePic = 'lib/pages/templates/profile_pic.png';
   static const String templatesProjectPageTemplate = 'lib/pages/templates/project_page_template.dart';
   static const String templatesUnderConstructionTemplate = 'lib/pages/templates/under_construction_template.html';
   static const String yoshopWebScraperDescription = 'lib/pages/projects/yoshop_web_scraper/description.html';

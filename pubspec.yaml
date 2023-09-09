@@ -45,8 +45,8 @@ dependencies:
   go_router: ^10.1.2
   google_fonts: ^5.1.0
   line_icons: ^2.0.3
-  url_launcher: ^6.1.13
-  logger: ^2.0.1
+  url_launcher: ^6.1.14
+  logger: ^2.0.2
   flutter_markdown: ^0.6.17+2
   animated_toggle_switch: ^0.7.0
   timelines: ^0.1.0
