@@ -176,6 +176,8 @@ class ProjectPageTemplate extends StatelessWidget {
     width = width < 800 ? 800 : width;
 
     ScrollProvider scrollProvider = Provider.of<ScrollProvider>(context, listen: false);
+    ProjectComponentsConstraintsProvider componentsConstraintsProvider =
+        Provider.of<ProjectComponentsConstraintsProvider>(context, listen: false);
     scrollProvider.bannerHeight = _projectBannerHeight(width);
     scrollProvider.width = width;
 
@@ -184,8 +186,10 @@ class ProjectPageTemplate extends StatelessWidget {
     componentsConstraintsProvider.titleKeys = List.generate(textSections.length, (index) => GlobalKey());
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      //RenderBox renderer = containerKey.currentContext!.findRenderObject() as RenderBox;
-      //Logger().w(renderer.size.height);
+      componentsConstraintsProvider.setTitleContainerHeight();
+      Future.delayed(const Duration(milliseconds: 2000), () {
+        componentsConstraintsProvider.setTextContainerHeight();
+      });
     });
 
     return Scaffold(
