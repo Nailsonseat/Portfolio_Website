@@ -78,7 +78,13 @@ class ProjectPageTemplate extends StatelessWidget {
                       height: provider.textContainerHeights[i], // Replace with the height from your provider
                       child: Html(
                         data: snapshot.data,
+                        style: {
+                          "body": Style(fontSize: FontSize(18.0)), // Adjust the font size as needed
+                          ".techstack": Style(height: Height(60), width: Width(60), margin: Margins.only(right: 20)),
+                        },
+                        onAnchorTap: (String? url, _, __) => _redirect(url!),
                         extensions: [
+                          const SvgHtmlExtension(),
                           TagWrapExtension(
                             tagsToWrap: {"body"},
                             builder: (child) {
