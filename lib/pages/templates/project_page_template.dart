@@ -138,7 +138,7 @@ class ProjectPageTemplate extends StatelessWidget {
       }
       contents.addAll([
         Container(
-          padding: const EdgeInsets.only(left: 100, right: 60),
+          padding: const EdgeInsets.only(left: 90, right: 60),
           child: TextButton(
             style: ButtonStyle(
               shape: MaterialStateProperty.all<RoundedRectangleBorder>(
@@ -170,7 +170,7 @@ class ProjectPageTemplate extends StatelessWidget {
         ),
         const Divider(
           height: 10,
-          indent: 100,
+          indent: 90,
           endIndent: 60,
         )
       ]);
