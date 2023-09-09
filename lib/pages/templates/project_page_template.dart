@@ -61,7 +61,7 @@ class ProjectPageTemplate extends StatelessWidget {
           margin: EdgeInsets.symmetric(horizontal: width / 35.74),
           alignment: Alignment.centerLeft,
           key: componentsConstraintsProvider.titleKeys[i],
-          child: Text(
+          child: SelectableText(
             textSections[i].title,
             style: TextStyle(fontSize: width / 35.890909), // 55
           ),
@@ -83,7 +83,7 @@ class ProjectPageTemplate extends StatelessWidget {
                         data: snapshot.data,
                         style: {
                           "body": Style(fontSize: FontSize(18.0)), // Adjust the font size as needed
-                          ".techstack": Style(height: Height(60), width: Width(60), margin: Margins.only(right: 20)),
+                          ".techstack": Style(height: Height(65), width: Width(65), margin: Margins.only(right: 20)),
                         },
                         onAnchorTap: (String? url, _, __) => _redirect(url!),
                         extensions: [
@@ -157,12 +157,12 @@ class ProjectPageTemplate extends StatelessWidget {
                   color: timelineBlockColor,
                   size: 16,
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 20,
                 ),
                 Text(
                   projectComponents[i].title,
-                  style: TextStyle(fontSize: 26),
+                  style: const TextStyle(fontSize: 26),
                 ),
               ],
             ),
