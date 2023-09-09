@@ -138,7 +138,7 @@ class ProjectPageTemplate extends StatelessWidget {
       }
       contents.addAll([
         Container(
-          padding: const EdgeInsets.only(left: 90, right: 60),
+          padding: const EdgeInsets.symmetric(horizontal: 80),
           child: TextButton(
             style: ButtonStyle(
               shape: MaterialStateProperty.all<RoundedRectangleBorder>(
@@ -162,16 +162,17 @@ class ProjectPageTemplate extends StatelessWidget {
                 ),
                 Text(
                   projectComponents[i].title,
-                  style: const TextStyle(fontSize: 26),
+                  style: TextStyle(fontSize: 26, color: timelineBlockColor),
                 ),
               ],
             ),
           ),
         ),
-        const Divider(
+        Divider(
           height: 10,
-          indent: 90,
-          endIndent: 60,
+          indent: 80,
+          endIndent: 80,
+          color: timelineBlockColor,
         )
       ]);
       for (String j in projectComponents[i].subComponents) {
