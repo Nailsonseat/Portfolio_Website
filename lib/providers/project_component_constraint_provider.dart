@@ -20,4 +20,11 @@ class ProjectComponentsConstraintsProvider extends ChangeNotifier {
     }
     notifyListeners();
   }
+  void setTitleContainerHeight() {
+    for (int i = 0; i < titleKeys.length; i++) {
+      RenderBox titleContainerRenderer = titleKeys[i].currentContext!.findRenderObject() as RenderBox;
+      titleContainerHeights[i] = titleContainerRenderer.size.height;
+    }
+    notifyListeners();
+  }
 }
