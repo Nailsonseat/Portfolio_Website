@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_web_plugins/flutter_web_plugins.dart';
+import 'package:portfolio_website/providers/project_component_constraint_provider.dart';
 import 'package:portfolio_website/providers/project_page_provider.dart';
 import 'package:portfolio_website/providers/scroll_provider.dart';
 import 'package:portfolio_website/routes.dart';
 import 'package:provider/provider.dart';
-
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -21,6 +21,7 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (_) => ScrollProvider()),
         ChangeNotifierProvider(create: (_) => ProjectPageProvider()),
+        ChangeNotifierProvider(create: (_) => ProjectComponentsConstraintsProvider())
       ],
       child: MaterialApp.router(
         title: 'Portfolio Website',
