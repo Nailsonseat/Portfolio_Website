@@ -130,4 +130,5 @@ flutter:
     - lib/pages/projects/portfolio_website/
     - lib/pages/projects/yoshop_web_scraper/
     - lib/pages/templates/
+    - lib/assets/techstack/
 
