@@ -117,7 +117,8 @@ class ProjectPageTemplate extends StatelessWidget {
     return builtSections;
   }
 
-  Column createTableOfContents() {
+  Column createTableOfContents(
+      ScrollProvider scrollProvider, ProjectComponentsConstraintsProvider componentsConstraintsProvider) {
     List<Widget> contents = [];
     for (ProjectComponent i in projectComponents) {
       contents.addAll([
