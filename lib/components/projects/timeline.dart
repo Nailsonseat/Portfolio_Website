@@ -1,11 +1,9 @@
-import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
-import 'package:ionicons/ionicons.dart';
-import 'package:line_icons/line_icons.dart';
 import 'package:timelines/timelines.dart';
 
 class ProjectTimeLine extends StatelessWidget {
-  const ProjectTimeLine({super.key, required this.textSections, required this.timelineIcons, required this.timelineBlockColor});
+  const ProjectTimeLine(
+      {super.key, required this.textSections, required this.timelineIcons, required this.timelineBlockColor});
 
   final List<Widget> textSections;
   final List<IconData> timelineIcons;
@@ -21,7 +19,7 @@ class ProjectTimeLine extends StatelessWidget {
       builder: TimelineTileBuilder.connected(
         contentsAlign: ContentsAlign.basic,
         connectorBuilder: (context, index, type) {
-          if (index == 2) {
+          if (length > 1 && index == length - 2) {
             return const DashedLineConnector(
               thickness: 3,
               gap: 6,
