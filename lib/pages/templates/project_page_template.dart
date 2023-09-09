@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
+import 'package:flutter_html/flutter_html.dart';
+import 'package:flutter_html_svg/flutter_html_svg.dart';
 import 'package:line_icons/line_icons.dart';
+import 'package:logger/logger.dart';
 import 'package:portfolio_website/components/projects/banner_image.dart';
 import 'package:portfolio_website/components/projects/banner_title.dart';
 import 'package:portfolio_website/components/projects/project_component.dart';
 import 'package:portfolio_website/components/projects/timeline.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../../components/projects/table_of_contents_header.dart';
 import '../../components/projects/text_section.dart';
+import '../../providers/project_component_constraint_provider.dart';
 import '../../providers/scroll_provider.dart';
 
 class ProjectPageTemplate extends StatelessWidget {
@@ -305,7 +309,14 @@ class ProjectPageTemplate extends StatelessWidget {
                                               style: TextStyle(fontSize: width / 56.4, color: Colors.white), // 35
                                             ),
                                           ),
-                                          createTableOfContents(),
+                                          Consumer<ProjectComponentsConstraintsProvider>(
+                                            builder: (context, componentsConstraintsProvider, child) {
+                                              return createTableOfContents(
+                                                scrollProvider,
+                                                componentsConstraintsProvider,
+                                              );
+                                            },
+                                          )
                                         ],
                                       ),
                                     ]),
