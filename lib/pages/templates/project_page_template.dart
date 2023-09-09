@@ -53,13 +53,14 @@ class ProjectPageTemplate extends StatelessWidget {
   List<Container> _buildTextSections(
       List textSections, double width, ProjectComponentsConstraintsProvider componentsConstraintsProvider) {
     List<Container> builtSections = [];
-    for (TextSection i in textSections) {
+    for (int i = 0; i < textSections.length; i++) {
       builtSections.addAll([
         Container(
           margin: EdgeInsets.symmetric(horizontal: width / 35.74),
           alignment: Alignment.centerLeft,
+          key: componentsConstraintsProvider.titleKeys[i],
           child: Text(
-            i.title,
+            textSections[i].title,
             style: TextStyle(fontSize: width / 35.890909), // 55
           ),
         ),
@@ -69,7 +70,7 @@ class ProjectPageTemplate extends StatelessWidget {
           padding: EdgeInsets.all(width / 24.675),
           decoration: BoxDecoration(color: containerColor, borderRadius: BorderRadius.circular(30)),
           child: FutureBuilder<String>(
-            future: _loadHtmlFile(i.bodyPath),
+            future: _loadHtmlFile(textSections[i].bodyPath),
             builder: (context, snapshot) {
               if (snapshot.hasData) {
                 return Consumer<ProjectComponentsConstraintsProvider>(
@@ -177,6 +178,10 @@ class ProjectPageTemplate extends StatelessWidget {
     ScrollProvider scrollProvider = Provider.of<ScrollProvider>(context, listen: false);
     scrollProvider.bannerHeight = _projectBannerHeight(width);
     scrollProvider.width = width;
+
+    componentsConstraintsProvider.initHeights(textSections.length);
+    componentsConstraintsProvider.textKeys = List.generate(textSections.length, (index) => GlobalKey());
+    componentsConstraintsProvider.titleKeys = List.generate(textSections.length, (index) => GlobalKey());
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
       //RenderBox renderer = containerKey.currentContext!.findRenderObject() as RenderBox;
