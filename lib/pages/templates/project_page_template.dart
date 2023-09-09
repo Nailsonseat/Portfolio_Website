@@ -40,7 +40,18 @@ class ProjectPageTemplate extends StatelessWidget {
 
   Future<String> _loadHtmlFile(String path) async => await rootBundle.loadString(path);
 
-  List<Container> _buildTextSections(List textSections, double width) {
+  void _redirect(String link) async {
+    try {
+      if (!await launchUrl(Uri.parse(link))) {
+        throw ('Error launching url');
+      }
+    } catch (error) {
+      Logger().e(error);
+    }
+  }
+
+  List<Container> _buildTextSections(
+      List textSections, double width, ProjectComponentsConstraintsProvider componentsConstraintsProvider) {
     List<Container> builtSections = [];
     for (TextSection i in textSections) {
       builtSections.addAll([
