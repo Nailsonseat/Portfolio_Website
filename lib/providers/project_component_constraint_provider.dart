@@ -8,8 +8,9 @@ class ProjectComponentsConstraintsProvider extends ChangeNotifier {
 
   bool visible = false;
 
-  void initHeights(int len){
+  void initHeights(int len) {
     textContainerHeights = List.generate(len, (index) => 0.1);
+    titleContainerHeights = List.generate(len, (index) => 0);
   }
   void setHeight(double height,int index){
     textContainerHeights[index]=height;
