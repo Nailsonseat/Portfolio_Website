@@ -43,7 +43,7 @@ final GoRouter routes = GoRouter(
             },
           ),
           routes: [
-            GoRoute(path: 'Acharya_Setu', pageBuilder: (context, state) => const MaterialPage(child: AcharyaSetu())),
+            GoRoute(path: 'Acharya_Setu', pageBuilder: (context, state) => MaterialPage(child: AcharyaSetu())),
             GoRoute(path: 'Hospital_Management_Utility', pageBuilder: (context, state) => MaterialPage(child: HospitalManagementUtility())),
             GoRoute(path: 'Ecommerce_Shoppers_Behaviour_and_Understanding', pageBuilder: (context, state) => MaterialPage(child: EcommerceShoppersBehaviourAndUnderstanding())),
             GoRoute(path: 'Data_Into_IPL', pageBuilder: (context, state) => MaterialPage(child: DataIntoIPL())),
