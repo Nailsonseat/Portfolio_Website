@@ -10,29 +10,38 @@ import 'package:provider/provider.dart';
 import '../../../providers/project_page_provider.dart';
 
 class AcharyaSetu extends StatelessWidget {
-  const AcharyaSetu({super.key});
+  AcharyaSetu({super.key});
+
+
+  final List<ProjectComponent> projectComponents = [
+    ProjectComponent(title: "Description", subComponents: []),
+    ProjectComponent(title: "TechStack", subComponents: []),
+    ProjectComponent(title: "Under Construction", subComponents: []),
+  ];
+  final List<TextSection> textSections = [
+    TextSection(title: "Description", bodyPath: 'lib/pages/projects/acharya_setu/description.html'),
+    TextSection(title: "Techstack", bodyPath: 'lib/pages/projects/acharya_setu/techstack.html'),
+    TextSection(title: "Under Construction...", bodyPath: 'lib/pages/templates/under_construction_template.html')
+  ];
+
+  final List<IconData> timelineIcons = [
+    Ionicons.bookmark_sharp,
+    EvaIcons.fileText,
+    LineIcons.toolbox,
+    LineIcons.tools,
+    LineIcons.hardHat,
+    LineIcons.hardHat,
+  ];
+
+  final Color containerColor = HexColor('#ebddff');
+
+  final Color timelineBlockColor = Colors.deepPurpleAccent[100]!;
 
   @override
   Widget build(BuildContext context) {
+
     ProjectPageProvider projectPageProvider = Provider.of<ProjectPageProvider>(context, listen: false);
     Project project = projectPageProvider.getProject("Acharya Setu");
-
-    final List<ProjectComponent> projectComponents = [ProjectComponent(title: "Description", subComponents: ["Dummy1","Dummy2","Dummy3"])];
-    final List<TextSection> textSections = [
-      TextSection(title: "Description", bodyPath: 'lib/pages/projects/acharya_setu/description.html'),
-      TextSection(title: "Under Construction...", bodyPath: 'lib/pages/templates/under_construction_template.html')
-    ];
-
-    final List<IconData> timelineIcons = [
-      Ionicons.bookmark_sharp,
-      EvaIcons.fileText,
-      Ionicons.construct_outline,
-      LineIcons.hardHat
-    ];
-
-    final Color containerColor = HexColor('#ebddff');
-
-    final Color timelineBlockColor = Colors.deepPurpleAccent[100]!;
 
     return ProjectPageTemplate(
       projectTitle: project.title,
