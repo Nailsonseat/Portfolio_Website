@@ -194,7 +194,10 @@ class ProjectPageTemplate extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(projectTitle,style: TextStyle(fontSize: 25),),
+        title: Text(
+          projectTitle,
+          style: const TextStyle(fontSize: 25),
+        ),
         toolbarHeight: scrollProvider.appBarHeight,
         shadowColor: Colors.black,
         backgroundColor: primaryColor,
@@ -262,7 +265,7 @@ class ProjectPageTemplate extends StatelessWidget {
                                         children: [
                                           Container(
                                             height: height / 8.0615384615,
-                                            margin: EdgeInsets.only(bottom: 30),
+                                            margin: const EdgeInsets.only(bottom: 30),
                                             alignment: Alignment.center,
                                             child: Text(
                                               'Table of contents',
@@ -282,10 +285,13 @@ class ProjectPageTemplate extends StatelessWidget {
                               flex: 10,
                               child: Padding(
                                 padding: EdgeInsets.symmetric(horizontal: width / 35.74), // 100
-                                child: ProjectTimeLine(
-                                  textSections: _buildTextSections(textSections, width),
-                                  timelineIcons: timelineIcons,
-                                  timelineBlockColor: timelineBlockColor,
+                                child: SingleChildScrollView(
+                                  child: ProjectTimeLine(
+                                    textSections:
+                                        _buildTextSections(textSections, width, componentsConstraintsProvider),
+                                    timelineIcons: timelineIcons,
+                                    timelineBlockColor: timelineBlockColor,
+                                  ),
                                 ),
                               ),
                             ),
