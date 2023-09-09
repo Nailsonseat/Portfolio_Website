@@ -12,7 +12,7 @@ import '../../components/projects/text_section.dart';
 import '../../providers/scroll_provider.dart';
 
 class ProjectPageTemplate extends StatelessWidget {
-  ProjectPageTemplate({
+  const ProjectPageTemplate({
     super.key,
     required this.projectTitle,
     required this.bannerImage,
@@ -35,8 +35,6 @@ class ProjectPageTemplate extends StatelessWidget {
 
   double _projectBannerHeight(double width) => width / 2.193333333; // 900
   double _projectBannerWidth(double width) => width / 1.316; // 1500
-
-  final GlobalKey containerKey = GlobalKey();
 
   Future<String> _loadHtmlFile(String path) async => await rootBundle.loadString(path);
 
@@ -135,44 +133,65 @@ class ProjectPageTemplate extends StatelessWidget {
         n--;
       }
       contents.addAll([
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(Icons.circle,color: timelineBlockColor,),
-            TextButton(
-              onPressed: () {},
-              child: Text(
-                i.title,
-                style: TextStyle(fontSize: 30),
+        Container(
+          padding: const EdgeInsets.only(left: 100, right: 60),
+          child: TextButton(
+            style: ButtonStyle(
+              shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10.0), // Adjust the radius as needed
+                ),
               ),
             ),
-          ],
+            onPressed: () {
+              scrollProvider.scrollToProjectDescription(bannerHeight + extraHeight);
+            },
+            child: Row(
+              children: [
+                Icon(
+                  Icons.circle,
+                  color: timelineBlockColor,
+                  size: 16,
+                ),
+                SizedBox(
+                  width: 20,
+                ),
+                Text(
+                  projectComponents[i].title,
+                  style: TextStyle(fontSize: 26),
+                ),
+              ],
+            ),
+          ),
         ),
-        Divider(
-          height: 2,
-          indent: 50,
-          endIndent: 50,
+        const Divider(
+          height: 10,
+          indent: 100,
+          endIndent: 60,
         )
       ]);
-      for (String j in i.subComponents) {
+      for (String j in projectComponents[i].subComponents) {
         contents.addAll([
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(Icons.circle,color: timelineBlockColor,),
+              Icon(
+                Icons.circle,
+                color: timelineBlockColor,
+              ),
               Container(
-                padding: EdgeInsets.all(15),
+                padding: const EdgeInsets.all(15),
                 child: TextButton(
                   onPressed: () {},
                   child: Text(
                     j,
-                    style: TextStyle(fontSize: 20),
+                    style: const TextStyle(fontSize: 20),
                   ),
                 ),
               ),
             ],
           ),
-          Divider(
+          const Divider(
             height: 2,
           ),
         ]);
