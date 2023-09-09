@@ -1,6 +1,8 @@
+import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:line_icons/line_icons.dart';
 import 'package:logger/logger.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -39,7 +41,7 @@ class AllProjectsPage extends StatelessWidget {
                 for (Project i in projectProvider.projects)
                   SizedBox(
                     width: width / 3.948,
-                    height: width / 3.03692,
+                    height: max(530,750),
                     child: Container(
                       decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(35)),
                       child: Column(
@@ -68,26 +70,54 @@ class AllProjectsPage extends StatelessWidget {
                             ),
                           ),
                           Expanded(
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: [
-                                OutlinedButton(
-                                  onPressed: () => context.go(i.pagePath),
-                                  style: OutlinedButton.styleFrom(fixedSize: Size(width / 11, width / 56.4)),
-                                  child: Text(
-                                    "Read more",
-                                    style: TextStyle(fontSize: width / 98.7),
-                                  ),
+                            child: Padding(
+                              padding: const EdgeInsets.only(bottom: 65),
+                              child: Align(
+                                alignment: Alignment.bottomCenter,
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                  children: [
+                                    TextButton(
+                                      style: ButtonStyle(
+                                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                                          RoundedRectangleBorder(
+                                            borderRadius: BorderRadius.circular(10.0), // Adjust the radius as needed
+                                          ),
+                                        ),
+                                        backgroundColor: MaterialStateProperty.all<Color>(i.primaryColor),
+                                        fixedSize: MaterialStateProperty.all<Size>(Size(width / 11, width / 35.4)),
+                                      ),
+                                      onPressed: () => context.go(i.pagePath),
+                                    //  style: OutlinedButton.styleFrom(fixedSize: Size(width / 11, width / 56.4)),
+                                      child: Text(
+                                        "Read more",
+                                        style: TextStyle(fontSize: width / 98.7,color: i.secondaryColor),
+                                      ),
+                                    ),
+                                    TextButton(
+                                      onPressed: () => _redirectTo(i.source),
+                                      style: ButtonStyle(
+                                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                                          RoundedRectangleBorder(
+                                            borderRadius: BorderRadius.circular(10.0), // Adjust the radius as needed
+                                          ),
+                                        ),
+                                        backgroundColor: MaterialStateProperty.all<Color>(i.primaryColor),
+                                        fixedSize: MaterialStateProperty.all<Size>(Size(width / 11, width / 35.4)),
+                                      ),
+                                      child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                        children: [
+                                           Icon(LineIcons.github,color: i.secondaryColor,size: 32,),
+                                          Text(
+                                            "Repository",
+                                            style: TextStyle(fontSize: width / 98.7,color: i.secondaryColor),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
                                 ),
-                                OutlinedButton(
-                                  onPressed: () => _redirectTo(i.source),
-                                  style: OutlinedButton.styleFrom(fixedSize: Size(width / 11, width / 56.4)),
-                                  child: Text(
-                                    "Source",
-                                    style: TextStyle(fontSize: width / 98.7),
-                                  ),
-                                ),
-                              ],
+                              ),
                             ),
                           ),
                         ],
