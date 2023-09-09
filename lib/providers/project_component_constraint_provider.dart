@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class ProjectComponentsConstraintsProvider extends ChangeNotifier{
+class ProjectComponentsConstraintsProvider extends ChangeNotifier {
   late List<GlobalKey> textKeys;
   late List<GlobalKey> titleKeys;
   late List<double> textContainerHeights;
