@@ -120,7 +120,20 @@ class ProjectPageTemplate extends StatelessWidget {
   Column createTableOfContents(
       ScrollProvider scrollProvider, ProjectComponentsConstraintsProvider componentsConstraintsProvider) {
     List<Widget> contents = [];
-    for (ProjectComponent i in projectComponents) {
+    double bannerHeight =
+        scrollProvider.bannerHeight + scrollProvider.width / 13.16; // banner height + the first space of 150 pixels
+    double textSectionMargin = 60 * 2;
+    double textSectionPadding = (scrollProvider.width / 24.675) * 2;
+    for (int i = 0; i < projectComponents.length; i++) {
+      double extraHeight = 0;
+      int n = i;
+      while (n > 0) {
+        extraHeight += componentsConstraintsProvider.titleContainerHeights[n - 1] +
+            componentsConstraintsProvider.textContainerHeights[n - 1] +
+            textSectionMargin +
+            textSectionPadding;
+        n--;
+      }
       contents.addAll([
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
