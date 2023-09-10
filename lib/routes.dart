@@ -18,10 +18,10 @@ import 'package:portfolio_website/providers/project_slider_provider.dart';
 import 'package:provider/provider.dart';
 
 final GoRouter routes = GoRouter(
-  initialLocation: '/Portfolio_Website/',
+  initialLocation: '/',
   routes: [
     GoRoute(
-      path: '/Portfolio_Website',
+      path: '/',
       pageBuilder: (context, state) =>
           MaterialPage(child: ChangeNotifierProvider(child: const LaunchPage(), create: (_) => LaunchPageProvider())),
       routes: [
