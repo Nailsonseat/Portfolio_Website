@@ -1,0 +1,6 @@
+rewriteengine on
+rewritebase /
+rewritecond $1 !^(index\.html|assets|robots\.txt|favicon\.png)
+rewritecond %{request_filename} !-f
+rewritecond %{request_filename} !-d
+rewriterule ^.*$ index.html [l]
