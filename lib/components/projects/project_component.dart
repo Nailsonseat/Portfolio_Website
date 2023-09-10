@@ -1,6 +1,6 @@
-class ProjectComponent {
+class TableOfContentsComponent {
   String title;
   List<String> subComponents;
 
-  ProjectComponent({required this.title, required this.subComponents});
+  TableOfContentsComponent({required this.title, required this.subComponents});
 }
