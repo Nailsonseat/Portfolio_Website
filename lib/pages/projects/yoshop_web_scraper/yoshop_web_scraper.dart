@@ -16,7 +16,7 @@ class YoshopWebScraper extends StatelessWidget {
     TextSection(title: "Description", bodyPath: "lib/pages/projects/yoshop_web_scraper/description.html"),
     TextSection(title: "Under Construction...", bodyPath: "lib/pages/templates/under_construction_template.html"),
   ];
-  final List<ProjectComponent> projectComponents = [ProjectComponent(title: "Description", subComponents: [])];
+  final List<TableOfContentsComponent> projectComponents = [TableOfContentsComponent(title: "Description", subComponents: [])];
 
   final List<IconData> timelineIcons = [
     Ionicons.bookmark_sharp,
@@ -38,10 +38,9 @@ class YoshopWebScraper extends StatelessWidget {
       bannerImage: "lib/assets/images/project_images/yoshop_scraper.png",
       textSections: textSections,
       timelineIcons: timelineIcons,
-      containerColor: containerColor,
-      timelineBlockColor: timelineBlockColor,
-      primaryColor: containerColor,
-      projectComponents: projectComponents,
+      secondaryColor: containerColor,
+      primaryColor: timelineBlockColor,
+      tableOfContents: projectComponents,
     );
   }
 }

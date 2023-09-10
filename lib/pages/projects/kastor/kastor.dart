@@ -16,7 +16,7 @@ class Kastor extends StatelessWidget {
     TextSection(title: "Description", bodyPath: "lib/pages/projects/kastor/description.html"),
     TextSection(title: "Under Construction...", bodyPath: "lib/pages/templates/under_construction_template.html"),
   ];
-  final List<ProjectComponent> projectComponents = [ProjectComponent(title: "Description", subComponents: [])];
+  final List<TableOfContentsComponent> projectComponents = [TableOfContentsComponent(title: "Description", subComponents: [])];
 
   final List<IconData> timelineIcons = [
     Ionicons.bookmark_sharp,
@@ -25,9 +25,9 @@ class Kastor extends StatelessWidget {
     LineIcons.hardHat
   ];
 
-  final Color containerColor = HexColor('#f2e3dc');
+  final Color secondaryColor = HexColor('#f2e3dc');
 
-  final Color timelineBlockColor = HexColor('#c17851');
+  final Color primaryColor = HexColor('#c17851');
 
   @override
   Widget build(BuildContext context) {
@@ -38,10 +38,9 @@ class Kastor extends StatelessWidget {
       bannerImage: "lib/assets/images/project_images/kastor.png",
       textSections: textSections,
       timelineIcons: timelineIcons,
-      containerColor: containerColor,
-      timelineBlockColor: timelineBlockColor,
-      primaryColor: containerColor,
-      projectComponents: projectComponents,
+      secondaryColor: secondaryColor,
+      primaryColor: primaryColor,
+      tableOfContents: projectComponents,
     );
   }
 }

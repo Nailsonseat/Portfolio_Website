@@ -16,7 +16,7 @@ class HolomorphicBot extends StatelessWidget {
     TextSection(title: "Description", bodyPath: "lib/pages/projects/holomorphic_bot/description.html"),
     TextSection(title: "Description", bodyPath: "lib/pages/templates/under_construction_template.html"),
   ];
-  final List<ProjectComponent> projectComponents = [ProjectComponent(title: "Description", subComponents: [])];
+  final List<TableOfContentsComponent> projectComponents = [TableOfContentsComponent(title: "Description", subComponents: [])];
 
   final List<IconData> timelineIcons = [
     Ionicons.bookmark_sharp,
@@ -25,9 +25,9 @@ class HolomorphicBot extends StatelessWidget {
     LineIcons.hardHat
   ];
 
-  final Color containerColor = HexColor('#f7e1d7');
+  final Color secondaryColor = HexColor('#f7e1d7');
 
-  final Color timelineBlockColor = HexColor('#f29c73');
+  final Color primaryColor = HexColor('#f29c73');
 
   @override
   Widget build(BuildContext context) {
@@ -38,10 +38,9 @@ class HolomorphicBot extends StatelessWidget {
       bannerImage: "lib/assets/images/project_images/hola_bot.png",
       textSections: textSections,
       timelineIcons: timelineIcons,
-      containerColor: containerColor,
-      timelineBlockColor: timelineBlockColor,
-      primaryColor: containerColor,
-      projectComponents: projectComponents,
+      secondaryColor: secondaryColor,
+      primaryColor: primaryColor,
+      tableOfContents: projectComponents,
     );
   }
 }

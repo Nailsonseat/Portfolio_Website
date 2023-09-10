@@ -7,6 +7,7 @@ import 'package:logger/logger.dart';
 import 'package:portfolio_website/components/projects/banner_image.dart';
 import 'package:portfolio_website/components/projects/banner_title.dart';
 import 'package:portfolio_website/components/projects/project_component.dart';
+import 'package:portfolio_website/components/projects/table_of_contents.dart';
 import 'package:portfolio_website/components/projects/timeline.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -21,20 +22,18 @@ class ProjectPageTemplate extends StatelessWidget {
     required this.projectTitle,
     required this.bannerImage,
     required this.textSections,
-    required this.projectComponents,
+    required this.tableOfContents,
     required this.timelineIcons,
-    required this.containerColor,
-    required this.timelineBlockColor,
+    required this.secondaryColor,
     required this.primaryColor,
   });
 
   final List<TextSection> textSections;
-  final List<ProjectComponent> projectComponents;
+  final List<TableOfContentsComponent> tableOfContents;
   final String bannerImage;
   final String projectTitle;
   final List<IconData> timelineIcons;
-  final Color containerColor;
-  final Color timelineBlockColor;
+  final Color secondaryColor;
   final Color primaryColor;
 
   double _projectBannerHeight(double width) => width / 2.193333333; // 900
@@ -70,7 +69,7 @@ class ProjectPageTemplate extends StatelessWidget {
           width: double.infinity,
           margin: EdgeInsets.symmetric(vertical: 60, horizontal: width / 35.74),
           padding: EdgeInsets.all(width / 24.675),
-          decoration: BoxDecoration(color: containerColor, borderRadius: BorderRadius.circular(30)),
+          decoration: BoxDecoration(color: secondaryColor, borderRadius: BorderRadius.circular(30)),
           child: FutureBuilder<String>(
             future: _loadHtmlFile(textSections[i].bodyPath),
             builder: (context, snapshot) {
@@ -150,7 +149,7 @@ class ProjectPageTemplate extends StatelessWidget {
         ),
         toolbarHeight: scrollProvider.appBarHeight,
         shadowColor: Colors.black,
-        backgroundColor: primaryColor,
+        backgroundColor: secondaryColor,
         elevation: 1,
       ),
       backgroundColor: Colors.white,
@@ -195,7 +194,7 @@ class ProjectPageTemplate extends StatelessWidget {
                               child: Container(
                                 decoration: BoxDecoration(
                                   borderRadius: const BorderRadius.only(topRight: Radius.circular(50)),
-                                  color: containerColor,
+                                  color: secondaryColor,
                                 ),
                                 child: Column(
                                   children: <Widget>[
@@ -208,7 +207,7 @@ class ProjectPageTemplate extends StatelessWidget {
                                         child: CustomPaint(
                                           size: Size(width * 0.3, (height / 4.192).toDouble()),
                                           //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
-                                          painter: TOCHeader(shapeColor: timelineBlockColor),
+                                          painter: TOCHeader(shapeColor: primaryColor),
                                         ),
                                       ),
                                       Column(
@@ -244,7 +243,7 @@ class ProjectPageTemplate extends StatelessWidget {
                                     textSections:
                                         _buildTextSections(textSections, width, componentsConstraintsProvider),
                                     timelineIcons: timelineIcons,
-                                    timelineBlockColor: timelineBlockColor,
+                                    timelineBlockColor: primaryColor,
                                   ),
                                 ),
                               ),
@@ -262,7 +261,7 @@ class ProjectPageTemplate extends StatelessWidget {
                     width: width / 24.675,
                     height: width / 24.675,
                     child: FloatingActionButton(
-                      backgroundColor: primaryColor,
+                      backgroundColor: secondaryColor,
                       onPressed: () =>
                           scrollProvider.scrollToProjectDescription(_projectBannerHeight(width) + width / 13.16),
                       // width / 13.16 = 150

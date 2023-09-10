@@ -17,7 +17,7 @@ class DataIntoIPL extends StatelessWidget {
     TextSection(title: "Description", bodyPath: "lib/pages/projects/data_into_ipl/description.html"),
     TextSection(title: "Under Construction...", bodyPath: "lib/pages/templates/under_construction_template.html"),
   ];
-  final List<ProjectComponent> projectComponents = [ProjectComponent(title: "Description", subComponents: [])];
+  final List<TableOfContentsComponent> projectComponents = [TableOfContentsComponent(title: "Description", subComponents: [])];
 
   final List<IconData> timelineIcons = [
     Ionicons.bookmark_sharp,
@@ -26,9 +26,9 @@ class DataIntoIPL extends StatelessWidget {
     LineIcons.hardHat
   ];
 
-  final Color containerColor = HexColor('#e9f6c7');
+  final Color secondaryColor = HexColor('#e9f6c7');
 
-  final Color timelineBlockColor = HexColor('#a4da0c');
+  final Color primaryColor = HexColor('#a4da0c');
 
   @override
   Widget build(BuildContext context) {
@@ -39,10 +39,9 @@ class DataIntoIPL extends StatelessWidget {
       bannerImage: "lib/assets/images/project_images/data_in_ipl.png",
       textSections: textSections,
       timelineIcons: timelineIcons,
-      containerColor: containerColor,
-      timelineBlockColor: timelineBlockColor,
-      primaryColor: containerColor,
-      projectComponents: projectComponents,
+      secondaryColor: secondaryColor,
+      primaryColor: primaryColor,
+      tableOfContents: projectComponents,
     );
   }
 }

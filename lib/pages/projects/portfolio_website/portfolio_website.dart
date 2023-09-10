@@ -16,7 +16,7 @@ class PortfolioWebsite extends StatelessWidget {
     TextSection(title: "Description", bodyPath: "lib/pages/projects/portfolio_website/description.html"),
     TextSection(title: "Under Construction...", bodyPath: "lib/pages/templates/under_construction_template.html"),
   ];
-  final List<ProjectComponent> projectComponents = [ProjectComponent(title: "Description", subComponents: [])];
+  final List<TableOfContentsComponent> projectComponents = [TableOfContentsComponent(title: "Description", subComponents: [])];
 
   final List<IconData> timelineIcons = [
     Ionicons.bookmark_sharp,
@@ -25,9 +25,9 @@ class PortfolioWebsite extends StatelessWidget {
     LineIcons.hardHat
   ];
 
-  final Color containerColor = HexColor('#ffdad7');
+  final Color secondaryColor = HexColor('#ffdad7');
 
-  final Color timelineBlockColor = HexColor('#fe7866');
+  final Color primaryColor = HexColor('#fe7866');
 
   @override
   Widget build(BuildContext context) {
@@ -38,10 +38,9 @@ class PortfolioWebsite extends StatelessWidget {
       bannerImage: "lib/assets/images/project_images/portfolio.png",
       textSections: textSections,
       timelineIcons: timelineIcons,
-      containerColor: containerColor,
-      timelineBlockColor: timelineBlockColor,
-      primaryColor: containerColor,
-      projectComponents: projectComponents,
+      secondaryColor: secondaryColor,
+      primaryColor: primaryColor,
+      tableOfContents: projectComponents,
     );
   }
 }

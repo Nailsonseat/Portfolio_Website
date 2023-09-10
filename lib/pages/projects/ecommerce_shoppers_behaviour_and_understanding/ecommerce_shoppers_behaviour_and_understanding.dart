@@ -16,7 +16,7 @@ class EcommerceShoppersBehaviourAndUnderstanding extends StatelessWidget {
     TextSection(title: "Description", bodyPath: "lib/pages/projects/ecommerce_shoppers_behaviour_and_understanding/description.html"),
     TextSection(title: "Under Construction...", bodyPath: "lib/pages/templates/under_construction_template.html"),
   ];
-  final List<ProjectComponent> projectComponents = [ProjectComponent(title: "Description", subComponents: [])];
+  final List<TableOfContentsComponent> projectComponents = [TableOfContentsComponent(title: "Description", subComponents: [])];
 
   final List<IconData> timelineIcons = [
     Ionicons.bookmark_sharp,
@@ -25,9 +25,9 @@ class EcommerceShoppersBehaviourAndUnderstanding extends StatelessWidget {
     LineIcons.hardHat
   ];
 
-  final Color containerColor = HexColor('#d7eff1');
+  final Color secondaryColor = HexColor('#d7eff1');
 
-  final Color timelineBlockColor = HexColor('#25bcb8');
+  final Color primaryColor = HexColor('#25bcb8');
 
   @override
   Widget build(BuildContext context) {
@@ -38,10 +38,9 @@ class EcommerceShoppersBehaviourAndUnderstanding extends StatelessWidget {
       bannerImage: "lib/assets/images/project_images/e_commerce_behaviour_understanding.png",
       textSections: textSections,
       timelineIcons: timelineIcons,
-      containerColor: containerColor,
-      timelineBlockColor: timelineBlockColor,
-      primaryColor: containerColor,
-      projectComponents: projectComponents,
+      secondaryColor: secondaryColor,
+      primaryColor: primaryColor,
+      tableOfContents: projectComponents,
     );
   }
 }
