@@ -26,7 +26,6 @@ class MyApp extends StatelessWidget {
       child: MaterialApp.router(
         title: 'Portfolio Website',
         theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
         routerConfig: routes,
