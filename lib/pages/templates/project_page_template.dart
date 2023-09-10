@@ -119,94 +119,6 @@ class ProjectPageTemplate extends StatelessWidget {
     return builtSections;
   }
 
-  Column createTableOfContents(
-      ScrollProvider scrollProvider, ProjectComponentsConstraintsProvider componentsConstraintsProvider) {
-    List<Widget> contents = [];
-    double bannerHeight =
-        scrollProvider.bannerHeight + scrollProvider.width / 13.16; // banner height + the first space of 150 pixels
-    double textSectionMargin = 60 * 2;
-    double textSectionPadding = (scrollProvider.width / 24.675) * 2;
-    for (int i = 0; i < projectComponents.length; i++) {
-      double extraHeight = 0;
-      int n = i;
-      while (n > 0) {
-        extraHeight += componentsConstraintsProvider.titleContainerHeights[n - 1] +
-            componentsConstraintsProvider.textContainerHeights[n - 1] +
-            textSectionMargin +
-            textSectionPadding;
-        n--;
-      }
-      contents.addAll([
-        Container(
-          padding: const EdgeInsets.symmetric(horizontal: 80),
-          child: TextButton(
-            style: ButtonStyle(
-              shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10.0), // Adjust the radius as needed
-                ),
-              ),
-            ),
-            onPressed: () {
-              scrollProvider.scrollToProjectDescription(bannerHeight + extraHeight);
-            },
-            child: Row(
-              children: [
-                Icon(
-                  Icons.circle,
-                  color: timelineBlockColor,
-                  size: 16,
-                ),
-                const SizedBox(
-                  width: 20,
-                ),
-                Text(
-                  projectComponents[i].title,
-                  style: TextStyle(fontSize: 26, color: timelineBlockColor),
-                ),
-              ],
-            ),
-          ),
-        ),
-        Divider(
-          height: 10,
-          indent: 80,
-          endIndent: 80,
-          color: timelineBlockColor,
-        )
-      ]);
-      for (String j in projectComponents[i].subComponents) {
-        contents.addAll([
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Icon(
-                Icons.circle,
-                color: timelineBlockColor,
-              ),
-              Container(
-                padding: const EdgeInsets.all(15),
-                child: TextButton(
-                  onPressed: () {},
-                  child: Text(
-                    j,
-                    style: const TextStyle(fontSize: 20),
-                  ),
-                ),
-              ),
-            ],
-          ),
-          const Divider(
-            height: 2,
-          ),
-        ]);
-      }
-    }
-    return Column(
-      children: contents,
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
@@ -312,10 +224,7 @@ class ProjectPageTemplate extends StatelessWidget {
                                           ),
                                           Consumer<ProjectComponentsConstraintsProvider>(
                                             builder: (context, componentsConstraintsProvider, child) {
-                                              return createTableOfContents(
-                                                scrollProvider,
-                                                componentsConstraintsProvider,
-                                              );
+                                              return TableOfContents(tableOfContents: tableOfContents, fontColor: primaryColor);
                                             },
                                           )
                                         ],
