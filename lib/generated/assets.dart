@@ -7,6 +7,7 @@ class Assets {
   static const String aboutMeEducation = 'lib/assets/text/about_me/education.txt';
   static const String acharyaSetuAcharyaSetu = 'lib/pages/projects/acharya_setu/acharya_setu.dart';
   static const String acharyaSetuDescription = 'lib/pages/projects/acharya_setu/description.html';
+  static const String acharyaSetuTechstack = 'lib/pages/projects/acharya_setu/techstack.html';
   static const String browserPagesAllProjectsPage = 'lib/pages/project_browser/browser_pages/all_projects_page.dart';
   static const String browserPagesDevelopmentsProjectsPage = 'lib/pages/project_browser/browser_pages/developments_projects_page.dart';
   static const String browserPagesMlProjectsPage = 'lib/pages/project_browser/browser_pages/ml_projects_page.dart';
@@ -55,14 +56,24 @@ class Assets {
   static const String projectImagesPortfolio = 'lib/assets/images/project_images/portfolio.png';
   static const String projectImagesSnake = 'lib/assets/images/project_images/snake.png';
   static const String projectImagesYoshopScraper = 'lib/assets/images/project_images/yoshop_scraper.png';
+  static const String projectsBannerImage = 'lib/components/projects/banner_image.dart';
+  static const String projectsBannerTitle = 'lib/components/projects/banner_title.dart';
   static const String projectsProjectComponent = 'lib/components/projects/project_component.dart';
+  static const String projectsTableOfContents = 'lib/components/projects/table_of_contents.dart';
+  static const String projectsTableOfContentsHeader = 'lib/components/projects/table_of_contents_header.dart';
   static const String projectsTextSection = 'lib/components/projects/text_section.dart';
+  static const String projectsTimeline = 'lib/components/projects/timeline.dart';
   static const String providersLaunchPageAnimationProvider = 'lib/providers/launch_page_animation_provider.dart';
+  static const String providersProjectComponentConstraintProvider = 'lib/providers/project_component_constraint_provider.dart';
   static const String providersProjectPageProvider = 'lib/providers/project_page_provider.dart';
   static const String providersProjectSliderProvider = 'lib/providers/project_slider_provider.dart';
   static const String providersScrollProvider = 'lib/providers/scroll_provider.dart';
-  static const String templatesProjectPageTemplate = 'lib/pages/projects/templates/project_page_template.dart';
-  static const String templatesUnderConstructionTemplate = 'lib/pages/projects/templates/under_construction_template.html';
+  static const String techstackCss3SvgrepoCom = 'lib/assets/techstack/css-3-svgrepo-com.svg';
+  static const String techstackDartSvgrepoCom = 'lib/assets/techstack/dart-svgrepo-com.svg';
+  static const String techstackFlutterSvgrepoCom = 'lib/assets/techstack/flutter-svgrepo-com.svg';
+  static const String techstackHtml5SvgrepoCom = 'lib/assets/techstack/html-5-svgrepo-com.svg';
+  static const String templatesProjectPageTemplate = 'lib/pages/templates/project_page_template.dart';
+  static const String templatesUnderConstructionTemplate = 'lib/pages/templates/under_construction_template.html';
   static const String yoshopWebScraperDescription = 'lib/pages/projects/yoshop_web_scraper/description.html';
   static const String yoshopWebScraperYoshopWebScraper = 'lib/pages/projects/yoshop_web_scraper/yoshop_web_scraper.dart';
 
