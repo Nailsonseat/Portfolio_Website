@@ -41,7 +41,7 @@ class AllProjectsPage extends StatelessWidget {
                 for (Project i in projectProvider.projects)
                   SizedBox(
                     width: width / 3.948,
-                    height: max(530,750),
+                    height: max(530, width / 2.63733333),
                     child: Container(
                       decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(35)),
                       child: Column(
@@ -88,10 +88,10 @@ class AllProjectsPage extends StatelessWidget {
                                         fixedSize: MaterialStateProperty.all<Size>(Size(width / 11, width / 35.4)),
                                       ),
                                       onPressed: () => context.go(i.pagePath),
-                                    //  style: OutlinedButton.styleFrom(fixedSize: Size(width / 11, width / 56.4)),
+                                      //  style: OutlinedButton.styleFrom(fixedSize: Size(width / 11, width / 56.4)),
                                       child: Text(
                                         "Read more",
-                                        style: TextStyle(fontSize: width / 98.7,color: i.secondaryColor),
+                                        style: TextStyle(fontSize: width / 98.7, color: i.secondaryColor),
                                       ),
                                     ),
                                     TextButton(
@@ -105,12 +105,17 @@ class AllProjectsPage extends StatelessWidget {
                                         backgroundColor: MaterialStateProperty.all<Color>(i.primaryColor),
                                         fixedSize: MaterialStateProperty.all<Size>(Size(width / 11, width / 35.4)),
                                       ),
-                                      child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                      child: Row(
+                                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                         children: [
-                                           Icon(LineIcons.github,color: i.secondaryColor,size: 32,),
+                                          Icon(
+                                            LineIcons.github,
+                                            color: i.secondaryColor,
+                                            size: width / 61.8125,
+                                          ),
                                           Text(
                                             "Repository",
-                                            style: TextStyle(fontSize: width / 98.7,color: i.secondaryColor),
+                                            style: TextStyle(fontSize: width / 98.7, color: i.secondaryColor),
                                           ),
                                         ],
                                       ),
