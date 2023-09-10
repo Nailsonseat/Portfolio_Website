@@ -24,7 +24,7 @@ class BannerTitle extends StatelessWidget {
             title,
             maxLines: 2,
             minFontSize: 80,
-            style: GoogleFonts.comfortaa(
+            style: GoogleFonts.poppins(
               fontSize: 110,
               shadows: [
                 const Shadow(
