@@ -45,10 +45,6 @@ class Assets {
   static const String profilePicProfilePicFlipped = 'lib/assets/images/profile_pic/profile_pic_flipped.png';
   static const String projectBrowserProjectBrowserMain = 'lib/pages/project_browser/project_browser_main.dart';
   static const String projectBrowserProjectBrowserPage = 'lib/pages/project_browser/project_browser_page.dart';
-  static const String projectCss3SvgrepoCom = 'lib/assets/project/css-3-svgrepo-com.svg';
-  static const String projectDartSvgrepoCom = 'lib/assets/project/dart-svgrepo-com.svg';
-  static const String projectFlutterSvgrepoCom = 'lib/assets/project/flutter-svgrepo-com.svg';
-  static const String projectHtml5SvgrepoCom = 'lib/assets/project/html-5-svgrepo-com.svg';
   static const String projectImagesAcharyaSetu = 'lib/assets/images/project_images/acharya_setu.jpg';
   static const String projectImagesDataInIpl = 'lib/assets/images/project_images/data_in_ipl.png';
   static const String projectImagesECommerceBehaviourUnderstanding = 'lib/assets/images/project_images/e_commerce_behaviour_understanding.png';
@@ -63,6 +59,7 @@ class Assets {
   static const String projectsBannerImage = 'lib/components/projects/banner_image.dart';
   static const String projectsBannerTitle = 'lib/components/projects/banner_title.dart';
   static const String projectsProjectComponent = 'lib/components/projects/project_component.dart';
+  static const String projectsTableOfContents = 'lib/components/projects/table_of_contents.dart';
   static const String projectsTableOfContentsHeader = 'lib/components/projects/table_of_contents_header.dart';
   static const String projectsTextSection = 'lib/components/projects/text_section.dart';
   static const String projectsTimeline = 'lib/components/projects/timeline.dart';
@@ -71,6 +68,10 @@ class Assets {
   static const String providersProjectPageProvider = 'lib/providers/project_page_provider.dart';
   static const String providersProjectSliderProvider = 'lib/providers/project_slider_provider.dart';
   static const String providersScrollProvider = 'lib/providers/scroll_provider.dart';
+  static const String techstackCss3SvgrepoCom = 'lib/assets/techstack/css-3-svgrepo-com.svg';
+  static const String techstackDartSvgrepoCom = 'lib/assets/techstack/dart-svgrepo-com.svg';
+  static const String techstackFlutterSvgrepoCom = 'lib/assets/techstack/flutter-svgrepo-com.svg';
+  static const String techstackHtml5SvgrepoCom = 'lib/assets/techstack/html-5-svgrepo-com.svg';
   static const String templatesProjectPageTemplate = 'lib/pages/templates/project_page_template.dart';
   static const String templatesUnderConstructionTemplate = 'lib/pages/templates/under_construction_template.html';
   static const String yoshopWebScraperDescription = 'lib/pages/projects/yoshop_web_scraper/description.html';
