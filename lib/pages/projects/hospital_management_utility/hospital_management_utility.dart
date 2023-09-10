@@ -16,7 +16,7 @@ class HospitalManagementUtility extends StatelessWidget {
     TextSection(title: "Description", bodyPath: "lib/pages/projects/hospital_management_utility/description.html"),
     TextSection(title: "Under Construction...", bodyPath: "lib/pages/templates/under_construction_template.html"),
   ];
-  final List<ProjectComponent> projectComponents = [ProjectComponent(title: "Description", subComponents: [])];
+  final List<TableOfContentsComponent> projectComponents = [TableOfContentsComponent(title: "Description", subComponents: [])];
 
   final List<IconData> timelineIcons = [
     Ionicons.bookmark_sharp,
@@ -25,9 +25,9 @@ class HospitalManagementUtility extends StatelessWidget {
     LineIcons.hardHat
   ];
 
-  final Color containerColor = HexColor('#d8efff');
+  final Color secondaryColor = HexColor('#d8efff');
 
-  final Color timelineBlockColor = HexColor('#05b2f4');
+  final Color primaryColor = HexColor('#05b2f4');
 
   @override
   Widget build(BuildContext context) {
@@ -38,10 +38,9 @@ class HospitalManagementUtility extends StatelessWidget {
       bannerImage: "lib/assets/images/project_images/hospital_management_utility.png",
       textSections: textSections,
       timelineIcons: timelineIcons,
-      containerColor: containerColor,
-      timelineBlockColor: timelineBlockColor,
-      primaryColor: containerColor,
-      projectComponents: projectComponents,
+      secondaryColor: secondaryColor,
+      primaryColor: primaryColor,
+      tableOfContents: projectComponents,
     );
   }
 }

@@ -16,7 +16,7 @@ class MachineLearning extends StatelessWidget {
     TextSection(title: "Description", bodyPath: "lib/pages/projects/machine_learning/description.html"),
     TextSection(title: "Under Construction...", bodyPath: "lib/pages/templates/under_construction_template.html"),
   ];
-  final List<ProjectComponent> projectComponents = [ProjectComponent(title: "Description", subComponents: [])];
+  final List<TableOfContentsComponent> projectComponents = [TableOfContentsComponent(title: "Description", subComponents: [])];
 
   final List<IconData> timelineIcons = [
     Ionicons.bookmark_sharp,
@@ -25,9 +25,9 @@ class MachineLearning extends StatelessWidget {
     LineIcons.hardHat
   ];
 
-  final Color containerColor = HexColor('#e9f4ff');
+  final Color secondaryColor = HexColor('#e9f4ff');
 
-  final Color timelineBlockColor = HexColor('#8f9fef');
+  final Color primaryColor = HexColor('#8f9fef');
 
   @override
   Widget build(BuildContext context) {
@@ -38,10 +38,9 @@ class MachineLearning extends StatelessWidget {
       bannerImage: "lib/assets/images/project_images/machine_learning.png",
       textSections: textSections,
       timelineIcons: timelineIcons,
-      containerColor: containerColor,
-      timelineBlockColor: timelineBlockColor,
-      primaryColor: containerColor,
-      projectComponents: projectComponents,
+      secondaryColor: secondaryColor,
+      primaryColor: primaryColor,
+      tableOfContents: projectComponents,
     );
   }
 }

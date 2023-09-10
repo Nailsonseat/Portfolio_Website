@@ -16,7 +16,7 @@ class ClassicSnakeFFPS extends StatelessWidget {
     TextSection(title: "Description", bodyPath: "lib/pages/projects/classic_snake_ffps/description.html"),
     TextSection(title: "Under Construction...", bodyPath: "lib/pages/templates/under_construction_template.html"),
   ];
-  final List<ProjectComponent> projectComponents = [ProjectComponent(title: "Description", subComponents: [])];
+  final List<TableOfContentsComponent> projectComponents = [TableOfContentsComponent(title: "Description", subComponents: [])];
 
   final List<IconData> timelineIcons = [
     Ionicons.bookmark_sharp,
@@ -25,9 +25,9 @@ class ClassicSnakeFFPS extends StatelessWidget {
     LineIcons.hardHat
   ];
 
-  final Color containerColor = HexColor('#e7f6ee');
+  final Color secondaryColor = HexColor('#e7f6ee');
 
-  final Color timelineBlockColor = HexColor('#82d0a7');
+  final Color primaryColor = HexColor('#82d0a7');
 
   @override
   Widget build(BuildContext context) {
@@ -38,10 +38,9 @@ class ClassicSnakeFFPS extends StatelessWidget {
       bannerImage: "lib/assets/images/project_images/snake.png",
       textSections: textSections,
       timelineIcons: timelineIcons,
-      containerColor: containerColor,
-      timelineBlockColor: timelineBlockColor,
-      primaryColor: containerColor,
-      projectComponents: projectComponents,
+      secondaryColor: secondaryColor,
+      primaryColor: primaryColor,
+      tableOfContents: projectComponents,
     );
   }
 }

@@ -16,7 +16,7 @@ class LetsTalkk extends StatelessWidget {
     TextSection(title: "Description", bodyPath: "lib/pages/projects/letstalkk/description.html"),
     TextSection(title: "Under Construction...", bodyPath: "lib/pages/templates/under_construction_template.html"),
   ];
-  final List<ProjectComponent> projectComponents = [ProjectComponent(title: "Description", subComponents: [])];
+  final List<TableOfContentsComponent> projectComponents = [TableOfContentsComponent(title: "Description", subComponents: [])];
 
   final List<IconData> timelineIcons = [
     Ionicons.bookmark_sharp,
@@ -25,9 +25,9 @@ class LetsTalkk extends StatelessWidget {
     LineIcons.hardHat
   ];
 
-  final Color containerColor = HexColor('#eceffe');
+  final Color secondaryColor = HexColor('#eceffe');
 
-  final Color timelineBlockColor = HexColor('#5f78eb');
+  final Color primaryColor = HexColor('#5f78eb');
 
   @override
   Widget build(BuildContext context) {
@@ -38,10 +38,9 @@ class LetsTalkk extends StatelessWidget {
       bannerImage: "lib/assets/images/project_images/messaging.png",
       textSections: textSections,
       timelineIcons: timelineIcons,
-      containerColor: containerColor,
-      timelineBlockColor: timelineBlockColor,
-      primaryColor: containerColor,
-      projectComponents: projectComponents,
+      secondaryColor: secondaryColor,
+      primaryColor: primaryColor,
+      tableOfContents: projectComponents,
     );
   }
 }

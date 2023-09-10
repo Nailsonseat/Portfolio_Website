@@ -13,10 +13,10 @@ class AcharyaSetu extends StatelessWidget {
   AcharyaSetu({super.key});
 
 
-  final List<ProjectComponent> projectComponents = [
-    ProjectComponent(title: "Description", subComponents: []),
-    ProjectComponent(title: "TechStack", subComponents: []),
-    ProjectComponent(title: "Under Construction", subComponents: []),
+  final List<TableOfContentsComponent> projectComponents = [
+    TableOfContentsComponent(title: "Description", subComponents: []),
+    TableOfContentsComponent(title: "TechStack", subComponents: []),
+    TableOfContentsComponent(title: "Under Construction", subComponents: []),
   ];
   final List<TextSection> textSections = [
     TextSection(title: "Description", bodyPath: 'lib/pages/projects/acharya_setu/description.html'),
@@ -33,9 +33,9 @@ class AcharyaSetu extends StatelessWidget {
     LineIcons.hardHat,
   ];
 
-  final Color containerColor = HexColor('#ebddff');
+  final Color secondaryColor = HexColor('#ebddff');
 
-  final Color timelineBlockColor = Colors.deepPurpleAccent[100]!;
+  final Color primaryColor = Colors.deepPurpleAccent[100]!;
 
   @override
   Widget build(BuildContext context) {
@@ -48,10 +48,9 @@ class AcharyaSetu extends StatelessWidget {
       bannerImage: "lib/assets/images/project_images/acharya_setu.jpg",
       textSections: textSections,
       timelineIcons: timelineIcons,
-      containerColor: containerColor,
-      timelineBlockColor: timelineBlockColor,
-      primaryColor: containerColor,
-      projectComponents: projectComponents,
+      secondaryColor: secondaryColor,
+      primaryColor: primaryColor,
+      tableOfContents: projectComponents,
     );
   }
 }
