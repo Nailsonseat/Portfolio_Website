@@ -73,6 +73,7 @@ class Assets {
   static const String techstackFlutterSvgrepoCom = 'lib/assets/techstack/flutter-svgrepo-com.svg';
   static const String techstackHtml5SvgrepoCom = 'lib/assets/techstack/html-5-svgrepo-com.svg';
   static const String templatesProjectPageTemplate = 'lib/pages/templates/project_page_template.dart';
+  static const String templatesSmallScreenWarningPage = 'lib/pages/templates/small_screen_warning_page.dart';
   static const String templatesUnderConstructionTemplate = 'lib/pages/templates/under_construction_template.html';
   static const String yoshopWebScraperDescription = 'lib/pages/projects/yoshop_web_scraper/description.html';
   static const String yoshopWebScraperYoshopWebScraper = 'lib/pages/projects/yoshop_web_scraper/yoshop_web_scraper.dart';

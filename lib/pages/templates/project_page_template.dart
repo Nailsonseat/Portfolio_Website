@@ -9,6 +9,7 @@ import 'package:portfolio_website/components/projects/banner_title.dart';
 import 'package:portfolio_website/components/projects/project_component.dart';
 import 'package:portfolio_website/components/projects/table_of_contents.dart';
 import 'package:portfolio_website/components/projects/timeline.dart';
+import 'package:portfolio_website/pages/templates/small_screen_warning_page.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../components/projects/table_of_contents_header.dart';
@@ -122,6 +123,11 @@ class ProjectPageTemplate extends StatelessWidget {
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
+
+    if (width < 1200 || height < 768) {
+      return const SmallScreenWidget();
+    }
+
     width = width < 800 ? 800 : width;
 
     ScrollProvider scrollProvider = Provider.of<ScrollProvider>(context, listen: false);

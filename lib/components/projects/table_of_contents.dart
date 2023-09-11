@@ -14,6 +14,8 @@ class TableOfContents extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
+    double width = MediaQuery.of(context).size.width;
+
     ScrollProvider scrollProvider = Provider.of<ScrollProvider>(context, listen: false);
     ProjectComponentsConstraintsProvider componentsConstraintsProvider =
     Provider.of<ProjectComponentsConstraintsProvider>(context, listen: false);
@@ -35,7 +37,7 @@ class TableOfContents extends StatelessWidget {
       }
       contents.addAll([
         Container(
-          padding: const EdgeInsets.symmetric(horizontal: 80),
+          padding:  EdgeInsets.symmetric(horizontal: width/24.725),
           child: TextButton(
             style: ButtonStyle(
               shape: MaterialStateProperty.all<RoundedRectangleBorder>(
@@ -52,14 +54,14 @@ class TableOfContents extends StatelessWidget {
                 Icon(
                   Icons.circle,
                   color: fontColor,
-                  size: 16,
+                  size: width/123.625,
                 ),
-                const SizedBox(
-                  width: 20,
+                 SizedBox(
+                  width: width/98.9-5,
                 ),
                 Text(
                   tableOfContents[i].title,
-                  style: TextStyle(fontSize: 26, color: fontColor),
+                  style: TextStyle(fontSize: width/76.07692 , color: fontColor),
                 ),
               ],
             ),
@@ -67,8 +69,8 @@ class TableOfContents extends StatelessWidget {
         ),
         Divider(
           height: 10,
-          indent: 80,
-          endIndent: 80,
+          indent: width/24.725,
+          endIndent: width/24.725,
           color: fontColor,
         )
       ]);
