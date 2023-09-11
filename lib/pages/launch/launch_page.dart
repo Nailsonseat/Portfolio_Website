@@ -3,6 +3,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
+import 'package:portfolio_website/pages/templates/small_screen_warning_page.dart';
 import 'package:portfolio_website/providers/launch_page_animation_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -12,6 +13,11 @@ class LaunchPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
+
+    if (width < 1200 || height < 768) {
+      return const SmallScreenWidget();
+    }
 
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       Provider.of<LaunchPageProvider>(context, listen: false).startAnimation();

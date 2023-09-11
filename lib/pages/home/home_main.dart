@@ -5,6 +5,7 @@ import 'package:portfolio_website/providers/scroll_provider.dart';
 import 'package:provider/provider.dart';
 
 import '../project_browser/project_browser_main.dart';
+import '../templates/small_screen_warning_page.dart';
 
 class HomeMain extends StatelessWidget {
   const HomeMain({super.key});
@@ -18,6 +19,11 @@ class HomeMain extends StatelessWidget {
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
+
+    if (width < 1200 || height < 768) {
+      return const SmallScreenWidget();
+    }
+
     width = width < 800 ? 800 : width;
 
     ScrollProvider scrollProvider = Provider.of<ScrollProvider>(context, listen: false);
