@@ -82,8 +82,8 @@ class ProjectPageTemplate extends StatelessWidget {
                       child: Html(
                         data: snapshot.data,
                         style: {
-                          "body": Style(fontSize: FontSize(18.0)), // Adjust the font size as needed
-                          ".techstack": Style(height: Height(65), width: Width(65), margin: Margins.only(right: 20)),
+                          "body": Style(fontSize: FontSize(width / 109.8888888)), // Adjust the font size as needed
+                          ".techstack": Style(height: Height(width/32.966667), width: Width(width/32.966667), margin: Margins.only(right: 20)),
                         },
                         onAnchorTap: (String? url, _, __) => _redirect(url!),
                         extensions: [
@@ -142,6 +142,7 @@ class ProjectPageTemplate extends StatelessWidget {
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
       componentsConstraintsProvider.setTitleContainerHeight();
+      scrollProvider.tableOfContentsListner(scrollProvider.bannerHeight, width);
       Future.delayed(const Duration(milliseconds: 2000), () {
         componentsConstraintsProvider.setTextContainerHeight();
       });
@@ -229,7 +230,8 @@ class ProjectPageTemplate extends StatelessWidget {
                                           ),
                                           Consumer<ProjectComponentsConstraintsProvider>(
                                             builder: (context, componentsConstraintsProvider, child) {
-                                              return TableOfContents(tableOfContents: tableOfContents, fontColor: primaryColor);
+                                              return TableOfContents(
+                                                  tableOfContents: tableOfContents, fontColor: primaryColor);
                                             },
                                           )
                                         ],
