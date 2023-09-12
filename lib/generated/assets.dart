@@ -7,6 +7,7 @@ class Assets {
   static const String aboutMeEducation = 'lib/assets/text/about_me/education.txt';
   static const String acharyaSetuAcharyaSetu = 'lib/pages/projects/acharya_setu/acharya_setu.dart';
   static const String acharyaSetuDescription = 'lib/pages/projects/acharya_setu/description.html';
+  static const String acharyaSetuFeatures = 'lib/pages/projects/acharya_setu/features.html';
   static const String acharyaSetuTechstack = 'lib/pages/projects/acharya_setu/techstack.html';
   static const String browserPagesAllProjectsPage = 'lib/pages/project_browser/browser_pages/all_projects_page.dart';
   static const String browserPagesDevelopmentsProjectsPage = 'lib/pages/project_browser/browser_pages/developments_projects_page.dart';
