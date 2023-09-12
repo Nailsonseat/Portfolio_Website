@@ -70,8 +70,12 @@ class Assets {
   static const String providersScrollProvider = 'lib/providers/scroll_provider.dart';
   static const String techstackCss3SvgrepoCom = 'lib/assets/techstack/css-3-svgrepo-com.svg';
   static const String techstackDartSvgrepoCom = 'lib/assets/techstack/dart-svgrepo-com.svg';
+  static const String techstackFirebaseStorage = 'lib/assets/techstack/firebase_storage.svg';
+  static const String techstackFirebaseSvgrepoCom = 'lib/assets/techstack/firebase-svgrepo-com.svg';
+  static const String techstackFirestoreSvgrepoCom = 'lib/assets/techstack/firestore-svgrepo-com.svg';
   static const String techstackFlutterSvgrepoCom = 'lib/assets/techstack/flutter-svgrepo-com.svg';
   static const String techstackHtml5SvgrepoCom = 'lib/assets/techstack/html-5-svgrepo-com.svg';
+  static const String techstackLightFirebasehostingSvgrepoCom = 'lib/assets/techstack/light-firebasehosting-svgrepo-com.svg';
   static const String templatesProjectPageTemplate = 'lib/pages/templates/project_page_template.dart';
   static const String templatesSmallScreenWarningPage = 'lib/pages/templates/small_screen_warning_page.dart';
   static const String templatesUnderConstructionTemplate = 'lib/pages/templates/under_construction_template.html';
