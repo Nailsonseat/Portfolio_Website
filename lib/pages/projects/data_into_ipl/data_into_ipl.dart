@@ -36,7 +36,7 @@ class DataIntoIPL extends StatelessWidget {
     Project project = projectPageProvider.getProject("Data Into IPL");
     return ProjectPageTemplate(
       projectTitle: project.title,
-      bannerImage: "lib/assets/images/project_images/data_in_ipl.png",
+      bannerImage: "lib/assets/images/project_banners/data_in_ipl.png",
       textSections: textSections,
       timelineIcons: timelineIcons,
       secondaryColor: secondaryColor,

@@ -35,7 +35,7 @@ class HolomorphicBot extends StatelessWidget {
     Project project = projectPageProvider.getProject("Holomorphic Bot");
     return ProjectPageTemplate(
       projectTitle: project.title,
-      bannerImage: "lib/assets/images/project_images/hola_bot.png",
+      bannerImage: "lib/assets/images/project_banners/hola_bot.png",
       textSections: textSections,
       timelineIcons: timelineIcons,
       secondaryColor: secondaryColor,

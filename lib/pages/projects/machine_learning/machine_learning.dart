@@ -35,7 +35,7 @@ class MachineLearning extends StatelessWidget {
     Project project = projectPageProvider.getProject("Machine Learning");
     return ProjectPageTemplate(
       projectTitle: project.title,
-      bannerImage: "lib/assets/images/project_images/machine_learning.png",
+      bannerImage: "lib/assets/images/project_banners/machine_learning.png",
       textSections: textSections,
       timelineIcons: timelineIcons,
       secondaryColor: secondaryColor,

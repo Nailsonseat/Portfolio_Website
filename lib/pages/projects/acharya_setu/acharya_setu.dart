@@ -45,7 +45,7 @@ class AcharyaSetu extends StatelessWidget {
 
     return ProjectPageTemplate(
       projectTitle: project.title,
-      bannerImage: "lib/assets/images/project_images/acharya_setu.jpg",
+      bannerImage: "lib/assets/images/project_banners/acharya_setu.jpg",
       textSections: textSections,
       timelineIcons: timelineIcons,
       secondaryColor: secondaryColor,

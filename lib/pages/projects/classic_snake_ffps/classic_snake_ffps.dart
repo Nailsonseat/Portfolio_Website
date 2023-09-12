@@ -35,7 +35,7 @@ class ClassicSnakeFFPS extends StatelessWidget {
     Project project = projectPageProvider.getProject("Classic Snake Focused Frames per Second");
     return ProjectPageTemplate(
       projectTitle: project.title,
-      bannerImage: "lib/assets/images/project_images/snake.png",
+      bannerImage: "lib/assets/images/project_banners/snake.png",
       textSections: textSections,
       timelineIcons: timelineIcons,
       secondaryColor: secondaryColor,

@@ -57,7 +57,7 @@ class ProjectPageProvider extends ChangeNotifier {
   List<Project> projects = [
     Project(
         title: 'Acharya Setu',
-        image: Image.asset('lib/assets/images/project_images/acharya_setu.jpg'),
+        image: Image.asset('lib/assets/images/project_banners/acharya_setu.jpg'),
         source: "https://github.com/Nailsonseat/Acharya_Setu",
         pagePath: '/home/Acharya_Setu',
         briefDescription:
@@ -67,7 +67,7 @@ class ProjectPageProvider extends ChangeNotifier {
         secondaryColor: HexColor('#5545d9')),
     Project(
         title: 'Portfolio Website',
-        image: Image.asset('lib/assets/images/project_images/portfolio.png'),
+        image: Image.asset('lib/assets/images/project_banners/portfolio.png'),
         source: "https://github.com/Nailsonseat/Portfolio_Website",
         pagePath: '/home/Portfolio_Website',
         briefDescription:
@@ -77,7 +77,7 @@ class ProjectPageProvider extends ChangeNotifier {
         secondaryColor: HexColor('#d14a3d')),
     Project(
         title: 'Hospital Management Utility',
-        image: Image.asset('lib/assets/images/project_images/hospital_management_utility.png'),
+        image: Image.asset('lib/assets/images/project_banners/hospital_management_utility.png'),
         source: "https://github.com/Nailsonseat/Hospital-Management-Utility",
         pagePath: '/home/Hospital_Management_Utility',
         briefDescription:
@@ -87,7 +87,7 @@ class ProjectPageProvider extends ChangeNotifier {
         secondaryColor: HexColor('#158dbf')),
     Project(
         title: "E-commerce Shopper's Behaviour Understanding",
-        image: Image.asset('lib/assets/images/project_images/e_commerce_behaviour_understanding.png'),
+        image: Image.asset('lib/assets/images/project_banners/e_commerce_behaviour_understanding.png'),
         source: "https://github.com/Nailsonseat/E-commerce-Shopper-s-Behaviour-Understanding",
         pagePath: '/home/Ecommerce_Shoppers_Behaviour_and_Understanding',
         briefDescription:
@@ -97,7 +97,7 @@ class ProjectPageProvider extends ChangeNotifier {
         secondaryColor: HexColor('#105952')),
     Project(
         title: 'Data Into IPL',
-        image: Image.asset('lib/assets/images/project_images/data_in_ipl.png'),
+        image: Image.asset('lib/assets/images/project_banners/data_in_ipl.png'),
         source: "https://github.com/Nailsonseat/Data_into_IPL",
         pagePath: '/home/Data_Into_IPL',
         briefDescription:
@@ -107,7 +107,7 @@ class ProjectPageProvider extends ChangeNotifier {
         secondaryColor: HexColor('#086b2a')),
     Project(
         title: 'Kastor',
-        image: Image.asset('lib/assets/images/project_images/kastor.png'),
+        image: Image.asset('lib/assets/images/project_banners/kastor.png'),
         source: "https://github.com/Nailsonseat/Kastor",
         pagePath: '/home/Kastor',
         briefDescription:
@@ -117,7 +117,7 @@ class ProjectPageProvider extends ChangeNotifier {
         secondaryColor: HexColor('#491d07')),
     Project(
         title: 'Classic Snake Focused Frames per Second',
-        image: Image.asset('lib/assets/images/project_images/snake.png'),
+        image: Image.asset('lib/assets/images/project_banners/snake.png'),
         source: "https://github.com/Nailsonseat/Classic-Snake-By-2D-Focused-Frames-per-second",
         pagePath: '/home/Classic_Snake_FFPS',
         briefDescription:
@@ -127,7 +127,7 @@ class ProjectPageProvider extends ChangeNotifier {
         secondaryColor: HexColor('#34805b')),
     Project(
         title: 'Machine Learning',
-        image: Image.asset('lib/assets/images/project_images/machine_learning.png'),
+        image: Image.asset('lib/assets/images/project_banners/machine_learning.png'),
         source: "https://github.com/Nailsonseat/Machine-Learning",
         pagePath: '/home/Machine_Learning',
         briefDescription:
@@ -137,7 +137,7 @@ class ProjectPageProvider extends ChangeNotifier {
         secondaryColor: HexColor('#425fdb')),
     Project(
         title: 'LetsTalkk',
-        image: Image.asset('lib/assets/images/project_images/messaging.png'),
+        image: Image.asset('lib/assets/images/project_banners/messaging.png'),
         source: "https://github.com/Nailsonseat/LetsTalkk",
         pagePath: '/home/LetsTalkk',
         briefDescription:
@@ -147,7 +147,7 @@ class ProjectPageProvider extends ChangeNotifier {
         secondaryColor: HexColor('#4764ea')),
     Project(
         title: 'Yoshop Web Scraper',
-        image: Image.asset('lib/assets/images/project_images/yoshop_scraper.png'),
+        image: Image.asset('lib/assets/images/project_banners/yoshop_scraper.png'),
         source: "https://github.com/Nailsonseat/Yoshop-Web-Scraper",
         pagePath: '/home/Yoshop_Web_Scraper',
         briefDescription:
@@ -157,7 +157,7 @@ class ProjectPageProvider extends ChangeNotifier {
         secondaryColor: HexColor('#431e7b')),
     Project(
         title: 'Holomorphic Bot',
-        image: Image.asset('lib/assets/images/project_images/hola_bot.png'),
+        image: Image.asset('lib/assets/images/project_banners/hola_bot.png'),
         source: "https://github.com/Nailsonseat/Hola_bot",
         pagePath: '/home/Hola_bot',
         briefDescription:

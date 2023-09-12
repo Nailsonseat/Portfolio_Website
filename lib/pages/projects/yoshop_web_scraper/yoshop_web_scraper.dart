@@ -35,7 +35,7 @@ class YoshopWebScraper extends StatelessWidget {
     Project project = projectPageProvider.getProject("Yoshop Web Scraper");
     return ProjectPageTemplate(
       projectTitle: project.title,
-      bannerImage: "lib/assets/images/project_images/yoshop_scraper.png",
+      bannerImage: "lib/assets/images/project_banners/yoshop_scraper.png",
       textSections: textSections,
       timelineIcons: timelineIcons,
       secondaryColor: containerColor,

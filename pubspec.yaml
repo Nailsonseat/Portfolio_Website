@@ -114,7 +114,6 @@ flutter:
   # see https://flutter.dev/custom-fonts/#from-packages
   assets:
     - lib/assets/icons/
-    - lib/assets/images/project_images/
     - lib/assets/text/about_me/
     - lib/assets/images/profile_pic/
     - lib/assets/images/miscellaneous/
@@ -130,5 +129,6 @@ flutter:
     - lib/pages/projects/portfolio_website/
     - lib/pages/projects/yoshop_web_scraper/
     - lib/pages/templates/
-    - lib/assets/techstack/
+    - lib/assets/icons/tech_stack/
+    - lib/assets/images/project_banners/
 

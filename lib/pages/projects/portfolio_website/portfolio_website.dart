@@ -35,7 +35,7 @@ class PortfolioWebsite extends StatelessWidget {
     Project project = projectPageProvider.getProject("Portfolio Website");
     return ProjectPageTemplate(
       projectTitle: project.title,
-      bannerImage: "lib/assets/images/project_images/portfolio.png",
+      bannerImage: "lib/assets/images/project_banners/portfolio.png",
       textSections: textSections,
       timelineIcons: timelineIcons,
       secondaryColor: secondaryColor,
