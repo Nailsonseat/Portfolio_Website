@@ -35,7 +35,7 @@ class HospitalManagementUtility extends StatelessWidget {
     Project project = projectPageProvider.getProject("Hospital Management Utility");
     return ProjectPageTemplate(
       projectTitle: project.title,
-      bannerImage: "lib/assets/images/project_images/hospital_management_utility.png",
+      bannerImage: "lib/assets/images/project_banners/hospital_management_utility.png",
       textSections: textSections,
       timelineIcons: timelineIcons,
       secondaryColor: secondaryColor,

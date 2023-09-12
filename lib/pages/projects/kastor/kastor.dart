@@ -35,7 +35,7 @@ class Kastor extends StatelessWidget {
     Project project = projectPageProvider.getProject("Kastor");
     return ProjectPageTemplate(
       projectTitle: project.title,
-      bannerImage: "lib/assets/images/project_images/kastor.png",
+      bannerImage: "lib/assets/images/project_banners/kastor.png",
       textSections: textSections,
       timelineIcons: timelineIcons,
       secondaryColor: secondaryColor,
