@@ -83,7 +83,14 @@ class ProjectPageTemplate extends StatelessWidget {
                         data: snapshot.data,
                         style: {
                           "body": Style(fontSize: FontSize(width / 109.8888888)), // Adjust the font size as needed
-                          ".techstack": Style(height: Height(width/32.966667), width: Width(width/32.966667), margin: Margins.only(right: 20)),
+                          ".techstack": Style(
+                              height: Height(width / 32.966667),
+                              width: Width(width / 32.966667),
+                              margin: Margins.only(right: 20)),
+                          ".techstack-small": Style(
+                              height: Height(width / 30.4307),
+                              width: Width(width / 30.4307),
+                              margin: Margins.only(right: 20)),
                         },
                         onAnchorTap: (String? url, _, __) => _redirect(url!),
                         extensions: [
