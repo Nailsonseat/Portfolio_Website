@@ -16,11 +16,13 @@ class AcharyaSetu extends StatelessWidget {
   final List<TableOfContentsComponent> projectComponents = [
     TableOfContentsComponent(title: "Description", subComponents: []),
     TableOfContentsComponent(title: "TechStack", subComponents: []),
+    TableOfContentsComponent(title: "Features", subComponents: []),
     TableOfContentsComponent(title: "Under Construction", subComponents: []),
   ];
   final List<TextSection> textSections = [
     TextSection(title: "Description", bodyPath: 'lib/pages/projects/acharya_setu/description.html'),
     TextSection(title: "Techstack", bodyPath: 'lib/pages/projects/acharya_setu/techstack.html'),
+    TextSection(title: "Features", bodyPath: 'lib/pages/projects/acharya_setu/features.html'),
     TextSection(title: "Under Construction...", bodyPath: 'lib/pages/templates/under_construction_template.html')
   ];
 
@@ -29,8 +31,10 @@ class AcharyaSetu extends StatelessWidget {
     EvaIcons.fileText,
     LineIcons.toolbox,
     LineIcons.tools,
+    LineIcons.award,
+    EvaIcons.bulbOutline,
     LineIcons.hardHat,
-    LineIcons.hardHat,
+    LineIcons.wrench,
   ];
 
   final Color secondaryColor = HexColor('#ebddff');
