@@ -131,4 +131,5 @@ flutter:
     - lib/pages/templates/
     - lib/assets/icons/tech_stack/
     - lib/assets/images/project_banners/
+    - lib/assets/images/project_images/acharya_setu/
 

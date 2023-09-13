@@ -6,6 +6,10 @@ class Assets {
   static const String aboutMeAboutMePage = 'lib/pages/about_me/about_me_page.dart';
   static const String aboutMeEducation = 'lib/assets/text/about_me/education.txt';
   static const String acharyaSetuAcharyaSetu = 'lib/pages/projects/acharya_setu/acharya_setu.dart';
+  static const String acharyaSetuAcharyaSetuQuestionContextGeneration = 'lib/assets/images/project_images/acharya_setu/Acharya_Setu_Question_Context_Generation.png';
+  static const String acharyaSetuAcharyaSetuQuestionDistribution = 'lib/assets/images/project_images/acharya_setu/Acharya_Setu_Question_Distribution.png';
+  static const String acharyaSetuAcharyaSetuQuestionSegmentation = 'lib/assets/images/project_images/acharya_setu/Acharya_Setu_Question_Segmentation.png';
+  static const String acharyaSetuAcharyaSetuTemplateRandomizer = 'lib/assets/images/project_images/acharya_setu/Acharya_Setu_Template_Randomizer.png';
   static const String acharyaSetuDescription = 'lib/pages/projects/acharya_setu/description.html';
   static const String acharyaSetuFeatures = 'lib/pages/projects/acharya_setu/features.html';
   static const String acharyaSetuTechstack = 'lib/pages/projects/acharya_setu/techstack.html';
@@ -74,7 +78,7 @@ class Assets {
   static const String techStackFirebase = 'lib/assets/icons/tech_stack/firebase.svg';
   static const String techStackFirebaseHosting = 'lib/assets/icons/tech_stack/firebase-hosting.svg';
   static const String techStackFirebaseStorage = 'lib/assets/icons/tech_stack/firebase-storage.svg';
-  static const String techStackFirestoreSvgrepoCom = 'lib/assets/icons/tech_stack/firestore.svg';
+  static const String techStackFirestore = 'lib/assets/icons/tech_stack/firestore.svg';
   static const String techStackFlutter = 'lib/assets/icons/tech_stack/flutter.svg';
   static const String techStackHtml5 = 'lib/assets/icons/tech_stack/html-5.svg';
   static const String templatesProjectPageTemplate = 'lib/pages/templates/project_page_template.dart';
