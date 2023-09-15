@@ -156,7 +156,7 @@ class ProjectPageTemplate extends StatelessWidget {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       componentsConstraintsProvider.setTitleContainerHeight();
       scrollProvider.tableOfContentsListner(scrollProvider.bannerHeight, width);
-      Future.delayed(const Duration(milliseconds: 5000), () {
+      Future.delayed(const Duration(milliseconds: 2000), () {
         componentsConstraintsProvider.setTextContainerHeight();
       });
     });
