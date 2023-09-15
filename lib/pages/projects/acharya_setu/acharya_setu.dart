@@ -16,12 +16,14 @@ class AcharyaSetu extends StatelessWidget {
   final List<TableOfContentsComponent> projectComponents = [
     TableOfContentsComponent(title: "Description", subComponents: []),
     TableOfContentsComponent(title: "TechStack", subComponents: []),
-    TableOfContentsComponent(title: "Under Construction", subComponents: []),
+    TableOfContentsComponent(title: "Features", subComponents: []),
+    TableOfContentsComponent(title: "Progress", subComponents: []),
   ];
   final List<TextSection> textSections = [
     TextSection(title: "Description", bodyPath: 'lib/pages/projects/acharya_setu/description.html'),
     TextSection(title: "Techstack", bodyPath: 'lib/pages/projects/acharya_setu/techstack.html'),
-    TextSection(title: "Under Construction...", bodyPath: 'lib/pages/templates/under_construction_template.html')
+    TextSection(title: "Features", bodyPath: 'lib/pages/projects/acharya_setu/features.html'),
+    TextSection(title: "Progress", bodyPath: 'lib/pages/projects/acharya_setu/progress.html'),
   ];
 
   final List<IconData> timelineIcons = [
@@ -29,8 +31,10 @@ class AcharyaSetu extends StatelessWidget {
     EvaIcons.fileText,
     LineIcons.toolbox,
     LineIcons.tools,
-    LineIcons.hardHat,
-    LineIcons.hardHat,
+    LineIcons.award,
+    EvaIcons.bulbOutline,
+    EvaIcons.bulbOutline,
+    EvaIcons.bulbOutline,
   ];
 
   final Color secondaryColor = HexColor('#ebddff');
@@ -45,7 +49,7 @@ class AcharyaSetu extends StatelessWidget {
 
     return ProjectPageTemplate(
       projectTitle: project.title,
-      bannerImage: "lib/assets/images/project_images/acharya_setu.jpg",
+      bannerImage: "lib/assets/images/project_banners/acharya_setu.jpg",
       textSections: textSections,
       timelineIcons: timelineIcons,
       secondaryColor: secondaryColor,

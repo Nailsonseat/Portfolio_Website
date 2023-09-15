@@ -35,7 +35,7 @@ class EcommerceShoppersBehaviourAndUnderstanding extends StatelessWidget {
     Project project = projectPageProvider.getProject("E-commerce Shopper's Behaviour Understanding");
     return ProjectPageTemplate(
       projectTitle: project.title,
-      bannerImage: "lib/assets/images/project_images/e_commerce_behaviour_understanding.png",
+      bannerImage: "lib/assets/images/project_banners/e_commerce_behaviour_understanding.png",
       textSections: textSections,
       timelineIcons: timelineIcons,
       secondaryColor: secondaryColor,

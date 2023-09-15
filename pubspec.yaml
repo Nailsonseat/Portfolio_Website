@@ -47,7 +47,6 @@ dependencies:
   line_icons: ^2.0.3
   url_launcher: ^6.1.14
   logger: ^2.0.2
-  flutter_markdown: ^0.6.17+2
   animated_toggle_switch: ^0.7.0
   timelines: ^0.1.0
   ionicons: ^0.2.2
@@ -55,6 +54,7 @@ dependencies:
   hexcolor: ^3.0.1
   flutter_html: ^3.0.0-beta.2
   flutter_html_svg: ^3.0.0-beta.2
+  flutter_html_table: ^3.0.0-beta.2
 
 dev_dependencies:
   flutter_test:
@@ -114,7 +114,6 @@ flutter:
   # see https://flutter.dev/custom-fonts/#from-packages
   assets:
     - lib/assets/icons/
-    - lib/assets/images/project_images/
     - lib/assets/text/about_me/
     - lib/assets/images/profile_pic/
     - lib/assets/images/miscellaneous/
@@ -130,5 +129,7 @@ flutter:
     - lib/pages/projects/portfolio_website/
     - lib/pages/projects/yoshop_web_scraper/
     - lib/pages/templates/
-    - lib/assets/techstack/
+    - lib/assets/icons/tech_stack/
+    - lib/assets/images/project_banners/
+    - lib/assets/images/project_images/acharya_setu/
 
