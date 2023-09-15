@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+
+    </style>
+</head>
+
+<body>
+
+<p>
+<h1>Authentication</h1>
+<ul>
+    <li>
+        <h3>Login options</h3>
+        At first, I was unsure about the login options I wanted in the app, then decided that an
+        Anonymous login wasn't the way to go about this app, since many features here rely on
+        working with an authenticated user one way or another. Hence finally after long hours of
+        brainstorming, I decided on three options Google, Phone number, and Email. These
+        options will be used to authenticate a user.
+        <table>
+            <tr>
+                <th>Old</th>
+                <th>New</th>
+            </tr>
+            <tr>
+                <td class="old-new">
+                    <img class="demo-img" src="asset:lib/assets/images/project_images/acharya_setu/login_opt_old.png">
+                </td>
+                <td class="old-new">
+                    <img class="demo-img" src="asset:lib/assets/images/project_images/acharya_setu/login_opt_new.png">
+                </td>
+            </tr>
+        </table>
+    </li>
+    <li>
+        <h3>OTP based Login</h3>
+        The OTP based login is based on Google's api for SMS but the limitation is that the length
+        of OTP is fixed to six.
+        So therefore I have wrapped the otp boxes in a 'Wrap' widget.
+        <table>
+            <tr>
+                <th>Old</th>
+                <th>New</th>
+            </tr>
+            <tr>
+                <td class="old-new">
+                    <img class="demo-img" src="asset:lib/assets/images/project_images/acharya_setu/number_input_old.png">
+                </td>
+                <td class="old-new">
+                    <img class="demo-img" src="asset:lib/assets/images/project_images/acharya_setu/number_input_new.png">
+                </td>
+            </tr>
+            <tr>
+                <td class="old-new">
+                    <img class="demo-img" src="asset:lib/assets/images/project_images/acharya_setu/otp_page_old.png">
+                </td>
+                <td class="old-new">
+                    <img class="demo-img" src="asset:lib/assets/images/project_images/acharya_setu/otp_page_new.png">
+                </td>
+            </tr>
+        </table>
+    </li>
+
+    <li>
+        <h3>Email based Login</h3>
+        EmailJs api is used to send email to send OTP, in this case I have also fixed the length of
+        the OTP to six for consistency for the SMS based login.
+        <table>
+            <tr>
+                <th>Old</th>
+                <th>New</th>
+            </tr>
+            <tr>
+                <td class="old-new">
+                    <img class="demo-img" src="asset:lib/assets/images/project_images/acharya_setu/email_old.png">
+                </td>
+                <td class="old-new">
+                    <img class="demo-img" src="asset:lib/assets/images/project_images/acharya_setu/email_new.png">
+                </td>
+            </tr>
+            <tr>
+                <td class="old-new">
+                    <img class="demo-img" src="asset:lib/assets/images/project_images/acharya_setu/email_reg_old.png">
+                </td>
+                <td class="old-new">
+                    <img class="demo-img" src="asset:lib/assets/images/project_images/acharya_setu/email_reg_new.png">
+                </td>
+            </tr>
+        </table>
+    </li>
+
+    <li>
+        <h3>Google based Login</h3>
+        The google based login was easy to implement with firebase on android and such, but for web
+        i had to make some changes in the manifest file to properly implement the google login.<br><br>
+        <img src="asset:lib/assets/images/project_images/acharya_setu/google_web.png">
+    </li>
+
+    <li>
+        <h3>Home page</h3>
+        The home page is just a dummy page with an expansion tile and hard-coded questions. So there
+        is not
+        much to look at here. It is just so that one can explore the search engine. So it is just
+        for show for now.<br><br>
+        <table>
+            <tr>
+                <td>
+                    <img class="demo-img" src="asset:lib/assets/images/project_images/acharya_setu/home1.png">
+                    <img class="demo-img" src="asset:lib/assets/images/project_images/acharya_setu/home2.png">
+                    <img class="demo-img" src="asset:lib/assets/images/project_images/acharya_setu/home3.png">
+                </td>
+            </tr>
+        </table>
+    </li>
+</ul>
+</p>
+</body>
+</html>
