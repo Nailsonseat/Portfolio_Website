@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:flutter_html_svg/flutter_html_svg.dart';
+import 'package:flutter_html_table/flutter_html_table.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:logger/logger.dart';
 import 'package:portfolio_website/components/projects/banner_image.dart';
@@ -91,9 +92,14 @@ class ProjectPageTemplate extends StatelessWidget {
                               height: Height(width / 30.4307),
                               width: Width(width / 30.4307),
                               margin: Margins.only(right: 20)),
+                          ".portrait-img":
+                              Style(height: Height(width / 2.8257), margin: Margins.only(right: width / 21.97778)),
+                          ".old-new": Style(padding: HtmlPaddings.symmetric(horizontal: 80, vertical: 40)),
+                          ".demo-img": Style(height: Height(width / 2.825714))
                         },
                         onAnchorTap: (String? url, _, __) => _redirect(url!),
                         extensions: [
+                          const TableHtmlExtension(),
                           const SvgHtmlExtension(),
                           TagWrapExtension(
                             tagsToWrap: {"body"},
@@ -150,7 +156,7 @@ class ProjectPageTemplate extends StatelessWidget {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       componentsConstraintsProvider.setTitleContainerHeight();
       scrollProvider.tableOfContentsListner(scrollProvider.bannerHeight, width);
-      Future.delayed(const Duration(milliseconds: 2000), () {
+      Future.delayed(const Duration(milliseconds: 5000), () {
         componentsConstraintsProvider.setTextContainerHeight();
       });
     });
