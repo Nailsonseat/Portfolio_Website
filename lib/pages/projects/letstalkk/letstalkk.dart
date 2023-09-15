@@ -35,7 +35,7 @@ class LetsTalkk extends StatelessWidget {
     Project project = projectPageProvider.getProject("LetsTalkk");
     return ProjectPageTemplate(
       projectTitle: project.title,
-      bannerImage: "lib/assets/images/project_images/messaging.png",
+      bannerImage: "lib/assets/images/project_banners/messaging.png",
       textSections: textSections,
       timelineIcons: timelineIcons,
       secondaryColor: secondaryColor,
