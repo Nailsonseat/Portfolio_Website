@@ -94,7 +94,7 @@ class ProjectPageTemplate extends StatelessWidget {
                               margin: Margins.only(right: 20)),
                           ".portrait-img":
                               Style(height: Height(width / 2.8257), margin: Margins.only(right: width / 21.97778)),
-                          ".old-new": Style(padding: HtmlPaddings.symmetric(horizontal: 80, vertical: 40)),
+                          ".old-new": Style(padding: HtmlPaddings.symmetric(horizontal: width / 24.725, vertical: 40)),
                           ".demo-img": Style(height: Height(width / 2.825714))
                         },
                         onAnchorTap: (String? url, _, __) => _redirect(url!),
