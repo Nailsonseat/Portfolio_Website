@@ -160,7 +160,7 @@ class ProjectPageTemplate extends StatelessWidget {
       scrollProvider.tableOfContentsListner(scrollProvider.bannerHeight, width);
         int secondsPassed = 0;
         Timer.periodic(const Duration(milliseconds: 500), (timer) {
-          if (secondsPassed < 10) {
+          if (secondsPassed < 5) {
             // Run your function here
             componentsConstraintsProvider.setTextContainerHeight();
             secondsPassed++;
