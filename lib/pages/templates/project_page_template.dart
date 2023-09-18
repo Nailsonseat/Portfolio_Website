@@ -85,16 +85,16 @@ class ProjectPageTemplate extends StatelessWidget {
                         style: {
                           "body": Style(fontSize: FontSize(width / 109.8888888)), // Adjust the font size as needed
                           ".techstack": Style(
-                              height: Height(width / 32.966667),
-                              width: Width(width / 32.966667),
+                              height: Height(width / 24.966667),
+                              width: Width(width / 24.966667),
                               margin: Margins.only(right: 20)),
                           ".techstack-small": Style(
-                              height: Height(width / 30.4307),
-                              width: Width(width / 30.4307),
+                              height: Height(width / 21.4307),
+                              width: Width(width / 21.4307),
                               margin: Margins.only(right: 20)),
                           ".portrait-img":
                               Style(height: Height(width / 2.8257), margin: Margins.only(right: width / 21.97778)),
-                          ".old-new": Style(padding: HtmlPaddings.symmetric(horizontal: 80, vertical: 40)),
+                          ".old-new": Style(padding: HtmlPaddings.symmetric(horizontal: width / 24.725, vertical: 40)),
                           ".demo-img": Style(height: Height(width / 2.825714))
                         },
                         onAnchorTap: (String? url, _, __) => _redirect(url!),
