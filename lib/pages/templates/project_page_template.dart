@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_html/flutter_html.dart';
@@ -94,7 +96,7 @@ class ProjectPageTemplate extends StatelessWidget {
                               margin: Margins.only(right: 20)),
                           ".portrait-img":
                               Style(height: Height(width / 2.8257), margin: Margins.only(right: width / 21.97778)),
-                          ".old-new": Style(padding: HtmlPaddings.symmetric(horizontal: width / 24.725, vertical: 40)),
+                          ".old-new": Style(padding: HtmlPaddings.symmetric(horizontal: width/98.9, vertical: 40)),
                           ".demo-img": Style(height: Height(width / 2.825714))
                         },
                         onAnchorTap: (String? url, _, __) => _redirect(url!),
@@ -156,9 +158,16 @@ class ProjectPageTemplate extends StatelessWidget {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       componentsConstraintsProvider.setTitleContainerHeight();
       scrollProvider.tableOfContentsListner(scrollProvider.bannerHeight, width);
-      Future.delayed(const Duration(milliseconds: 2000), () {
-        componentsConstraintsProvider.setTextContainerHeight();
-      });
+        int secondsPassed = 0;
+        Timer.periodic(const Duration(milliseconds: 500), (timer) {
+          if (secondsPassed < 10) {
+            // Run your function here
+            componentsConstraintsProvider.setTextContainerHeight();
+            secondsPassed++;
+          } else {
+            timer.cancel();
+          }
+        });
     });
 
     return Scaffold(
