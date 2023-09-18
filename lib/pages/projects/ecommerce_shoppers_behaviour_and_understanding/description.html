@@ -1,3 +1,4 @@
+<body>
 <div>
     <h1>E-commerce Shopper's Behaviour Understanding using Machine Learning</h1>
     <p>
@@ -19,71 +20,45 @@
         self-explanatory variables to further understand customer behavior.
     </p>
 
-    <h2>Algorithms and Techniques:</h2>
     <p>
-        The project incorporates a wide range of machine learning classifiers to analyze and predict
-        user behavior. The following algorithms have been utilized:
-    </p>
+        The first six columns represent the different pages in the e-commerce website visited by a
+        user from other sites.<br>
+
     <ul>
-        <li><b>K-Nearest Neighbors (KNN) Classifier:</b></li>
-        <p>
-            KNN is used to classify users based on their similarity to others in the dataset. It
-            predicts whether a user will buy a product by considering the behaviors of similar
-            users.
-        </p>
-        <li><b>Support Vector Machine (SVM) Classifier:</b></li>
-        <p>
-            SVM is applied to create a hyperplane that optimally separates users into purchase and
-            non-purchase categories, maximizing the margin between the two classes.
-        </p>
-        <li><b>XGBoost (Extreme Gradient Boosting) Classifier:</b></li>
-        <p>
-            XGBoost is a powerful boosting technique that creates an ensemble of weak learners to
-            improve predictive accuracy.
-        </p>
-        <li><b>Decision Tree Classifier:</b></li>
-        <p>
-            Decision trees are used to create a hierarchical model that splits users based on the
-            most influential features to make predictions.
-        </p>
-        <li><b>Random Forest Classifier:</b></li>
-        <p>
-            Random Forests are an ensemble method that leverages multiple decision trees to achieve
-            better generalization and reduce over-fitting.
-        </p>
-        <li><b>Multilayer Perceptron (MLP) Classifier:</b></li>
-        <p>
-            MLP is a deep learning model that uses artificial neural networks to learn complex
-            patterns in the data.
-        </p>
-        <li><b>Ensemble Learning:</b></li>
-        <p>
-            The project employs ensemble techniques such as bagging and boosting to combine the
-            predictions of multiple models for improved accuracy and robustness.
-        </p>
-        <li><b>Voting Classifier:</b></li>
-        <p>
-            In the final stage, a voting classifier is implemented, combining the outputs of three
-            classifiers: Decision Tree Classifier, Bagged Decision Tree Classifier, and MLP
-            Classifier. The voting classifier selects the most frequent class predicted by the
-            individual models, leading to a robust and balanced prediction.
-        </p>
+        <li>HomePage: Number of times visited this page.<br></li>
+        <li>HomePage_Duration: Total number of duration spent on this page.<br></li>
+        <li>LandingPage: Number of times visited this page.<br></li>
+        <li>LandingPage_Duration: Total number of duration spent on this page.<br></li>
+        <li>ProductDesriptionPage: Number of times visited this page.<br></li>
+        <li>ProductDescriptionPage_Duration: Total number of duration spent on this page.<br></li>
+        <li>GoogleMetric-Bounce Rate: Whenever a user comes to any one web-page of the website and
+            he/she does not go to any other page and exits from the website from the same page, then
+            this activity done by the user is called Bounce. And the percentage of the total number
+            of times the user visiting our website and bounce it, is called Bounce Rate<br>
+        </li>
+        <li>GoogleMetric-Exit Rate: The bounce rate is calculated based on the user exiting a
+            website after visiting one page. But some users exit from the second, third, fourth, or
+            any other page of our website, then those visitors’ data help determine the exit rate.
+            The percentage of the total number of times the user to our website who do not exit from
+            the first page (Landing Page) but exit after exploring other website pages is called the
+            Exit Rate.<br>
+        </li>
+        <li>GoogleMetric-Page Value: Page Value is the average value for a page that a user visited
+            before landing on the goal page or completing an Ecommerce transaction.<br>
+        </li>
+        <li>SeasonalPurchase: It is a weight indicator to track the seasonal purchase. If a user
+            makes a purchase during any seasonal time (Mother’s Day, Diwali, Valentine's Day), we
+            will assign based on internal heuristic.<br>
+        </li>
+        <li>Month_SeasonalPurchase: Month of the special day considered for seasonal purchase.<br>
+        </li>
     </ul>
+    <br>
+    The other attributes like, OS, Search Engine, Zone, Type of Traffic, Customer Type, Gender,
+    Cookies Setting, Education, Marital Status and Weekend Purchase are self-explanatory variables
 
-    <h2>Hyper parameter Tuning:</h2>
-    <p>
-        To optimize the performance of each classifier, hyper parameter tuning is conducted.
-        Hyper parameter tuning involves searching for the best set of hyper parameters that maximize
-        the model's predictive capabilities. Techniques like Grid Search or Random Search are
-        employed to fine-tune the model parameters.
-    </p>
-
-    <p>
-        The "E-commerce Shopper's Behaviour Understanding" project represents a
-        significant step in analyzing customer behavior and predicting purchase decisions in the
-        e-commerce domain. With the integration of various machine learning algorithms, ensemble
-        techniques, and hyper parameter tuning, the model offers valuable insights to e-commerce
-        businesses, enabling them to make data-driven decisions and enhance the shopping experience
-        for their customers.
+    Notebook link - <a
+        href="https://github.com/Nailsonseat/E-commerce-Shopper-s-Behaviour-Understanding/blob/9e21f6a459771c49f8afa2f8acb6526d66a8c63f/Final%20Notebook.ipynb">here</a>
     </p>
 </div>
+</body>
