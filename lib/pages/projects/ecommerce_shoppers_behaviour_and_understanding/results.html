@@ -1,0 +1,51 @@
+<body>
+
+<div>
+    <h2>Correlation</h2>
+    <p>Most correlation is observed between features dealing with the duration in which the visitor
+        interacts or just says on a certain page. Also the number of times a page was visited.</p>
+    <img src="asset:lib/assets/images/project_images/ecommerce_shoppers_behaviour_and_understanding/e_comm_heatmap.png">
+</div>
+
+<div>
+    <h2><br><br>Accuracy of all the models</h2>
+    <p>
+        So the top models in terms of accuracy here is the Decision Tree Classifier (CART) on
+        Bagging
+        Classifier and also is tuned for hyper-parameters. Voting classifier with has been fed three
+        models - MLP classifier, CART Tuned, CART Tuned Bagged. I really had high hopes with the
+        Voting classifier but it didn't perform as expected and came in the second place. The third
+        place is tied with many classifiers.
+    </p>
+    <img src="asset:lib/assets/images/project_images/ecommerce_shoppers_behaviour_and_understanding/e_comm_accuracy.png">
+</div>
+
+<div>
+    <h2><br><br>Precision of all the models</h2>
+    <p>
+        The precision seems low indicating more work to be done. If I had to go back and make some
+        changes i would probably do some sampling so that the distribution is somewhat balanced and
+        then run everything over again.
+    </p>
+    <img src="asset:lib/assets/images/project_images/ecommerce_shoppers_behaviour_and_understanding/e_comm_precision.png">
+</div>
+
+<div>
+    <h2><br><br>Recall of all the models</h2>
+    <p>
+        SVM takes the lead on this. I think i could've added some more classifiers to the voting
+        classifier.
+    </p>
+    <img src="asset:lib/assets/images/project_images/ecommerce_shoppers_behaviour_and_understanding/e_comm_recall.png">
+</div>
+
+<div>
+    <h2><br><br>F1 of all the models</h2>
+    <p>
+        F1 score is the culmination for precision and recall, here the SVM takes the lead. But my
+        final submission was done with the voting classifier.
+    </p>
+    <img src="asset:lib/assets/images/project_images/ecommerce_shoppers_behaviour_and_understanding/e_comm_f1.png">
+</div>
+
+</body>

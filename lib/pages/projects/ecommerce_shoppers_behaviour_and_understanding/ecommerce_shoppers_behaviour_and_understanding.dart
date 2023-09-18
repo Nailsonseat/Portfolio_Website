@@ -13,16 +13,35 @@ class EcommerceShoppersBehaviourAndUnderstanding extends StatelessWidget {
   EcommerceShoppersBehaviourAndUnderstanding({super.key});
 
   final List<TextSection> textSections = [
-    TextSection(title: "Description", bodyPath: "lib/pages/projects/ecommerce_shoppers_behaviour_and_understanding/description.html"),
-    TextSection(title: "Under Construction...", bodyPath: "lib/pages/templates/under_construction_template.html"),
+    TextSection(
+        title: "Description",
+        bodyPath: "lib/pages/projects/ecommerce_shoppers_behaviour_and_understanding/description.html"),
+    TextSection(
+        title: "Techstack",
+        bodyPath: "lib/pages/projects/ecommerce_shoppers_behaviour_and_understanding/techstack.html"),
+    TextSection(
+        title: "Classifiers Used",
+        bodyPath: "lib/pages/projects/ecommerce_shoppers_behaviour_and_understanding/models.html"),
+    TextSection(
+        title: "Results",
+        bodyPath: "lib/pages/projects/ecommerce_shoppers_behaviour_and_understanding/results.html"),
   ];
-  final List<TableOfContentsComponent> projectComponents = [TableOfContentsComponent(title: "Description", subComponents: [])];
+  final List<TableOfContentsComponent> projectComponents = [
+    TableOfContentsComponent(title: "Description", subComponents: []),
+    TableOfContentsComponent(title: "Techstack", subComponents: []),
+    TableOfContentsComponent(title: "Classifiers Used", subComponents: []),
+    TableOfContentsComponent(title: "Results", subComponents: []),
+  ];
 
   final List<IconData> timelineIcons = [
     Ionicons.bookmark_sharp,
     EvaIcons.fileText,
-    Ionicons.construct,
-    LineIcons.hardHat
+    LineIcons.toolbox,
+    LineIcons.tools,
+    EvaIcons.cubeOutline,
+    Ionicons.funnel_outline,
+    Ionicons.receipt_outline,
+    Ionicons.bar_chart_outline,
   ];
 
   final Color secondaryColor = HexColor('#d7eff1');
