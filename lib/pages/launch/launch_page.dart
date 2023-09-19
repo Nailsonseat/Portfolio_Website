@@ -15,7 +15,7 @@ class LaunchPage extends StatelessWidget {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
 
-    if (width < 1000 || height < 768) {
+    if (width < 1000 || height < 500) {
       return const SmallScreenWidget();
     }
 
