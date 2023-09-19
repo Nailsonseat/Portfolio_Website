@@ -26,7 +26,7 @@ class HomeMain extends StatelessWidget {
     }
 
 
-    width = width < 800 ? 800 : width;
+    width = width < 1200 ? 1200 : width;
 
     ScrollProvider scrollProvider = Provider.of<ScrollProvider>(context, listen: false);
     scrollProvider.appBarHeight = height / 13.15 < 60 ? 60 : height / 13.15;

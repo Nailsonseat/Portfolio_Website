@@ -142,7 +142,7 @@ class ProjectPageTemplate extends StatelessWidget {
       return const SmallScreenWidget();
     }
 
-    width = width < 800 ? 800 : width;
+    width = width < 1200 ? 1200 : width;
 
     ScrollProvider scrollProvider = Provider.of<ScrollProvider>(context, listen: false);
     ProjectComponentsConstraintsProvider componentsConstraintsProvider =
