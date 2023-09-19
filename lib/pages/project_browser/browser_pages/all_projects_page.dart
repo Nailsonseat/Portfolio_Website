@@ -25,7 +25,7 @@ class AllProjectsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
-    width = width < 800 ? 800 : width;
+    width = width < 1200 ? 1200 : width;
 
     return Consumer<ProjectPageProvider>(
       builder: (_, projectProvider, __) {

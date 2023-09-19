@@ -90,7 +90,7 @@ class HomeLandingPage extends StatelessWidget {
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
-    width = width < 800 ? 800 : width;
+    width = width < 1200 ? 1200 : width;
     ScrollProvider scrollProvider = Provider.of<ScrollProvider>(context, listen: false);
 
     return Container(
