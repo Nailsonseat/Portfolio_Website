@@ -15,14 +15,16 @@ class HomeMain extends StatelessWidget {
     return fontSize < 16 ? 16 : fontSize;
   }
 
+
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
 
-    if (width < 1000 || height < 500) {
+    if(Theme.of(context).platform == TargetPlatform.iOS || Theme.of(context).platform == TargetPlatform.android){
       return const SmallScreenWidget();
     }
+
 
     width = width < 800 ? 800 : width;
 
