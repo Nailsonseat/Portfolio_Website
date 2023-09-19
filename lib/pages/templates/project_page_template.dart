@@ -96,7 +96,7 @@ class ProjectPageTemplate extends StatelessWidget {
                               margin: Margins.only(right: 20)),
                           ".portrait-img":
                               Style(height: Height(width / 2.8257), margin: Margins.only(right: width / 21.97778)),
-                          ".old-new": Style(padding: HtmlPaddings.symmetric(horizontal: width/98.9, vertical: 40)),
+                          ".old-new": Style(padding: HtmlPaddings.symmetric(horizontal: width / 35, vertical: 40)),
                           ".demo-img": Style(height: Height(width / 2.825714))
                         },
                         onAnchorTap: (String? url, _, __) => _redirect(url!),
@@ -148,6 +148,7 @@ class ProjectPageTemplate extends StatelessWidget {
     ScrollProvider scrollProvider = Provider.of<ScrollProvider>(context, listen: false);
     ProjectComponentsConstraintsProvider componentsConstraintsProvider =
         Provider.of<ProjectComponentsConstraintsProvider>(context, listen: false);
+
     scrollProvider.bannerHeight = _projectBannerHeight(width);
     scrollProvider.width = width;
 
@@ -158,16 +159,7 @@ class ProjectPageTemplate extends StatelessWidget {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       componentsConstraintsProvider.setTitleContainerHeight();
       scrollProvider.tableOfContentsListner(scrollProvider.bannerHeight, width);
-        int secondsPassed = 0;
-        Timer.periodic(const Duration(milliseconds: 500), (timer) {
-          if (secondsPassed < 5) {
-            // Run your function here
-            componentsConstraintsProvider.setTextContainerHeight();
-            secondsPassed++;
-          } else {
-            timer.cancel();
-          }
-        });
+      componentsConstraintsProvider.startRenderTimer();
     });
 
     return Scaffold(
