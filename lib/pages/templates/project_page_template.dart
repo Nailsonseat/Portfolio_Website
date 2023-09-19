@@ -138,7 +138,7 @@ class ProjectPageTemplate extends StatelessWidget {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
 
-    if(Theme.of(context).platform == TargetPlatform.iOS || Theme.of(context).platform == TargetPlatform.android){
+    if (Theme.of(context).platform == TargetPlatform.iOS || Theme.of(context).platform == TargetPlatform.android) {
       return const SmallScreenWidget();
     }
 
@@ -165,7 +165,7 @@ class ProjectPageTemplate extends StatelessWidget {
       appBar: AppBar(
         title: Text(
           projectTitle,
-          style: const TextStyle(fontSize: 25),
+          style: TextStyle(fontSize: width / 79.12),
         ),
         toolbarHeight: scrollProvider.appBarHeight,
         shadowColor: Colors.black,
