@@ -16,7 +16,7 @@ class SmallScreenWidget extends StatelessWidget {
               decoration: BoxDecoration(color: Colors.grey[200], borderRadius: BorderRadius.circular(20)),
               child: const Center(
                   child: Text(
-                'Sorry, this website works best on screens with 1200x768 or above.',
+                'This website is not configured for small screens yet. Please open this website on a desktop screen',
                 textAlign: TextAlign.center,
               )),
             ),
