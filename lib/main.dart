@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => ScrollProvider()),
-        ChangeNotifierProvider(create: (_) => ProjectPageProvider()),
+        ChangeNotifierProvider(create: (_) => ProjectPageProvider(context)),
         ChangeNotifierProvider(create: (_) => ProjectComponentsConstraintsProvider())
       ],
       child: MaterialApp.router(
