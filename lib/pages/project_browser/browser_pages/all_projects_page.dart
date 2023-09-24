@@ -87,7 +87,7 @@ class AllProjectsPage extends StatelessWidget {
                                         backgroundColor: MaterialStateProperty.all<Color>(i.primaryColor),
                                         fixedSize: MaterialStateProperty.all<Size>(Size(width / 11, width / 35.4)),
                                       ),
-                                      onPressed: () => context.go(i.pagePath),
+                                      onPressed: () => context.push(i.pagePath),
                                       //  style: OutlinedButton.styleFrom(fixedSize: Size(width / 11, width / 56.4)),
                                       child: Text(
                                         "Read more",
