@@ -33,20 +33,126 @@ class HomeMain extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        automaticallyImplyLeading: false,
-        elevation: 1,
-        shadowColor: Colors.black,
-        backgroundColor: Colors.white,
-        toolbarHeight: scrollProvider.appBarHeight,
-        leading: IconButton(
-          icon: const Icon(Icons.menu),
-          onPressed: () {},
-        ),
-        title: Text(
-          'Aadarsh Verma',
-          style: TextStyle(fontSize: _appBarFontSize(width, height)),
-        ),
-      ),
+          automaticallyImplyLeading: false,
+          elevation: 1,
+          shadowColor: Colors.black,
+          backgroundColor: Colors.white,
+          toolbarHeight: scrollProvider.appBarHeight,
+          leading: IconButton(
+            icon: const Icon(Icons.menu),
+            onPressed: () {},
+          ),
+          actions: [
+            StreamBuilder<DocumentSnapshot>(
+              stream: FirebaseFirestore.instance.collection('visitor_counts').doc('home_page_visitors').snapshots(),
+              builder: (context, snapshot) {
+                if (!snapshot.hasData) {
+                  return const CircularProgressIndicator();
+                }
+                final count = snapshot.data!['count'] ?? 0;
+                return ElevatedButton(
+                  onPressed: () => showDialog(
+                    context: context,
+                    builder: (context) => Dialog(
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.0)),
+                      child: IntrinsicWidth(
+
+                        child: IntrinsicHeight(
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 20),
+                            child: Column(
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.all(23.0),
+                                  child: Align(
+                                    alignment: Alignment.topCenter,
+                                    child: SelectableText(
+                                      "Aadarsh's Portfolio Website",
+                                      style: GoogleFonts.roboto(fontSize: 35),
+                                    ),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(horizontal: 15),
+                                  child: SelectableText(
+                                    "Welcome to my portfolio website\nYou are the $count visitor\nOr you could have been the ${count - 1} visitor and just reloaded the website which would be cheating ;)",
+                                    style: const TextStyle(fontSize: 16),
+                                    textAlign: TextAlign.center,
+                                  ),
+                                ),
+                                const SizedBox(
+                                  height: 40,
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(bottom: 23),
+                                  child: Align(
+                                    alignment: Alignment.bottomCenter,
+                                    child: Row(
+                                      crossAxisAlignment: CrossAxisAlignment.end,
+                                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                      children: [
+                                        ElevatedButton(
+                                          onPressed: () {},
+                                          style: ElevatedButton.styleFrom(
+                                            elevation: 2.5, // Add elevation if needed
+                                            shape: RoundedRectangleBorder(
+                                              borderRadius: BorderRadius.circular(8.0), // Adjust the radius as needed
+                                            ),
+                                            fixedSize: const Size.fromHeight(35.0), // Adjust the height as needed
+                                          ),
+                                          child: const Text(
+                                            "Licenses",
+                                            style: TextStyle(fontSize: 18),
+                                          ),
+                                        ),
+                                        ElevatedButton(
+                                          onPressed: () => context.pop(),
+                                          style: ElevatedButton.styleFrom(
+                                            elevation: 2.5, // Add elevation if needed
+                                            shape: RoundedRectangleBorder(
+                                              borderRadius: BorderRadius.circular(8.0), // Adjust the radius as needed
+                                            ),
+                                            fixedSize: const Size.fromHeight(35.0), // Adjust the height as needed
+                                          ),
+                                          child: const Text(
+                                            "Back",
+                                            style: TextStyle(fontSize: 18),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  style: ElevatedButton.styleFrom(
+                    foregroundColor: Colors.tealAccent,
+                    elevation: 5, // Add elevation if needed
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20.0), // Adjust the radius as needed
+                    ),
+                    fixedSize: const Size.fromHeight(50.0), // Adjust the height as needed
+                  ),
+                  child: Text(
+                    'Visitor no : $count',
+                    style: const TextStyle(fontSize: 17, color: Colors.black),
+                  ),
+                );
+              },
+            ),
+            const SizedBox(
+              width: 60,
+            )
+          ],
+          title: Text(
+            "Aadarsh Verma",
+            style: TextStyle(fontSize: _appBarFontSize(width, height)),
+          )),
       floatingActionButton: Consumer<ScrollProvider>(
         builder: (context, scrollProvider, _) {
           return scrollProvider.showFloatingButton
