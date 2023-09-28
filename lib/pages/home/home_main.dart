@@ -1,4 +1,8 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:go_router/go_router.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio_website/pages/home/home_page.dart';
 import 'package:portfolio_website/pages/about_me/about_me_page.dart';
 import 'package:portfolio_website/providers/scroll_provider.dart';
@@ -15,21 +19,24 @@ class HomeMain extends StatelessWidget {
     return fontSize < 16 ? 16 : fontSize;
   }
 
-
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
 
-    if(Theme.of(context).platform == TargetPlatform.iOS || Theme.of(context).platform == TargetPlatform.android){
+    if (Theme.of(context).platform == TargetPlatform.iOS || Theme.of(context).platform == TargetPlatform.android) {
       return const SmallScreenWidget();
     }
-
 
     width = width < 1200 ? 1200 : width;
 
     ScrollProvider scrollProvider = Provider.of<ScrollProvider>(context, listen: false);
     scrollProvider.appBarHeight = height / 13.15 < 60 ? 60 : height / 13.15;
+
+    Future<String> getLicense() async {
+      String aboutMe = await rootBundle.loadString("LICENSE");
+      return aboutMe;
+    }
 
     return Scaffold(
       appBar: AppBar(
@@ -56,7 +63,6 @@ class HomeMain extends StatelessWidget {
                     builder: (context) => Dialog(
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.0)),
                       child: IntrinsicWidth(
-
                         child: IntrinsicHeight(
                           child: Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -92,7 +98,46 @@ class HomeMain extends StatelessWidget {
                                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                                       children: [
                                         ElevatedButton(
-                                          onPressed: () {},
+                                          onPressed: () => showDialog(
+                                            context: context,
+                                            builder: (context) => Dialog(
+                                              child: IntrinsicWidth(
+                                                child: IntrinsicHeight(
+                                                  child: Padding(
+                                                    padding: const EdgeInsets.all(30.0),
+                                                    child: FutureBuilder<String>(
+                                                      future: getLicense(),
+                                                      builder: (context, snapshot) {
+                                                        if (snapshot.hasData) {
+                                                          return Column(
+                                                            children: [
+                                                              SelectableText(snapshot.data!),
+                                                              ElevatedButton(
+                                                                onPressed: () => context.pop(),
+                                                                style: ElevatedButton.styleFrom(
+                                                                  elevation: 2.5,
+                                                                  // Add elevation if needed
+                                                                  shape: RoundedRectangleBorder(
+                                                                    borderRadius: BorderRadius.circular(
+                                                                        8.0), // Adjust the radius as needed
+                                                                  ),
+                                                                  fixedSize: const Size.fromHeight(
+                                                                      35.0), // Adjust the height as needed
+                                                                ),
+                                                                child: const Text("Ok"),
+                                                              )
+                                                            ],
+                                                          );
+                                                        } else {
+                                                          return const SizedBox(width: 20,height: 20,child: CircularProgressIndicator());
+                                                        }
+                                                      },
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
                                           style: ElevatedButton.styleFrom(
                                             elevation: 2.5, // Add elevation if needed
                                             shape: RoundedRectangleBorder(

@@ -17,7 +17,7 @@ class LaunchPage extends StatelessWidget {
 
     width = width < 1200 ? 1200 : width;
 
-    if(Theme.of(context).platform == TargetPlatform.iOS || Theme.of(context).platform == TargetPlatform.android){
+    if (Theme.of(context).platform == TargetPlatform.iOS || Theme.of(context).platform == TargetPlatform.android) {
       return const SmallScreenWidget();
     }
 
@@ -94,7 +94,11 @@ class LaunchPage extends StatelessWidget {
                                         minFontSize: 20,
                                       ),
                                       AnimatedTextKit(
-                                        onFinished: () => context.go('/home'),
+                                        onFinished: () {
+                                          Provider.of<LaunchPageProvider>(context, listen: false)
+                                              .incrementVisitorCount();
+                                          context.go('/home');
+                                        },
                                         repeatForever: false,
                                         isRepeatingAnimation: false,
                                         animatedTexts: [
