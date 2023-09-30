@@ -55,6 +55,9 @@ dependencies:
   flutter_html: ^3.0.0-beta.2
   flutter_html_svg: ^3.0.0-beta.2
   flutter_html_table: ^3.0.0-beta.2
+  firebase_core: ^2.16.0
+  firebase_analytics: ^10.5.0
+  cloud_firestore: ^4.9.2
 
 dev_dependencies:
   flutter_test:
@@ -133,4 +136,5 @@ flutter:
     - lib/assets/images/project_banners/
     - lib/assets/images/project_images/acharya_setu/
     - lib/assets/images/project_images/ecommerce_shoppers_behaviour_and_understanding/
+    - LICENSE
 
