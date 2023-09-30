@@ -104,32 +104,53 @@ class HomeMain extends StatelessWidget {
                                               child: IntrinsicWidth(
                                                 child: IntrinsicHeight(
                                                   child: Padding(
-                                                    padding: const EdgeInsets.all(30.0),
+                                                    padding: const EdgeInsets.all(0.0),
                                                     child: FutureBuilder<String>(
                                                       future: getLicense(),
                                                       builder: (context, snapshot) {
                                                         if (snapshot.hasData) {
                                                           return Column(
+                                                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                                             children: [
-                                                              SelectableText(snapshot.data!),
-                                                              ElevatedButton(
-                                                                onPressed: () => context.pop(),
-                                                                style: ElevatedButton.styleFrom(
-                                                                  elevation: 2.5,
-                                                                  // Add elevation if needed
-                                                                  shape: RoundedRectangleBorder(
-                                                                    borderRadius: BorderRadius.circular(
-                                                                        8.0), // Adjust the radius as needed
+                                                              Expanded(
+                                                                child: SingleChildScrollView(
+                                                                  child: Padding(
+                                                                    padding: const EdgeInsets.all(20.0),
+                                                                    child: Column(
+                                                                      children: [
+                                                                        SelectableText(
+                                                                          snapshot.data!,
+                                                                          textAlign: TextAlign.center,
+                                                                        ),
+                                                                      ],
+                                                                    ),
                                                                   ),
-                                                                  fixedSize: const Size.fromHeight(
-                                                                      35.0), // Adjust the height as needed
                                                                 ),
-                                                                child: const Text("Ok"),
-                                                              )
+                                                              ),
+                                                              Padding(
+                                                                padding: const EdgeInsets.all(16.0),
+                                                                child: ElevatedButton(
+                                                                  onPressed: () => context.pop(),
+                                                                  style: ElevatedButton.styleFrom(
+                                                                    elevation: 2.5,
+                                                                    shape: RoundedRectangleBorder(
+                                                                      borderRadius: BorderRadius.circular(8.0),
+                                                                    ),
+                                                                    fixedSize: const Size.fromHeight(35.0),
+                                                                  ),
+                                                                  child: const Text("Ok"),
+                                                                ),
+                                                              ),
                                                             ],
                                                           );
+
                                                         } else {
-                                                          return const SizedBox(width: 20,height: 20,child: CircularProgressIndicator());
+                                                          return const SizedBox(
+                                                              width: 100,
+                                                              height: 100,
+                                                              child: Scaffold(
+                                                                backgroundColor: Colors.transparent,
+                                                                  body: Center(child: CircularProgressIndicator())));
                                                         }
                                                       },
                                                     ),
