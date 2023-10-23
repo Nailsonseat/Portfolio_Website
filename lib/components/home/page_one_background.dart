@@ -20,11 +20,10 @@ class PageOneBackground extends CustomPainter {
 
     Path path_0 = Path();
     path_0.moveTo(size.width * 0.7441667, size.height * 0.8385714);
-    path_0.quadraticBezierTo(size.width * 0.6231250, size.height * -0.0007143, 0, size.height * 0.0014286);
-    path_0.quadraticBezierTo(
-        size.width * 0.0002083, size.height * 0.1796429, size.width * 0.0008333, size.height * 1.0014286);
-    path_0.lineTo(size.width * 0.7466667, size.height * 0.9900000);
-    path_0.lineTo(size.width * 0.7441667, size.height * 0.8385714);
+    path_0.quadraticBezierTo(size.width * 0.6231250, size.height * 0, 0, size.height * 0);
+    path_0.quadraticBezierTo(size.width * 0, size.height * 0, size.width * 0, size.height * 1);
+    path_0.lineTo(size.width * 0.7466667, size.height * 1);
+    path_0.lineTo(size.width * 0.7441667, size.height * 1);
     path_0.close();
 
     canvas.drawPath(path_0, paintFill0);
@@ -45,8 +44,8 @@ class PageOneBackground extends CustomPainter {
 
     Path path_1 = Path();
     path_1.moveTo(size.width, 0);
-    path_1.quadraticBezierTo(size.width * 0.6368750, size.height * 0.9985714, size.width * -0.0008333, size.height);
-    path_1.quadraticBezierTo(size.width * 0.2493750, size.height * 0.9996429, size.width, size.height * 0.9985714);
+    path_1.quadraticBezierTo(size.width * 0.6368750, size.height * 1, size.width * 0, size.height);
+    path_1.quadraticBezierTo(size.width * 0.2493750, size.height * 1, size.width, size.height * 1);
     path_1.lineTo(size.width, 0);
     path_1.close();
 
