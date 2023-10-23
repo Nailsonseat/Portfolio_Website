@@ -20,10 +20,10 @@ class ProfilePictureBackground extends CustomPainter {
 
     Path path_1 = Path();
     path_1.moveTo(0, size.height * -0.0000000);
-    path_1.lineTo(size.width * 1.0000795, size.height * -0.0000000);
-    path_1.lineTo(size.width * 1.0000795, size.height * 1.0002735);
-    path_1.lineTo(0, size.height * 1.0002735);
-    path_1.lineTo(0, size.height * -0.0000000);
+    path_1.lineTo(size.width * 1, size.height * 0);
+    path_1.lineTo(size.width * 1, size.height * 1);
+    path_1.lineTo(0, size.height * 1);
+    path_1.lineTo(0, size.height * 0);
     path_1.close();
 
     canvas.drawPath(path_1, paintFill1);
