@@ -5,11 +5,12 @@ import 'package:portfolio_website/providers/project_page_provider.dart';
 import 'package:portfolio_website/providers/scroll_provider.dart';
 import 'package:portfolio_website/routes.dart';
 import 'package:provider/provider.dart';
+import 'package:responsive_framework/breakpoint.dart';
+import 'package:responsive_framework/responsive_breakpoints.dart';
 import 'firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  //usePathUrlStrategy();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
@@ -27,6 +28,11 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => ProjectPageProvider(context)),
         ChangeNotifierProvider(create: (_) => ProjectComponentsConstraintsProvider())
       ],
+      builder: (context,child) => ResponsiveBreakpoints.builder(child: child!,  breakpoints: [
+        const Breakpoint(start: 0, end: 450, name: MOBILE),
+        const Breakpoint(start: 451, end: 800, name: TABLET),
+        const Breakpoint(start: 801, end: double.infinity, name: DESKTOP),
+      ],),
       child: MaterialApp.router(
         title: 'Portfolio Website',
         theme: ThemeData(
