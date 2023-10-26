@@ -10,7 +10,6 @@ import 'package:provider/provider.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 import '../project_browser/project_browser_main.dart';
-import '../templates/small_screen_warning_page.dart';
 
 class HomeMain extends StatelessWidget {
   const HomeMain({super.key});
@@ -18,11 +17,6 @@ class HomeMain extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double height = 1048;
-
-    if (Theme.of(context).platform == TargetPlatform.iOS || Theme.of(context).platform == TargetPlatform.android) {
-      return const SmallScreenWidget();
-    }
-
 
     ScrollProvider scrollProvider = Provider.of<ScrollProvider>(context, listen: false);
     scrollProvider.appBarHeight = height / 13.15 < 60 ? 60 : height / 13.15;

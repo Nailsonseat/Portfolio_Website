@@ -11,7 +11,6 @@ import 'package:portfolio_website/components/projects/banner_title.dart';
 import 'package:portfolio_website/components/projects/project_component.dart';
 import 'package:portfolio_website/components/projects/table_of_contents.dart';
 import 'package:portfolio_website/components/projects/timeline.dart';
-import 'package:portfolio_website/pages/templates/small_screen_warning_page.dart';
 import 'package:provider/provider.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -138,12 +137,6 @@ class ProjectPageTemplate extends StatelessWidget {
   Widget build(BuildContext context) {
     double width = 1978;
     double height = 1048;
-
-    if (Theme.of(context).platform == TargetPlatform.iOS || Theme.of(context).platform == TargetPlatform.android) {
-      return const SmallScreenWidget();
-    }
-
-    //width = width < 1200 ? 1200 : width;
 
     ScrollProvider scrollProvider = Provider.of<ScrollProvider>(context, listen: false);
     ProjectComponentsConstraintsProvider componentsConstraintsProvider =
