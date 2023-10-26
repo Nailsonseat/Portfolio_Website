@@ -63,12 +63,15 @@ class Assets {
   static const String launchLaunchPage = 'lib/pages/launch/launch_page.dart';
   static const String letstalkkDescription = 'lib/pages/projects/letstalkk/description.html';
   static const String letstalkkLetstalkk = 'lib/pages/projects/letstalkk/letstalkk.dart';
+  static const String libFirebaseOptions = 'lib/firebase_options.dart';
   static const String libMain = 'lib/main.dart';
   static const String libRoutes = 'lib/routes.dart';
   static const String machineLearningDescription = 'lib/pages/projects/machine_learning/description.html';
   static const String machineLearningMachineLearning = 'lib/pages/projects/machine_learning/machine_learning.dart';
   static const String miscellaneousUnderConstruction = 'lib/assets/images/miscellaneous/under_construction.png';
+  static const String pagesTestPage = 'lib/pages/test_page.dart';
   static const String portfolioWebsiteDescription = 'lib/pages/projects/portfolio_website/description.html';
+  static const String portfolioWebsiteLICENSE = 'LICENSE';
   static const String portfolioWebsitePortfolioWebsite = 'lib/pages/projects/portfolio_website/portfolio_website.dart';
   static const String profilePicProfilePic = 'lib/assets/images/profile_pic/profile_pic.png';
   static const String profilePicProfilePicFlipped = 'lib/assets/images/profile_pic/profile_pic_flipped.png';
