@@ -16,11 +16,11 @@ class ButtonGradient extends CustomPainter {
         Offset(size.width * 1.00, size.height * 0.50), const [Color(0xffa46acf), Color(0xff3fdad0)], [0.00, 1.00]);
 
     Path path_1 = Path();
-    path_1.moveTo(size.width * -0.0010844, size.height * -0.0072142);
-    path_1.lineTo(size.width * 1.0022687, size.height * -0.0072142);
-    path_1.lineTo(size.width * 1.0022687, size.height * 1.0100126);
-    path_1.lineTo(size.width * -0.0010844, size.height * 1.0100126);
-    path_1.lineTo(size.width * -0.0010844, size.height * -0.0072142);
+    path_1.moveTo(size.width * -0.0010844, size.height * 0);
+    path_1.lineTo(size.width * 1.0022687, size.height * 0);
+    path_1.lineTo(size.width * 1.0022687, size.height * 1);
+    path_1.lineTo(size.width * -0.0010844, size.height * 1);
+    path_1.lineTo(size.width * -0.0010844, size.height * 0);
     path_1.close();
 
     canvas.drawPath(path_1, paintFill1);

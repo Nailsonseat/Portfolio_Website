@@ -16,17 +16,16 @@ class AboutMePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
-    width = width < 1200 ? 1200 : width;
+    double width = 1978;
 
     return Container(
       width: width,
       padding: const EdgeInsets.only(top: 50),
       color: Colors.transparent,
       child: Container(
-        margin: EdgeInsets.symmetric(horizontal: width / 13.16, vertical: width / 28.2),
+        margin: const EdgeInsets.symmetric(horizontal: 150, vertical: 70),
         padding:
-            EdgeInsets.only(left: width / 24.675, right: width / 24.675, top: width / 65.8, bottom: width / 24.675),
+            const EdgeInsets.only(left: 80, right: 80, top: 30, bottom: 80),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
           color: Colors.grey[200],
@@ -44,7 +43,7 @@ class AboutMePage extends StatelessWidget {
             SelectableText(
               'About me',
               style: GoogleFonts.inter(
-                fontSize: width / 35.89090909,
+                fontSize: 55,
                 //decoration: TextDecoration.underline,
                 //fontWeight: FontWeight.bold,
                 //decorationStyle: TextDecorationStyle.double,
@@ -63,7 +62,7 @@ class AboutMePage extends StatelessWidget {
                     String education = snapshot.data?.education ?? '';
                     return SelectableText(
                       aboutMe + education,
-                      style: GoogleFonts.robotoMono(fontSize: width / 98.7),
+                      style: GoogleFonts.robotoMono(fontSize: 20),
                     );
                   }
 

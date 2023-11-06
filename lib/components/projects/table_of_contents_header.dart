@@ -11,7 +11,7 @@ class TOCHeader extends CustomPainter{
   void paint(Canvas canvas, Size size) {
 
     // Shape
-    Paint paint_fill_0 = Paint()
+    Paint paintFill0 = Paint()
       ..color =  shapeColor
       ..style = PaintingStyle.fill
       ..strokeWidth = size.width*0.00
@@ -28,12 +28,12 @@ class TOCHeader extends CustomPainter{
     path_0.lineTo(size.width,0);
     path_0.close();
 
-    canvas.drawPath(path_0, paint_fill_0);
+    canvas.drawPath(path_0, paintFill0);
 
 
     // Shape
 
-    Paint paint_stroke_0 = Paint()
+    Paint paintStroke0 = Paint()
       ..color = const Color.fromARGB(0, 255, 255, 255)
       ..style = PaintingStyle.stroke
       ..strokeWidth = 0
@@ -42,7 +42,7 @@ class TOCHeader extends CustomPainter{
 
 
 
-    canvas.drawPath(path_0, paint_stroke_0);
+    canvas.drawPath(path_0, paintStroke0);
 
 
   }
