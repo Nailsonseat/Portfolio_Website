@@ -14,7 +14,7 @@ class TableOfContents extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    double width = MediaQuery.of(context).size.width;
+    double width = 1978;
 
     ScrollProvider scrollProvider = Provider.of<ScrollProvider>(context, listen: false);
     ProjectComponentsConstraintsProvider componentsConstraintsProvider =
