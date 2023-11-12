@@ -10,13 +10,13 @@ import 'package:provider/provider.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 import '../project_browser/project_browser_main.dart';
-
+import 'package:universal_html/html.dart';
 class HomeMain extends StatelessWidget {
   const HomeMain({super.key});
 
   @override
   Widget build(BuildContext context) {
-    double height = 1048;
+    double height = window.screen?.available.height as double;
 
     ScrollProvider scrollProvider = Provider.of<ScrollProvider>(context, listen: false);
     scrollProvider.appBarHeight = height / 13.15 < 60 ? 60 : height / 13.15;
