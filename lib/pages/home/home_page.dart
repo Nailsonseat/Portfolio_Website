@@ -8,6 +8,7 @@ import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../components/home/page_one_button_gradient.dart';
 import '../../components/home/page_one_profile_pic_background.dart';
+import 'package:universal_html/html.dart';
 
 class HomeLandingPage extends StatelessWidget {
   const HomeLandingPage({super.key});
@@ -89,7 +90,7 @@ class HomeLandingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double width = 1978;
-    double height = 1048; // MediaQuery.of(context).size.height;
+    double height = window.screen?.available.height as double; // MediaQuery.of(context).size.height;
 
     return Container(
       height: height - 80,
