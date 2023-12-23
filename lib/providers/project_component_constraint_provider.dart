@@ -30,8 +30,12 @@ class ProjectComponentsConstraintsProvider extends ChangeNotifier {
 
   void setTextContainerHeight() {
     for (int i = 0; i < textKeys.length; i++) {
-      RenderBox textContainerRenderer = textKeys[i].currentContext!.findRenderObject() as RenderBox;
-      textContainerHeights[i] = textContainerRenderer.size.height;
+      if (textKeys[i].currentContext != null) {
+        RenderBox textContainerRenderer = textKeys[i].currentContext!.findRenderObject() as RenderBox;
+        textContainerHeights[i] = textContainerRenderer.size.height;
+      }else{
+        textContainerHeights[i]=1;
+      }
     }
     notifyListeners();
   }
