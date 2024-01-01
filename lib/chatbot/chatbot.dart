@@ -102,42 +102,21 @@ class _ChatGPTDialogState extends State<ChatGPTDialog> {
                 children: [
                   Expanded(
                     flex: 7,
-                    child: TextField(
-                      maxLines: 1,
-                      controller: _textEditingController,
-                      enabled: !isSending,
-                      onSubmitted: (message) {
-                        isSending
-                            ? null
-                            : () async {
-                                if (message.isNotEmpty) {
-                                  setState(() {
-                                    addMessages(message);
-                                    isSending = true;
-                                  });
-
-                                  // Simulate an asynchronous response
-                                  //  await Future.delayed(Duration(seconds: 2));
-
-                                  gemini.chat(messages).then((value) {
-                                    setState(() {
-                                      addMessages(value?.output, ai: true);
-                                      isSending = false;
-                                    });
-                                  });
-                                }
-                                _textEditingController.clear();
-                              };
-                      },
-                      decoration: const InputDecoration(
-                        border: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.black)),
-                        labelText: "Message Aadarsh",
-                        hintText: 'Type your message...',
-                      ),
-                    ),
+                    child: Consumer<ChatBotProvider>(builder: (_, chatBot, __) {
+                      return TextField(
+                        maxLines: 1,
+                        controller: chatBot.promptEditingController,
+                        enabled: !chatBot.isSending,
+                        decoration: const InputDecoration(
+                          border: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.black)),
+                          labelText: "Message Aadarsh",
+                          hintText: 'Type your message...',
+                        ),
+                      );
+                    }),
                   ),
-                  SizedBox(width: 8),
+                  const SizedBox(width: 8),
                   Expanded(
                     flex: 1,
                     child: ElevatedButton(
