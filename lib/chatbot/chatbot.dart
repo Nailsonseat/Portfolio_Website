@@ -1,36 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gemini/flutter_gemini.dart';
+import 'package:go_router/go_router.dart';
+import 'package:portfolio_website/providers/chatbot_provider.dart';
+import 'package:provider/provider.dart';
 
-class ChatGPTDialog extends StatefulWidget {
+class ChatGPTDialog extends StatelessWidget {
   const ChatGPTDialog({super.key});
 
   @override
-  _ChatGPTDialogState createState() => _ChatGPTDialogState();
-}
-
-class _ChatGPTDialogState extends State<ChatGPTDialog> {
-  TextEditingController _textEditingController = TextEditingController();
-  bool isSending = false;
-
-  List<Content> messages = [
-    Content(
-        parts: [Parts(text: "Form on you will talk to me as sundar pichai")],
-        role: 'user'),
-    Content(parts: [Parts(text: "Alright")], role: 'model')
-  ];
-
-  void addMessages(message, {ai = false}) {
-    if (ai) {
-      messages.add(Content(parts: [Parts(text: message)], role: 'model'));
-    } else {
-      messages.add(Content(parts: [Parts(text: message)], role: 'user'));
-    }
-  }
-
-  @override
   Widget build(BuildContext context) {
-    final gemini = Gemini.instance;
-
     return Dialog(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.0)),
       elevation: 0,
@@ -38,7 +16,7 @@ class _ChatGPTDialogState extends State<ChatGPTDialog> {
       child: Container(
         height: 900,
         width: 900,
-        padding: EdgeInsets.all(16),
+        padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(16.0),
@@ -119,58 +97,39 @@ class _ChatGPTDialogState extends State<ChatGPTDialog> {
                   const SizedBox(width: 8),
                   Expanded(
                     flex: 1,
-                    child: ElevatedButton(
-                      onPressed: isSending
-                          ? null
-                          : () async {
-                              String message = _textEditingController.text;
-                              if (message.isNotEmpty) {
-                                setState(() {
-                                  addMessages(message);
-                                  isSending = true;
-                                });
-
-                                // Simulate an asynchronous response
-                                //  await Future.delayed(Duration(seconds: 2));
-
-                                gemini.chat(messages).then((value) {
-                                  setState(() {
-                                    addMessages(value?.output, ai: true);
-                                    isSending = false;
-                                  });
-                                });
-                              }
-                              _textEditingController.clear();
-                            },
-                      child: isSending
-                          ? SizedBox(
-                              width: 20,
-                              height: 20,
-                              child: CircularProgressIndicator(
-                                strokeWidth: 3,
-                                valueColor:
-                                    AlwaysStoppedAnimation<Color>(Colors.white),
+                    child: Consumer<ChatBotProvider>(builder: (_, chatBot, __) {
+                      return ElevatedButton(
+                        onPressed: () =>
+                            chatBot.isSending ? null : chatBot.generate(),
+                        style: ButtonStyle(
+                          minimumSize: MaterialStateProperty.all<Size>(
+                              const Size.fromHeight(68)),
+                          backgroundColor: MaterialStateProperty.all<Color>(
+                              Colors.lightBlueAccent),
+                          foregroundColor:
+                              MaterialStateProperty.all<Color>(Colors.black),
+                          shape:
+                              MaterialStateProperty.all<RoundedRectangleBorder>(
+                                  RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(18.0),
+                          )),
+                        ),
+                        child: chatBot.isSending
+                            ? const SizedBox(
+                                width: 20,
+                                height: 20,
+                                child: CircularProgressIndicator(
+                                  strokeWidth: 3,
+                                  valueColor: AlwaysStoppedAnimation<Color>(
+                                      Colors.white),
+                                ),
+                              )
+                            : const Text(
+                                'Send',
+                                style: TextStyle(fontWeight: FontWeight.bold),
                               ),
-                            )
-                          : Text(
-                              'Send',
-                              style: TextStyle(fontWeight: FontWeight.bold),
-                            ),
-                      style: ButtonStyle(
-                        minimumSize: MaterialStateProperty.all<Size>(
-                            Size.fromHeight(68)),
-                        backgroundColor: MaterialStateProperty.all<Color>(
-                            Colors.lightBlueAccent),
-                        foregroundColor:
-                            MaterialStateProperty.all<Color>(Colors.black),
-                        shape:
-                            MaterialStateProperty.all<RoundedRectangleBorder>(
-                                RoundedRectangleBorder(
-                          // side: BorderSide(color: Colors.black),
-                          borderRadius: BorderRadius.circular(18.0),
-                        )),
-                      ),
-                    ),
+                      );
+                    }),
                   ),
                 ],
               ),
