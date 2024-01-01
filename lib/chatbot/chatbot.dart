@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_gemini/flutter_gemini.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -32,7 +33,7 @@ class ChatGPTDialog extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        "Aadarsh AI",
+                        "Aadarsh AI (alpha 1.12)",
                         style: GoogleFonts.robotoMono(fontSize: 34),
                       ),
                       OutlinedButton(
@@ -92,10 +93,12 @@ class ChatGPTDialog extends StatelessWidget {
                   Expanded(
                     flex: 7,
                     child: Consumer<ChatBotProvider>(builder: (_, chatBot, __) {
-                      return TextField(
+                      return TextFormField(
                         maxLines: 1,
                         controller: chatBot.promptEditingController,
                         enabled: !chatBot.isSending,
+                        onFieldSubmitted: (_) =>
+                            chatBot.isSending ? null : chatBot.generate(),
                         decoration: InputDecoration(
                           contentPadding: const EdgeInsets.all(21),
                           border: OutlineInputBorder(
