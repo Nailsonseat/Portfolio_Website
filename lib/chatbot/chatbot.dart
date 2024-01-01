@@ -85,9 +85,12 @@ class ChatGPTDialog extends StatelessWidget {
                         maxLines: 1,
                         controller: chatBot.promptEditingController,
                         enabled: !chatBot.isSending,
-                        decoration: const InputDecoration(
+                        decoration:  InputDecoration(
+                          contentPadding: const EdgeInsets.all(21),
                           border: OutlineInputBorder(
-                              borderSide: BorderSide(color: Colors.black)),
+                            borderSide: const BorderSide(color: Colors.black),
+                            borderRadius: BorderRadius.circular(38),
+                          ),
                           labelText: "Message Aadarsh",
                           hintText: 'Type your message...',
                         ),
