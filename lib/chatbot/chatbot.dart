@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gemini/flutter_gemini.dart';
 import 'package:go_router/go_router.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio_website/providers/chatbot_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -25,24 +26,34 @@ class ChatGPTDialog extends StatelessWidget {
           children: [
             Column(
               children: [
-                Align(
-                    alignment: Alignment.centerRight,
-                    child: OutlinedButton(
-                        style: ButtonStyle(
-                            shape: MaterialStateProperty.all<
-                                    RoundedRectangleBorder>(
-                                RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(12))),
-                            fixedSize: MaterialStateProperty.all<Size>(
-                                const Size(50, 50))),
-                        onPressed: () => context.pop(),
-                        child: const Center(
-                            child: Text(
-                          "x",
-                          style: TextStyle(fontSize: 18),
-                        )))),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 12.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "Aadarsh AI",
+                        style: GoogleFonts.robotoMono(fontSize: 34),
+                      ),
+                      OutlinedButton(
+                          style: ButtonStyle(
+                              shape: MaterialStateProperty.all<
+                                      RoundedRectangleBorder>(
+                                  RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(12))),
+                              fixedSize: MaterialStateProperty.all<Size>(
+                                  const Size(45, 45))),
+                          onPressed: () => context.pop(),
+                          child: const Center(
+                              child: Text(
+                            "x",
+                            style: TextStyle(fontSize: 18),
+                          ))),
+                    ],
+                  ),
+                ),
                 const Divider(
-                  height: 20,
+                  height: 24,
                   color: Colors.black,
                 )
               ],
@@ -85,7 +96,7 @@ class ChatGPTDialog extends StatelessWidget {
                         maxLines: 1,
                         controller: chatBot.promptEditingController,
                         enabled: !chatBot.isSending,
-                        decoration:  InputDecoration(
+                        decoration: InputDecoration(
                           contentPadding: const EdgeInsets.all(21),
                           border: OutlineInputBorder(
                             borderSide: const BorderSide(color: Colors.black),
