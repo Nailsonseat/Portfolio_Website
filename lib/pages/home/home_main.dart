@@ -8,7 +8,6 @@ import 'package:portfolio_website/pages/about_me/about_me_page.dart';
 import 'package:portfolio_website/providers/scroll_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:responsive_framework/responsive_framework.dart';
-import '../../chatbot/chatbot.dart';
 import '../project_browser/project_browser_main.dart';
 import 'package:universal_html/html.dart';
 class HomeMain extends StatelessWidget {
@@ -37,12 +36,7 @@ class HomeMain extends StatelessWidget {
             toolbarHeight: 80,
             leading: IconButton(
               icon: const Icon(Icons.menu),
-              onPressed: () { showDialog(
-                context: context,
-                builder: (BuildContext context) {
-                  return const ChatGPTDialog();
-                },
-              );},
+              onPressed: () { },
             ),
             actions: [
               StreamBuilder<DocumentSnapshot>(
