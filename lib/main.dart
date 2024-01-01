@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gemini/flutter_gemini.dart';
+import 'package:portfolio_website/providers/chatbot_provider.dart';
 import 'package:portfolio_website/providers/project_component_constraint_provider.dart';
 import 'package:portfolio_website/providers/project_page_provider.dart';
 import 'package:portfolio_website/providers/scroll_provider.dart';
@@ -28,7 +29,8 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (_) => ScrollProvider()),
         ChangeNotifierProvider(create: (_) => ProjectPageProvider(context)),
-        ChangeNotifierProvider(create: (_) => ProjectComponentsConstraintsProvider())
+        ChangeNotifierProvider(create: (_) => ProjectComponentsConstraintsProvider()),
+        ChangeNotifierProvider(create: (_) => ChatBotProvider())
       ],
       builder: (context,child) => ResponsiveBreakpoints.builder(child: child!,  breakpoints: [
         const Breakpoint(start: 0, end: 450, name: MOBILE),
