@@ -70,28 +70,30 @@ class _ChatGPTDialogState extends State<ChatGPTDialog> {
               ],
             ),
             Expanded(
-              child: Container(
-                child: ListView.builder(
-                  reverse: true,
-                  itemCount: messages.length - 2,
-                  itemBuilder: (context, index) {
-                    final filteredMessages = messages.sublist(2);
-                    final reversedIndex = filteredMessages.length - 1 - index;
-                    return Container(
-                      padding:
-                          EdgeInsets.symmetric(vertical: 12, horizontal: 10),
-                      margin: EdgeInsets.symmetric(vertical: 10),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(15),
-                        color: Colors.grey[100],
-                      ),
-                      child: ListTile(
-                        title: Text(
-                            filteredMessages[reversedIndex].parts?.last.text ?? ''),
-                      ),
-                    );
-                  },
-                ),
+              child: Consumer<ChatBotProvider>(
+                builder: (_, chatBot, __) {
+                  List<Content> messages = chatBot.messages;
+                  return ListView.builder(
+                    reverse: true,
+                    itemCount: messages.length,
+                    itemBuilder: (context, index) {
+                      final reversedIndex = messages.length - 1 - index;
+                      return Container(
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 12, horizontal: 10),
+                        margin: const EdgeInsets.symmetric(vertical: 10),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(15),
+                          color: Colors.grey[100],
+                        ),
+                        child: ListTile(
+                          title: Text(
+                              messages[reversedIndex].parts?.last.text ?? ''),
+                        ),
+                      );
+                    },
+                  );
+                },
               ),
             ),
             Padding(
