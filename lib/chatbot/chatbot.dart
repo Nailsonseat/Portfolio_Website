@@ -45,6 +45,30 @@ class _ChatGPTDialogState extends State<ChatGPTDialog> {
         ),
         child: Column(
           children: [
+            Column(
+              children: [
+                Align(
+                    alignment: Alignment.centerRight,
+                    child: OutlinedButton(
+                        style: ButtonStyle(
+                            shape: MaterialStateProperty.all<
+                                    RoundedRectangleBorder>(
+                                RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(12))),
+                            fixedSize: MaterialStateProperty.all<Size>(
+                                const Size(50, 50))),
+                        onPressed: () => context.pop(),
+                        child: const Center(
+                            child: Text(
+                          "x",
+                          style: TextStyle(fontSize: 18),
+                        )))),
+                const Divider(
+                  height: 20,
+                  color: Colors.black,
+                )
+              ],
+            ),
             Expanded(
               child: Container(
                 child: ListView.builder(
