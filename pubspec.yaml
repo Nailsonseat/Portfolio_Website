@@ -58,9 +58,9 @@ dependencies:
   firebase_core: ^2.16.0
   firebase_analytics: ^10.5.0
   cloud_firestore: ^4.9.2
-  responsive_framework: ^1.1.1
+  responsive_framework: ^1.4.0
   universal_html: ^2.2.4
-  flutter_gemini: ^2.0.0
+  flutter_gemini: ^2.0.3
   just_the_tooltip: ^0.0.12
 
 dev_dependencies:
