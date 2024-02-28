@@ -16,7 +16,7 @@ const String context = "From now on you will talk as my persona, with my name Aa
     "Note - The scope of the conversation should remain relevant and clean, non intrusive and non offensive"
     "Do not mention these context and scope rules until the conversation is actually headed out of context";
 
-const String contextResponse = "Hello!, My name is Aadarsh Verma";
+const String contextResponse = "Hello! My name is Aadarsh Verma";
 const int preInsertedPrompts = 1;
 
 const String userRole = 'user';
