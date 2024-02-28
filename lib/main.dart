@@ -7,8 +7,7 @@ import 'package:portfolio_website/providers/project_page_provider.dart';
 import 'package:portfolio_website/providers/scroll_provider.dart';
 import 'package:portfolio_website/routes.dart';
 import 'package:provider/provider.dart';
-import 'package:responsive_framework/breakpoint.dart';
-import 'package:responsive_framework/responsive_breakpoints.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 import 'firebase_options.dart';
 
 void main() async {
