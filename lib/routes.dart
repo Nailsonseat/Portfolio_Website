@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:portfolio_website/pages/home/home_main.dart';
 import 'package:portfolio_website/pages/launch/launch_page.dart';
+import 'package:portfolio_website/pages/projects/foss_overflow/foss_overflow.dart';
 import 'package:portfolio_website/pages/projects/kastor/kastor.dart';
 import 'package:portfolio_website/pages/projects/letstalkk/letstalkk.dart';
 import 'package:portfolio_website/pages/projects/acharya_setu/acharya_setu.dart';
@@ -55,6 +56,7 @@ final GoRouter routes = GoRouter(
             GoRoute(path: 'Hola_Bot', pageBuilder: (context, state) => MaterialPage(child: HolomorphicBot())),
             GoRoute(path: 'Machine_Learning', pageBuilder: (context, state) => MaterialPage(child: MachineLearning())),
             GoRoute(path: 'Classic_Snake_FFPS', pageBuilder: (context, state) => MaterialPage(child: ClassicSnakeFFPS())),
+            GoRoute(path: 'Foss_Overflow', pageBuilder: (context, state) => MaterialPage(child: FossOverflow())),
           ],
         ),
       ],
