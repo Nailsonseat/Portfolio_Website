@@ -36,7 +36,7 @@ class Project {
 class ProjectPageProvider extends ChangeNotifier {
   double opacity = 1;
 
-  ProjectPageProvider(BuildContext context){
+  ProjectPageProvider(BuildContext context) {
     _loadImages(context);
   }
 
@@ -69,6 +69,17 @@ class ProjectPageProvider extends ChangeNotifier {
   }
 
   List<Project> projects = [
+    Project(
+      title: 'Smart Insti App',
+      image: Image.asset('lib/assets/images/project_banners/foss_overflow.png'),
+      source: "https://github.com/OpenLake/Smart-Insti-App",
+      pagePath: '/home/Foss_Overflow',
+      briefDescription:
+          "This app aims to solve the day-to-day problems that students and faculty face in IIT Bhilai and aims to consolidate a lot of useful applications into single app. This could include features like Time Table, Classroom Vacancy, Lost and Found, Chatrooms on various topics like Internet Issues. It could also have a broadcast feature which would be very useful in emergency situations.",
+      description: '',
+      primaryColor: HexColor('#c3dbf7'),
+      secondaryColor: HexColor('#4075e6'),
+    ),
     Project(
         title: 'Acharya Setu',
         image: Image.asset('lib/assets/images/project_banners/acharya_setu.jpg'),
