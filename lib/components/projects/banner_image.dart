@@ -17,7 +17,7 @@ class BannerImage extends StatelessWidget {
         decoration: BoxDecoration(
           image: DecorationImage(
             image: AssetImage(image),
-            fit: BoxFit.fill,
+            fit: BoxFit.fitWidth,
           ),
           color: Colors.white,
         ),
