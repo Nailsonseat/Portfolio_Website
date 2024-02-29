@@ -135,10 +135,12 @@ flutter:
     - lib/pages/projects/machine_learning/
     - lib/pages/projects/portfolio_website/
     - lib/pages/projects/yoshop_web_scraper/
+    - lib/pages/projects/foss_overflow/
     - lib/pages/templates/
     - lib/assets/icons/tech_stack/
     - lib/assets/images/project_banners/
     - lib/assets/images/project_images/acharya_setu/
+    - lib/assets/images/project_images/foss_overflow/
     - lib/assets/images/project_images/ecommerce_shoppers_behaviour_and_understanding/
     - LICENSE
 

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .center{
+              display: block;
+              margin-left: auto;
+              margin-right: auto;
+            }
+    </style>
+</head>
+
+<body>
+<p>
+<h1>Authentication</h1>
+The Smart Insti App uses two types of authentication:
+<ol>
+    <li>Password Authentication</li>
+    <p>
+        The email-password authentication is exclusive to the Admin role and is used to authenticate
+        the Admin.
+        There is a separate page for admin login with proper validation and error handling.
+        <br><br>
+        <img class="demo-img center"
+             src="asset:lib/assets/images/project_images/foss_overflow/admin_auth.png"
+             alt="Password Authentication">
+    </p>
+    <li>OTP Authentication</li>
+    <p>
+        The remaining two roles (Student and Faculty) use OTP authentication. The OTP is sent to the
+        user's email.
+        The user can then use the OTP to login to the app. The OTP is valid for 2 minutes. Using
+        index to delete the OTP from the database after 2 minutes.
+        <br><br>
+        <img class="demo-img center"
+             src="asset:lib/assets/images/project_images/foss_overflow/user_auth.png"
+             alt="OTP Authentication">
+    </p>
+</ol>
+</p>
+</body>
+</html>
