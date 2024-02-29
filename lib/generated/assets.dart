@@ -31,6 +31,7 @@ class Assets {
   static const String browserPagesAllProjectsPage = 'lib/pages/project_browser/browser_pages/all_projects_page.dart';
   static const String browserPagesDevelopmentsProjectsPage = 'lib/pages/project_browser/browser_pages/developments_projects_page.dart';
   static const String browserPagesMlProjectsPage = 'lib/pages/project_browser/browser_pages/ml_projects_page.dart';
+  static const String chatbotChatbot = 'lib/chatbot/chatbot.dart';
   static const String classicSnakeFfpsClassicSnakeFfps = 'lib/pages/projects/classic_snake_ffps/classic_snake_ffps.dart';
   static const String classicSnakeFfpsDescription = 'lib/pages/projects/classic_snake_ffps/description.html';
   static const String dataIntoIplDataIntoIpl = 'lib/pages/projects/data_into_ipl/data_into_ipl.dart';
@@ -47,6 +48,23 @@ class Assets {
   static const String ecommerceShoppersBehaviourAndUnderstandingResults = 'lib/pages/projects/ecommerce_shoppers_behaviour_and_understanding/results.html';
   static const String ecommerceShoppersBehaviourAndUnderstandingTechstack = 'lib/pages/projects/ecommerce_shoppers_behaviour_and_understanding/techstack.html';
   static const String fontsQuicksandVariableFontWeight = 'lib/fonts/Quicksand-VariableFont_weight.ttf';
+  static const String fossOverflowAdmin = 'lib/pages/projects/foss_overflow/admin.html';
+  static const String fossOverflowAdminAuth = 'lib/assets/images/project_images/foss_overflow/admin_auth.png';
+  static const String fossOverflowAuthentication = 'lib/pages/projects/foss_overflow/authentication.html';
+  static const String fossOverflowChatroom = 'lib/assets/images/project_images/foss_overflow/chatroom.png';
+  static const String fossOverflowConclusion = 'lib/pages/projects/foss_overflow/conclusion.html';
+  static const String fossOverflowDatabaseStorage = 'lib/pages/projects/foss_overflow/database_storage.html';
+  static const String fossOverflowDescription = 'lib/pages/projects/foss_overflow/description.html';
+  static const String fossOverflowFeatures = 'lib/pages/projects/foss_overflow/features.html';
+  static const String fossOverflowFossOverflow = 'lib/pages/projects/foss_overflow/foss_overflow.dart';
+  static const String fossOverflowLostAndFound = 'lib/assets/images/project_images/foss_overflow/lost_and_found.png';
+  static const String fossOverflowMentors = 'lib/pages/projects/foss_overflow/mentors.html';
+  static const String fossOverflowMessMenu = 'lib/assets/images/project_images/foss_overflow/mess_menu.png';
+  static const String fossOverflowRoomVacancy = 'lib/assets/images/project_images/foss_overflow/room_vacancy.png';
+  static const String fossOverflowTechstack = 'lib/pages/projects/foss_overflow/techstack.html';
+  static const String fossOverflowTimetable1 = 'lib/assets/images/project_images/foss_overflow/timetable_1.png';
+  static const String fossOverflowTimetable2 = 'lib/assets/images/project_images/foss_overflow/timetable_2.png';
+  static const String fossOverflowUserAuth = 'lib/assets/images/project_images/foss_overflow/user_auth.png';
   static const String generatedAssets = 'lib/generated/assets.dart';
   static const String holomorphicBotDescription = 'lib/pages/projects/holomorphic_bot/description.html';
   static const String holomorphicBotHolomorphicBot = 'lib/pages/projects/holomorphic_bot/holomorphic_bot.dart';
@@ -57,6 +75,7 @@ class Assets {
   static const String homePageOneProfilePicBackground = 'lib/components/home/page_one_profile_pic_background.dart';
   static const String hospitalManagementUtilityDescription = 'lib/pages/projects/hospital_management_utility/description.html';
   static const String hospitalManagementUtilityHospitalManagementUtility = 'lib/pages/projects/hospital_management_utility/hospital_management_utility.dart';
+  static const String iconsChatbot = 'lib/assets/icons/chatbot.png';
   static const String iconsSlack = 'lib/assets/icons/slack.png';
   static const String kastorDescription = 'lib/pages/projects/kastor/description.html';
   static const String kastorKastor = 'lib/pages/projects/kastor/kastor.dart';
@@ -78,6 +97,8 @@ class Assets {
   static const String projectBannersAcharyaSetu = 'lib/assets/images/project_banners/acharya_setu.jpg';
   static const String projectBannersDataInIpl = 'lib/assets/images/project_banners/data_in_ipl.png';
   static const String projectBannersECommerceBehaviourUnderstanding = 'lib/assets/images/project_banners/e_commerce_behaviour_understanding.png';
+  static const String projectBannersFossOverflow = 'lib/assets/images/project_banners/foss_overflow.png';
+  static const String projectBannersFossOverflow2 = 'lib/assets/images/project_banners/foss_overflow_2.png';
   static const String projectBannersHolaBot = 'lib/assets/images/project_banners/hola_bot.png';
   static const String projectBannersHospitalManagementUtility = 'lib/assets/images/project_banners/hospital_management_utility.png';
   static const String projectBannersKastor = 'lib/assets/images/project_banners/kastor.png';
@@ -95,6 +116,7 @@ class Assets {
   static const String projectsTableOfContentsHeader = 'lib/components/projects/table_of_contents_header.dart';
   static const String projectsTextSection = 'lib/components/projects/text_section.dart';
   static const String projectsTimeline = 'lib/components/projects/timeline.dart';
+  static const String providersChatbotProvider = 'lib/providers/chatbot_provider.dart';
   static const String providersLaunchPageAnimationProvider = 'lib/providers/launch_page_animation_provider.dart';
   static const String providersProjectComponentConstraintProvider = 'lib/providers/project_component_constraint_provider.dart';
   static const String providersProjectPageProvider = 'lib/providers/project_page_provider.dart';
@@ -102,6 +124,7 @@ class Assets {
   static const String providersScrollProvider = 'lib/providers/scroll_provider.dart';
   static const String techStackCss = 'lib/assets/icons/tech_stack/css.svg';
   static const String techStackDart = 'lib/assets/icons/tech_stack/dart.svg';
+  static const String techStackExpress = 'lib/assets/icons/tech_stack/express.svg';
   static const String techStackFirebase = 'lib/assets/icons/tech_stack/firebase.svg';
   static const String techStackFirebaseHosting = 'lib/assets/icons/tech_stack/firebase-hosting.svg';
   static const String techStackFirebaseStorage = 'lib/assets/icons/tech_stack/firebase-storage.svg';
@@ -109,8 +132,11 @@ class Assets {
   static const String techStackFlutter = 'lib/assets/icons/tech_stack/flutter.svg';
   static const String techStackHtml5 = 'lib/assets/icons/tech_stack/html-5.svg';
   static const String techStackMatplotlib = 'lib/assets/icons/tech_stack/matplotlib.svg';
+  static const String techStackMongodb = 'lib/assets/icons/tech_stack/mongodb.svg';
+  static const String techStackNode.jsLogo = 'lib/assets/icons/tech_stack/node.js_logo.svg';
   static const String techStackNumpy = 'lib/assets/icons/tech_stack/numpy.svg';
   static const String techStackPandas = 'lib/assets/icons/tech_stack/pandas.svg';
+  static const String techStackRiverpod = 'lib/assets/icons/tech_stack/riverpod.svg';
   static const String techStackScikitLearn = 'lib/assets/icons/tech_stack/scikit-learn.svg';
   static const String techStackSeaborn = 'lib/assets/icons/tech_stack/seaborn.svg';
   static const String techStackXgboost = 'lib/assets/icons/tech_stack/xgboost.svg';
