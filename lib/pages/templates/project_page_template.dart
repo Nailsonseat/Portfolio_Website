@@ -2,8 +2,11 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_html/flutter_html.dart';
+import 'package:flutter_html_audio/flutter_html_audio.dart';
+import 'package:flutter_html_iframe/flutter_html_iframe.dart';
 import 'package:flutter_html_svg/flutter_html_svg.dart';
 import 'package:flutter_html_table/flutter_html_table.dart';
+import 'package:flutter_html_video/flutter_html_video.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:logger/logger.dart';
 import 'package:portfolio_website/components/projects/banner_image.dart';
@@ -84,7 +87,7 @@ class ProjectPageTemplate extends StatelessWidget {
                       child: Html(
                         data: snapshot.data,
                         style: {
-                          "body": Style(fontSize: FontSize(width / 109.8888888)), // Adjust the font size as needed
+                          "body": Style(fontSize: FontSize(width / 100)), // Adjust the font size as needed
                           ".techstack": Style(
                               height: Height(width / 24.966667),
                               width: Width(width / 24.966667),
@@ -95,11 +98,14 @@ class ProjectPageTemplate extends StatelessWidget {
                               margin: Margins.only(right: 20)),
                           ".portrait-img":
                               Style(height: Height(width / 2.8257), margin: Margins.only(right: width / 21.97778)),
-                          ".old-new": Style(padding: HtmlPaddings.symmetric(horizontal: width / 35, vertical: 40)),
+                          ".old-new": Style(padding: HtmlPaddings.only(left: width / 35, right: width / 35, bottom: 40)),
                           ".demo-img": Style(height: Height(width / 2.825714))
                         },
                         onAnchorTap: (String? url, _, __) => _redirect(url!),
                         extensions: [
+                          const VideoHtmlExtension(),
+                          const AudioHtmlExtension(),
+                          const IframeHtmlExtension(),
                           const TableHtmlExtension(),
                           const SvgHtmlExtension(),
                           TagWrapExtension(
@@ -183,9 +189,13 @@ class ProjectPageTemplate extends StatelessWidget {
                       Stack(
                         children: [
                           BannerImage(
-                              height: _projectBannerHeight(width), width: _projectBannerWidth(width), image: bannerImage),
+                              height: _projectBannerHeight(width),
+                              width: _projectBannerWidth(width),
+                              image: bannerImage),
                           BannerTitle(
-                              height: _projectBannerHeight(width), width: _projectBannerWidth(width), title: projectTitle)
+                              height: _projectBannerHeight(width),
+                              width: _projectBannerWidth(width),
+                              title: projectTitle)
                         ],
                       ),
                       Container(
