@@ -144,7 +144,7 @@ class Assets {
   static const String techStackHtml5 = 'lib/assets/icons/tech_stack/html-5.svg';
   static const String techStackMatplotlib = 'lib/assets/icons/tech_stack/matplotlib.svg';
   static const String techStackMongodb = 'lib/assets/icons/tech_stack/mongodb.svg';
-  static const String techStackNode.jsLogo = 'lib/assets/icons/tech_stack/node.js_logo.svg';
+  static const String techStackNode = 'lib/assets/icons/tech_stack/node_js_logo.svg';
   static const String techStackNumpy = 'lib/assets/icons/tech_stack/numpy.svg';
   static const String techStackPandas = 'lib/assets/icons/tech_stack/pandas.svg';
   static const String techStackRiverpod = 'lib/assets/icons/tech_stack/riverpod.svg';
