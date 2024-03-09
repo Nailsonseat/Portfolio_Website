@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .center{
+              display: block;
+              margin-left: auto;
+              margin-right: auto;
+              border-radius: 25px;
+            }
+    </style>
+</head>
+
+<body>
+<p>
+<h1>A brand new Menu</h1>
+The original version didn't even have a menu. This is a brand new menu that I have created. It is a
+simple menu with a few options. The menu is as follows:
+<ol>
+    <li>Start</li>
+    <p>
+        This is the main option. It is the option that the user will use to play the game. When the
+        user clicks on this option, the game will start.
+    </p>
+    <li>Options</li>
+    <p>
+        This is the option that the user will use to change the settings of the game. When the user
+        clicks on this option, the game will take the user to the options menu.
+    </p>
+    <li>Exit</li>
+    <p>
+        This is the option that the user will use to quit the game. When the user clicks on this
+        option, the game will quit.
+    </p>
+</ol>
+
+<br><br>
+
+<img class="demo-img center"
+     src="asset:lib/assets/images/project_images/classic_snake/menu.png"
+     alt="Menu">
+<br><br>
+<h1>Options Section</h1>
+The options section is where the user can change the appearance of the snake and the food. All of
+these options are created using Unicode characters.
+There are six appearance options for the snake and the food. The options are as follows:
+<ul>
+    <li>2 options for snake's body</li>
+    <li>2 options for snake's head</li>
+    <li>4 options for food</li>
+    <li>4 options for food color</li>
+    <li>7 options for snake's head color</li>
+    <li>7 options for snake's body color</li>
+</ul>
+
+<br><br>
+
+<img class="demo-img center"
+     src="asset:lib/assets/images/project_images/classic_snake/options.png"
+     alt="Menu">
+<br><br>
+<h1>Gameplay</h1>
+The gameplay is simple. The user controls the snake using the arrow keys or WASD. The snake has to
+eat the food to grow. The walls are not solid, so the snake can go through the walls and come out of
+the other side.
+The game ends when the snake collides with itself.
+<br><br>
+The coordinates of the snake and the food are stored in a list vector and its length is increased
+everytime the snake eats the food.
+
+The upper right corner of the screen shows the score of the player.
+<br><br>
+The focused frames per second basically means that the game doesn't loop the terminal on which the
+game is displayed row or column wise, but just jumps to the coordinates straightaway. This is me
+digging through the old discontinued conio.h header and making some adjustments to use it in the
+game.
+<br><br>
+
+<img class="demo-img center"
+     src="asset:lib/assets/images/project_images/classic_snake/gameplay.png"
+     alt="Menu">
+
+<br><br>
+
+<img class="demo-img center"
+     src="asset:lib/assets/images/project_images/classic_snake/gameplay_two.png"
+     alt="Menu">
+</p>
+</body>
+</html>
