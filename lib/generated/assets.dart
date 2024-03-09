@@ -33,7 +33,14 @@ class Assets {
   static const String browserPagesMlProjectsPage = 'lib/pages/project_browser/browser_pages/ml_projects_page.dart';
   static const String chatbotChatbot = 'lib/chatbot/chatbot.dart';
   static const String classicSnakeFfpsClassicSnakeFfps = 'lib/pages/projects/classic_snake_ffps/classic_snake_ffps.dart';
+  static const String classicSnakeFfpsConclusion = 'lib/pages/projects/classic_snake_ffps/conclusion.html';
   static const String classicSnakeFfpsDescription = 'lib/pages/projects/classic_snake_ffps/description.html';
+  static const String classicSnakeFfpsGame = 'lib/pages/projects/classic_snake_ffps/game.html';
+  static const String classicSnakeFfpsTechstack = 'lib/pages/projects/classic_snake_ffps/techstack.html';
+  static const String classicSnakeGameplay = 'lib/assets/images/project_images/classic_snake/gameplay.png';
+  static const String classicSnakeGameplayTwo = 'lib/assets/images/project_images/classic_snake/gameplay_two.png';
+  static const String classicSnakeMenu = 'lib/assets/images/project_images/classic_snake/menu.png';
+  static const String classicSnakeOptions = 'lib/assets/images/project_images/classic_snake/options.png';
   static const String dataIntoIplDataIntoIpl = 'lib/pages/projects/data_into_ipl/data_into_ipl.dart';
   static const String dataIntoIplDescription = 'lib/pages/projects/data_into_ipl/description.html';
   static const String ecommerceShoppersBehaviourAndUnderstandingDescription = 'lib/pages/projects/ecommerce_shoppers_behaviour_and_understanding/description.html';
@@ -133,6 +140,7 @@ class Assets {
   static const String providersProjectPageProvider = 'lib/providers/project_page_provider.dart';
   static const String providersProjectSliderProvider = 'lib/providers/project_slider_provider.dart';
   static const String providersScrollProvider = 'lib/providers/scroll_provider.dart';
+  static const String techStackCpp = 'lib/assets/icons/tech_stack/cpp.svg';
   static const String techStackCss = 'lib/assets/icons/tech_stack/css.svg';
   static const String techStackDart = 'lib/assets/icons/tech_stack/dart.svg';
   static const String techStackExpress = 'lib/assets/icons/tech_stack/express.svg';
@@ -144,7 +152,7 @@ class Assets {
   static const String techStackHtml5 = 'lib/assets/icons/tech_stack/html-5.svg';
   static const String techStackMatplotlib = 'lib/assets/icons/tech_stack/matplotlib.svg';
   static const String techStackMongodb = 'lib/assets/icons/tech_stack/mongodb.svg';
-  static const String techStackNode = 'lib/assets/icons/tech_stack/node_js_logo.svg';
+  static const String techStackNodeJsLogo = 'lib/assets/icons/tech_stack/node_js_logo.svg';
   static const String techStackNumpy = 'lib/assets/icons/tech_stack/numpy.svg';
   static const String techStackPandas = 'lib/assets/icons/tech_stack/pandas.svg';
   static const String techStackRiverpod = 'lib/assets/icons/tech_stack/riverpod.svg';
