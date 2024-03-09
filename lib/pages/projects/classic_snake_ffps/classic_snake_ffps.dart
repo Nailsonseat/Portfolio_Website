@@ -14,12 +14,23 @@ class ClassicSnakeFFPS extends StatelessWidget {
 
   final List<TextSection> textSections = [
     TextSection(title: "Description", bodyPath: "lib/pages/projects/classic_snake_ffps/description.html"),
-    TextSection(title: "Under Construction...", bodyPath: "lib/pages/templates/under_construction_template.html"),
+    TextSection(title: "Tech Stack", bodyPath: "lib/pages/projects/classic_snake_ffps/techstack.html"),
+    TextSection(title: "The Game", bodyPath: "lib/pages/projects/classic_snake_ffps/game.html"),
+    TextSection(title: "Conclusion", bodyPath: "lib/pages/projects/classic_snake_ffps/conclusion.html")
   ];
-  final List<TableOfContentsComponent> projectComponents = [TableOfContentsComponent(title: "Description", subComponents: [])];
+  final List<TableOfContentsComponent> projectComponents = [
+    TableOfContentsComponent(title: "Description", subComponents: []),
+    TableOfContentsComponent(title: "Tech Stack", subComponents: []),
+    TableOfContentsComponent(title: "The Game", subComponents: []),
+    TableOfContentsComponent(title: "Conclusion", subComponents: [])
+  ];
 
   final List<IconData> timelineIcons = [
     Ionicons.bookmark_sharp,
+    EvaIcons.fileText,
+    EvaIcons.fileText,
+    EvaIcons.fileText,
+    EvaIcons.fileText,
     EvaIcons.fileText,
     Ionicons.construct,
     LineIcons.hardHat
