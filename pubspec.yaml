@@ -145,5 +145,6 @@ flutter:
     - lib/assets/images/project_images/acharya_setu/
     - lib/assets/images/project_images/foss_overflow/
     - lib/assets/images/project_images/ecommerce_shoppers_behaviour_and_understanding/
+    - lib/assets/images/project_images/classic_snake/
     - LICENSE
 
