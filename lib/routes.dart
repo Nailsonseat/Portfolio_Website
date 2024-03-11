@@ -12,6 +12,7 @@ import 'package:portfolio_website/pages/projects/ecommerce_shoppers_behaviour_an
 import 'package:portfolio_website/pages/projects/holomorphic_bot/holomorphic_bot.dart';
 import 'package:portfolio_website/pages/projects/hospital_management_utility/hospital_management_utility.dart';
 import 'package:portfolio_website/pages/projects/machine_learning/machine_learning.dart';
+import 'package:portfolio_website/pages/projects/ondc_build_for_bharat/build_for_bharat.dart';
 import 'package:portfolio_website/pages/projects/portfolio_website/portfolio_website.dart';
 import 'package:portfolio_website/pages/projects/yoshop_web_scraper/yoshop_web_scraper.dart';
 import 'package:portfolio_website/providers/launch_page_animation_provider.dart';
@@ -19,7 +20,7 @@ import 'package:portfolio_website/providers/project_slider_provider.dart';
 import 'package:provider/provider.dart';
 
 final GoRouter routes = GoRouter(
-  initialLocation: '/',
+  initialLocation: '/home/Ondc_Build_For_Bharat',
   routes: [
     GoRoute(
       path: '/',
@@ -57,6 +58,7 @@ final GoRouter routes = GoRouter(
             GoRoute(path: 'Machine_Learning', pageBuilder: (context, state) => MaterialPage(child: MachineLearning())),
             GoRoute(path: 'Classic_Snake_FFPS', pageBuilder: (context, state) => MaterialPage(child: ClassicSnakeFFPS())),
             GoRoute(path: 'Foss_Overflow', pageBuilder: (context, state) => MaterialPage(child: FossOverflow())),
+            GoRoute(path: 'ONDC_Build_For_Bharat', pageBuilder: (context, state) => MaterialPage(child: ONDCBuildForBharat())),
           ],
         ),
       ],
