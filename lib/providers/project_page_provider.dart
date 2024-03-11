@@ -70,6 +70,17 @@ class ProjectPageProvider extends ChangeNotifier {
 
   List<Project> projects = [
     Project(
+      title: "ONDC - Build for Bharat",
+      image: Image.asset('lib/assets/images/project_banners/ondc.png'),
+      source: "https://github.com/HareNTortoise/ONDC-Build-For-Bharat",
+      pagePath: '/home/ONDC_Build_For_Bharat',
+      briefDescription:
+          """The challenge is to develop innovative solutions that leverage cutting-edge technologies to seamlessly digitalize and enhance product catalogs, offering a user-friendly experience for sellers and seller apps.""",
+      description: '',
+      primaryColor: HexColor('#b8daf2'),
+      secondaryColor: HexColor('#5787ec'),
+    ),
+    Project(
       title: 'Smart Insti App',
       image: Image.asset('lib/assets/images/project_banners/foss_overflow.png'),
       source: "https://github.com/OpenLake/Smart-Insti-App",
