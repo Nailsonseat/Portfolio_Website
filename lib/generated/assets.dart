@@ -106,6 +106,17 @@ class Assets {
   static const String machineLearningDescription = 'lib/pages/projects/machine_learning/description.html';
   static const String machineLearningMachineLearning = 'lib/pages/projects/machine_learning/machine_learning.dart';
   static const String miscellaneousUnderConstruction = 'lib/assets/images/miscellaneous/under_construction.png';
+  static const String ondcBuildForBharatAddProduct = 'lib/assets/images/project_images/ondc_build_for_bharat/add_product.png';
+  static const String ondcBuildForBharatBuildForBharat = 'lib/pages/projects/ondc_build_for_bharat/build_for_bharat.dart';
+  static const String ondcBuildForBharatConclusion = 'lib/pages/projects/ondc_build_for_bharat/conclusion.html';
+  static const String ondcBuildForBharatConditions = 'lib/pages/projects/ondc_build_for_bharat/conditions.html';
+  static const String ondcBuildForBharatDescription = 'lib/pages/projects/ondc_build_for_bharat/description.html';
+  static const String ondcBuildForBharatEditProduct = 'lib/assets/images/project_images/ondc_build_for_bharat/edit_product.png';
+  static const String ondcBuildForBharatLandingPage = 'lib/assets/images/project_images/ondc_build_for_bharat/landing_page.png';
+  static const String ondcBuildForBharatLoadingScreen = 'lib/assets/images/project_images/ondc_build_for_bharat/loading_screen.png';
+  static const String ondcBuildForBharatMetrics = 'lib/assets/images/project_images/ondc_build_for_bharat/metrics.png';
+  static const String ondcBuildForBharatProject = 'lib/pages/projects/ondc_build_for_bharat/project.html';
+  static const String ondcBuildForBharatTeam = 'lib/pages/projects/ondc_build_for_bharat/team.html';
   static const String pagesTestPage = 'lib/pages/test_page.dart';
   static const String portfolioWebsiteDescription = 'lib/pages/projects/portfolio_website/description.html';
   static const String portfolioWebsiteLICENSE = 'LICENSE';
@@ -122,6 +133,7 @@ class Assets {
   static const String projectBannersKastor = 'lib/assets/images/project_banners/kastor.png';
   static const String projectBannersMachineLearning = 'lib/assets/images/project_banners/machine_learning.png';
   static const String projectBannersMessaging = 'lib/assets/images/project_banners/messaging.png';
+  static const String projectBannersOndc = 'lib/assets/images/project_banners/ondc.png';
   static const String projectBannersPortfolio = 'lib/assets/images/project_banners/portfolio.png';
   static const String projectBannersSnake = 'lib/assets/images/project_banners/snake.png';
   static const String projectBannersYoshopScraper = 'lib/assets/images/project_banners/yoshop_scraper.png';
