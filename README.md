@@ -1,4 +1,4 @@
-# portfolio_website
+# Aadarsh's Portfolio Website
 
 This website will serve as a portfolio to display my achievements, projects and introduce me to the world.
 
