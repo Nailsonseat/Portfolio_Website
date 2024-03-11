@@ -20,7 +20,7 @@ import 'package:portfolio_website/providers/project_slider_provider.dart';
 import 'package:provider/provider.dart';
 
 final GoRouter routes = GoRouter(
-  initialLocation: '/home/Ondc_Build_For_Bharat',
+  initialLocation: '/',
   routes: [
     GoRoute(
       path: '/',
