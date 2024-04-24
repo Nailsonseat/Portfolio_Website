@@ -81,7 +81,7 @@ class ProjectPageProvider extends ChangeNotifier {
       secondaryColor: HexColor('#5787ec'),
     ),
     Project(
-      title: 'Smart Insti App',
+      title: 'FOSS Overflow',
       image: Image.asset('lib/assets/images/project_banners/foss_overflow.png'),
       source: "https://github.com/OpenLake/Smart-Insti-App",
       pagePath: '/home/Foss_Overflow',

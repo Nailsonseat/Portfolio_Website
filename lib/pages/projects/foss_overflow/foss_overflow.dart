@@ -14,7 +14,7 @@ class FossOverflow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ProjectPageProvider projectPageProvider = Provider.of<ProjectPageProvider>(context, listen: false);
-    Project project = projectPageProvider.getProject("Foss Overflow");
+    Project project = projectPageProvider.getProject("FOSS Overflow");
 
     final List<TableOfContentsComponent> projectComponents = [
       TableOfContentsComponent(title: "Description", subComponents: []),
