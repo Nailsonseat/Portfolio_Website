@@ -9,8 +9,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2 # Only works with v2 and must have write permissions from github actions.
-      - uses: subosito/flutter-action@v1
-      - uses: bluefireteam/flutter-gh-pages@v7
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v1
+        with:
+          flutter-version: 'latest'
+
+      - name: Set up .env file
+        run: |
+          echo GEMINI_API_KEY=${{ secrets.GEMINI_API_KEY }} > .env
+
+      - name: Deploy to GitHub Pages
+        uses: bluefireteam/flutter-gh-pages@v7
         with:
           baseHref: /Portfolio_Website/
