@@ -14,8 +14,6 @@ jobs:
 
       - name: Set up Flutter
         uses: subosito/flutter-action@v1
-        with:
-          flutter-version: 'latest'
 
       - name: Set up .env file
         run: |
