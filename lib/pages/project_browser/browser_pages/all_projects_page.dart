@@ -79,13 +79,13 @@ class AllProjectsPage extends StatelessWidget {
                                   children: [
                                     TextButton(
                                       style: ButtonStyle(
-                                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                                        shape: WidgetStateProperty.all<RoundedRectangleBorder>(
                                           RoundedRectangleBorder(
                                             borderRadius: BorderRadius.circular(10.0), // Adjust the radius as needed
                                           ),
                                         ),
-                                        backgroundColor: MaterialStateProperty.all<Color>(i.primaryColor),
-                                        fixedSize: MaterialStateProperty.all<Size>(Size(width / 11, width / 35.4)),
+                                        backgroundColor: WidgetStateProperty.all<Color>(i.primaryColor),
+                                        fixedSize: WidgetStateProperty.all<Size>(Size(width / 11, width / 35.4)),
                                       ),
                                       onPressed: () => context.go(i.pagePath),
                                       //  style: OutlinedButton.styleFrom(fixedSize: Size(width / 11, width / 56.4)),
@@ -97,13 +97,13 @@ class AllProjectsPage extends StatelessWidget {
                                     TextButton(
                                       onPressed: () => _redirectTo(i.source),
                                       style: ButtonStyle(
-                                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                                        shape: WidgetStateProperty.all<RoundedRectangleBorder>(
                                           RoundedRectangleBorder(
                                             borderRadius: BorderRadius.circular(10.0), // Adjust the radius as needed
                                           ),
                                         ),
-                                        backgroundColor: MaterialStateProperty.all<Color>(i.primaryColor),
-                                        fixedSize: MaterialStateProperty.all<Size>(Size(width / 11, width / 35.4)),
+                                        backgroundColor: WidgetStateProperty.all<Color>(i.primaryColor),
+                                        fixedSize: WidgetStateProperty.all<Size>(Size(width / 11, width / 35.4)),
                                       ),
                                       child: Row(
                                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
