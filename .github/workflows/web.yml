@@ -23,6 +23,4 @@ jobs:
         with:
           baseHref: /Portfolio_Website/
           buildDir: build/web
-
-      - name: Build Flutter web with Dart defines
-        run: --dart-define GEMINI_API_KEY=${{ secrets.GEMINI_API_KEY }}
+          customArgs: --dart-define GEMINI_API_KEY=${{ secrets.GEMINI_API_KEY }}
