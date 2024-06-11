@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_gemini/flutter_gemini.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -41,11 +40,11 @@ class ChatGPTDialog extends StatelessWidget {
                         ),
                         OutlinedButton(
                             style: ButtonStyle(
-                                shape: MaterialStateProperty.all<
+                                shape: WidgetStateProperty.all<
                                         RoundedRectangleBorder>(
                                     RoundedRectangleBorder(
                                         borderRadius: BorderRadius.circular(12))),
-                                fixedSize: MaterialStateProperty.all<Size>(
+                                fixedSize: WidgetStateProperty.all<Size>(
                                     const Size(45, 45))),
                             onPressed: () => context.pop(),
                             child: const Center(
@@ -122,14 +121,14 @@ class ChatGPTDialog extends StatelessWidget {
                           onPressed: () =>
                               chatBot.isSending ? null : chatBot.generate(),
                           style: ButtonStyle(
-                            minimumSize: MaterialStateProperty.all<Size>(
+                            minimumSize: WidgetStateProperty.all<Size>(
                                 const Size.fromHeight(68)),
-                            backgroundColor: MaterialStateProperty.all<Color>(
+                            backgroundColor: WidgetStateProperty.all<Color>(
                                 Colors.lightBlueAccent),
                             foregroundColor:
-                                MaterialStateProperty.all<Color>(Colors.black),
+                                WidgetStateProperty.all<Color>(Colors.black),
                             shape:
-                                MaterialStateProperty.all<RoundedRectangleBorder>(
+                                WidgetStateProperty.all<RoundedRectangleBorder>(
                                     RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(18.0),
                             )),
