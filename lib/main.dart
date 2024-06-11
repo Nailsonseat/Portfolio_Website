@@ -1,6 +1,5 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_gemini/flutter_gemini.dart';
 import 'package:portfolio_website/providers/chatbot_provider.dart';
 import 'package:portfolio_website/providers/project_component_constraint_provider.dart';
@@ -12,8 +11,7 @@ import 'package:responsive_framework/responsive_framework.dart';
 import 'firebase_options.dart';
 
 void main() async {
-  await dotenv.load(fileName: ".env");
-  Gemini.init(apiKey: dotenv.env['GEMINI_API_KEY']!);
+  Gemini.init(apiKey: const String.fromEnvironment('GEMINI_API_KEY'));
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
