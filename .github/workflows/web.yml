@@ -21,6 +21,12 @@ jobs:
         run: |
           echo GEMINI_API_KEY=$GEMINI_API_KEY > .env
 
+      - name: Display GEMINI_API_KEY from secrets
+        run: echo ${{ secrets.GEMINI_API_KEY }}
+
+      - name: Display GEMINI_API_KEY from .env file
+        run: cat .env
+
       - name: Deploy to GitHub Pages
         uses: bluefireteam/flutter-gh-pages@v7
         with:
