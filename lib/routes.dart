@@ -57,7 +57,7 @@ final GoRouter routes = GoRouter(
             GoRoute(path: 'Hola_Bot', pageBuilder: (context, state) => MaterialPage(child: HolomorphicBot())),
             GoRoute(path: 'Machine_Learning', pageBuilder: (context, state) => MaterialPage(child: MachineLearning())),
             GoRoute(path: 'Classic_Snake_FFPS', pageBuilder: (context, state) => MaterialPage(child: ClassicSnakeFFPS())),
-            GoRoute(path: 'Foss_Overflow', pageBuilder: (context, state) => MaterialPage(child: FossOverflow())),
+            GoRoute(path: 'Foss_Overflow', pageBuilder: (context, state) => const MaterialPage(child: FossOverflow())),
             GoRoute(path: 'ONDC_Build_For_Bharat', pageBuilder: (context, state) => MaterialPage(child: ONDCBuildForBharat())),
           ],
         ),
