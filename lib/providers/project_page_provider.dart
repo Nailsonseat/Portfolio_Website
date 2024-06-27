@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio_website/all_projects.dart';
 
 
 class ProjectPageProvider extends ChangeNotifier {
