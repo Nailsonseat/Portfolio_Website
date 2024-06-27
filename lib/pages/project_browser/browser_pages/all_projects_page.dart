@@ -6,7 +6,7 @@ import 'package:line_icons/line_icons.dart';
 import 'package:logger/logger.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
-
+import '../../../all_projects.dart';
 import '../../../providers/project_page_provider.dart';
 
 class AllProjectsPage extends StatelessWidget {
@@ -38,7 +38,7 @@ class AllProjectsPage extends StatelessWidget {
               runAlignment: WrapAlignment.spaceEvenly,
               runSpacing: width / 24.675,
               children: [
-                for (Project i in projectProvider.projects)
+                for (Project i in projects)
                   SizedBox(
                     width: width / 3.948,
                     height: max(530, width / 2.63733333),
@@ -49,7 +49,7 @@ class AllProjectsPage extends StatelessWidget {
                           ClipRRect(
                             borderRadius:
                                 const BorderRadius.only(topLeft: Radius.circular(35), topRight: Radius.circular(35)),
-                            child: i.image,
+                            child: Image.asset(i.image),
                           ),
                           Align(
                             heightFactor: 2,
@@ -84,14 +84,14 @@ class AllProjectsPage extends StatelessWidget {
                                             borderRadius: BorderRadius.circular(10.0), // Adjust the radius as needed
                                           ),
                                         ),
-                                        backgroundColor: WidgetStateProperty.all<Color>(i.primaryColor),
+                                        backgroundColor: WidgetStateProperty.all<Color>(i.buttonSecondaryColor),
                                         fixedSize: WidgetStateProperty.all<Size>(Size(width / 11, width / 35.4)),
                                       ),
                                       onPressed: () => context.go(i.pagePath),
                                       //  style: OutlinedButton.styleFrom(fixedSize: Size(width / 11, width / 56.4)),
                                       child: Text(
                                         "Read more",
-                                        style: TextStyle(fontSize: width / 98.7, color: i.secondaryColor),
+                                        style: TextStyle(fontSize: width / 98.7, color: i.buttonPrimaryColor),
                                       ),
                                     ),
                                     TextButton(
@@ -102,7 +102,7 @@ class AllProjectsPage extends StatelessWidget {
                                             borderRadius: BorderRadius.circular(10.0), // Adjust the radius as needed
                                           ),
                                         ),
-                                        backgroundColor: WidgetStateProperty.all<Color>(i.primaryColor),
+                                        backgroundColor: WidgetStateProperty.all<Color>(i.buttonSecondaryColor),
                                         fixedSize: WidgetStateProperty.all<Size>(Size(width / 11, width / 35.4)),
                                       ),
                                       child: Row(
@@ -110,12 +110,12 @@ class AllProjectsPage extends StatelessWidget {
                                         children: [
                                           Icon(
                                             LineIcons.github,
-                                            color: i.secondaryColor,
+                                            color: i.buttonPrimaryColor,
                                             size: width / 61.8125,
                                           ),
                                           Text(
                                             "Repository",
-                                            style: TextStyle(fontSize: width / 98.7, color: i.secondaryColor),
+                                            style: TextStyle(fontSize: width / 98.7, color: i.buttonPrimaryColor),
                                           ),
                                         ],
                                       ),
