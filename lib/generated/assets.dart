@@ -5,7 +5,6 @@ class Assets {
   static const String aboutMeAboutMe = 'lib/assets/text/about_me/about_me.txt';
   static const String aboutMeAboutMePage = 'lib/pages/about_me/about_me_page.dart';
   static const String aboutMeEducation = 'lib/assets/text/about_me/education.txt';
-  static const String acharyaSetuAcharyaSetu = 'lib/pages/projects/acharya_setu/acharya_setu.dart';
   static const String acharyaSetuAcharyaSetuQuestionContextGeneration = 'lib/assets/images/project_images/acharya_setu/Acharya_Setu_Question_Context_Generation.png';
   static const String acharyaSetuAcharyaSetuQuestionDistribution = 'lib/assets/images/project_images/acharya_setu/Acharya_Setu_Question_Distribution.png';
   static const String acharyaSetuAcharyaSetuQuestionSegmentation = 'lib/assets/images/project_images/acharya_setu/Acharya_Setu_Question_Segmentation.png';
@@ -32,7 +31,6 @@ class Assets {
   static const String browserPagesDevelopmentsProjectsPage = 'lib/pages/project_browser/browser_pages/developments_projects_page.dart';
   static const String browserPagesMlProjectsPage = 'lib/pages/project_browser/browser_pages/ml_projects_page.dart';
   static const String chatbotChatbot = 'lib/chatbot/chatbot.dart';
-  static const String classicSnakeFfpsClassicSnakeFfps = 'lib/pages/projects/classic_snake_ffps/classic_snake_ffps.dart';
   static const String classicSnakeFfpsConclusion = 'lib/pages/projects/classic_snake_ffps/conclusion.html';
   static const String classicSnakeFfpsDescription = 'lib/pages/projects/classic_snake_ffps/description.html';
   static const String classicSnakeFfpsGame = 'lib/pages/projects/classic_snake_ffps/game.html';
@@ -41,7 +39,7 @@ class Assets {
   static const String classicSnakeGameplayTwo = 'lib/assets/images/project_images/classic_snake/gameplay_two.png';
   static const String classicSnakeMenu = 'lib/assets/images/project_images/classic_snake/menu.png';
   static const String classicSnakeOptions = 'lib/assets/images/project_images/classic_snake/options.png';
-  static const String dataIntoIplDataIntoIpl = 'lib/pages/projects/data_into_ipl/data_into_ipl.dart';
+  static const String constantsProjectConstants = 'lib/constants/project_constants.dart';
   static const String dataIntoIplDescription = 'lib/pages/projects/data_into_ipl/description.html';
   static const String ecommerceShoppersBehaviourAndUnderstandingDescription = 'lib/pages/projects/ecommerce_shoppers_behaviour_and_understanding/description.html';
   static const String ecommerceShoppersBehaviourAndUnderstandingECommAccuracy = 'lib/assets/images/project_images/ecommerce_shoppers_behaviour_and_understanding/e_comm_accuracy.png';
@@ -50,7 +48,6 @@ class Assets {
   static const String ecommerceShoppersBehaviourAndUnderstandingECommHistograms = 'lib/assets/images/project_images/ecommerce_shoppers_behaviour_and_understanding/e_comm_histograms.png';
   static const String ecommerceShoppersBehaviourAndUnderstandingECommPrecision = 'lib/assets/images/project_images/ecommerce_shoppers_behaviour_and_understanding/e_comm_precision.png';
   static const String ecommerceShoppersBehaviourAndUnderstandingECommRecall = 'lib/assets/images/project_images/ecommerce_shoppers_behaviour_and_understanding/e_comm_recall.png';
-  static const String ecommerceShoppersBehaviourAndUnderstandingEcommerceShoppersBehaviourAndUnderstanding = 'lib/pages/projects/ecommerce_shoppers_behaviour_and_understanding/ecommerce_shoppers_behaviour_and_understanding.dart';
   static const String ecommerceShoppersBehaviourAndUnderstandingModels = 'lib/pages/projects/ecommerce_shoppers_behaviour_and_understanding/models.html';
   static const String ecommerceShoppersBehaviourAndUnderstandingResults = 'lib/pages/projects/ecommerce_shoppers_behaviour_and_understanding/results.html';
   static const String ecommerceShoppersBehaviourAndUnderstandingTechstack = 'lib/pages/projects/ecommerce_shoppers_behaviour_and_understanding/techstack.html';
@@ -65,7 +62,6 @@ class Assets {
   static const String fossOverflowDescription = 'lib/pages/projects/foss_overflow/description.html';
   static const String fossOverflowFacultyEntry = 'lib/assets/images/project_images/foss_overflow/faculty_entry.png';
   static const String fossOverflowFeatures = 'lib/pages/projects/foss_overflow/features.html';
-  static const String fossOverflowFossOverflow = 'lib/pages/projects/foss_overflow/foss_overflow.dart';
   static const String fossOverflowLostAndFound = 'lib/assets/images/project_images/foss_overflow/lost_and_found.png';
   static const String fossOverflowManageMenu = 'lib/assets/images/project_images/foss_overflow/manage_menu.png';
   static const String fossOverflowManageRooms = 'lib/assets/images/project_images/foss_overflow/manage_rooms.png';
@@ -85,29 +81,24 @@ class Assets {
   static const String fossOverflowYearPicker = 'lib/assets/images/project_images/foss_overflow/year_picker.png';
   static const String generatedAssets = 'lib/generated/assets.dart';
   static const String holomorphicBotDescription = 'lib/pages/projects/holomorphic_bot/description.html';
-  static const String holomorphicBotHolomorphicBot = 'lib/pages/projects/holomorphic_bot/holomorphic_bot.dart';
   static const String homeHomeMain = 'lib/pages/home/home_main.dart';
   static const String homeHomePage = 'lib/pages/home/home_page.dart';
   static const String homePageOneBackground = 'lib/components/home/page_one_background.dart';
   static const String homePageOneButtonGradient = 'lib/components/home/page_one_button_gradient.dart';
   static const String homePageOneProfilePicBackground = 'lib/components/home/page_one_profile_pic_background.dart';
   static const String hospitalManagementUtilityDescription = 'lib/pages/projects/hospital_management_utility/description.html';
-  static const String hospitalManagementUtilityHospitalManagementUtility = 'lib/pages/projects/hospital_management_utility/hospital_management_utility.dart';
   static const String iconsChatbot = 'lib/assets/icons/chatbot.png';
   static const String iconsSlack = 'lib/assets/icons/slack.png';
   static const String kastorDescription = 'lib/pages/projects/kastor/description.html';
-  static const String kastorKastor = 'lib/pages/projects/kastor/kastor.dart';
   static const String launchLaunchPage = 'lib/pages/launch/launch_page.dart';
   static const String letstalkkDescription = 'lib/pages/projects/letstalkk/description.html';
-  static const String letstalkkLetstalkk = 'lib/pages/projects/letstalkk/letstalkk.dart';
+  static const String libAllProjects = 'lib/all_projects.dart';
   static const String libFirebaseOptions = 'lib/firebase_options.dart';
   static const String libMain = 'lib/main.dart';
   static const String libRoutes = 'lib/routes.dart';
   static const String machineLearningDescription = 'lib/pages/projects/machine_learning/description.html';
-  static const String machineLearningMachineLearning = 'lib/pages/projects/machine_learning/machine_learning.dart';
   static const String miscellaneousUnderConstruction = 'lib/assets/images/miscellaneous/under_construction.png';
   static const String ondcBuildForBharatAddProduct = 'lib/assets/images/project_images/ondc_build_for_bharat/add_product.png';
-  static const String ondcBuildForBharatBuildForBharat = 'lib/pages/projects/ondc_build_for_bharat/build_for_bharat.dart';
   static const String ondcBuildForBharatConclusion = 'lib/pages/projects/ondc_build_for_bharat/conclusion.html';
   static const String ondcBuildForBharatConditions = 'lib/pages/projects/ondc_build_for_bharat/conditions.html';
   static const String ondcBuildForBharatDescription = 'lib/pages/projects/ondc_build_for_bharat/description.html';
@@ -120,7 +111,6 @@ class Assets {
   static const String pagesTestPage = 'lib/pages/test_page.dart';
   static const String portfolioWebsiteDescription = 'lib/pages/projects/portfolio_website/description.html';
   static const String portfolioWebsiteLICENSE = 'LICENSE';
-  static const String portfolioWebsitePortfolioWebsite = 'lib/pages/projects/portfolio_website/portfolio_website.dart';
   static const String profilePicProfilePic = 'lib/assets/images/profile_pic/profile_pic.png';
   static const String profilePicProfilePicFlipped = 'lib/assets/images/profile_pic/profile_pic_flipped.png';
   static const String projectBannersAcharyaSetu = 'lib/assets/images/project_banners/acharya_setu.jpg';
@@ -175,6 +165,5 @@ class Assets {
   static const String templatesSmallScreenWarningPage = 'lib/pages/templates/small_screen_warning_page.dart';
   static const String templatesUnderConstructionTemplate = 'lib/pages/templates/under_construction_template.html';
   static const String yoshopWebScraperDescription = 'lib/pages/projects/yoshop_web_scraper/description.html';
-  static const String yoshopWebScraperYoshopWebScraper = 'lib/pages/projects/yoshop_web_scraper/yoshop_web_scraper.dart';
 
 }
