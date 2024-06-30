@@ -2,7 +2,6 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:logger/logger.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:portfolio_website/providers/launch_page_animation_provider.dart';
 import 'package:provider/provider.dart';

@@ -172,7 +172,6 @@ class ProjectPageTemplate extends StatelessWidget {
     componentsConstraintsProvider.titleKeys = List.generate(textSections.length, (index) => GlobalKey());
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      //  componentsConstraintsProvider.setTitleContainerHeight();
       scrollProvider.tableOfContentsListener(scrollProvider.bannerHeight, width);
       componentsConstraintsProvider.startRenderTimer();
     });
@@ -199,6 +198,16 @@ class ProjectPageTemplate extends StatelessWidget {
           backgroundColor: secondaryColor,
           elevation: 1,
         ),
+        floatingActionButton:isLengthGreaterThanWidth ? FloatingActionButton(
+          onPressed: () {
+            showDialog(context: context, builder: (_) => AlertDialog(
+              title: const Text('Table of contents', style: TextStyle(fontSize: 30)),
+              content: TableOfContents(tableOfContents: tableOfContents, fontColor: primaryColor),
+            ));
+          },
+          backgroundColor: secondaryColor,
+          child: const Icon(Icons.menu),
+        ) : null,
         backgroundColor: Colors.white,
         body: SingleChildScrollView(
           controller: scrollProvider.detailedProjectScrollController,
