@@ -11,10 +11,12 @@ class ScrollProvider extends ChangeNotifier {
   late double width;
   double tableOfContentsOffset = 0;
 
+  final scrollKeyHomePage = GlobalKey();
+
   ScrollProvider() {
     _homeScrollController.addListener(_scrollListener);
     _detailedProjectScrollController.addListener(() {
-      tableOfContentsListner(bannerHeight, width);
+      tableOfContentsListener(bannerHeight, width);
     });
   }
 
@@ -33,7 +35,7 @@ class ScrollProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  void tableOfContentsListner(double height, double width) {
+  void tableOfContentsListener(double height, double width) {
     if (_detailedProjectScrollController.offset > height) {
       tableOfContentsOffset = max(0, _detailedProjectScrollController.offset - height - width / 9.87);
     } else {
@@ -58,11 +60,13 @@ class ScrollProvider extends ChangeNotifier {
     );
   }
 
-  void scrollToProjects(double singlePageHeight) {
-    _homeScrollController.animateTo(
-      (singlePageHeight * 2) - appBarHeight,
+  void scrollToProjects(GlobalKey key) {
+    Scrollable.ensureVisible(
+      key.currentContext!,
       duration: const Duration(milliseconds: 500),
       curve: Curves.easeInOut,
+      alignment: 0.1,
     );
+
   }
 }
