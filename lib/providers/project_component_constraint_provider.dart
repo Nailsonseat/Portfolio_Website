@@ -30,16 +30,9 @@ class ProjectComponentsConstraintsProvider extends ChangeNotifier {
 
   void setTextContainerHeight() {
     for (int i = 0; i < textKeys.length; i++) {
+      if(textKeys[i].currentContext == null) break; // Add this line to prevent null pointer exception
       RenderBox textContainerRenderer = textKeys[i].currentContext!.findRenderObject() as RenderBox;
       textContainerHeights[i] = textContainerRenderer.size.height;
-    }
-    notifyListeners();
-  }
-
-  void setTitleContainerHeight() {
-    for (int i = 0; i < titleKeys.length; i++) {
-      RenderBox titleContainerRenderer = titleKeys[i].currentContext!.findRenderObject() as RenderBox;
-      titleContainerHeights[i] = titleContainerRenderer.size.height;
     }
     notifyListeners();
   }
