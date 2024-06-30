@@ -67,7 +67,7 @@ class AboutMePage extends StatelessWidget {
                     String education = snapshot.data?.education ?? '';
                     return SelectableText(
                       aboutMe + education,
-                      style: GoogleFonts.robotoMono(fontSize: isLengthGreaterThanWidth ? 14 : 20),
+                      style: GoogleFonts.robotoMono(fontSize: isLengthGreaterThanWidth ? 12 : 20),
                     );
                   }
                   return const Center(
