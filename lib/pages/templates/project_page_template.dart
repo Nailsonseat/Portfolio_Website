@@ -42,8 +42,8 @@ class ProjectPageTemplate extends StatelessWidget {
   final Color secondaryColor;
   final Color primaryColor;
 
-  double _projectBannerHeight(double width) => width / 2.193333333; // 900
-  double _projectBannerWidth(double width) => width / 1.316; // 1500
+  double _projectBannerHeight(double height) => height; //width / 2.193333333; // 900
+  double _projectBannerWidth(double width) => 1500; //width / 1.316; // 1500
 
   Future<String> _loadHtmlFile(String path) async => await rootBundle.loadString(path);
 
@@ -57,24 +57,27 @@ class ProjectPageTemplate extends StatelessWidget {
     }
   }
 
-  List<Container> _buildTextSections(
-      List textSections, double width, ProjectComponentsConstraintsProvider componentsConstraintsProvider) {
+  List<Container> _buildTextSections(List textSections, double width,
+      ProjectComponentsConstraintsProvider componentsConstraintsProvider, bool isLengthGreaterThanWidth) {
     List<Container> builtSections = [];
     for (int i = 0; i < textSections.length; i++) {
       builtSections.addAll([
         Container(
-          margin: EdgeInsets.symmetric(horizontal: width / 35.74),
+          margin: EdgeInsets.symmetric(horizontal: isLengthGreaterThanWidth ? 30 : 56), //width / 35.74), // 56
           alignment: Alignment.centerLeft,
           key: componentsConstraintsProvider.titleKeys[i],
           child: SelectableText(
             textSections[i].title,
-            style: TextStyle(fontSize: width / 35.890909), // 55
+            style: TextStyle(fontSize: isLengthGreaterThanWidth ? 35 : 55), //width / 35.890909), // 55
           ),
         ),
         Container(
           width: double.infinity,
-          margin: EdgeInsets.symmetric(vertical: 60, horizontal: width / 35.74),
-          padding: EdgeInsets.all(width / 24.675),
+          margin: EdgeInsets.symmetric(
+              vertical: isLengthGreaterThanWidth ? 20 : 60, horizontal: isLengthGreaterThanWidth ? 30 : 56),
+          // width / 35.74),
+          padding: isLengthGreaterThanWidth ? const EdgeInsets.all(40) : const EdgeInsets.all(80),
+          //width / 24.675),
           decoration: BoxDecoration(color: secondaryColor, borderRadius: BorderRadius.circular(30)),
           child: FutureBuilder<String>(
             future: _loadHtmlFile(textSections[i].bodyPath),
@@ -87,19 +90,32 @@ class ProjectPageTemplate extends StatelessWidget {
                       child: Html(
                         data: snapshot.data,
                         style: {
-                          "body": Style(fontSize: FontSize(width / 100)), // Adjust the font size as needed
+                          "body": Style(
+                            fontSize: isLengthGreaterThanWidth?FontSize(12) : FontSize(19.78),
+                          ),
+                          //FontSize(width / 100)), // Adjust the font size as needed
                           ".techstack": Style(
-                              height: Height(width / 24.966667),
-                              width: Width(width / 24.966667),
+                              height: Height(80), //width / 24.966667),
+                              width: Width(80), //width / 24.966667),
                               margin: Margins.only(right: 20)),
                           ".techstack-small": Style(
-                              height: Height(width / 21.4307),
-                              width: Width(width / 21.4307),
+                              height: Height(92), //width / 21.4307),
+                              width: Width(92), //width / 21.4307),
                               margin: Margins.only(right: 20)),
-                          ".portrait-img":
-                              Style(height: Height(width / 2.8257), margin: Margins.only(right: width / 21.97778)),
-                          ".old-new": Style(padding: HtmlPaddings.only(left: width / 35, right: width / 35, bottom: 40)),
-                          ".demo-img": Style(height: Height(width / 2.825714))
+                          ".portrait-img": Style(
+                            height: Height(700), //width / 2.8257),
+                            margin: Margins.only(right: 90), //width / 21.97778),
+                          ),
+                          ".old-new": Style(
+                            padding: HtmlPaddings.only(
+                              left: 56, //width / 35,
+                              right: 56, //width / 35,
+                              bottom: 40,
+                            ),
+                          ),
+                          ".demo-img": Style(
+                            height: Height(700), //width / 2.825714),
+                          )
                         },
                         onAnchorTap: (String? url, _, __) => _redirect(url!),
                         extensions: [
@@ -142,13 +158,13 @@ class ProjectPageTemplate extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double width = 1978;
-    double height = 1048;
+    double height = MediaQuery.of(context).size.height;
 
     ScrollProvider scrollProvider = Provider.of<ScrollProvider>(context, listen: false);
     ProjectComponentsConstraintsProvider componentsConstraintsProvider =
         Provider.of<ProjectComponentsConstraintsProvider>(context, listen: false);
 
-    scrollProvider.bannerHeight = _projectBannerHeight(width);
+    scrollProvider.bannerHeight = _projectBannerHeight(height);
     scrollProvider.width = width;
 
     componentsConstraintsProvider.initHeights(textSections.length);
@@ -156,10 +172,19 @@ class ProjectPageTemplate extends StatelessWidget {
     componentsConstraintsProvider.titleKeys = List.generate(textSections.length, (index) => GlobalKey());
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      componentsConstraintsProvider.setTitleContainerHeight();
-      scrollProvider.tableOfContentsListner(scrollProvider.bannerHeight, width);
+      //  componentsConstraintsProvider.setTitleContainerHeight();
+      scrollProvider.tableOfContentsListener(scrollProvider.bannerHeight, width);
       componentsConstraintsProvider.startRenderTimer();
     });
+
+    bool isLengthGreaterThanWidth = MediaQuery.of(context).size.height > MediaQuery.of(context).size.width;
+
+    if (isLengthGreaterThanWidth) {
+      height = height - 40;
+      width = 455;
+    } else {
+      height -= 150;
+    }
 
     return ResponsiveScaledBox(
       width: width,
@@ -167,7 +192,7 @@ class ProjectPageTemplate extends StatelessWidget {
         appBar: AppBar(
           title: Text(
             projectTitle,
-            style: TextStyle(fontSize: width / 79.12),
+            style: const TextStyle(fontSize: 25), //width / 79.12),
           ),
           toolbarHeight: scrollProvider.appBarHeight,
           shadowColor: Colors.black,
@@ -189,17 +214,17 @@ class ProjectPageTemplate extends StatelessWidget {
                       Stack(
                         children: [
                           BannerImage(
-                              height: _projectBannerHeight(width),
+                              height: _projectBannerHeight(height),
                               width: _projectBannerWidth(width),
                               image: bannerImage),
                           BannerTitle(
-                              height: _projectBannerHeight(width),
+                              height: _projectBannerHeight(height),
                               width: _projectBannerWidth(width),
                               title: projectTitle)
                         ],
                       ),
                       Container(
-                        padding: EdgeInsets.only(top: width / 9.87), // 200
+                        padding: EdgeInsets.only(top: isLengthGreaterThanWidth ? 100 : 200), //width / 9.87), // 200
                         decoration: BoxDecoration(
                           color: Colors.white,
                           boxShadow: [
@@ -215,60 +240,65 @@ class ProjectPageTemplate extends StatelessWidget {
                         child: IntrinsicHeight(
                           child: Row(
                             children: [
-                              Expanded(
-                                flex: 3,
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                    borderRadius: const BorderRadius.only(topRight: Radius.circular(50)),
-                                    color: secondaryColor,
-                                  ),
-                                  child: Column(
-                                    children: <Widget>[
-                                      Consumer<ScrollProvider>(builder: (_, scrollProvider, __) {
-                                        return SizedBox(height: 0 + scrollProvider.tableOfContentsOffset);
-                                      }),
-                                      Stack(children: [
-                                        ClipRRect(
-                                          borderRadius: const BorderRadius.only(topRight: Radius.circular(50)),
-                                          child: CustomPaint(
-                                            size: Size(width * 0.3, (height / 4.192).toDouble()),
-                                            //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
-                                            painter: TOCHeader(shapeColor: primaryColor),
-                                          ),
-                                        ),
-                                        Column(
-                                          children: [
-                                            Container(
-                                              height: height / 8.0615384615,
-                                              margin: const EdgeInsets.only(bottom: 30),
-                                              alignment: Alignment.center,
-                                              child: Text(
-                                                'Table of contents',
-                                                style: TextStyle(fontSize: width / 56.4, color: Colors.white), // 35
-                                              ),
+                              if (!isLengthGreaterThanWidth)
+                                Expanded(
+                                  flex: 3,
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      borderRadius: const BorderRadius.only(topRight: Radius.circular(50)),
+                                      color: secondaryColor,
+                                    ),
+                                    child: Column(
+                                      children: <Widget>[
+                                        Consumer<ScrollProvider>(builder: (_, scrollProvider, __) {
+                                          return SizedBox(height: 0 + scrollProvider.tableOfContentsOffset);
+                                        }),
+                                        Stack(children: [
+                                          ClipRRect(
+                                            borderRadius: const BorderRadius.only(topRight: Radius.circular(50)),
+                                            child: CustomPaint(
+                                              size: Size(width * 0.3, (300).toDouble()),
+                                              //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
+                                              painter: TOCHeader(shapeColor: primaryColor),
                                             ),
-                                            Consumer<ProjectComponentsConstraintsProvider>(
-                                              builder: (context, componentsConstraintsProvider, child) {
-                                                return TableOfContents(
-                                                    tableOfContents: tableOfContents, fontColor: primaryColor);
-                                              },
-                                            )
-                                          ],
-                                        ),
-                                      ]),
-                                      //Image.asset("lib/assets/images/miscellaneous/under_construction.png")
-                                    ],
+                                          ),
+                                          Column(
+                                            children: [
+                                              Container(
+                                                height: 150, // height / 8.0615384615,
+                                                margin: const EdgeInsets.only(bottom: 30),
+                                                alignment: Alignment.center,
+                                                child: const Text(
+                                                  'Table of contents',
+                                                  style: TextStyle(
+                                                    fontSize: 35, //width / 56.4,
+                                                    color: Colors.white,
+                                                  ),
+                                                ),
+                                              ),
+                                              Consumer<ProjectComponentsConstraintsProvider>(
+                                                builder: (context, componentsConstraintsProvider, child) {
+                                                  return TableOfContents(
+                                                      tableOfContents: tableOfContents, fontColor: primaryColor);
+                                                },
+                                              )
+                                            ],
+                                          ),
+                                        ]),
+                                        //Image.asset("lib/assets/images/miscellaneous/under_construction.png")
+                                      ],
+                                    ),
                                   ),
                                 ),
-                              ),
                               Expanded(
                                 flex: 10,
                                 child: Padding(
-                                  padding: EdgeInsets.symmetric(horizontal: width / 35.74), // 100
+                                  padding: EdgeInsets.symmetric(horizontal: isLengthGreaterThanWidth ? 0 : 55),
+                                  //width / 35.74), // 100
                                   child: SingleChildScrollView(
                                     child: ProjectTimeLine(
-                                      textSections:
-                                          _buildTextSections(textSections, width, componentsConstraintsProvider),
+                                      textSections: _buildTextSections(
+                                          textSections, width, componentsConstraintsProvider, isLengthGreaterThanWidth),
                                       timelineIcons: timelineIcons,
                                       timelineBlockColor: primaryColor,
                                     ),
@@ -282,20 +312,19 @@ class ProjectPageTemplate extends StatelessWidget {
                     ],
                   ),
                   Positioned(
-                    top: _projectBannerHeight(width) - width / 49.35,
-                    left: width / 2 - width / 49.35,
+                    top: _projectBannerHeight(height) - 40,
+                    left: width / 2 - 40,
                     child: SizedBox(
-                      width: width / 24.675,
-                      height: width / 24.675,
+                      width: 80, //width / 24.675,
+                      height: 80,
                       child: FloatingActionButton(
                         backgroundColor: secondaryColor,
-                        onPressed: () =>
-                            scrollProvider.scrollToProjectDescription(_projectBannerHeight(width) + width / 13.16),
+                        onPressed: () => scrollProvider.scrollToProjectDescription(_projectBannerHeight(height) + 150),
                         // width / 13.16 = 150
                         shape: const CircleBorder(),
-                        child: Icon(
+                        child: const Icon(
                           LineIcons.arrowDown,
-                          size: width / 65.8,
+                          size: 30, //width / 65.8,
                         ),
                       ),
                     ),
