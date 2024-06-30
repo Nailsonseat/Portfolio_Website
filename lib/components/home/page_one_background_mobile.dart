@@ -14,7 +14,7 @@ class PageOneBackgroundMobile extends CustomPainter {
     paintFill0.shader = ui.Gradient.linear(
         Offset(size.width * 0.50, 0),
         Offset(size.width * 0.50, size.height * 1.00),
-        [const Color(0xffffa700), const Color(0xffffa81d), const Color(0xff7df239), const Color(0xff33ffff)],
+        [const Color(0xff54e8c5), const Color(0xff46ff1d), const Color(0xff54e8c5), const Color(0xff33ffff)],
         [0.00, 0.25, 0.55, 1.00]);
 
     Path path_0 = Path();
