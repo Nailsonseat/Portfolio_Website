@@ -14,11 +14,12 @@ class ProjectSliderProvider extends ChangeNotifier {
     });
   }
 
-  Center optionBuilder(int value, double width) {
+  Center optionBuilder(int value, double width, bool isLengthGreaterThanWidth) {
     return Center(
       child: Text(
+        textAlign: TextAlign.center,
         options[value],
-        style: TextStyle(fontSize: width / 98.7),
+        style: TextStyle(fontSize : isLengthGreaterThanWidth  ? 12 : 20),
       ),
     );
   }
