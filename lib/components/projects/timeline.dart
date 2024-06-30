@@ -11,7 +11,19 @@ class ProjectTimeLine extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool isLengthGreaterThanWidth = MediaQuery.of(context).size.height > MediaQuery.of(context).size.width;
     final int length = textSections.length;
+    if (isLengthGreaterThanWidth) {
+      return Column(
+        children: [
+          for (int i = 0; i < length; i++)
+            Container(
+              margin: const EdgeInsets.only(bottom: 20),
+              child: textSections[i],
+            ),
+        ],
+      );
+    }
     return FixedTimeline.tileBuilder(
       theme: TimelineTheme.of(context).copyWith(
         nodePosition: 0,
