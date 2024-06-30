@@ -84,6 +84,7 @@ class Assets {
   static const String homeHomeMain = 'lib/pages/home/home_main.dart';
   static const String homeHomePage = 'lib/pages/home/home_page.dart';
   static const String homePageOneBackground = 'lib/components/home/page_one_background.dart';
+  static const String homePageOneBackgroundMobile = 'lib/components/home/page_one_background_mobile.dart';
   static const String homePageOneButtonGradient = 'lib/components/home/page_one_button_gradient.dart';
   static const String homePageOneProfilePicBackground = 'lib/components/home/page_one_profile_pic_background.dart';
   static const String hospitalManagementUtilityDescription = 'lib/pages/projects/hospital_management_utility/description.html';
