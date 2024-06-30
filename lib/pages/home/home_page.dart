@@ -96,16 +96,17 @@ class HomeLandingPage extends StatelessWidget {
 
     final tooltipController = JustTheController();
 
-    Future.delayed(const Duration(milliseconds: 1000), () {
-      tooltipController.showTooltip(immediately: false);
-    });
-
     bool isLengthGreaterThanWidth = MediaQuery.of(context).size.height > MediaQuery.of(context).size.width;
+
+    Future.delayed(const Duration(milliseconds: 1000), () {
+      if(isLengthGreaterThanWidth) {
+        tooltipController.showTooltip(immediately: false);
+      }
+    });
 
     if (isLengthGreaterThanWidth) {
       width = 455;
     }
-
 
     ScrollProvider scrollProvider = Provider.of<ScrollProvider>(context, listen: false);
 
