@@ -18,14 +18,24 @@ class AboutMePage extends StatelessWidget {
   Widget build(BuildContext context) {
     double width = 1978;
 
+    bool isLengthGreaterThanWidth = MediaQuery.of(context).size.height > MediaQuery.of(context).size.width;
+
+    if (isLengthGreaterThanWidth) {
+      width = 455;
+    }
+
     return Container(
       width: width,
-      padding: const EdgeInsets.only(top: 50),
+      padding: EdgeInsets.only(top: isLengthGreaterThanWidth ? 5 : 50),
       color: Colors.transparent,
       child: Container(
-        margin: const EdgeInsets.symmetric(horizontal: 150, vertical: 70),
-        padding:
-            const EdgeInsets.only(left: 80, right: 80, top: 30, bottom: 80),
+        margin: EdgeInsets.symmetric(horizontal: isLengthGreaterThanWidth ? 20 : 150, vertical: 70),
+        padding: EdgeInsets.only(
+          left: isLengthGreaterThanWidth ? 30 : 80,
+          right: isLengthGreaterThanWidth ? 30 : 80,
+          top: 30,
+          bottom: 80,
+        ),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
           color: Colors.grey[200],
@@ -43,16 +53,11 @@ class AboutMePage extends StatelessWidget {
             SelectableText(
               'About me',
               style: GoogleFonts.inter(
-                fontSize: 55,
-                //decoration: TextDecoration.underline,
-                //fontWeight: FontWeight.bold,
-                //decorationStyle: TextDecorationStyle.double,
+                fontSize: isLengthGreaterThanWidth ? 30 : 55,
                 decorationThickness: 0.5,
               ),
             ),
-            const SizedBox(
-              height: 40,
-            ),
+            const SizedBox(height: 40),
             IntrinsicHeight(
               child: FutureBuilder<({String aboutMe, String education})>(
                 future: getMyInfo(),
@@ -62,10 +67,9 @@ class AboutMePage extends StatelessWidget {
                     String education = snapshot.data?.education ?? '';
                     return SelectableText(
                       aboutMe + education,
-                      style: GoogleFonts.robotoMono(fontSize: 20),
+                      style: GoogleFonts.robotoMono(fontSize: isLengthGreaterThanWidth ? 12 : 20),
                     );
                   }
-
                   return const Center(
                     child: CircularProgressIndicator(),
                   );

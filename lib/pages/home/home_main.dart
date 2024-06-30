@@ -9,35 +9,41 @@ import 'package:portfolio_website/providers/scroll_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import '../project_browser/project_browser_main.dart';
-import 'package:universal_html/html.dart';
+
 class HomeMain extends StatelessWidget {
   const HomeMain({super.key});
 
   @override
   Widget build(BuildContext context) {
-    double height = window.screen?.available.height as double;
-
     ScrollProvider scrollProvider = Provider.of<ScrollProvider>(context, listen: false);
-    scrollProvider.appBarHeight = height / 13.15 < 60 ? 60 : height / 13.15;
+    scrollProvider.appBarHeight = 80;
 
     Future<String> getLicense() async {
       String aboutMe = await rootBundle.loadString("LICENSE");
       return aboutMe;
     }
 
+    bool isLengthGreaterThanWidth = MediaQuery.of(context).size.height > MediaQuery.of(context).size.width;
+
     return ResponsiveScaledBox(
-      width: 1978,
+      width: isLengthGreaterThanWidth ? 455 : 1978,
       child: Scaffold(
+        extendBodyBehindAppBar: true,
         appBar: AppBar(
             automaticallyImplyLeading: false,
-            elevation: 1,
+            forceMaterialTransparency: isLengthGreaterThanWidth ? true : false,
+            elevation: isLengthGreaterThanWidth ? 0 : 1,
             shadowColor: Colors.black,
-            backgroundColor: Colors.white,
-            toolbarHeight: 80,
-            leading: IconButton(
-              icon: const Icon(Icons.menu),
-              onPressed: () { },
-            ),
+            backgroundColor: isLengthGreaterThanWidth ? Colors.transparent : Colors.white,
+            toolbarHeight: scrollProvider.appBarHeight,
+            leading: !isLengthGreaterThanWidth
+                ? IconButton(
+                    onPressed: () => context.go('/home'),
+                    icon: const Icon(Icons.menu),
+                    iconSize: 30,
+                    color: Colors.black,
+                  )
+                : null,
             actions: [
               StreamBuilder<DocumentSnapshot>(
                 stream: FirebaseFirestore.instance.collection('visitor_counts').doc('home_page_visitors').snapshots(),
@@ -50,7 +56,7 @@ class HomeMain extends StatelessWidget {
                     onPressed: () => showDialog(
                       context: context,
                       builder: (context) => ResponsiveScaledBox(
-                        width: 1978,
+                        width: isLengthGreaterThanWidth ? 455 : 1978,
                         child: Dialog(
                           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.0)),
                           child: IntrinsicWidth(
@@ -92,7 +98,7 @@ class HomeMain extends StatelessWidget {
                                               onPressed: () => showDialog(
                                                 context: context,
                                                 builder: (context) => ResponsiveScaledBox(
-                                                  width: 1978,
+                                                  width: isLengthGreaterThanWidth ? 455 : 1978,
                                                   child: Dialog(
                                                     child: Padding(
                                                       padding: const EdgeInsets.all(0.0),
@@ -134,13 +140,12 @@ class HomeMain extends StatelessWidget {
                                                                 ),
                                                               ],
                                                             );
-
                                                           } else {
                                                             return const SizedBox(
                                                                 width: 100,
                                                                 height: 100,
                                                                 child: Scaffold(
-                                                                  backgroundColor: Colors.transparent,
+                                                                    backgroundColor: Colors.transparent,
                                                                     body: Center(child: CircularProgressIndicator())));
                                                           }
                                                         },
@@ -152,7 +157,8 @@ class HomeMain extends StatelessWidget {
                                               style: ElevatedButton.styleFrom(
                                                 elevation: 2.5, // Add elevation if needed
                                                 shape: RoundedRectangleBorder(
-                                                  borderRadius: BorderRadius.circular(8.0), // Adjust the radius as needed
+                                                  borderRadius:
+                                                      BorderRadius.circular(8.0), // Adjust the radius as needed
                                                 ),
                                                 fixedSize: const Size.fromHeight(35.0), // Adjust the height as needed
                                               ),
@@ -166,7 +172,8 @@ class HomeMain extends StatelessWidget {
                                               style: ElevatedButton.styleFrom(
                                                 elevation: 2.5, // Add elevation if needed
                                                 shape: RoundedRectangleBorder(
-                                                  borderRadius: BorderRadius.circular(8.0), // Adjust the radius as needed
+                                                  borderRadius:
+                                                      BorderRadius.circular(8.0), // Adjust the radius as needed
                                                 ),
                                                 fixedSize: const Size.fromHeight(35.0), // Adjust the height as needed
                                               ),
@@ -202,20 +209,20 @@ class HomeMain extends StatelessWidget {
                   );
                 },
               ),
-              const SizedBox(
-                width: 60,
+              SizedBox(
+                width: isLengthGreaterThanWidth ? 20 : 60,
               )
             ],
-            title: const Text(
-              "Aadarsh Verma",
-              style: TextStyle(fontSize: 25)//_appBarFontSize(width, height)),
-            )),
+            title: isLengthGreaterThanWidth
+                ? null
+                : const Text("Aadarsh Verma", style: TextStyle(fontSize: 25) //_appBarFontSize(width, height)),
+                    )),
         floatingActionButton: Consumer<ScrollProvider>(
           builder: (context, scrollProvider, _) {
             return scrollProvider.showFloatingButton
                 ? Container(
-                    height: 80,
-                    width: 80,
+                    height: isLengthGreaterThanWidth ? 70 : 80,
+                    width: isLengthGreaterThanWidth ? 70 : 80,
                     margin: const EdgeInsets.only(bottom: 25, right: 25),
                     child: FloatingActionButton(
                       onPressed: scrollProvider.scrollToTop,
