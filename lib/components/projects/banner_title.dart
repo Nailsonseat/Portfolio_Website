@@ -10,22 +10,32 @@ class BannerTitle extends StatelessWidget {
   final double width;
   final String title;
 
+
   @override
   Widget build(BuildContext context) {
+    double width = 1978;
+
+    bool isLengthGreaterThanWidth = MediaQuery.of(context).size.height > MediaQuery.of(context).size.width;
+
+    if(isLengthGreaterThanWidth){
+      width = 455;
+    }
     return Container(
-      alignment: Alignment.centerLeft,
-      margin: const EdgeInsets.only(left: 230),
+      alignment: isLengthGreaterThanWidth  ? Alignment.center : Alignment.centerLeft,
+      margin: EdgeInsets.symmetric(horizontal: isLengthGreaterThanWidth ? 10 : 120),
       height: height,
       width: width,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           AutoSizeText(
             title,
             maxLines: 2,
-            minFontSize: 80,
+            minFontSize: 20,
+            textAlign: isLengthGreaterThanWidth ? TextAlign.center : TextAlign.start,
             style: GoogleFonts.poppins(
-              fontSize: 110,
+              fontSize: isLengthGreaterThanWidth ? 40 : 110,
               shadows: [
                 const Shadow(
                   offset: Offset(0, 2), // Specify the shadow offset
