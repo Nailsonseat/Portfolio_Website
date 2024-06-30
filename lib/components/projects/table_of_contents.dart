@@ -15,26 +15,11 @@ class TableOfContents extends StatelessWidget {
   Widget build(BuildContext context) {
 
     double width = 1978;
-
-    ScrollProvider scrollProvider = Provider.of<ScrollProvider>(context, listen: false);
     ProjectComponentsConstraintsProvider componentsConstraintsProvider =
     Provider.of<ProjectComponentsConstraintsProvider>(context, listen: false);
 
     List<Widget> contents = [];
-    double bannerHeight =
-        scrollProvider.bannerHeight + scrollProvider.width / 13.16; // banner height + the first space of 150 pixels
-    double textSectionMargin = 60 * 2;
-    double textSectionPadding = (scrollProvider.width / 24.675) * 2;
     for (int i = 0; i < tableOfContents.length; i++) {
-      double extraHeight = 0;
-      int n = i;
-      while (n > 0) {
-        extraHeight += componentsConstraintsProvider.titleContainerHeights[n - 1] +
-            componentsConstraintsProvider.textContainerHeights[n - 1] +
-            textSectionMargin +
-            textSectionPadding;
-        n--;
-      }
       contents.addAll([
         Container(
           padding:  EdgeInsets.symmetric(horizontal: width/24.725),
@@ -47,7 +32,13 @@ class TableOfContents extends StatelessWidget {
               ),
             ),
             onPressed: () {
-              scrollProvider.scrollToProjectDescription(bannerHeight + extraHeight);
+              Scrollable.ensureVisible(
+                componentsConstraintsProvider.titleKeys[i].currentContext!,
+                duration: const Duration(milliseconds: 500),
+                curve: Curves.easeInOut,
+                alignment: 0.05,
+              );
+
             },
             child: Row(
               children: [
