@@ -11,14 +11,15 @@ class ChatGPTDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool isLengthGreaterThanWidth = MediaQuery.of(context).size.height > MediaQuery.of(context).size.width;
     return ResponsiveScaledBox(
-      width: 1978,
+      width: isLengthGreaterThanWidth ? 455 : 1978,
       child: Dialog(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.0)),
         elevation: 0,
         backgroundColor: Colors.transparent,
         child: Container(
-          height: 900,
+          height: isLengthGreaterThanWidth ? 700 : 900,
           width: 900,
           padding: const EdgeInsets.all(16),
           decoration: BoxDecoration(
@@ -36,22 +37,26 @@ class ChatGPTDialog extends StatelessWidget {
                       children: [
                         Text(
                           "Aadarsh AI (alpha 1.12)",
-                          style: GoogleFonts.robotoMono(fontSize: 34),
+                          style: GoogleFonts.robotoMono(fontSize: isLengthGreaterThanWidth ? 18 : 34),
                         ),
-                        OutlinedButton(
+                        Container(
+                          decoration: BoxDecoration(
+                            color: Colors.grey[300],
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                          child: IconButton(
                             style: ButtonStyle(
-                                shape: WidgetStateProperty.all<
-                                        RoundedRectangleBorder>(
-                                    RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(12))),
-                                fixedSize: WidgetStateProperty.all<Size>(
-                                    const Size(45, 45))),
+                              shape: WidgetStateProperty.all<RoundedRectangleBorder>(
+                                RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                              ),
+                              fixedSize: WidgetStateProperty.all<Size>(const Size(40, 40)),
+                            ),
                             onPressed: () => context.pop(),
-                            child: const Center(
-                                child: Text(
-                              "x",
-                              style: TextStyle(fontSize: 18),
-                            ))),
+                            icon: const Icon(
+                              Icons.close,
+                            ),
+                          ),
+                        ),
                       ],
                     ),
                   ),
@@ -71,16 +76,15 @@ class ChatGPTDialog extends StatelessWidget {
                       itemBuilder: (context, index) {
                         final reversedIndex = messages.length - 1 - index;
                         return Container(
-                          padding: const EdgeInsets.symmetric(
-                              vertical: 12, horizontal: 10),
+                          padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 10),
                           margin: const EdgeInsets.symmetric(vertical: 10),
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(15),
                             color: Colors.grey[100],
                           ),
                           child: ListTile(
-                            title: Text(
-                                messages[reversedIndex].parts?.last.text ?? ''),
+                            title: Text(messages[reversedIndex].parts?.last.text ?? '',
+                                style: isLengthGreaterThanWidth ? const TextStyle(fontSize: 16) : null),
                           ),
                         );
                       },
@@ -93,62 +97,85 @@ class ChatGPTDialog extends StatelessWidget {
                 child: Row(
                   children: [
                     Expanded(
-                      flex: 7,
-                      child: Consumer<ChatBotProvider>(builder: (_, chatBot, __) {
-                        return TextFormField(
-                          maxLines: 1,
-                          controller: chatBot.promptEditingController,
-                          enabled: !chatBot.isSending,
-                          onFieldSubmitted: (_) =>
-                              chatBot.isSending ? null : chatBot.generate(),
-                          decoration: InputDecoration(
-                            contentPadding: const EdgeInsets.all(21),
-                            border: OutlineInputBorder(
-                              borderSide: const BorderSide(color: Colors.black),
-                              borderRadius: BorderRadius.circular(38),
+                      flex: isLengthGreaterThanWidth ? 9 : 7,
+                      child: Consumer<ChatBotProvider>(
+                        builder: (_, chatBot, __) {
+                          return TextFormField(
+                            maxLines: 1,
+                            controller: chatBot.promptEditingController,
+                            enabled: !chatBot.isSending,
+                            onFieldSubmitted: (_) => chatBot.isSending ? null : chatBot.generate(),
+                            decoration: InputDecoration(
+                              contentPadding: const EdgeInsets.all(21),
+                              border: OutlineInputBorder(
+                                borderSide: const BorderSide(color: Colors.black),
+                                borderRadius: BorderRadius.circular(38),
+                              ),
+                              labelText: "Message Aadarsh",
+                              hintText: 'Type your message...',
                             ),
-                            labelText: "Message Aadarsh",
-                            hintText: 'Type your message...',
-                          ),
-                        );
-                      }),
+                          );
+                        },
+                      ),
                     ),
                     const SizedBox(width: 8),
                     Expanded(
-                      flex: 1,
-                      child: Consumer<ChatBotProvider>(builder: (_, chatBot, __) {
-                        return ElevatedButton(
-                          onPressed: () =>
-                              chatBot.isSending ? null : chatBot.generate(),
-                          style: ButtonStyle(
-                            minimumSize: WidgetStateProperty.all<Size>(
-                                const Size.fromHeight(68)),
-                            backgroundColor: WidgetStateProperty.all<Color>(
-                                Colors.lightBlueAccent),
-                            foregroundColor:
-                                WidgetStateProperty.all<Color>(Colors.black),
-                            shape:
-                                WidgetStateProperty.all<RoundedRectangleBorder>(
-                                    RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(18.0),
-                            )),
-                          ),
-                          child: chatBot.isSending
-                              ? const SizedBox(
-                                  width: 20,
-                                  height: 20,
-                                  child: CircularProgressIndicator(
-                                    strokeWidth: 3,
-                                    valueColor: AlwaysStoppedAnimation<Color>(
-                                        Colors.white),
+                      flex: isLengthGreaterThanWidth ? 2 : 1,
+                      child: Consumer<ChatBotProvider>(
+                        builder: (_, chatBot, __) {
+                          if (isLengthGreaterThanWidth) {
+                            return IconButton(
+                              onPressed: () => chatBot.isSending ? null : chatBot.generate(),
+                              style: ButtonStyle(
+                                minimumSize: WidgetStateProperty.all<Size>(const Size.fromHeight(55)),
+                                backgroundColor: WidgetStateProperty.all<Color>(Colors.lightBlueAccent),
+                                foregroundColor: WidgetStateProperty.all<Color>(Colors.black),
+                                shape: WidgetStateProperty.all<RoundedRectangleBorder>(
+                                  RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(18.0),
                                   ),
-                                )
-                              : const Text(
-                                  'Send',
-                                  style: TextStyle(fontWeight: FontWeight.bold),
                                 ),
-                        );
-                      }),
+                              ),
+                              icon: chatBot.isSending
+                                  ? const SizedBox(
+                                      width: 20,
+                                      height: 20,
+                                      child: CircularProgressIndicator(
+                                        strokeWidth: 3,
+                                        valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+                                      ),
+                                    )
+                                  : const Icon(Icons.send),
+                            );
+                          }
+                          return ElevatedButton(
+                            onPressed: () => chatBot.isSending ? null : chatBot.generate(),
+                            style: ButtonStyle(
+                              minimumSize: WidgetStateProperty.all<Size>(const Size.fromHeight(68)),
+                              backgroundColor: WidgetStateProperty.all<Color>(Colors.lightBlueAccent),
+                              foregroundColor: WidgetStateProperty.all<Color>(Colors.black),
+                              shape: WidgetStateProperty.all<RoundedRectangleBorder>(
+                                RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(18.0),
+                                ),
+                              ),
+                            ),
+                            child: chatBot.isSending
+                                ? const SizedBox(
+                                    width: 20,
+                                    height: 20,
+                                    child: CircularProgressIndicator(
+                                      strokeWidth: 3,
+                                      valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+                                    ),
+                                  )
+                                : const Text(
+                                    'Send',
+                                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                                  ),
+                          );
+                        },
+                      ),
                     ),
                   ],
                 ),

@@ -346,7 +346,7 @@ class HomeLandingPage extends StatelessWidget {
                     'A student excited about AI and Software development',
                     style: GoogleFonts.merriweatherSans(fontSize: 15, color: Colors.white),
                   ),
-                  const SizedBox(height: 10),
+                  const SizedBox(height: 20),
                   Container(
                     width: 150,
                     height: 40,
@@ -388,6 +388,59 @@ class HomeLandingPage extends StatelessWidget {
                             ),
                             child: Text(
                               "See My Work",
+                              style: TextStyle(fontSize: 16, color: Colors.grey[100]),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 20),
+                  Container(
+                    width: 180,
+                    height: 40,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(5.0),
+                      color: Colors.transparent,
+                      // Set the background color to transparent
+                      boxShadow: const [
+                        BoxShadow(
+                          color: Colors.grey,
+                          offset: Offset(0, 2),
+                          blurRadius: 4.0,
+                        ),
+                      ],
+                    ),
+                    child: Stack(
+                      children: [
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(10.0),
+                          // Adjust the border radius as needed
+                          child: CustomPaint(
+                            size: Size(width, (width * 1).toDouble()),
+                            painter: ButtonGradient(),
+                          ), // Your custom paint widget
+                        ), // Your custom paint widget
+                        SizedBox(
+                          width: 200,
+                          height: 50,
+                          child: TextButton(
+                            onPressed: () => showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return const ChatGPTDialog();
+                              },
+                            ),
+                            style: TextButton.styleFrom(
+                              backgroundColor: Colors.transparent,
+                              padding: EdgeInsets.zero,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10.0),
+                              ),
+                              elevation: 0,
+                            ),
+                            child: Text(
+                              "Chat with me (AI)",
                               style: TextStyle(fontSize: 16, color: Colors.grey[100]),
                             ),
                           ),
