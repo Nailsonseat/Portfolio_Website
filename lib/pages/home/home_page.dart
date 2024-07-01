@@ -99,7 +99,7 @@ class HomeLandingPage extends StatelessWidget {
     bool isLengthGreaterThanWidth = MediaQuery.of(context).size.height > MediaQuery.of(context).size.width;
 
     Future.delayed(const Duration(milliseconds: 1000), () {
-      if(isLengthGreaterThanWidth) {
+      if(!isLengthGreaterThanWidth) {
         tooltipController.showTooltip(immediately: false);
       }
     });
