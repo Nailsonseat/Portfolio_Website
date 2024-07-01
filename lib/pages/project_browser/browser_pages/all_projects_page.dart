@@ -47,7 +47,7 @@ class AllProjectsPage extends StatelessWidget {
                       for (Project i in projects)
                         Container(
                           width: 160,
-                          height: 280,
+                          height: 300,
                           decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(25)),
                           child: Column(
                             children: [
