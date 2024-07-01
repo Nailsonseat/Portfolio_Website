@@ -85,6 +85,7 @@ class AllProjectsPage extends StatelessWidget {
                                       borderRadius: BorderRadius.circular(10.0), // Adjust the radius as needed
                                     ),
                                   ),
+                                  backgroundColor: WidgetStateProperty.all<Color>(i.buttonSecondaryColor),
                                 ),
                                 builder: (context, controller, anchor) => FilledButton.tonal(
                                   onPressed: () {
