@@ -1,5 +1,5 @@
 class Prompts {
-  static const bool mentionIITMadras = true;
+  static const bool mentionIITMadras = false;
   static const bool mentionIETLucknow = true;
   static const bool mentionReasonForDualDegree = mentionIITMadras && mentionIETLucknow;
 
