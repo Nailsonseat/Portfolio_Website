@@ -127,6 +127,7 @@ class Assets {
   static const String projectBannersOndc = 'lib/assets/images/project_banners/ondc.png';
   static const String projectBannersPortfolio = 'lib/assets/images/project_banners/portfolio.png';
   static const String projectBannersSnake = 'lib/assets/images/project_banners/snake.png';
+  static const String projectBannersVaulto = 'lib/assets/images/project_banners/vaulto.png';
   static const String projectBannersYoshopScraper = 'lib/assets/images/project_banners/yoshop_scraper.png';
   static const String projectBrowserProjectBrowserMain = 'lib/pages/project_browser/project_browser_main.dart';
   static const String projectBrowserProjectBrowserPage = 'lib/pages/project_browser/project_browser_page.dart';
@@ -165,6 +166,11 @@ class Assets {
   static const String templatesProjectPageTemplate = 'lib/pages/templates/project_page_template.dart';
   static const String templatesSmallScreenWarningPage = 'lib/pages/templates/small_screen_warning_page.dart';
   static const String templatesUnderConstructionTemplate = 'lib/pages/templates/under_construction_template.html';
+  static const String vaultoDescription = 'lib/pages/projects/vaulto/description.html';
+  static const String vaultoSecurity = 'lib/pages/projects/vaulto/security.html';
+  static const String vaultoVaultoLogin = 'lib/assets/images/project_images/vaulto/vaulto_login.png';
+  static const String vaultoVaultoRegister = 'lib/assets/images/project_images/vaulto/vaulto_register.png';
+  static const String vaultoWorkflow = 'lib/pages/projects/vaulto/workflow.html';
   static const String yoshopWebScraperDescription = 'lib/pages/projects/yoshop_web_scraper/description.html';
 
 }
