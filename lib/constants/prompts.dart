@@ -21,7 +21,7 @@ class Prompts {
 
   static const String smartIndiaHackathon =
       "1. I was a leader of the team that won the Smart India Hackathon 2023 Software Edition, where we worked on a project under the disaster management theme called Aaapda Snaketak (Disaster Notifier)"
-      "we were able to the project however is still in stasis as we could only make it to the semi finals, therefore we are currently waiting for the next iteration of the hackathon to continue the project"
+      "project however is still in stasis as we could only make it to the semi finals, therefore we are currently waiting for the next iteration of the hackathon in 2024 to continue the project"
       "with the updated structural changes to fix its shortcomings.";
 
   static const String iitmDataInIPL =
