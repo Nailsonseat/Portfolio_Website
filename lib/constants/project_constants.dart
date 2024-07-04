@@ -14,4 +14,5 @@ class ProjectNames{
   static String letsTalkk = "LetsTalkk";
   static String yoshopWebScraper = "Yoshop Web Scraper";
   static String holomorphicBot = "Holomorphic Bot";
+  static String vaulto = "Vaulto";
 }

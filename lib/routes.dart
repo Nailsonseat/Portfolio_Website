@@ -113,6 +113,12 @@ final GoRouter routes = GoRouter(
                 child: getProjectPageTemplate(ProjectNames.ondcBuildForBharat),
               ),
             ),
+            GoRoute(
+              path: 'Vaulto',
+              pageBuilder: (context, state) => MaterialPage(
+                child: getProjectPageTemplate(ProjectNames.vaulto),
+              ),
+            ),
           ],
         ),
       ],
