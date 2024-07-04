@@ -3,10 +3,10 @@ class Prompts {
   static const bool mentionIETLucknow = false;
   static const bool mentionReasonForDualDegree = mentionIITMadras && mentionIETLucknow;
 
-  static const String ietLucknow =
+  static const String iitMadras =
       "I am a 3rd year student in Indian Institute of Technology Madras, doing BS in Data Science and Applications";
 
-  static const String iitMadras =
+  static const String ietLucknow =
       "I am a 4th year student in Institute of Engineering and Technology, Lucknow doing B Tech in Computer Science (Artificial Intelligence)";
 
   static const String reasonForDualDegree =
