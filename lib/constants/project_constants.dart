@@ -15,4 +15,6 @@ class ProjectNames{
   static String yoshopWebScraper = "Yoshop Web Scraper";
   static String holomorphicBot = "Holomorphic Bot";
   static String vaulto = "Vaulto";
+  static String trance = "Trance";
+  static String groceryMandi = "Grocery Mandi";
 }
