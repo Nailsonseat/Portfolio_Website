@@ -119,6 +119,12 @@ final GoRouter routes = GoRouter(
                 child: getProjectPageTemplate(ProjectNames.vaulto),
               ),
             ),
+            GoRoute(
+              path: 'Trance',
+              pageBuilder: (context, state) => MaterialPage(
+                child: getProjectPageTemplate(ProjectNames.trance),
+              ),
+            ),
           ],
         ),
       ],
