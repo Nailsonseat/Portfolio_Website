@@ -201,6 +201,8 @@ class AllProjectsPage extends StatelessWidget {
                                   padding: const EdgeInsets.symmetric(horizontal: 30),
                                   child: Text(
                                     i.briefDescription,
+                                    maxLines: 8,
+                                    overflow: TextOverflow.ellipsis,
                                     style: GoogleFonts.robotoMono(fontSize: 16),
                                   ),
                                 ),

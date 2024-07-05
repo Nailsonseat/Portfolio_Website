@@ -142,6 +142,7 @@ flutter:
     - lib/pages/projects/foss_overflow/
     - lib/pages/projects/ondc_build_for_bharat/
     - lib/pages/projects/vaulto/
+    - lib/pages/projects/trance/
     - lib/pages/templates/
     - lib/assets/icons/tech_stack/
     - lib/assets/images/project_banners/
@@ -151,4 +152,5 @@ flutter:
     - lib/assets/images/project_images/classic_snake/
     - lib/assets/images/project_images/ondc_build_for_bharat/
     - lib/assets/images/project_images/vaulto/
+    - lib/assets/images/project_images/trance/
 
