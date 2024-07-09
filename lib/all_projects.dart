@@ -222,6 +222,43 @@ List<Project> projects = [
     primaryColor: HexColor('#c3dbf7'),
   ),
   Project(
+    title: ProjectNames.shellAIHackathon,
+    image: 'lib/assets/images/project_banners/shell.jpg',
+    source: 'https://github.com/Nailsonseat/Shell_AI_Hackathon',
+    pagePath: '/home/Shell_AI_Hackathon',
+    briefDescription:
+        'Shell.ai Hackathon for Sustainable and Affordable Energy, a platform that brings together brilliant minds passionate about digital solutions and AI, to tackle real energy challenges and help build a lower-carbon world.',
+    description: '',
+    buttonSecondaryColor: HexColor('#ffe98c'),
+    buttonPrimaryColor: HexColor('#c9a200'),
+    primaryColor: HexColor('#ffe98c'),
+    secondaryColor: HexColor('#ba9c1e'),
+    textSections: [
+      TextSection(title: "Description", bodyPath: 'lib/pages/projects/shell_ai_hackathon/description.html'),
+      TextSection(title: "Tech Stack", bodyPath: 'lib/pages/projects/shell_ai_hackathon/techstack.html'),
+      TextSection(title: "Project", bodyPath: 'lib/pages/projects/shell_ai_hackathon/project.html'),
+      TextSection(title: "Results", bodyPath: 'lib/pages/projects/shell_ai_hackathon/results.html'),
+    ],
+    timelineIcons: [
+      Ionicons.bookmark_sharp,
+      EvaIcons.fileText,
+      LineIcons.toolbox,
+      LineIcons.tools,
+      LineIcons.award,
+      EvaIcons.bulbOutline,
+      Ionicons.funnel_outline,
+      Ionicons.receipt_outline,
+      Ionicons.bar_chart_outline,
+
+    ],
+    tableOfContents: [
+      TableOfContentsComponent(title: "Description", subComponents: []),
+      TableOfContentsComponent(title: "TechStack", subComponents: []),
+      TableOfContentsComponent(title: "Project", subComponents: []),
+      TableOfContentsComponent(title: "Results", subComponents: []),
+    ],
+  ),
+  Project(
     title: ProjectNames.vaulto,
     image: 'lib/assets/images/project_banners/vaulto.png',
     source: 'https://github.com/Nailsonseat/Vaulto',
@@ -266,7 +303,7 @@ List<Project> projects = [
     description: '',
     buttonSecondaryColor: HexColor('#c7ffeb'),
     buttonPrimaryColor: HexColor('#41A46F'),
-    primaryColor:  HexColor('#9effdd'),
+    primaryColor: HexColor('#9effdd'),
     secondaryColor: HexColor('#00c781'),
     textSections: [
       TextSection(title: "Description", bodyPath: 'lib/pages/projects/grocery_mandi/description.html'),
