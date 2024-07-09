@@ -146,6 +146,7 @@ flutter:
     - lib/pages/projects/trance/
     - lib/pages/projects/smart_india_hackathon_2023/
     - lib/pages/projects/samsung_solve_for_tomorrow/
+    - lib/pages/projects/grocery_mandi/
     - lib/pages/templates/
     - lib/assets/icons/tech_stack/
     - lib/assets/images/project_banners/
