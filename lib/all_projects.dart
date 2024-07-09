@@ -7,6 +7,7 @@ import 'package:portfolio_website/components/projects/project_component.dart';
 import 'package:portfolio_website/constants/project_constants.dart';
 import 'package:portfolio_website/pages/templates/project_page_template.dart';
 import 'components/projects/text_section.dart';
+import 'components/projects/youtube_player.dart';
 
 class Project {
   final String title;
@@ -23,6 +24,7 @@ class Project {
 
   final List<IconData> timelineIcons;
   final List<TableOfContentsComponent> tableOfContents;
+  final List<Youtube>? youtubePlayers;
 
   Project({
     required this.title,
@@ -38,6 +40,7 @@ class Project {
     required this.textSections,
     required this.timelineIcons,
     required this.tableOfContents,
+    this.youtubePlayers,
   });
 }
 
@@ -60,10 +63,42 @@ ProjectPageTemplate getProjectPageTemplate(String title) {
     secondaryColor: project.primaryColor,
     primaryColor: project.secondaryColor,
     tableOfContents: project.tableOfContents,
+    youtubePlayers: project.youtubePlayers,
   );
 }
 
 List<Project> projects = [
+  Project(
+    title: ProjectNames.samsungSolveForTomorrow,
+    image: 'lib/assets/images/project_banners/samsung_solve_for_tomorrow.jpg',
+    source: '',
+    pagePath: '/home/Samsung_Solve_For_Tomorrow',
+    briefDescription:
+        'Samsung Solve for Tomorrow is a national competition that encourages students to apply STEM(Science, Technology, Engineering, and Math) skills to address real-world issues in their communities. Open to public school students aged 14-17 and college students aged 17-22, the program provides an opportunity to develop innovative solutions to societal challenges.',
+    description: '',
+    buttonSecondaryColor: HexColor('#ffad99'),
+    buttonPrimaryColor: HexColor('#9d2718'),
+    primaryColor: HexColor('#ffad99'),
+    secondaryColor: HexColor('#f55138'),
+    textSections: [
+      TextSection(title: "Description", bodyPath: "lib/pages/projects/samsung_solve_for_tomorrow/description.html"),
+      TextSection(title: "Journey", bodyPath: "lib/pages/projects/samsung_solve_for_tomorrow/journey.html"),
+      TextSection(title: "Next Step", bodyPath: "lib/pages/projects/samsung_solve_for_tomorrow/next_step.html"),
+    ],
+    timelineIcons: [
+      Ionicons.bookmark_sharp,
+      EvaIcons.fileText,
+      EvaIcons.fileText,
+      EvaIcons.fileText,
+      EvaIcons.fileText,
+      EvaIcons.fileText,
+    ],
+    tableOfContents: [
+      TableOfContentsComponent(title: "Description", subComponents: []),
+      TableOfContentsComponent(title: "Journey", subComponents: []),
+      TableOfContentsComponent(title: "Next Step", subComponents: []),
+    ],
+  ),
   Project(
     title: ProjectNames.ondcBuildForBharat,
     image: 'lib/assets/images/project_banners/ondc.png',
@@ -204,11 +239,13 @@ List<Project> projects = [
     ],
     timelineIcons: [
       Ionicons.bookmark_sharp,
-      Ionicons.bookmark_sharp,
-      Ionicons.bookmark_sharp,
-      Ionicons.bookmark_sharp,
-      Ionicons.bookmark_sharp,
-      Ionicons.bookmark_sharp,
+      EvaIcons.fileText,
+      LineIcons.toolbox,
+      LineIcons.tools,
+      LineIcons.alternateShield,
+      EvaIcons.globe,
+      LineIcons.award,
+      EvaIcons.bulbOutline,
     ],
     tableOfContents: [
       TableOfContentsComponent(title: "Description", subComponents: []),
@@ -241,12 +278,19 @@ List<Project> projects = [
       LineIcons.tools,
       LineIcons.award,
       EvaIcons.bulbOutline,
+      EvaIcons.clipboard,
+      EvaIcons.clipboard,
+      EvaIcons.clipboard,
     ],
     tableOfContents: [
       TableOfContentsComponent(title: "Description", subComponents: []),
       TableOfContentsComponent(title: "TechStack", subComponents: []),
       TableOfContentsComponent(title: "Website", subComponents: []),
+      TableOfContentsComponent(title: "Videos and Demos", subComponents: []),
     ],
+    youtubePlayers: [
+      Youtube(videoLink: 'https://youtu.be/vqNatIsuscQ'),
+    ]
   ),
   Project(
     title: ProjectNames.acharyaSetu,

@@ -128,6 +128,7 @@ class Assets {
   static const String projectBannersOndc = 'lib/assets/images/project_banners/ondc.png';
   static const String projectBannersPortfolio = 'lib/assets/images/project_banners/portfolio.png';
   static const String projectBannersSmartIndiaHackathon2023 = 'lib/assets/images/project_banners/smart_india_hackathon_2023.png';
+  static const String projectBannersSamsungSolveForTomorrow = 'lib/assets/images/project_banners/samsung_solve_for_tomorrow.jpg';
   static const String projectBannersSnake = 'lib/assets/images/project_banners/snake.png';
   static const String projectBannersTrance = 'lib/assets/images/project_banners/trance.png';
   static const String projectBannersVaulto = 'lib/assets/images/project_banners/vaulto.png';
@@ -141,6 +142,7 @@ class Assets {
   static const String projectsTableOfContentsHeader = 'lib/components/projects/table_of_contents_header.dart';
   static const String projectsTextSection = 'lib/components/projects/text_section.dart';
   static const String projectsTimeline = 'lib/components/projects/timeline.dart';
+  static const String projectsYoutubePlayer = 'lib/components/projects/youtube_player.dart';
   static const String providersChatbotProvider = 'lib/providers/chatbot_provider.dart';
   static const String providersLaunchPageAnimationProvider = 'lib/providers/launch_page_animation_provider.dart';
   static const String providersProjectComponentConstraintProvider = 'lib/providers/project_component_constraint_provider.dart';
@@ -153,6 +155,12 @@ class Assets {
   static const String smartIndiaHackathon2023Description = 'lib/pages/projects/smart_india_hackathon_2023/description.html';
   static const String smartIndiaHackathon2023InternalResults = 'lib/assets/images/project_images/smart_india_hackathon_2023/internal_results.jpeg';
   static const String smartIndiaHackathon2023Internals = 'lib/pages/projects/smart_india_hackathon_2023/internals.html';
+  static const String samsungSolveForTommorowDescription = 'lib/pages/projects/samsung_solve_for_tommorow/description.html';
+  static const String samsungSolveForTommorowJourney = 'lib/pages/projects/samsung_solve_for_tommorow/journey.html';
+  static const String samsungSolveForTommorowNextStep = 'lib/pages/projects/samsung_solve_for_tommorow/next_step.html';
+  static const String samsungSolveForTomorrowCertificate = 'lib/assets/images/project_images/samsung_solve_for_tomorrow/certificate.png';
+  static const String samsungSolveForTomorrowShortlist = 'lib/assets/images/project_images/samsung_solve_for_tomorrow/shortlist.png';
+  static const String samsungSolveForTomorrowWorkflow = 'lib/assets/images/project_images/samsung_solve_for_tomorrow/workflow.png';
   static const String techStackAxios = 'lib/assets/icons/tech_stack/axios.svg';
   static const String techStackBloc = 'lib/assets/icons/tech_stack/bloc.svg';
   static const String techStackBootstrap = 'lib/assets/icons/tech_stack/bootstrap.svg';

@@ -19,6 +19,7 @@ import 'package:responsive_framework/responsive_framework.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../components/projects/table_of_contents_header.dart';
 import '../../components/projects/text_section.dart';
+import '../../components/projects/youtube_player.dart';
 import '../../providers/project_component_constraint_provider.dart';
 import '../../providers/scroll_provider.dart';
 
@@ -32,10 +33,12 @@ class ProjectPageTemplate extends StatelessWidget {
     required this.timelineIcons,
     required this.secondaryColor,
     required this.primaryColor,
+    required this.youtubePlayers,
   });
 
   final List<TextSection> textSections;
   final List<TableOfContentsComponent> tableOfContents;
+  final List<Youtube>? youtubePlayers;
   final String bannerImage;
   final String projectTitle;
   final List<IconData> timelineIcons;
@@ -57,7 +60,7 @@ class ProjectPageTemplate extends StatelessWidget {
     }
   }
 
-  List<Container> _buildTextSections(List textSections, double width,
+  List<Container> _buildTextSections(List<TextSection> textSections, double width,
       ProjectComponentsConstraintsProvider componentsConstraintsProvider, bool isLengthGreaterThanWidth) {
     List<Container> builtSections = [];
     for (int i = 0; i < textSections.length; i++) {
@@ -91,7 +94,7 @@ class ProjectPageTemplate extends StatelessWidget {
                         data: snapshot.data,
                         style: {
                           "body": Style(
-                            fontSize: isLengthGreaterThanWidth?FontSize(12) : FontSize(19.78),
+                            fontSize: isLengthGreaterThanWidth ? FontSize(12) : FontSize(19.78),
                           ),
                           //FontSize(width / 100)), // Adjust the font size as needed
                           ".techstack": Style(
@@ -155,10 +158,47 @@ class ProjectPageTemplate extends StatelessWidget {
     return builtSections;
   }
 
+  List<Container> _buildYoutubeSections(List<Youtube>? youtubePlayers, double width,       ProjectComponentsConstraintsProvider componentsConstraintsProvider,bool isLengthGreaterThanWidth) {
+    List<Container> builtSections = [];
+    if (youtubePlayers != null) {
+      builtSections.add(
+        Container(
+
+          key: componentsConstraintsProvider.titleKeys.last,
+          margin: EdgeInsets.symmetric(horizontal: isLengthGreaterThanWidth ? 30 : 56), //width / 35.74), // 56
+          alignment: Alignment.centerLeft,
+          child: SelectableText(
+            "Videos and Demos",
+            style: TextStyle(fontSize: isLengthGreaterThanWidth ? 35 : 55), //width / 35.890909), // 55
+          ),
+        ),
+      );
+      builtSections.add(
+        Container(
+          margin: EdgeInsets.symmetric(
+              vertical: isLengthGreaterThanWidth ? 20 : 60, horizontal: isLengthGreaterThanWidth ? 30 : 56),
+          // width / 35.74),
+          padding: isLengthGreaterThanWidth ? const EdgeInsets.all(40) : const EdgeInsets.all(80),
+          //width / 24.675),
+          decoration: BoxDecoration(color: secondaryColor, borderRadius: BorderRadius.circular(30)),
+          child: Column(
+            children: youtubePlayers
+                .map((e) => Container(
+              margin: EdgeInsets.only(bottom: isLengthGreaterThanWidth ? 20 : 60),
+                      child: e,
+                    ))
+                .toList(),
+          ),
+        ),
+      );
+    }
+    return builtSections;
+  }
+
   @override
   Widget build(BuildContext context) {
     double width = 1978;
-    double height = MediaQuery.of(context).size.height;
+    double height =  MediaQuery.of(context).size.height < 1048 ? 1048 : MediaQuery.of(context).size.height;
 
     ScrollProvider scrollProvider = Provider.of<ScrollProvider>(context, listen: false);
     ProjectComponentsConstraintsProvider componentsConstraintsProvider =
@@ -169,7 +209,8 @@ class ProjectPageTemplate extends StatelessWidget {
 
     componentsConstraintsProvider.initHeights(textSections.length);
     componentsConstraintsProvider.textKeys = List.generate(textSections.length, (index) => GlobalKey());
-    componentsConstraintsProvider.titleKeys = List.generate(textSections.length, (index) => GlobalKey());
+    componentsConstraintsProvider.titleKeys =
+        List.generate(textSections.length + 1, (index) => GlobalKey());
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
       scrollProvider.tableOfContentsListener(scrollProvider.bannerHeight, width);
@@ -198,16 +239,20 @@ class ProjectPageTemplate extends StatelessWidget {
           backgroundColor: secondaryColor,
           elevation: 1,
         ),
-        floatingActionButton:isLengthGreaterThanWidth ? FloatingActionButton(
-          onPressed: () {
-            showDialog(context: context, builder: (_) => AlertDialog(
-              title: const Text('Table of contents', style: TextStyle(fontSize: 30)),
-              content: TableOfContents(tableOfContents: tableOfContents, fontColor: primaryColor),
-            ));
-          },
-          backgroundColor: secondaryColor,
-          child: const Icon(Icons.menu),
-        ) : null,
+        floatingActionButton: isLengthGreaterThanWidth
+            ? FloatingActionButton(
+                onPressed: () {
+                  showDialog(
+                      context: context,
+                      builder: (_) => AlertDialog(
+                            title: const Text('Table of contents', style: TextStyle(fontSize: 30)),
+                            content: TableOfContents(tableOfContents: tableOfContents, fontColor: primaryColor),
+                          ));
+                },
+                backgroundColor: secondaryColor,
+                child: const Icon(Icons.menu),
+              )
+            : null,
         backgroundColor: Colors.white,
         body: SingleChildScrollView(
           controller: scrollProvider.detailedProjectScrollController,
@@ -306,8 +351,9 @@ class ProjectPageTemplate extends StatelessWidget {
                                   //width / 35.74), // 100
                                   child: SingleChildScrollView(
                                     child: ProjectTimeLine(
-                                      textSections: _buildTextSections(
-                                          textSections, width, componentsConstraintsProvider, isLengthGreaterThanWidth),
+                                      sections: _buildTextSections(textSections, width, componentsConstraintsProvider,
+                                              isLengthGreaterThanWidth) +
+                                          _buildYoutubeSections(youtubePlayers, width,componentsConstraintsProvider, isLengthGreaterThanWidth),
                                       timelineIcons: timelineIcons,
                                       timelineBlockColor: primaryColor,
                                     ),
