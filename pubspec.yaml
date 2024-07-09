@@ -143,6 +143,7 @@ flutter:
     - lib/pages/projects/ondc_build_for_bharat/
     - lib/pages/projects/vaulto/
     - lib/pages/projects/trance/
+    - lib/pages/projects/smart_india_hackathon_2023/
     - lib/pages/templates/
     - lib/assets/icons/tech_stack/
     - lib/assets/images/project_banners/
@@ -153,4 +154,5 @@ flutter:
     - lib/assets/images/project_images/ondc_build_for_bharat/
     - lib/assets/images/project_images/vaulto/
     - lib/assets/images/project_images/trance/
+    - lib/assets/images/project_images/smart_india_hackathon_2023/
 
