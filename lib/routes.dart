@@ -125,6 +125,12 @@ final GoRouter routes = GoRouter(
                 child: getProjectPageTemplate(ProjectNames.trance),
               ),
             ),
+            GoRoute(
+              path: 'Smart_India_Hackathon_2023',
+              pageBuilder: (context, state) => MaterialPage(
+                child: getProjectPageTemplate(ProjectNames.smartIndiaHackathon2023),
+              ),
+            )
           ],
         ),
       ],
