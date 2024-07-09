@@ -1,25 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio_website/components/projects/youtube_player.dart';
 import 'package:timelines/timelines.dart';
 
 class ProjectTimeLine extends StatelessWidget {
   const ProjectTimeLine(
-      {super.key, required this.textSections, required this.timelineIcons, required this.timelineBlockColor});
+      {super.key, required this.sections, required this.timelineIcons, required this.timelineBlockColor});
 
-  final List<Widget> textSections;
+  final List<Widget> sections;
   final List<IconData> timelineIcons;
   final Color timelineBlockColor;
 
   @override
   Widget build(BuildContext context) {
     bool isLengthGreaterThanWidth = MediaQuery.of(context).size.height > MediaQuery.of(context).size.width;
-    final int length = textSections.length;
+    final int length = sections.length;
     if (isLengthGreaterThanWidth) {
       return Column(
         children: [
           for (int i = 0; i < length; i++)
             Container(
               margin: const EdgeInsets.only(bottom: 20),
-              child: textSections[i],
+              child: sections[i],
             ),
         ],
       );
@@ -56,7 +57,7 @@ class ProjectTimeLine extends StatelessWidget {
             ),
           );
         },
-        contentsBuilder: (context, index) => textSections[index],
+        contentsBuilder: (context, index) => sections[index],
         itemCount: length,
       ),
     );
