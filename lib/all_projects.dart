@@ -139,6 +139,36 @@ List<Project> projects = [
     primaryColor: HexColor('#e9f4ff'),
   ),
   Project(
+    title: ProjectNames.smartIndiaHackathon2023,
+    image: 'lib/assets/images/project_banners/smart_india_hackathon_2023.png',
+    source: '',
+    pagePath: '/home/Smart_India_Hackathon_2023',
+    briefDescription: """The Smart India Hackathon (SIH) is a nationwide initiative in India aimed at fostering
+    innovation and solving real-world problems through technology. Launched in 2017 by the Ministry
+    of Education's Innovation Cell and the All India Council for Technical Education (AICTE), SIH
+    brings together students, academicians, industry experts, and government officials to
+    collaborate on solving pressing challenges.""",
+    description: '',
+    buttonSecondaryColor: HexColor('#b3ffd0'),
+    buttonPrimaryColor: HexColor('#00c94e'),
+    primaryColor: HexColor('#80ffb1'),
+    secondaryColor: HexColor('#00ba48'),
+    textSections: [
+      TextSection(title: "Description", bodyPath: 'lib/pages/projects/smart_india_hackathon_2023/description.html'),
+      TextSection(title: "Internal Hackathon Results", bodyPath: 'lib/pages/projects/smart_india_hackathon_2023/internals.html'),
+    ],
+    timelineIcons: [
+      Ionicons.bookmark_sharp,
+      EvaIcons.fileText,
+      EvaIcons.fileText,
+      EvaIcons.fileText,
+    ],
+    tableOfContents: [
+      TableOfContentsComponent(title: "Description", subComponents: []),
+      TableOfContentsComponent(title: "Internal Hackathon", subComponents: []),
+    ],
+  ),
+  Project(
     title: ProjectNames.fossOverflow,
     image: 'lib/assets/images/project_banners/foss_overflow.png',
     source: "https://github.com/OpenLake/Smart-Insti-App",
