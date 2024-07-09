@@ -232,7 +232,7 @@ List<Project> projects = [
     buttonSecondaryColor: HexColor('#ffe98c'),
     buttonPrimaryColor: HexColor('#c9a200'),
     primaryColor: HexColor('#ffe98c'),
-    secondaryColor: HexColor('#ba9c1e'),
+    secondaryColor: HexColor('#ff584f'),
     textSections: [
       TextSection(title: "Description", bodyPath: 'lib/pages/projects/shell_ai_hackathon/description.html'),
       TextSection(title: "Tech Stack", bodyPath: 'lib/pages/projects/shell_ai_hackathon/techstack.html'),
