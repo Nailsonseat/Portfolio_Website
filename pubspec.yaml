@@ -143,6 +143,7 @@ flutter:
     - lib/pages/projects/ondc_build_for_bharat/
     - lib/pages/projects/vaulto/
     - lib/pages/projects/trance/
+    - lib/pages/projects/samsung_solve_for_tomorrow/
     - lib/pages/templates/
     - lib/assets/icons/tech_stack/
     - lib/assets/images/project_banners/
@@ -153,4 +154,5 @@ flutter:
     - lib/assets/images/project_images/ondc_build_for_bharat/
     - lib/assets/images/project_images/vaulto/
     - lib/assets/images/project_images/trance/
+    - lib/assets/images/project_images/samsung_solve_for_tomorrow/
 
