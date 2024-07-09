@@ -136,7 +136,13 @@ final GoRouter routes = GoRouter(
               pageBuilder: (context, state) => MaterialPage(
                 child: getProjectPageTemplate(ProjectNames.samsungSolveForTomorrow),
               ),
-            )
+            ),
+            GoRoute(
+              path: 'Grocery_Mandi',
+              pageBuilder: (context, state) => MaterialPage(
+                child: getProjectPageTemplate(ProjectNames.groceryMandi),
+              ),
+            ),
           ],
         ),
       ],
