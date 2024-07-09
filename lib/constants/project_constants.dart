@@ -17,4 +17,5 @@ class ProjectNames{
   static String vaulto = "Vaulto";
   static String trance = "Trance";
   static String groceryMandi = "Grocery Mandi";
+  static String samsungSolveForTomorrow = "Samsung Solve For Tomorrow";
 }
