@@ -18,4 +18,5 @@ class ProjectNames{
   static String trance = "Trance";
   static String groceryMandi = "Grocery Mandi";
   static String smartIndiaHackathon2023 = "Smart India Hackathon 2023";
+  static String samsungSolveForTomorrow = "Samsung Solve For Tomorrow";
 }
