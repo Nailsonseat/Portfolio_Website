@@ -120,7 +120,6 @@ class Assets {
   static const String projectBannersECommerceBehaviourUnderstanding = 'lib/assets/images/project_banners/e_commerce_behaviour_understanding.png';
   static const String projectBannersFossOverflow = 'lib/assets/images/project_banners/foss_overflow.png';
   static const String projectBannersFossOverflow2 = 'lib/assets/images/project_banners/foss_overflow_2.png';
-  static const String projectBannersGroceryMandi = 'lib/assets/images/project_banners/grocery_mandi.png';
   static const String projectBannersHolaBot = 'lib/assets/images/project_banners/hola_bot.png';
   static const String projectBannersHospitalManagementUtility = 'lib/assets/images/project_banners/hospital_management_utility.png';
   static const String projectBannersKastor = 'lib/assets/images/project_banners/kastor.png';
@@ -128,6 +127,7 @@ class Assets {
   static const String projectBannersMessaging = 'lib/assets/images/project_banners/messaging.png';
   static const String projectBannersOndc = 'lib/assets/images/project_banners/ondc.png';
   static const String projectBannersPortfolio = 'lib/assets/images/project_banners/portfolio.png';
+  static const String projectBannersSmartIndiaHackathon2023 = 'lib/assets/images/project_banners/smart_india_hackathon_2023.png';
   static const String projectBannersSnake = 'lib/assets/images/project_banners/snake.png';
   static const String projectBannersTrance = 'lib/assets/images/project_banners/trance.png';
   static const String projectBannersVaulto = 'lib/assets/images/project_banners/vaulto.png';
@@ -147,6 +147,12 @@ class Assets {
   static const String providersProjectPageProvider = 'lib/providers/project_page_provider.dart';
   static const String providersProjectSliderProvider = 'lib/providers/project_slider_provider.dart';
   static const String providersScrollProvider = 'lib/providers/scroll_provider.dart';
+  static const String smartIndiaHackathon2023AsaanAuthentication = 'lib/assets/images/project_images/smart_india_hackathon_2023/asaan_authentication.png';
+  static const String smartIndiaHackathon2023AsaanClassificationModelAbstract = 'lib/assets/images/project_images/smart_india_hackathon_2023/asaan_classification_model_abstract.png';
+  static const String smartIndiaHackathon2023AsaanWorkflow = 'lib/assets/images/project_images/smart_india_hackathon_2023/asaan_workflow.png';
+  static const String smartIndiaHackathon2023Description = 'lib/pages/projects/smart_india_hackathon_2023/description.html';
+  static const String smartIndiaHackathon2023InternalResults = 'lib/assets/images/project_images/smart_india_hackathon_2023/internal_results.jpeg';
+  static const String smartIndiaHackathon2023Internals = 'lib/pages/projects/smart_india_hackathon_2023/internals.html';
   static const String techStackAxios = 'lib/assets/icons/tech_stack/axios.svg';
   static const String techStackBloc = 'lib/assets/icons/tech_stack/bloc.svg';
   static const String techStackBootstrap = 'lib/assets/icons/tech_stack/bootstrap.svg';
