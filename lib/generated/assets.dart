@@ -141,6 +141,7 @@ class Assets {
   static const String projectsTableOfContentsHeader = 'lib/components/projects/table_of_contents_header.dart';
   static const String projectsTextSection = 'lib/components/projects/text_section.dart';
   static const String projectsTimeline = 'lib/components/projects/timeline.dart';
+  static const String projectsYoutubePlayer = 'lib/components/projects/youtube_player.dart';
   static const String providersChatbotProvider = 'lib/providers/chatbot_provider.dart';
   static const String providersLaunchPageAnimationProvider = 'lib/providers/launch_page_animation_provider.dart';
   static const String providersProjectComponentConstraintProvider = 'lib/providers/project_component_constraint_provider.dart';

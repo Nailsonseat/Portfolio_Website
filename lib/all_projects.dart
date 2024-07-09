@@ -7,6 +7,7 @@ import 'package:portfolio_website/components/projects/project_component.dart';
 import 'package:portfolio_website/constants/project_constants.dart';
 import 'package:portfolio_website/pages/templates/project_page_template.dart';
 import 'components/projects/text_section.dart';
+import 'components/projects/youtube_player.dart';
 
 class Project {
   final String title;
@@ -23,6 +24,7 @@ class Project {
 
   final List<IconData> timelineIcons;
   final List<TableOfContentsComponent> tableOfContents;
+  final List<Youtube>? youtubePlayers;
 
   Project({
     required this.title,
@@ -38,6 +40,7 @@ class Project {
     required this.textSections,
     required this.timelineIcons,
     required this.tableOfContents,
+    this.youtubePlayers,
   });
 }
 
@@ -60,6 +63,7 @@ ProjectPageTemplate getProjectPageTemplate(String title) {
     secondaryColor: project.primaryColor,
     primaryColor: project.secondaryColor,
     tableOfContents: project.tableOfContents,
+    youtubePlayers: project.youtubePlayers,
   );
 }
 
@@ -174,11 +178,13 @@ List<Project> projects = [
     ],
     timelineIcons: [
       Ionicons.bookmark_sharp,
-      Ionicons.bookmark_sharp,
-      Ionicons.bookmark_sharp,
-      Ionicons.bookmark_sharp,
-      Ionicons.bookmark_sharp,
-      Ionicons.bookmark_sharp,
+      EvaIcons.fileText,
+      LineIcons.toolbox,
+      LineIcons.tools,
+      LineIcons.alternateShield,
+      EvaIcons.globe,
+      LineIcons.award,
+      EvaIcons.bulbOutline,
     ],
     tableOfContents: [
       TableOfContentsComponent(title: "Description", subComponents: []),
@@ -211,12 +217,19 @@ List<Project> projects = [
       LineIcons.tools,
       LineIcons.award,
       EvaIcons.bulbOutline,
+      EvaIcons.clipboard,
+      EvaIcons.clipboard,
+      EvaIcons.clipboard,
     ],
     tableOfContents: [
       TableOfContentsComponent(title: "Description", subComponents: []),
       TableOfContentsComponent(title: "TechStack", subComponents: []),
       TableOfContentsComponent(title: "Website", subComponents: []),
+      TableOfContentsComponent(title: "Videos and Demos", subComponents: []),
     ],
+    youtubePlayers: [
+      Youtube(videoLink: 'https://youtu.be/vqNatIsuscQ'),
+    ]
   ),
   Project(
     title: ProjectNames.acharyaSetu,
