@@ -1,0 +1,41 @@
+<div>
+    Let’s try to understand the Waste-to-Energy problem using the map shown in Figure below. It
+    corresponds to the yearly residual biomass available in the state of Gujarat in Western India.
+    The geographic region is divided into equisised grid blocks, and the average biomass production
+    of each grid block is represented on the color scale. The spatial distribution will change year
+    after year, and the biomass available in these grid blocks will serve as feedstock to biofuel
+    production Figure below showing Spatial residual biomass production plants i.e., biorefineries.
+    The biomass
+    feedstock needs to be optimally collected and transported to the biorefineries’ gate, and the
+    grid blocks in Figure below i.e., the Harvesting Sites serve as the starting point in the supply
+    chain. At each Harvesting Site , biomass availability can be forecasted using historical data.
+    External parameters such as weather, rainfall, government regulation etc. may also influence the
+    biomass production.
+
+    <br><br>
+    <img src="asset:lib/assets/images/project_images/shell_ai_hackathon/initial_biomass.png"
+         alt="Initial Biomass Image"/>
+    <br><br>
+
+    Bales of biomass will be collected from these Harvesting Sites and
+    transported to the pre-processing Depots for densification and pelletisation. The pellets will
+    then be transported from each of these Depots to each Biorefinery, in quantities that cater to
+    each Biorefinery’s demand. The locations of the Depot and the Biorefinery will remain constant.
+
+    <br><br>
+    <img src="asset:lib/assets/images/project_images/shell_ai_hackathon/solution_flow.png"
+         alt="Solution Flow Image"/>
+    <br><br>
+
+    We were able to take the first step towards solving this problem by forecasting by the data
+    provided to us and apply LSTM model to forecast the biomass availability in the given region.
+    <br>
+    We also tried to select the optimal location for all the assets in the supply chain i.e.,
+    preprocessing Depots and Bio-refineries, such that the supply chain is robust, while satisfying
+    practical objectives and constraints.
+    <img src="asset:lib/assets/images/project_images/shell_ai_hackathon/unclustered.png"
+         alt="Unclustered"/>
+    <br><br>
+    <img src="asset:lib/assets/images/project_images/shell_ai_hackathon/clustered.png"
+         alt="Clustered"/>
+</div>
