@@ -125,6 +125,12 @@ final GoRouter routes = GoRouter(
                 child: getProjectPageTemplate(ProjectNames.trance),
               ),
             ),
+            GoRoute(
+              path: 'Samsung_Solve_For_Tomorrow',
+              pageBuilder: (context, state) => MaterialPage(
+                child: getProjectPageTemplate(ProjectNames.samsungSolveForTomorrow),
+              ),
+            )
           ],
         ),
       ],
