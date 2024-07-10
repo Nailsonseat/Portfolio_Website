@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio_website/components/projects/youtube_player.dart';
 import 'package:timelines/timelines.dart';
 
 class ProjectTimeLine extends StatelessWidget {
@@ -51,7 +50,6 @@ class ProjectTimeLine extends StatelessWidget {
               decoration: BoxDecoration(
                 color: timelineBlockColor,
                 borderRadius: BorderRadius.circular(20),
-                // border: Border.all(color: Colors.lightBlueAccent)
               ),
               child: Icon(timelineIcons[index], color: Colors.white, size: 32),
             ),
