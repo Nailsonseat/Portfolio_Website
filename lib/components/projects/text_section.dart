@@ -1,6 +1,7 @@
-class TextSection {
+
+class HtmlSection {
   String title;
   String bodyPath;
 
-  TextSection({required this.title, required this.bodyPath});
+  HtmlSection({required this.title, required this.bodyPath});
 }

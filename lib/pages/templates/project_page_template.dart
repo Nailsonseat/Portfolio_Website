@@ -19,7 +19,7 @@ import 'package:responsive_framework/responsive_framework.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../components/projects/table_of_contents_header.dart';
 import '../../components/projects/text_section.dart';
-import '../../components/projects/youtube_player.dart';
+import '../../components/projects/youtube_section.dart';
 import '../../providers/project_component_constraint_provider.dart';
 import '../../providers/scroll_provider.dart';
 
@@ -28,17 +28,15 @@ class ProjectPageTemplate extends StatelessWidget {
     super.key,
     required this.projectTitle,
     required this.bannerImage,
-    required this.textSections,
+    required this.sections,
     required this.tableOfContents,
     required this.timelineIcons,
     required this.secondaryColor,
     required this.primaryColor,
-    required this.youtubePlayers,
   });
 
-  final List<TextSection> textSections;
+  final List sections;
   final List<TableOfContentsComponent> tableOfContents;
-  final List<Youtube>? youtubePlayers;
   final String bannerImage;
   final String projectTitle;
   final List<IconData> timelineIcons;
@@ -60,137 +58,116 @@ class ProjectPageTemplate extends StatelessWidget {
     }
   }
 
-  List<Container> _buildTextSections(List<TextSection> textSections, double width,
-      ProjectComponentsConstraintsProvider componentsConstraintsProvider, bool isLengthGreaterThanWidth) {
+  List<Container> _buildTextSections(List sections, ProjectComponentsConstraintsProvider componentsConstraintsProvider,
+      bool isLengthGreaterThanWidth) {
     List<Container> builtSections = [];
-    for (int i = 0; i < textSections.length; i++) {
-      builtSections.addAll([
+    for (int i = 0; i < sections.length; i++) {
+      builtSections.add(
         Container(
           margin: EdgeInsets.symmetric(horizontal: isLengthGreaterThanWidth ? 30 : 56), //width / 35.74), // 56
           alignment: Alignment.centerLeft,
           key: componentsConstraintsProvider.titleKeys[i],
           child: SelectableText(
-            textSections[i].title,
+            sections[i].title,
             style: TextStyle(fontSize: isLengthGreaterThanWidth ? 35 : 55), //width / 35.890909), // 55
           ),
         ),
-        Container(
-          width: double.infinity,
-          margin: EdgeInsets.symmetric(
-              vertical: isLengthGreaterThanWidth ? 20 : 60, horizontal: isLengthGreaterThanWidth ? 30 : 56),
-          // width / 35.74),
-          padding: isLengthGreaterThanWidth ? const EdgeInsets.all(40) : const EdgeInsets.all(80),
-          //width / 24.675),
-          decoration: BoxDecoration(color: secondaryColor, borderRadius: BorderRadius.circular(30)),
-          child: FutureBuilder<String>(
-            future: _loadHtmlFile(textSections[i].bodyPath),
-            builder: (context, snapshot) {
-              if (snapshot.hasData) {
-                return Consumer<ProjectComponentsConstraintsProvider>(
-                  builder: (context, provider, _) {
-                    return SizedBox(
-                      height: provider.textContainerHeights[i], // Replace with the height from your provider
-                      child: Html(
-                        data: snapshot.data,
-                        style: {
-                          "body": Style(
-                            fontSize: isLengthGreaterThanWidth ? FontSize(12) : FontSize(19.78),
-                          ),
-                          //FontSize(width / 100)), // Adjust the font size as needed
-                          ".techstack": Style(
-                              height: Height(80), //width / 24.966667),
-                              width: Width(80), //width / 24.966667),
-                              margin: Margins.only(right: 20)),
-                          ".techstack-small": Style(
-                              height: Height(92), //width / 21.4307),
-                              width: Width(92), //width / 21.4307),
-                              margin: Margins.only(right: 20)),
-                          ".portrait-img": Style(
-                            height: Height(700), //width / 2.8257),
-                            margin: Margins.only(right: 90), //width / 21.97778),
-                          ),
-                          ".old-new": Style(
-                            padding: HtmlPaddings.only(
-                              left: 56, //width / 35,
-                              right: 56, //width / 35,
-                              bottom: 40,
+      );
+      if (sections[i] is HtmlSection) {
+        builtSections.add(
+          Container(
+            width: double.infinity,
+            margin: EdgeInsets.symmetric(
+                vertical: isLengthGreaterThanWidth ? 20 : 60, horizontal: isLengthGreaterThanWidth ? 30 : 56),
+            // width / 35.74),
+            padding: isLengthGreaterThanWidth ? const EdgeInsets.all(40) : const EdgeInsets.all(80),
+            //width / 24.675),
+            decoration: BoxDecoration(color: secondaryColor, borderRadius: BorderRadius.circular(30)),
+            child: FutureBuilder<String>(
+              future: _loadHtmlFile(sections[i].bodyPath),
+              builder: (context, snapshot) {
+                if (snapshot.hasData) {
+                  return Consumer<ProjectComponentsConstraintsProvider>(
+                    builder: (context, provider, _) {
+                      return SizedBox(
+                        height: provider.textContainerHeights[i], // Replace with the height from your provider
+                        child: Html(
+                          data: snapshot.data,
+                          style: {
+                            "body": Style(
+                              fontSize: isLengthGreaterThanWidth ? FontSize(12) : FontSize(19.78),
                             ),
-                          ),
-                          ".demo-img": Style(
-                            height: Height(700), //width / 2.825714),
-                          )
-                        },
-                        onAnchorTap: (String? url, _, __) => _redirect(url!),
-                        extensions: [
-                          const VideoHtmlExtension(),
-                          const AudioHtmlExtension(),
-                          const IframeHtmlExtension(),
-                          const TableHtmlExtension(),
-                          const SvgHtmlExtension(),
-                          TagWrapExtension(
-                            tagsToWrap: {"body"},
-                            builder: (child) {
-                              return Container(
-                                key: componentsConstraintsProvider.textKeys[i],
-                                child: child,
-                              );
-                            },
-                          ),
-                        ],
-                      ),
-                    );
-                  },
-                );
-              } else if (snapshot.hasError) {
-                return const Center(
-                  child: Text('Error loading HTML file'),
-                );
-              } else {
-                return const Center(
-                  child: CircularProgressIndicator(),
-                );
-              }
-            },
+                            //FontSize(width / 100)), // Adjust the font size as needed
+                            ".techstack": Style(
+                                height: Height(80), //width / 24.966667),
+                                width: Width(80), //width / 24.966667),
+                                margin: Margins.only(right: 20)),
+                            ".techstack-small": Style(
+                                height: Height(92), //width / 21.4307),
+                                width: Width(92), //width / 21.4307),
+                                margin: Margins.only(right: 20)),
+                            ".portrait-img": Style(
+                              height: Height(700), //width / 2.8257),
+                              margin: Margins.only(right: 90), //width / 21.97778),
+                            ),
+                            ".old-new": Style(
+                              padding: HtmlPaddings.only(
+                                left: 56, //width / 35,
+                                right: 56, //width / 35,
+                                bottom: 40,
+                              ),
+                            ),
+                            ".demo-img": Style(
+                              height: Height(700), //width / 2.825714),
+                            )
+                          },
+                          onAnchorTap: (String? url, _, __) => _redirect(url!),
+                          extensions: [
+                            const VideoHtmlExtension(),
+                            const AudioHtmlExtension(),
+                            const IframeHtmlExtension(),
+                            const TableHtmlExtension(),
+                            const SvgHtmlExtension(),
+                            TagWrapExtension(
+                              tagsToWrap: {"body"},
+                              builder: (child) {
+                                return Container(
+                                  key: componentsConstraintsProvider.sectionKeys[i],
+                                  child: child,
+                                );
+                              },
+                            ),
+                          ],
+                        ),
+                      );
+                    },
+                  );
+                } else if (snapshot.hasError) {
+                  return const Center(
+                    child: Text('Error loading HTML file'),
+                  );
+                } else {
+                  return const Center(
+                    child: CircularProgressIndicator(),
+                  );
+                }
+              },
+            ),
           ),
-        ),
-      ]);
-    }
-    return builtSections;
-  }
-
-  List<Container> _buildYoutubeSections(List<Youtube>? youtubePlayers, double width,       ProjectComponentsConstraintsProvider componentsConstraintsProvider,bool isLengthGreaterThanWidth) {
-    List<Container> builtSections = [];
-    if (youtubePlayers != null) {
-      builtSections.add(
-        Container(
-
-          key: componentsConstraintsProvider.titleKeys.last,
-          margin: EdgeInsets.symmetric(horizontal: isLengthGreaterThanWidth ? 30 : 56), //width / 35.74), // 56
-          alignment: Alignment.centerLeft,
-          child: SelectableText(
-            "Videos and Demos",
-            style: TextStyle(fontSize: isLengthGreaterThanWidth ? 35 : 55), //width / 35.890909), // 55
+        );
+      } else if (sections[i] is YoutubeSection) {
+        builtSections.add(
+          Container(
+            margin: EdgeInsets.symmetric(
+                vertical: isLengthGreaterThanWidth ? 20 : 60, horizontal: isLengthGreaterThanWidth ? 30 : 56),
+            // width / 35.74),
+            padding: isLengthGreaterThanWidth ? const EdgeInsets.all(40) : const EdgeInsets.all(80),
+            //width / 24.675),
+            decoration: BoxDecoration(color: secondaryColor, borderRadius: BorderRadius.circular(30)),
+            child: sections[i],
           ),
-        ),
-      );
-      builtSections.add(
-        Container(
-          margin: EdgeInsets.symmetric(
-              vertical: isLengthGreaterThanWidth ? 20 : 60, horizontal: isLengthGreaterThanWidth ? 30 : 56),
-          // width / 35.74),
-          padding: isLengthGreaterThanWidth ? const EdgeInsets.all(40) : const EdgeInsets.all(80),
-          //width / 24.675),
-          decoration: BoxDecoration(color: secondaryColor, borderRadius: BorderRadius.circular(30)),
-          child: Column(
-            children: youtubePlayers
-                .map((e) => Container(
-              margin: EdgeInsets.only(bottom: isLengthGreaterThanWidth ? 20 : 60),
-                      child: e,
-                    ))
-                .toList(),
-          ),
-        ),
-      );
+        );
+      }
     }
     return builtSections;
   }
@@ -198,7 +175,7 @@ class ProjectPageTemplate extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double width = 1978;
-    double height =  MediaQuery.of(context).size.height < 1048 ? 1048 : MediaQuery.of(context).size.height;
+    double height = MediaQuery.of(context).size.height < 1048 ? 1048 : MediaQuery.of(context).size.height;
 
     ScrollProvider scrollProvider = Provider.of<ScrollProvider>(context, listen: false);
     ProjectComponentsConstraintsProvider componentsConstraintsProvider =
@@ -207,10 +184,9 @@ class ProjectPageTemplate extends StatelessWidget {
     scrollProvider.bannerHeight = _projectBannerHeight(height);
     scrollProvider.width = width;
 
-    componentsConstraintsProvider.initHeights(textSections.length);
-    componentsConstraintsProvider.textKeys = List.generate(textSections.length, (index) => GlobalKey());
-    componentsConstraintsProvider.titleKeys =
-        List.generate(textSections.length + 1, (index) => GlobalKey());
+    componentsConstraintsProvider.initHeights(sections.length);
+    componentsConstraintsProvider.sectionKeys = List.generate(sections.length, (index) => GlobalKey());
+    componentsConstraintsProvider.titleKeys = List.generate(sections.length, (index) => GlobalKey());
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
       scrollProvider.tableOfContentsListener(scrollProvider.bannerHeight, width);
@@ -243,11 +219,12 @@ class ProjectPageTemplate extends StatelessWidget {
             ? FloatingActionButton(
                 onPressed: () {
                   showDialog(
-                      context: context,
-                      builder: (_) => AlertDialog(
-                            title: const Text('Table of contents', style: TextStyle(fontSize: 30)),
-                            content: TableOfContents(tableOfContents: tableOfContents, fontColor: primaryColor),
-                          ));
+                    context: context,
+                    builder: (_) => AlertDialog(
+                      title: const Text('Table of contents', style: TextStyle(fontSize: 30)),
+                      content: TableOfContents(tableOfContents: tableOfContents, fontColor: primaryColor),
+                    ),
+                  );
                 },
                 backgroundColor: secondaryColor,
                 child: const Icon(Icons.menu),
@@ -333,7 +310,9 @@ class ProjectPageTemplate extends StatelessWidget {
                                               Consumer<ProjectComponentsConstraintsProvider>(
                                                 builder: (context, componentsConstraintsProvider, child) {
                                                   return TableOfContents(
-                                                      tableOfContents: tableOfContents, fontColor: primaryColor);
+                                                    tableOfContents: tableOfContents,
+                                                    fontColor: primaryColor,
+                                                  );
                                                 },
                                               )
                                             ],
@@ -351,9 +330,8 @@ class ProjectPageTemplate extends StatelessWidget {
                                   //width / 35.74), // 100
                                   child: SingleChildScrollView(
                                     child: ProjectTimeLine(
-                                      sections: _buildTextSections(textSections, width, componentsConstraintsProvider,
-                                              isLengthGreaterThanWidth) +
-                                          _buildYoutubeSections(youtubePlayers, width,componentsConstraintsProvider, isLengthGreaterThanWidth),
+                                      sections: _buildTextSections(
+                                          sections, componentsConstraintsProvider, isLengthGreaterThanWidth),
                                       timelineIcons: timelineIcons,
                                       timelineBlockColor: primaryColor,
                                     ),
