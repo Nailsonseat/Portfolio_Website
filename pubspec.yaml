@@ -149,6 +149,7 @@ flutter:
     - lib/pages/projects/samsung_solve_for_tomorrow/
     - lib/pages/projects/grocery_mandi/
     - lib/pages/projects/shell_ai_hackathon/
+    - lib/pages/projects/business_data_management/
     - lib/pages/templates/
     - lib/assets/icons/tech_stack/
     - lib/assets/images/project_banners/

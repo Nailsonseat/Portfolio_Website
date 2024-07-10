@@ -376,7 +376,7 @@ List<Project> projects = [
     source: '',
     pagePath: '/home/Business_Data_Management',
     briefDescription:
-        'BDM Capstone Project is an independent research project where the student is expected to reach out to a business firm, identify the issues or the problem(s) they face, collect primary data pertaining to it, clean the data, analyze it, and provide novel/ valuable insights to the decision maker(s).',
+        'BDM Capstone Project is an independent research project where the student is expected to reach out to a business firm, identify the problems they face, collect primary data pertaining to it, clean the data, analyze it, and provide valuable insights to the decision maker(s).',
     description: '',
     buttonSecondaryColor: HexColor('#90C0F0'),
     buttonPrimaryColor: HexColor('#012E46'),
@@ -395,7 +395,7 @@ List<Project> projects = [
       const PDFSection(
           title: 'Final Report',
           pdfPath:
-              'https://raw.githubusercontent.com/Nailsonseat/Portfolio_Website/master/lib/pages/projects/business_data_management/final_subssion.pdf'),
+              'https://raw.githubusercontent.com/Nailsonseat/Portfolio_Website/master/lib/pages/projects/business_data_management/final_submission.pdf'),
       const PDFSection(
           title: 'Presentation',
           pdfPath:
