@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:line_icons/line_icons.dart';
+import 'package:portfolio_website/components/projects/pdf_section.dart';
 import 'package:portfolio_website/components/projects/project_component.dart';
 import 'package:portfolio_website/constants/project_constants.dart';
 import 'package:portfolio_website/pages/templates/project_page_template.dart';
@@ -152,6 +153,12 @@ List<Project> projects = [
     secondaryColor: HexColor('#00ba48'),
     sections: [
       HtmlSection(title: "Description", bodyPath: 'lib/pages/projects/smart_india_hackathon_2023/description.html'),
+      const PDFSection(
+          title: 'Our Presentation',
+          pdfPath: 'lib/assets/images/project_images/smart_india_hackathon_2023/presentation.pdf'),
+      const PDFSection(
+          title: 'Our Project Report',
+          pdfPath: 'lib/assets/images/project_images/smart_india_hackathon_2023/aapda _sanketak_prospective_final.pdf'),
       HtmlSection(
           title: "Internal Hackathon Results",
           bodyPath: 'lib/pages/projects/smart_india_hackathon_2023/internals.html'),
@@ -160,11 +167,18 @@ List<Project> projects = [
       Ionicons.bookmark_sharp,
       EvaIcons.fileText,
       EvaIcons.fileText,
-      EvaIcons.fileText,
+      LineIcons.toolbox,
+      LineIcons.tools,
+      LineIcons.award,
+      EvaIcons.bulbOutline,
+      Ionicons.funnel_outline,
+      Ionicons.receipt_outline,
     ],
     tableOfContents: [
       TableOfContentsComponent(title: "Description", subComponents: []),
-      TableOfContentsComponent(title: "Internal Hackathon", subComponents: []),
+      TableOfContentsComponent(title: "Our Presentation", subComponents: []),
+      TableOfContentsComponent(title: "Our Project Report", subComponents: []),
+      TableOfContentsComponent(title: "Internal Hackathon Results", subComponents: []),
     ],
   ),
   Project(
@@ -304,7 +318,7 @@ List<Project> projects = [
     sections: [
       HtmlSection(title: "Description", bodyPath: 'lib/pages/projects/grocery_mandi/description.html'),
       HtmlSection(title: "Tech Stack", bodyPath: 'lib/pages/projects/grocery_mandi/techstack.html'),
-      YoutubeSection(title: "Demo Video",videoLink: 'https://youtu.be/fScVpIC1Yys'),
+      YoutubeSection(title: "Demo Video", videoLink: 'https://youtu.be/fScVpIC1Yys'),
     ],
     timelineIcons: [
       Ionicons.bookmark_sharp,
@@ -321,40 +335,40 @@ List<Project> projects = [
     ],
   ),
   Project(
-      title: ProjectNames.trance,
-      image: 'lib/assets/images/project_banners/trance.png',
-      source: 'https://github.com/Nailsonseat/Trance',
-      pagePath: '/home/Trance',
-      briefDescription:
-          'The project is a music streaming website called Trance, where there are three roles that can uses the platform admin, creator and user. The admin has authority to watch all statistics, and remove and delete any song or album. The creator can add new songs and albums and listen to songs. The user role has minimal features where they can only listen to songs. Also comes with features such as filters, reporting, rating songs and search them.',
-      description: '',
-      buttonSecondaryColor: HexColor('#CCD0F5'),
-      buttonPrimaryColor: HexColor('#5658C7'),
-      primaryColor: HexColor('#bdbeff'),
-      secondaryColor: HexColor('#5c5ffa'),
-      sections: [
-        HtmlSection(title: "Description", bodyPath: 'lib/pages/projects/trance/description.html'),
-        HtmlSection(title: "Tech Stack", bodyPath: 'lib/pages/projects/trance/techstack.html'),
-        HtmlSection(title: "Website", bodyPath: 'lib/pages/projects/trance/website.html'),
-        YoutubeSection(title: "Demo Video",videoLink: 'https://youtu.be/vqNatIsuscQ'),
-      ],
-      timelineIcons: [
-        Ionicons.bookmark_sharp,
-        EvaIcons.fileText,
-        LineIcons.toolbox,
-        LineIcons.tools,
-        LineIcons.award,
-        EvaIcons.bulbOutline,
-        EvaIcons.clipboard,
-        EvaIcons.clipboard,
-        EvaIcons.clipboard,
-      ],
-      tableOfContents: [
-        TableOfContentsComponent(title: "Description", subComponents: []),
-        TableOfContentsComponent(title: "TechStack", subComponents: []),
-        TableOfContentsComponent(title: "Website", subComponents: []),
-        TableOfContentsComponent(title: "Demo Video", subComponents: []),
-      ],
+    title: ProjectNames.trance,
+    image: 'lib/assets/images/project_banners/trance.png',
+    source: 'https://github.com/Nailsonseat/Trance',
+    pagePath: '/home/Trance',
+    briefDescription:
+        'The project is a music streaming website called Trance, where there are three roles that can uses the platform admin, creator and user. The admin has authority to watch all statistics, and remove and delete any song or album. The creator can add new songs and albums and listen to songs. The user role has minimal features where they can only listen to songs. Also comes with features such as filters, reporting, rating songs and search them.',
+    description: '',
+    buttonSecondaryColor: HexColor('#CCD0F5'),
+    buttonPrimaryColor: HexColor('#5658C7'),
+    primaryColor: HexColor('#bdbeff'),
+    secondaryColor: HexColor('#5c5ffa'),
+    sections: [
+      HtmlSection(title: "Description", bodyPath: 'lib/pages/projects/trance/description.html'),
+      HtmlSection(title: "Tech Stack", bodyPath: 'lib/pages/projects/trance/techstack.html'),
+      HtmlSection(title: "Website", bodyPath: 'lib/pages/projects/trance/website.html'),
+      YoutubeSection(title: "Demo Video", videoLink: 'https://youtu.be/vqNatIsuscQ'),
+    ],
+    timelineIcons: [
+      Ionicons.bookmark_sharp,
+      EvaIcons.fileText,
+      LineIcons.toolbox,
+      LineIcons.tools,
+      LineIcons.award,
+      EvaIcons.bulbOutline,
+      EvaIcons.clipboard,
+      EvaIcons.clipboard,
+      EvaIcons.clipboard,
+    ],
+    tableOfContents: [
+      TableOfContentsComponent(title: "Description", subComponents: []),
+      TableOfContentsComponent(title: "TechStack", subComponents: []),
+      TableOfContentsComponent(title: "Website", subComponents: []),
+      TableOfContentsComponent(title: "Demo Video", subComponents: []),
+    ],
   ),
   Project(
     title: ProjectNames.acharyaSetu,
