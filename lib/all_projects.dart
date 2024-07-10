@@ -155,13 +155,13 @@ List<Project> projects = [
       HtmlSection(title: "Description", bodyPath: 'lib/pages/projects/smart_india_hackathon_2023/description.html'),
       const PDFSection(
           title: 'Our Presentation',
-          pdfPath: 'https://raw.githubusercontent.com/Nailsonseat/Portfolio_Website/master/lib/pages/projects/smart_india_hackathon_2023/presentation.pdf'),
+          pdfPath:
+              'https://raw.githubusercontent.com/Nailsonseat/Portfolio_Website/master/lib/pages/projects/smart_india_hackathon_2023/presentation.pdf'),
       const PDFSection(
           title: 'Our Project Report',
-          pdfPath: 'https://raw.githubusercontent.com/Nailsonseat/Portfolio_Website/master/lib/pages/projects/smart_india_hackathon_2023/prospective.pdf'),
-      HtmlSection(
-          title: "Hackathon Results",
-          bodyPath: 'lib/pages/projects/smart_india_hackathon_2023/internals.html'),
+          pdfPath:
+              'https://raw.githubusercontent.com/Nailsonseat/Portfolio_Website/master/lib/pages/projects/smart_india_hackathon_2023/prospective.pdf'),
+      HtmlSection(title: "Hackathon Results", bodyPath: 'lib/pages/projects/smart_india_hackathon_2023/internals.html'),
     ],
     timelineIcons: [
       Ionicons.bookmark_sharp,
@@ -368,6 +368,57 @@ List<Project> projects = [
       TableOfContentsComponent(title: "TechStack", subComponents: []),
       TableOfContentsComponent(title: "Website", subComponents: []),
       TableOfContentsComponent(title: "Demo Video", subComponents: []),
+    ],
+  ),
+  Project(
+    title: ProjectNames.businessDataManagement,
+    image: 'lib/assets/images/project_banners/business_data_management.jpg',
+    source: '',
+    pagePath: '/home/Business_Data_Management',
+    briefDescription:
+        'BDM Capstone Project is an independent research project where the student is expected to reach out to a business firm, identify the issues or the problem(s) they face, collect primary data pertaining to it, clean the data, analyze it, and provide novel/ valuable insights to the decision maker(s).',
+    description: '',
+    buttonSecondaryColor: HexColor('#90C0F0'),
+    buttonPrimaryColor: HexColor('#012E46'),
+    primaryColor: HexColor('#90C0F0'),
+    secondaryColor: HexColor('#012E46'),
+    sections: [
+      HtmlSection(title: "Description", bodyPath: 'lib/pages/projects/business_data_management/description.html'),
+      const PDFSection(
+          title: 'Proposal',
+          pdfPath:
+              'https://raw.githubusercontent.com/Nailsonseat/Portfolio_Website/master/lib/pages/projects/business_data_management/proposal.pdf'),
+      const PDFSection(
+          title: 'Interim Report',
+          pdfPath:
+              'https://raw.githubusercontent.com/Nailsonseat/Portfolio_Website/master/lib/pages/projects/business_data_management/mid_report.pdf'),
+      const PDFSection(
+          title: 'Final Report',
+          pdfPath:
+              'https://raw.githubusercontent.com/Nailsonseat/Portfolio_Website/master/lib/pages/projects/business_data_management/final_subssion.pdf'),
+      const PDFSection(
+          title: 'Presentation',
+          pdfPath:
+              'https://raw.githubusercontent.com/Nailsonseat/Portfolio_Website/master/lib/pages/projects/business_data_management/presentation.pdf'),
+    ],
+    timelineIcons: [
+      Ionicons.bookmark_sharp,
+      EvaIcons.fileText,
+      EvaIcons.fileText,
+      EvaIcons.fileText,
+      EvaIcons.fileText,
+      EvaIcons.fileText,
+      EvaIcons.fileText,
+      EvaIcons.fileText,
+      EvaIcons.fileText,
+      EvaIcons.fileText,
+    ],
+    tableOfContents: [
+      TableOfContentsComponent(title: "Description", subComponents: []),
+      TableOfContentsComponent(title: "Proposal", subComponents: []),
+      TableOfContentsComponent(title: "Interim Report", subComponents: []),
+      TableOfContentsComponent(title: "Final Report", subComponents: []),
+      TableOfContentsComponent(title: "Presentation", subComponents: []),
     ],
   ),
   Project(

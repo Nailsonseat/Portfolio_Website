@@ -20,4 +20,5 @@ class ProjectNames{
   static String smartIndiaHackathon2023 = "Smart India Hackathon 2023";
   static String samsungSolveForTomorrow = "Samsung Solve For Tomorrow";
   static String shellAIHackathon = "Shell AI Hackathon";
+  static String businessDataManagement = "Business Data Management";
 }
