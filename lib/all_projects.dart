@@ -7,7 +7,7 @@ import 'package:portfolio_website/components/projects/project_component.dart';
 import 'package:portfolio_website/constants/project_constants.dart';
 import 'package:portfolio_website/pages/templates/project_page_template.dart';
 import 'components/projects/text_section.dart';
-import 'components/projects/youtube_player.dart';
+import 'components/projects/youtube_section.dart';
 
 class Project {
   final String title;
@@ -20,11 +20,10 @@ class Project {
   final Color buttonPrimaryColor;
   final Color primaryColor;
   final Color secondaryColor;
-  final List<TextSection> textSections;
+  final List sections;
 
   final List<IconData> timelineIcons;
   final List<TableOfContentsComponent> tableOfContents;
-  final List<Youtube>? youtubePlayers;
 
   Project({
     required this.title,
@@ -37,10 +36,9 @@ class Project {
     required this.buttonPrimaryColor,
     required this.primaryColor,
     required this.secondaryColor,
-    required this.textSections,
+    required this.sections,
     required this.timelineIcons,
     required this.tableOfContents,
-    this.youtubePlayers,
   });
 }
 
@@ -58,12 +56,11 @@ ProjectPageTemplate getProjectPageTemplate(String title) {
   return ProjectPageTemplate(
     projectTitle: project.title,
     bannerImage: project.image,
-    textSections: project.textSections,
+    sections: project.sections,
     timelineIcons: project.timelineIcons,
     secondaryColor: project.primaryColor,
     primaryColor: project.secondaryColor,
     tableOfContents: project.tableOfContents,
-    youtubePlayers: project.youtubePlayers,
   );
 }
 
@@ -80,10 +77,10 @@ List<Project> projects = [
     buttonPrimaryColor: HexColor('#9d2718'),
     primaryColor: HexColor('#ffad99'),
     secondaryColor: HexColor('#f55138'),
-    textSections: [
-      TextSection(title: "Description", bodyPath: "lib/pages/projects/samsung_solve_for_tomorrow/description.html"),
-      TextSection(title: "Journey", bodyPath: "lib/pages/projects/samsung_solve_for_tomorrow/journey.html"),
-      TextSection(title: "Next Step", bodyPath: "lib/pages/projects/samsung_solve_for_tomorrow/next_step.html"),
+    sections: [
+      HtmlSection(title: "Description", bodyPath: "lib/pages/projects/samsung_solve_for_tomorrow/description.html"),
+      HtmlSection(title: "Journey", bodyPath: "lib/pages/projects/samsung_solve_for_tomorrow/journey.html"),
+      HtmlSection(title: "Next Step", bodyPath: "lib/pages/projects/samsung_solve_for_tomorrow/next_step.html"),
     ],
     timelineIcons: [
       Ionicons.bookmark_sharp,
@@ -107,12 +104,12 @@ List<Project> projects = [
     briefDescription:
         """The challenge is to develop innovative solutions that leverage cutting-edge technologies to seamlessly digitalize and enhance product catalogs, offering a user-friendly experience for sellers and seller apps.""",
     description: '',
-    textSections: [
-      TextSection(title: "Description", bodyPath: "lib/pages/projects/ondc_build_for_bharat/description.html"),
-      TextSection(title: "Conditions", bodyPath: "lib/pages/projects/ondc_build_for_bharat/conditions.html"),
-      TextSection(title: "Team", bodyPath: "lib/pages/projects/ondc_build_for_bharat/team.html"),
-      TextSection(title: "Project", bodyPath: "lib/pages/projects/ondc_build_for_bharat/project.html"),
-      TextSection(title: "Conclusion", bodyPath: "lib/pages/projects/ondc_build_for_bharat/conclusion.html"),
+    sections: [
+      HtmlSection(title: "Description", bodyPath: "lib/pages/projects/ondc_build_for_bharat/description.html"),
+      HtmlSection(title: "Conditions", bodyPath: "lib/pages/projects/ondc_build_for_bharat/conditions.html"),
+      HtmlSection(title: "Team", bodyPath: "lib/pages/projects/ondc_build_for_bharat/team.html"),
+      HtmlSection(title: "Project", bodyPath: "lib/pages/projects/ondc_build_for_bharat/project.html"),
+      HtmlSection(title: "Conclusion", bodyPath: "lib/pages/projects/ondc_build_for_bharat/conclusion.html"),
     ],
     tableOfContents: [
       TableOfContentsComponent(title: "Description", subComponents: []),
@@ -153,9 +150,9 @@ List<Project> projects = [
     buttonPrimaryColor: HexColor('#00c94e'),
     primaryColor: HexColor('#80ffb1'),
     secondaryColor: HexColor('#00ba48'),
-    textSections: [
-      TextSection(title: "Description", bodyPath: 'lib/pages/projects/smart_india_hackathon_2023/description.html'),
-      TextSection(
+    sections: [
+      HtmlSection(title: "Description", bodyPath: 'lib/pages/projects/smart_india_hackathon_2023/description.html'),
+      HtmlSection(
           title: "Internal Hackathon Results",
           bodyPath: 'lib/pages/projects/smart_india_hackathon_2023/internals.html'),
     ],
@@ -178,15 +175,15 @@ List<Project> projects = [
     briefDescription:
         "This app aims to solve the day-to-day problems that students and faculty face in IIT Bhilai and aims to consolidate a lot of useful applications into single app. This could include features like Time Table, Classroom Vacancy, Lost and Found, Chatrooms on various topics like Internet Issues. It could also have a broadcast feature which would be very useful in emergency situations.",
     description: '',
-    textSections: [
-      TextSection(title: "Description", bodyPath: 'lib/pages/projects/foss_overflow/description.html'),
-      TextSection(title: "Mentors", bodyPath: 'lib/pages/projects/foss_overflow/mentors.html'),
-      TextSection(title: "Tech Stack", bodyPath: 'lib/pages/projects/foss_overflow/techstack.html'),
-      TextSection(title: "Authentication", bodyPath: 'lib/pages/projects/foss_overflow/authentication.html'),
-      TextSection(title: "Database and Storage", bodyPath: 'lib/pages/projects/foss_overflow/database_storage.html'),
-      TextSection(title: "Admin Role", bodyPath: 'lib/pages/projects/foss_overflow/admin.html'),
-      TextSection(title: "User Features", bodyPath: 'lib/pages/projects/foss_overflow/features.html'),
-      TextSection(title: "Conclusion", bodyPath: 'lib/pages/projects/foss_overflow/conclusion.html'),
+    sections: [
+      HtmlSection(title: "Description", bodyPath: 'lib/pages/projects/foss_overflow/description.html'),
+      HtmlSection(title: "Mentors", bodyPath: 'lib/pages/projects/foss_overflow/mentors.html'),
+      HtmlSection(title: "Tech Stack", bodyPath: 'lib/pages/projects/foss_overflow/techstack.html'),
+      HtmlSection(title: "Authentication", bodyPath: 'lib/pages/projects/foss_overflow/authentication.html'),
+      HtmlSection(title: "Database and Storage", bodyPath: 'lib/pages/projects/foss_overflow/database_storage.html'),
+      HtmlSection(title: "Admin Role", bodyPath: 'lib/pages/projects/foss_overflow/admin.html'),
+      HtmlSection(title: "User Features", bodyPath: 'lib/pages/projects/foss_overflow/features.html'),
+      HtmlSection(title: "Conclusion", bodyPath: 'lib/pages/projects/foss_overflow/conclusion.html'),
     ],
     tableOfContents: [
       TableOfContentsComponent(title: "Description", subComponents: []),
@@ -233,11 +230,11 @@ List<Project> projects = [
     buttonPrimaryColor: HexColor('#c9a200'),
     primaryColor: HexColor('#ffe98c'),
     secondaryColor: HexColor('#ff584f'),
-    textSections: [
-      TextSection(title: "Description", bodyPath: 'lib/pages/projects/shell_ai_hackathon/description.html'),
-      TextSection(title: "Tech Stack", bodyPath: 'lib/pages/projects/shell_ai_hackathon/techstack.html'),
-      TextSection(title: "Project", bodyPath: 'lib/pages/projects/shell_ai_hackathon/project.html'),
-      TextSection(title: "Results", bodyPath: 'lib/pages/projects/shell_ai_hackathon/results.html'),
+    sections: [
+      HtmlSection(title: "Description", bodyPath: 'lib/pages/projects/shell_ai_hackathon/description.html'),
+      HtmlSection(title: "Tech Stack", bodyPath: 'lib/pages/projects/shell_ai_hackathon/techstack.html'),
+      HtmlSection(title: "Project", bodyPath: 'lib/pages/projects/shell_ai_hackathon/project.html'),
+      HtmlSection(title: "Results", bodyPath: 'lib/pages/projects/shell_ai_hackathon/results.html'),
     ],
     timelineIcons: [
       Ionicons.bookmark_sharp,
@@ -249,7 +246,6 @@ List<Project> projects = [
       Ionicons.funnel_outline,
       Ionicons.receipt_outline,
       Ionicons.bar_chart_outline,
-
     ],
     tableOfContents: [
       TableOfContentsComponent(title: "Description", subComponents: []),
@@ -270,11 +266,11 @@ List<Project> projects = [
     buttonPrimaryColor: Colors.black87,
     primaryColor: Colors.grey[300]!,
     secondaryColor: Colors.black87,
-    textSections: [
-      TextSection(title: "Description", bodyPath: 'lib/pages/projects/vaulto/description.html'),
-      TextSection(title: "Tech Stack", bodyPath: 'lib/pages/projects/vaulto/techstack.html'),
-      TextSection(title: "Security", bodyPath: 'lib/pages/projects/vaulto/security.html'),
-      TextSection(title: "Workflow", bodyPath: 'lib/pages/projects/vaulto/workflow.html'),
+    sections: [
+      HtmlSection(title: "Description", bodyPath: 'lib/pages/projects/vaulto/description.html'),
+      HtmlSection(title: "Tech Stack", bodyPath: 'lib/pages/projects/vaulto/techstack.html'),
+      HtmlSection(title: "Security", bodyPath: 'lib/pages/projects/vaulto/security.html'),
+      HtmlSection(title: "Workflow", bodyPath: 'lib/pages/projects/vaulto/workflow.html'),
     ],
     timelineIcons: [
       Ionicons.bookmark_sharp,
@@ -305,9 +301,10 @@ List<Project> projects = [
     buttonPrimaryColor: HexColor('#41A46F'),
     primaryColor: HexColor('#9effdd'),
     secondaryColor: HexColor('#00c781'),
-    textSections: [
-      TextSection(title: "Description", bodyPath: 'lib/pages/projects/grocery_mandi/description.html'),
-      TextSection(title: "Tech Stack", bodyPath: 'lib/pages/projects/grocery_mandi/techstack.html'),
+    sections: [
+      HtmlSection(title: "Description", bodyPath: 'lib/pages/projects/grocery_mandi/description.html'),
+      HtmlSection(title: "Tech Stack", bodyPath: 'lib/pages/projects/grocery_mandi/techstack.html'),
+      YoutubeSection(title: "Demo Video",videoLink: 'https://youtu.be/fScVpIC1Yys'),
     ],
     timelineIcons: [
       Ionicons.bookmark_sharp,
@@ -320,9 +317,7 @@ List<Project> projects = [
     tableOfContents: [
       TableOfContentsComponent(title: "Description", subComponents: []),
       TableOfContentsComponent(title: "TechStack", subComponents: []),
-    ],
-    youtubePlayers: [
-      Youtube(videoLink: 'https://youtu.be/fScVpIC1Yys'),
+      TableOfContentsComponent(title: "Demo Video", subComponents: []),
     ],
   ),
   Project(
@@ -337,10 +332,11 @@ List<Project> projects = [
       buttonPrimaryColor: HexColor('#5658C7'),
       primaryColor: HexColor('#bdbeff'),
       secondaryColor: HexColor('#5c5ffa'),
-      textSections: [
-        TextSection(title: "Description", bodyPath: 'lib/pages/projects/trance/description.html'),
-        TextSection(title: "Tech Stack", bodyPath: 'lib/pages/projects/trance/techstack.html'),
-        TextSection(title: "Website", bodyPath: 'lib/pages/projects/trance/website.html'),
+      sections: [
+        HtmlSection(title: "Description", bodyPath: 'lib/pages/projects/trance/description.html'),
+        HtmlSection(title: "Tech Stack", bodyPath: 'lib/pages/projects/trance/techstack.html'),
+        HtmlSection(title: "Website", bodyPath: 'lib/pages/projects/trance/website.html'),
+        YoutubeSection(title: "Demo Video",videoLink: 'https://youtu.be/vqNatIsuscQ'),
       ],
       timelineIcons: [
         Ionicons.bookmark_sharp,
@@ -357,11 +353,9 @@ List<Project> projects = [
         TableOfContentsComponent(title: "Description", subComponents: []),
         TableOfContentsComponent(title: "TechStack", subComponents: []),
         TableOfContentsComponent(title: "Website", subComponents: []),
-        TableOfContentsComponent(title: "Videos and Demos", subComponents: []),
+        TableOfContentsComponent(title: "Demo Video", subComponents: []),
       ],
-      youtubePlayers: [
-        Youtube(videoLink: 'https://youtu.be/vqNatIsuscQ'),
-      ]),
+  ),
   Project(
     title: ProjectNames.acharyaSetu,
     image: 'lib/assets/images/project_banners/acharya_setu.jpg',
@@ -370,11 +364,11 @@ List<Project> projects = [
     briefDescription:
         "My most ambitious project ever, This app aims to reduce a teacher's time in non teaching activities, since only 19% of a teachers time is actually sent on teaching. The app provides a huge set of features to manipulate and create questions at the click of a button.",
     description: '',
-    textSections: [
-      TextSection(title: "Description", bodyPath: 'lib/pages/projects/acharya_setu/description.html'),
-      TextSection(title: "Techstack", bodyPath: 'lib/pages/projects/acharya_setu/techstack.html'),
-      TextSection(title: "Features", bodyPath: 'lib/pages/projects/acharya_setu/features.html'),
-      TextSection(title: "Progress", bodyPath: 'lib/pages/projects/acharya_setu/progress.html'),
+    sections: [
+      HtmlSection(title: "Description", bodyPath: 'lib/pages/projects/acharya_setu/description.html'),
+      HtmlSection(title: "Techstack", bodyPath: 'lib/pages/projects/acharya_setu/techstack.html'),
+      HtmlSection(title: "Features", bodyPath: 'lib/pages/projects/acharya_setu/features.html'),
+      HtmlSection(title: "Progress", bodyPath: 'lib/pages/projects/acharya_setu/progress.html'),
     ],
     tableOfContents: [
       TableOfContentsComponent(title: "Description", subComponents: []),
@@ -405,9 +399,9 @@ List<Project> projects = [
     briefDescription:
         "A website to showcase myself, my work and progress in a beautiful website, with easy to digest descriptions of each and every one of my project. ",
     description: '',
-    textSections: [
-      TextSection(title: "Description", bodyPath: "lib/pages/projects/portfolio_website/description.html"),
-      TextSection(title: "Under Construction...", bodyPath: "lib/pages/templates/under_construction_template.html"),
+    sections: [
+      HtmlSection(title: "Description", bodyPath: "lib/pages/projects/portfolio_website/description.html"),
+      HtmlSection(title: "Under Construction...", bodyPath: "lib/pages/templates/under_construction_template.html"),
     ],
     tableOfContents: [TableOfContentsComponent(title: "Description", subComponents: [])],
     timelineIcons: [Ionicons.bookmark_sharp, EvaIcons.fileText, Ionicons.construct, LineIcons.hardHat],
@@ -424,9 +418,9 @@ List<Project> projects = [
     briefDescription:
         "A hospital management software fully implemented in C++ that keeps records of patients and assigns them a appointment time, with 30 minutes of gaps with no overlapping of appointments. This also comes with a search engine with filters to find patients. ",
     description: '',
-    textSections: [
-      TextSection(title: "Description", bodyPath: "lib/pages/projects/hospital_management_utility/description.html"),
-      TextSection(title: "Under Construction...", bodyPath: "lib/pages/templates/under_construction_template.html"),
+    sections: [
+      HtmlSection(title: "Description", bodyPath: "lib/pages/projects/hospital_management_utility/description.html"),
+      HtmlSection(title: "Under Construction...", bodyPath: "lib/pages/templates/under_construction_template.html"),
     ],
     tableOfContents: [TableOfContentsComponent(title: "Description", subComponents: [])],
     timelineIcons: [Ionicons.bookmark_sharp, EvaIcons.fileText, Ionicons.construct, LineIcons.hardHat],
@@ -443,17 +437,17 @@ List<Project> projects = [
     briefDescription:
         "My first Kaggle competition. This model predicts whether a person is going to buy a product based on a variety of factors ranging from time spent on product's page to current season to user's device info and bounce and exit rates. ",
     description: '',
-    textSections: [
-      TextSection(
+    sections: [
+      HtmlSection(
           title: "Description",
           bodyPath: "lib/pages/projects/ecommerce_shoppers_behaviour_and_understanding/description.html"),
-      TextSection(
+      HtmlSection(
           title: "Techstack",
           bodyPath: "lib/pages/projects/ecommerce_shoppers_behaviour_and_understanding/techstack.html"),
-      TextSection(
+      HtmlSection(
           title: "Classifiers Used",
           bodyPath: "lib/pages/projects/ecommerce_shoppers_behaviour_and_understanding/models.html"),
-      TextSection(
+      HtmlSection(
           title: "Results", bodyPath: "lib/pages/projects/ecommerce_shoppers_behaviour_and_understanding/results.html"),
     ],
     tableOfContents: [
@@ -485,9 +479,9 @@ List<Project> projects = [
     briefDescription:
         "This model predicts how much runs a team will score in the first 6 overs (also called power play). It uses data of players, their teams and the matches won by them, ever since the IPL started in 2008. ",
     description: '',
-    textSections: [
-      TextSection(title: "Description", bodyPath: "lib/pages/projects/data_into_ipl/description.html"),
-      TextSection(title: "Under Construction...", bodyPath: "lib/pages/templates/under_construction_template.html"),
+    sections: [
+      HtmlSection(title: "Description", bodyPath: "lib/pages/projects/data_into_ipl/description.html"),
+      HtmlSection(title: "Under Construction...", bodyPath: "lib/pages/templates/under_construction_template.html"),
     ],
     tableOfContents: [TableOfContentsComponent(title: "Description", subComponents: [])],
     timelineIcons: [Ionicons.bookmark_sharp, EvaIcons.fileText, Ionicons.construct, LineIcons.hardHat],
@@ -504,9 +498,9 @@ List<Project> projects = [
     briefDescription:
         "This is a Website that is supposed to fetch game prices from different platforms using web scraping and give you the best deal. Just like Trivago but for Games! ",
     description: '',
-    textSections: [
-      TextSection(title: "Description", bodyPath: "lib/pages/projects/kastor/description.html"),
-      TextSection(title: "Under Construction...", bodyPath: "lib/pages/templates/under_construction_template.html"),
+    sections: [
+      HtmlSection(title: "Description", bodyPath: "lib/pages/projects/kastor/description.html"),
+      HtmlSection(title: "Under Construction...", bodyPath: "lib/pages/templates/under_construction_template.html"),
     ],
     tableOfContents: [TableOfContentsComponent(title: "Description", subComponents: [])],
     timelineIcons: [Ionicons.bookmark_sharp, EvaIcons.fileText, Ionicons.construct, LineIcons.hardHat],
@@ -523,11 +517,11 @@ List<Project> projects = [
     briefDescription:
         "My first ever project! The classic snake game with a twist! It only updates the screen where data is updated. It records high score and saves it along with the options for snake customization as well!",
     description: '',
-    textSections: [
-      TextSection(title: "Description", bodyPath: "lib/pages/projects/classic_snake_ffps/description.html"),
-      TextSection(title: "Tech Stack", bodyPath: "lib/pages/projects/classic_snake_ffps/techstack.html"),
-      TextSection(title: "The Game", bodyPath: "lib/pages/projects/classic_snake_ffps/game.html"),
-      TextSection(title: "Conclusion", bodyPath: "lib/pages/projects/classic_snake_ffps/conclusion.html")
+    sections: [
+      HtmlSection(title: "Description", bodyPath: "lib/pages/projects/classic_snake_ffps/description.html"),
+      HtmlSection(title: "Tech Stack", bodyPath: "lib/pages/projects/classic_snake_ffps/techstack.html"),
+      HtmlSection(title: "The Game", bodyPath: "lib/pages/projects/classic_snake_ffps/game.html"),
+      HtmlSection(title: "Conclusion", bodyPath: "lib/pages/projects/classic_snake_ffps/conclusion.html")
     ],
     tableOfContents: [
       TableOfContentsComponent(title: "Description", subComponents: []),
@@ -558,9 +552,9 @@ List<Project> projects = [
     briefDescription:
         "This projects has my entire machine learning journey where I hard code and implement various machine learning algorithms from scratch without using any machine learning library. ",
     description: '',
-    textSections: [
-      TextSection(title: "Description", bodyPath: "lib/pages/projects/machine_learning/description.html"),
-      TextSection(title: "Under Construction...", bodyPath: "lib/pages/templates/under_construction_template.html"),
+    sections: [
+      HtmlSection(title: "Description", bodyPath: "lib/pages/projects/machine_learning/description.html"),
+      HtmlSection(title: "Under Construction...", bodyPath: "lib/pages/templates/under_construction_template.html"),
     ],
     tableOfContents: [TableOfContentsComponent(title: "Description", subComponents: [])],
     timelineIcons: [Ionicons.bookmark_sharp, EvaIcons.fileText, Ionicons.construct, LineIcons.hardHat],
@@ -577,9 +571,9 @@ List<Project> projects = [
     briefDescription:
         "A unique fusion of a chat app between whatsapp and discord that provides features like discord but with the easy to navigate UI of whatsapp like realtime chat apps.",
     description: '',
-    textSections: [
-      TextSection(title: "Description", bodyPath: "lib/pages/projects/letstalkk/description.html"),
-      TextSection(title: "Under Construction...", bodyPath: "lib/pages/templates/under_construction_template.html"),
+    sections: [
+      HtmlSection(title: "Description", bodyPath: "lib/pages/projects/letstalkk/description.html"),
+      HtmlSection(title: "Under Construction...", bodyPath: "lib/pages/templates/under_construction_template.html"),
     ],
     tableOfContents: [TableOfContentsComponent(title: "Description", subComponents: [])],
     timelineIcons: [Ionicons.bookmark_sharp, EvaIcons.fileText, Ionicons.construct, LineIcons.hardHat],
@@ -596,9 +590,9 @@ List<Project> projects = [
     briefDescription:
         "A web scraping project which scraps number of products category wise. It scrapes using Beautiful Soup and Selenium like libraries.",
     description: '',
-    textSections: [
-      TextSection(title: "Description", bodyPath: "lib/pages/projects/yoshop_web_scraper/description.html"),
-      TextSection(title: "Under Construction...", bodyPath: "lib/pages/templates/under_construction_template.html"),
+    sections: [
+      HtmlSection(title: "Description", bodyPath: "lib/pages/projects/yoshop_web_scraper/description.html"),
+      HtmlSection(title: "Under Construction...", bodyPath: "lib/pages/templates/under_construction_template.html"),
     ],
     tableOfContents: [TableOfContentsComponent(title: "Description", subComponents: [])],
     timelineIcons: [Ionicons.bookmark_sharp, EvaIcons.fileText, Ionicons.construct, LineIcons.hardHat],
@@ -614,9 +608,9 @@ List<Project> projects = [
     pagePath: '/home/Hola_bot',
     briefDescription: "A tri-wheeler holomorphic bot that is able to traverse and move its limbs in all directions.",
     description: '',
-    textSections: [
-      TextSection(title: "Description", bodyPath: "lib/pages/projects/holomorphic_bot/description.html"),
-      TextSection(title: "Description", bodyPath: "lib/pages/templates/under_construction_template.html"),
+    sections: [
+      HtmlSection(title: "Description", bodyPath: "lib/pages/projects/holomorphic_bot/description.html"),
+      HtmlSection(title: "Description", bodyPath: "lib/pages/templates/under_construction_template.html"),
     ],
     tableOfContents: [TableOfContentsComponent(title: "Description", subComponents: [])],
     timelineIcons: [Ionicons.bookmark_sharp, EvaIcons.fileText, Ionicons.construct, LineIcons.hardHat],

@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 
-class Youtube extends StatelessWidget {
-  Youtube({super.key, required this.videoLink});
+class YoutubeSection extends StatelessWidget{
+  YoutubeSection({super.key, required this.videoLink, required this.title});
 
   final String videoLink;
+  final String title;
 
   final _controller = YoutubePlayerController(
     params: const YoutubePlayerParams(
