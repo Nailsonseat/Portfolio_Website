@@ -146,7 +146,7 @@ class Assets {
   static const String projectsTableOfContentsHeader = 'lib/components/projects/table_of_contents_header.dart';
   static const String projectsTextSection = 'lib/components/projects/text_section.dart';
   static const String projectsTimeline = 'lib/components/projects/timeline.dart';
-  static const String projectsYoutubePlayer = 'lib/components/projects/youtube_player.dart';
+  static const String projectsYoutubeSection = 'lib/components/projects/youtube_section.dart';
   static const String providersChatbotProvider = 'lib/providers/chatbot_provider.dart';
   static const String providersLaunchPageAnimationProvider = 'lib/providers/launch_page_animation_provider.dart';
   static const String providersProjectComponentConstraintProvider = 'lib/providers/project_component_constraint_provider.dart';
@@ -159,14 +159,14 @@ class Assets {
   static const String samsungSolveForTomorrowNextStep = 'lib/pages/projects/samsung_solve_for_tomorrow/next_step.html';
   static const String samsungSolveForTomorrowShortlist = 'lib/assets/images/project_images/samsung_solve_for_tomorrow/shortlist.png';
   static const String samsungSolveForTomorrowWorkflow = 'lib/assets/images/project_images/samsung_solve_for_tomorrow/workflow.png';
-  static const String shellAiDescription = 'lib/pages/projects/shell_ai/description.html';
   static const String shellAiHackathonClustered = 'lib/assets/images/project_images/shell_ai_hackathon/clustered.png';
+  static const String shellAiHackathonDescription = 'lib/pages/projects/shell_ai_hackathon/description.html';
   static const String shellAiHackathonInitialBiomass = 'lib/assets/images/project_images/shell_ai_hackathon/initial_biomass.png';
+  static const String shellAiHackathonProject = 'lib/pages/projects/shell_ai_hackathon/project.html';
+  static const String shellAiHackathonResults = 'lib/pages/projects/shell_ai_hackathon/results.html';
   static const String shellAiHackathonSolutionFlow = 'lib/assets/images/project_images/shell_ai_hackathon/solution_flow.png';
+  static const String shellAiHackathonTechstack = 'lib/pages/projects/shell_ai_hackathon/techstack.html';
   static const String shellAiHackathonUnclustered = 'lib/assets/images/project_images/shell_ai_hackathon/unclustered.png';
-  static const String shellAiProject = 'lib/pages/projects/shell_ai/project.html';
-  static const String shellAiResults = 'lib/pages/projects/shell_ai/results.html';
-  static const String shellAiTechstack = 'lib/pages/projects/shell_ai/techstack.html';
   static const String smartIndiaHackathon2023AsaanAuthentication = 'lib/assets/images/project_images/smart_india_hackathon_2023/asaan_authentication.png';
   static const String smartIndiaHackathon2023AsaanClassificationModelAbstract = 'lib/assets/images/project_images/smart_india_hackathon_2023/asaan_classification_model_abstract.png';
   static const String smartIndiaHackathon2023AsaanWorkflow = 'lib/assets/images/project_images/smart_india_hackathon_2023/asaan_workflow.png';
