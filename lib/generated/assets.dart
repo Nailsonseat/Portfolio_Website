@@ -174,6 +174,8 @@ class Assets {
   static const String smartIndiaHackathon2023Description = 'lib/pages/projects/smart_india_hackathon_2023/description.html';
   static const String smartIndiaHackathon2023InternalResults = 'lib/assets/images/project_images/smart_india_hackathon_2023/internal_results.jpeg';
   static const String smartIndiaHackathon2023Internals = 'lib/pages/projects/smart_india_hackathon_2023/internals.html';
+  static const String smartIndiaHackathon2023Presentation = 'lib/pages/projects/smart_india_hackathon_2023/presentation.pdf';
+  static const String smartIndiaHackathon2023Prospective = 'lib/pages/projects/smart_india_hackathon_2023/prospective.pdf';
   static const String techStackAxios = 'lib/assets/icons/tech_stack/axios.svg';
   static const String techStackBloc = 'lib/assets/icons/tech_stack/bloc.svg';
   static const String techStackBootstrap = 'lib/assets/icons/tech_stack/bootstrap.svg';
