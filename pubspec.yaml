@@ -66,6 +66,7 @@ dependencies:
   flutter_html_iframe: ^3.0.0-beta.2
   flutter_html_video: ^3.0.0-beta.2
   youtube_player_iframe: ^5.1.3
+  syncfusion_flutter_pdfviewer: ^26.1.41
 
 dev_dependencies:
   flutter_test:
