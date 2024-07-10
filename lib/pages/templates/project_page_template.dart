@@ -11,6 +11,7 @@ import 'package:line_icons/line_icons.dart';
 import 'package:logger/logger.dart';
 import 'package:portfolio_website/components/projects/banner_image.dart';
 import 'package:portfolio_website/components/projects/banner_title.dart';
+import 'package:portfolio_website/components/projects/pdf_section.dart';
 import 'package:portfolio_website/components/projects/project_component.dart';
 import 'package:portfolio_website/components/projects/table_of_contents.dart';
 import 'package:portfolio_website/components/projects/timeline.dart';
@@ -167,6 +168,19 @@ class ProjectPageTemplate extends StatelessWidget {
             child: sections[i],
           ),
         );
+      } else if(sections[i] is PDFSection){
+        builtSections.add(
+          Container(
+            margin: EdgeInsets.symmetric(
+                vertical: isLengthGreaterThanWidth ? 20 : 60, horizontal: isLengthGreaterThanWidth ? 30 : 56),
+            // width / 35.74),
+            padding: isLengthGreaterThanWidth ? const EdgeInsets.all(40) : const EdgeInsets.all(80),
+            //width / 24.675),
+            decoration: BoxDecoration(color: secondaryColor, borderRadius: BorderRadius.circular(30)),
+            child: sections[i],
+          ),
+        );
+
       }
     }
     return builtSections;
@@ -231,138 +245,145 @@ class ProjectPageTemplate extends StatelessWidget {
               )
             : null,
         backgroundColor: Colors.white,
-        body: SingleChildScrollView(
-          controller: scrollProvider.detailedProjectScrollController,
-          scrollDirection: Axis.vertical,
+        body: RawScrollbar(
+          thumbVisibility: true,
+        controller: scrollProvider.detailedProjectScrollController,
+          thumbColor: primaryColor,
+          radius: const Radius.circular(16),
+          thickness: 22,
           child: SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: SizedBox(
-              width: width,
-              child: Stack(
-                children: [
-                  Column(
-                    children: <Widget>[
-                      Stack(
-                        children: [
-                          BannerImage(
-                              height: _projectBannerHeight(height),
-                              width: _projectBannerWidth(width),
-                              image: bannerImage),
-                          BannerTitle(
-                              height: _projectBannerHeight(height),
-                              width: _projectBannerWidth(width),
-                              title: projectTitle)
-                        ],
-                      ),
-                      Container(
-                        padding: EdgeInsets.only(top: isLengthGreaterThanWidth ? 100 : 200), //width / 9.87), // 200
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.grey.withOpacity(0.5),
-                              spreadRadius: 5,
-                              blurRadius: 10,
-                              offset: const Offset(0, 3), // changes the position of the shadow
-                            ),
+            controller: scrollProvider.detailedProjectScrollController,
+            scrollDirection: Axis.vertical,
+            child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: SizedBox(
+                width: width,
+                child: Stack(
+                  children: [
+                    Column(
+                      children: <Widget>[
+                        Stack(
+                          children: [
+                            BannerImage(
+                                height: _projectBannerHeight(height),
+                                width: _projectBannerWidth(width),
+                                image: bannerImage),
+                            BannerTitle(
+                                height: _projectBannerHeight(height),
+                                width: _projectBannerWidth(width),
+                                title: projectTitle)
                           ],
                         ),
-                        width: width,
-                        child: IntrinsicHeight(
-                          child: Row(
-                            children: [
-                              if (!isLengthGreaterThanWidth)
-                                Expanded(
-                                  flex: 3,
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                      borderRadius: const BorderRadius.only(topRight: Radius.circular(50)),
-                                      color: secondaryColor,
-                                    ),
-                                    child: Column(
-                                      children: <Widget>[
-                                        Consumer<ScrollProvider>(builder: (_, scrollProvider, __) {
-                                          return SizedBox(height: 0 + scrollProvider.tableOfContentsOffset);
-                                        }),
-                                        Stack(children: [
-                                          ClipRRect(
-                                            borderRadius: const BorderRadius.only(topRight: Radius.circular(50)),
-                                            child: CustomPaint(
-                                              size: Size(width * 0.3, (300).toDouble()),
-                                              //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
-                                              painter: TOCHeader(shapeColor: primaryColor),
-                                            ),
-                                          ),
-                                          Column(
-                                            children: [
-                                              Container(
-                                                height: 150, // height / 8.0615384615,
-                                                margin: const EdgeInsets.only(bottom: 30),
-                                                alignment: Alignment.center,
-                                                child: const Text(
-                                                  'Table of contents',
-                                                  style: TextStyle(
-                                                    fontSize: 35, //width / 56.4,
-                                                    color: Colors.white,
-                                                  ),
-                                                ),
-                                              ),
-                                              Consumer<ProjectComponentsConstraintsProvider>(
-                                                builder: (context, componentsConstraintsProvider, child) {
-                                                  return TableOfContents(
-                                                    tableOfContents: tableOfContents,
-                                                    fontColor: primaryColor,
-                                                  );
-                                                },
-                                              )
-                                            ],
-                                          ),
-                                        ]),
-                                        //Image.asset("lib/assets/images/miscellaneous/under_construction.png")
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              Expanded(
-                                flex: 10,
-                                child: Padding(
-                                  padding: EdgeInsets.symmetric(horizontal: isLengthGreaterThanWidth ? 0 : 55),
-                                  //width / 35.74), // 100
-                                  child: SingleChildScrollView(
-                                    child: ProjectTimeLine(
-                                      sections: _buildTextSections(
-                                          sections, componentsConstraintsProvider, isLengthGreaterThanWidth),
-                                      timelineIcons: timelineIcons,
-                                      timelineBlockColor: primaryColor,
-                                    ),
-                                  ),
-                                ),
+                        Container(
+                          padding: EdgeInsets.only(top: isLengthGreaterThanWidth ? 100 : 200), //width / 9.87), // 200
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey.withOpacity(0.5),
+                                spreadRadius: 5,
+                                blurRadius: 10,
+                                offset: const Offset(0, 3), // changes the position of the shadow
                               ),
                             ],
                           ),
+                          width: width,
+                          child: IntrinsicHeight(
+                            child: Row(
+                              children: [
+                                if (!isLengthGreaterThanWidth)
+                                  Expanded(
+                                    flex: 3,
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                        borderRadius: const BorderRadius.only(topRight: Radius.circular(50)),
+                                        color: secondaryColor,
+                                      ),
+                                      child: Column(
+                                        children: <Widget>[
+                                          Consumer<ScrollProvider>(builder: (_, scrollProvider, __) {
+                                            return SizedBox(height: 0 + scrollProvider.tableOfContentsOffset);
+                                          }),
+                                          Stack(children: [
+                                            ClipRRect(
+                                              borderRadius: const BorderRadius.only(topRight: Radius.circular(50)),
+                                              child: CustomPaint(
+                                                size: Size(width * 0.3, (300).toDouble()),
+                                                //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
+                                                painter: TOCHeader(shapeColor: primaryColor),
+                                              ),
+                                            ),
+                                            Column(
+                                              children: [
+                                                Container(
+                                                  height: 150, // height / 8.0615384615,
+                                                  margin: const EdgeInsets.only(bottom: 30),
+                                                  alignment: Alignment.center,
+                                                  child: const Text(
+                                                    'Table of contents',
+                                                    style: TextStyle(
+                                                      fontSize: 35, //width / 56.4,
+                                                      color: Colors.white,
+                                                    ),
+                                                  ),
+                                                ),
+                                                Consumer<ProjectComponentsConstraintsProvider>(
+                                                  builder: (context, componentsConstraintsProvider, child) {
+                                                    return TableOfContents(
+                                                      tableOfContents: tableOfContents,
+                                                      fontColor: primaryColor,
+                                                    );
+                                                  },
+                                                )
+                                              ],
+                                            ),
+                                          ]),
+                                          //Image.asset("lib/assets/images/miscellaneous/under_construction.png")
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                Expanded(
+                                  flex: 10,
+                                  child: Padding(
+                                    padding: EdgeInsets.symmetric(horizontal: isLengthGreaterThanWidth ? 0 : 55),
+                                    //width / 35.74), // 100
+                                    child: SingleChildScrollView(
+                                      child: ProjectTimeLine(
+                                        sections: _buildTextSections(
+                                            sections, componentsConstraintsProvider, isLengthGreaterThanWidth),
+                                        timelineIcons: timelineIcons,
+                                        timelineBlockColor: primaryColor,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
                         ),
-                      ),
-                    ],
-                  ),
-                  Positioned(
-                    top: _projectBannerHeight(height) - 40,
-                    left: width / 2 - 40,
-                    child: SizedBox(
-                      width: 80, //width / 24.675,
-                      height: 80,
-                      child: FloatingActionButton(
-                        backgroundColor: secondaryColor,
-                        onPressed: () => scrollProvider.scrollToProjectDescription(_projectBannerHeight(height) + 150),
-                        // width / 13.16 = 150
-                        shape: const CircleBorder(),
-                        child: const Icon(
-                          LineIcons.arrowDown,
-                          size: 30, //width / 65.8,
-                        ),
-                      ),
+                      ],
                     ),
-                  )
-                ],
+                    Positioned(
+                      top: _projectBannerHeight(height) - 40,
+                      left: width / 2 - 40,
+                      child: SizedBox(
+                        width: 80, //width / 24.675,
+                        height: 80,
+                        child: FloatingActionButton(
+                          backgroundColor: secondaryColor,
+                          onPressed: () => scrollProvider.scrollToProjectDescription(_projectBannerHeight(height) + 150),
+                          // width / 13.16 = 150
+                          shape: const CircleBorder(),
+                          child: const Icon(
+                            LineIcons.arrowDown,
+                            size: 30, //width / 65.8,
+                          ),
+                        ),
+                      ),
+                    )
+                  ],
+                ),
               ),
             ),
           ),
