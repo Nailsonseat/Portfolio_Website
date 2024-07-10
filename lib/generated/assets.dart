@@ -30,6 +30,11 @@ class Assets {
   static const String browserPagesAllProjectsPage = 'lib/pages/project_browser/browser_pages/all_projects_page.dart';
   static const String browserPagesDevelopmentsProjectsPage = 'lib/pages/project_browser/browser_pages/developments_projects_page.dart';
   static const String browserPagesMlProjectsPage = 'lib/pages/project_browser/browser_pages/ml_projects_page.dart';
+  static const String businessDataManagementDescription = 'lib/pages/projects/business_data_management/description.html';
+  static const String businessDataManagementFinalSubmission = 'lib/pages/projects/business_data_management/final_submission.pdf';
+  static const String businessDataManagementMidReport = 'lib/pages/projects/business_data_management/mid_report.pdf';
+  static const String businessDataManagementPresentation = 'lib/pages/projects/business_data_management/presentation.pdf';
+  static const String businessDataManagementProposal = 'lib/pages/projects/business_data_management/proposal.pdf';
   static const String chatbotChatbot = 'lib/chatbot/chatbot.dart';
   static const String classicSnakeFfpsConclusion = 'lib/pages/projects/classic_snake_ffps/conclusion.html';
   static const String classicSnakeFfpsDescription = 'lib/pages/projects/classic_snake_ffps/description.html';
@@ -118,6 +123,7 @@ class Assets {
   static const String profilePicProfilePic = 'lib/assets/images/profile_pic/profile_pic.png';
   static const String profilePicProfilePicFlipped = 'lib/assets/images/profile_pic/profile_pic_flipped.png';
   static const String projectBannersAcharyaSetu = 'lib/assets/images/project_banners/acharya_setu.jpg';
+  static const String projectBannersBusinessDataManagement = 'lib/assets/images/project_banners/business_data_management.jpg';
   static const String projectBannersDataInIpl = 'lib/assets/images/project_banners/data_in_ipl.png';
   static const String projectBannersECommerceBehaviourUnderstanding = 'lib/assets/images/project_banners/e_commerce_behaviour_understanding.png';
   static const String projectBannersFossOverflow = 'lib/assets/images/project_banners/foss_overflow.png';
