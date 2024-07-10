@@ -149,6 +149,12 @@ final GoRouter routes = GoRouter(
                 child: getProjectPageTemplate(ProjectNames.shellAIHackathon),
               ),
             ),
+            GoRoute(
+              path: 'Business_Data_Management',
+              pageBuilder: (context, state) => MaterialPage(
+                child: getProjectPageTemplate(ProjectNames.businessDataManagement),
+              ),
+            ),
           ],
         ),
       ],
