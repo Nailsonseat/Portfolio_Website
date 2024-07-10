@@ -37,7 +37,7 @@ class ScrollProvider extends ChangeNotifier {
 
   void tableOfContentsListener(double height, double width) {
     if (_detailedProjectScrollController.offset > height) {
-      tableOfContentsOffset = max(0, _detailedProjectScrollController.offset - height - width / 9.87);
+      tableOfContentsOffset = max(0, _detailedProjectScrollController.offset - height - 50);
     } else {
       tableOfContentsOffset = 0;
     }
