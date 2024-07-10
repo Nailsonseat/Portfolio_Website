@@ -160,7 +160,7 @@ List<Project> projects = [
           title: 'Our Project Report',
           pdfPath: 'lib/assets/images/project_images/smart_india_hackathon_2023/aapda _sanketak_prospective_final.pdf'),
       HtmlSection(
-          title: "Internal Hackathon Results",
+          title: "Hackathon Results",
           bodyPath: 'lib/pages/projects/smart_india_hackathon_2023/internals.html'),
     ],
     timelineIcons: [
@@ -178,7 +178,7 @@ List<Project> projects = [
       TableOfContentsComponent(title: "Description", subComponents: []),
       TableOfContentsComponent(title: "Our Presentation", subComponents: []),
       TableOfContentsComponent(title: "Our Project Report", subComponents: []),
-      TableOfContentsComponent(title: "Internal Hackathon Results", subComponents: []),
+      TableOfContentsComponent(title: "Hackathon Results", subComponents: []),
     ],
   ),
   Project(
