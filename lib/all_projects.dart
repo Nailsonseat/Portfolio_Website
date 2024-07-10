@@ -158,7 +158,7 @@ List<Project> projects = [
           pdfPath: 'lib/assets/images/project_images/smart_india_hackathon_2023/presentation.pdf'),
       const PDFSection(
           title: 'Our Project Report',
-          pdfPath: 'lib/assets/images/project_images/smart_india_hackathon_2023/aapda _sanketak_prospective_final.pdf'),
+          pdfPath: 'lib/assets/images/project_images/smart_india_hackathon_2023/prospective.pdf'),
       HtmlSection(
           title: "Hackathon Results",
           bodyPath: 'lib/pages/projects/smart_india_hackathon_2023/internals.html'),
