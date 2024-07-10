@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 
 class ProjectComponentsConstraintsProvider extends ChangeNotifier {
-  late List<GlobalKey> textKeys;
+  late List<GlobalKey> sectionKeys;
   late List<GlobalKey> titleKeys;
   late List<double> textContainerHeights;
   late List<double> titleContainerHeights;
@@ -29,9 +29,9 @@ class ProjectComponentsConstraintsProvider extends ChangeNotifier {
   }
 
   void setTextContainerHeight() {
-    for (int i = 0; i < textKeys.length; i++) {
-      if(textKeys[i].currentContext == null) break; // Add this line to prevent null pointer exception
-      RenderBox textContainerRenderer = textKeys[i].currentContext!.findRenderObject() as RenderBox;
+    for (int i = 0; i < sectionKeys.length; i++) {
+      if(sectionKeys[i].currentContext == null) continue; // Add this line to prevent null pointer exception
+      RenderBox textContainerRenderer = sectionKeys[i].currentContext!.findRenderObject() as RenderBox;
       textContainerHeights[i] = textContainerRenderer.size.height;
     }
     notifyListeners();
