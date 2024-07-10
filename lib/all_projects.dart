@@ -155,7 +155,7 @@ List<Project> projects = [
       HtmlSection(title: "Description", bodyPath: 'lib/pages/projects/smart_india_hackathon_2023/description.html'),
       const PDFSection(
           title: 'Our Presentation',
-          pdfPath: 'https://raw.githubusercontent.com/Nailsonseat/Portfolio_Website/master/lib/pages/projects/smart_india_hackathon_2023/prospective.pdf'),
+          pdfPath: 'https://raw.githubusercontent.com/Nailsonseat/Portfolio_Website/master/lib/pages/projects/smart_india_hackathon_2023/presentation.pdf'),
       const PDFSection(
           title: 'Our Project Report',
           pdfPath: 'https://raw.githubusercontent.com/Nailsonseat/Portfolio_Website/master/lib/pages/projects/smart_india_hackathon_2023/prospective.pdf'),
