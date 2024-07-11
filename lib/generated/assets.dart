@@ -137,6 +137,7 @@ class Assets {
   static const String projectBannersOndc = 'lib/assets/images/project_banners/ondc.png';
   static const String projectBannersPortfolio = 'lib/assets/images/project_banners/portfolio.png';
   static const String projectBannersSamsungSolveForTomorrow = 'lib/assets/images/project_banners/samsung_solve_for_tomorrow.jpg';
+  static const String projectBannersSeekNext = 'lib/assets/images/project_banners/seek_next.jpg';
   static const String projectBannersShell = 'lib/assets/images/project_banners/shell.jpg';
   static const String projectBannersSmartIndiaHackathon2023 = 'lib/assets/images/project_banners/smart_india_hackathon_2023.png';
   static const String projectBannersSnake = 'lib/assets/images/project_banners/snake.png';
@@ -149,6 +150,8 @@ class Assets {
   static const String projectsBannerTitle = 'lib/components/projects/banner_title.dart';
   static const String projectsPdfSection = 'lib/components/projects/pdf_section.dart';
   static const String projectsProjectComponent = 'lib/components/projects/project_component.dart';
+  static const String projectsSeekNextMilestoneOne = 'lib/pages/projects/seek_next/milestone_one.html';
+  static const String projectsSeekNextMilestoneTwo = 'lib/pages/projects/seek_next/milestone_two.html';
   static const String projectsTableOfContents = 'lib/components/projects/table_of_contents.dart';
   static const String projectsTableOfContentsHeader = 'lib/components/projects/table_of_contents_header.dart';
   static const String projectsTextSection = 'lib/components/projects/text_section.dart';
@@ -166,6 +169,11 @@ class Assets {
   static const String samsungSolveForTomorrowNextStep = 'lib/pages/projects/samsung_solve_for_tomorrow/next_step.html';
   static const String samsungSolveForTomorrowShortlist = 'lib/assets/images/project_images/samsung_solve_for_tomorrow/shortlist.png';
   static const String samsungSolveForTomorrowWorkflow = 'lib/assets/images/project_images/samsung_solve_for_tomorrow/workflow.png';
+  static const String seekNextDescription = 'lib/pages/projects/seek_next/description.html';
+  static const String seekNextInProgress = 'lib/pages/projects/seek_next/in_progress.html';
+  static const String seekNextMilestoneOne = 'lib/pages/projects/seek_next/milestone_one.pdf';
+  static const String seekNextMilestoneThree = 'lib/pages/projects/seek_next/milestone_three.html';
+  static const String seekNextMilestoneTwo = 'lib/pages/projects/seek_next/milestone_two.pdf';
   static const String shellAiHackathonClustered = 'lib/assets/images/project_images/shell_ai_hackathon/clustered.png';
   static const String shellAiHackathonDescription = 'lib/pages/projects/shell_ai_hackathon/description.html';
   static const String shellAiHackathonInitialBiomass = 'lib/assets/images/project_images/shell_ai_hackathon/initial_biomass.png';

@@ -155,6 +155,12 @@ final GoRouter routes = GoRouter(
                 child: getProjectPageTemplate(ProjectNames.businessDataManagement),
               ),
             ),
+            GoRoute(
+              path: 'Seek_Next',
+              pageBuilder: (context, state) => MaterialPage(
+                child: getProjectPageTemplate(ProjectNames.seekNext),
+              ),
+            )
           ],
         ),
       ],
