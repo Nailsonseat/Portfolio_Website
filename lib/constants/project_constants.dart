@@ -21,4 +21,5 @@ class ProjectNames{
   static String samsungSolveForTomorrow = "Samsung Solve For Tomorrow";
   static String shellAIHackathon = "Shell AI Hackathon";
   static String businessDataManagement = "Business Data Management";
+  static String seekNext = "Seek Next";
 }
