@@ -109,7 +109,7 @@ List<Project> projects = [
       HtmlSection(title: "Description", bodyPath: "lib/pages/projects/ondc_build_for_bharat/description.html"),
       HtmlSection(title: "Conditions", bodyPath: "lib/pages/projects/ondc_build_for_bharat/conditions.html"),
       HtmlSection(title: "Team", bodyPath: "lib/pages/projects/ondc_build_for_bharat/team.html"),
-      HtmlSection(title: "Project", bodyPath: "lib/pages/projects/ondc_build_for_bharat/project.html"),
+      HtmlSection(title: "Project", bodyPath: "lib/pages/projects/ondc_build_for_bharat/dataset.html"),
       HtmlSection(title: "Conclusion", bodyPath: "lib/pages/projects/ondc_build_for_bharat/conclusion.html"),
     ],
     tableOfContents: [
@@ -247,7 +247,7 @@ List<Project> projects = [
     sections: [
       HtmlSection(title: "Description", bodyPath: 'lib/pages/projects/shell_ai_hackathon/description.html'),
       HtmlSection(title: "Tech Stack", bodyPath: 'lib/pages/projects/shell_ai_hackathon/techstack.html'),
-      HtmlSection(title: "Project", bodyPath: 'lib/pages/projects/shell_ai_hackathon/project.html'),
+      HtmlSection(title: "Project", bodyPath: 'lib/pages/projects/shell_ai_hackathon/dataset.html'),
       HtmlSection(title: "Results", bodyPath: 'lib/pages/projects/shell_ai_hackathon/results.html'),
     ],
     timelineIcons: [
@@ -546,10 +546,26 @@ List<Project> projects = [
     description: '',
     sections: [
       HtmlSection(title: "Description", bodyPath: "lib/pages/projects/data_into_ipl/description.html"),
-      HtmlSection(title: "Under Construction...", bodyPath: "lib/pages/templates/under_construction_template.html"),
+      HtmlSection(title: "Dataset", bodyPath: "lib/pages/projects/data_into_ipl/dataset.html"),
+      HtmlSection(title: "Project", bodyPath: "lib/pages/projects/data_into_ipl/project.html"),
+      HtmlSection(title: "Results", bodyPath: "lib/pages/projects/data_into_ipl/results.html"),
     ],
-    tableOfContents: [TableOfContentsComponent(title: "Description", subComponents: [])],
-    timelineIcons: [Ionicons.bookmark_sharp, EvaIcons.fileText, Ionicons.construct, LineIcons.hardHat],
+    tableOfContents: [
+      TableOfContentsComponent(title: "Description", subComponents: []),
+      TableOfContentsComponent(title: "Dataset", subComponents: []),
+      TableOfContentsComponent(title: "Project", subComponents: []),
+      TableOfContentsComponent(title: "Results", subComponents: []),
+    ],
+    timelineIcons: [
+      Ionicons.bookmark_sharp,
+      EvaIcons.fileText,
+      Ionicons.construct,
+      LineIcons.hardHat,
+      LineIcons.toolbox,
+      LineIcons.tools,
+      LineIcons.award,
+      EvaIcons.bulbOutline,
+    ],
     buttonSecondaryColor: HexColor('#e9f6c7'),
     buttonPrimaryColor: HexColor('#086b2a'),
     secondaryColor: HexColor('#a4da0c'),

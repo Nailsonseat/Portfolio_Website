@@ -150,6 +150,7 @@ flutter:
     - lib/pages/projects/grocery_mandi/
     - lib/pages/projects/shell_ai_hackathon/
     - lib/pages/projects/business_data_management/
+    - lib/pages/projects/data_into_ipl/
     - lib/pages/templates/
     - lib/assets/icons/tech_stack/
     - lib/assets/images/project_banners/
@@ -163,4 +164,5 @@ flutter:
     - lib/assets/images/project_images/smart_india_hackathon_2023/
     - lib/assets/images/project_images/samsung_solve_for_tomorrow/
     - lib/assets/images/project_images/shell_ai_hackathon/
+    - lib/assets/images/project_images/data_into_ipl/
 

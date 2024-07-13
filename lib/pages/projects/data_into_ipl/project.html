@@ -1,0 +1,23 @@
+<div>
+    At first we started to search the data top to bottom and concluded that the team in which the
+    player does not matter as the players change team every season depending on the auction for
+    players, so we only focused on the player and the performance of the player in the match. We
+    used the batter and bowler data to calculate performance of each batter and bowler in the
+    matches. And we introduced generalization in the models to handle a batter and bowler who have
+    never been paired in the history of IPL from 2007.
+
+    <br><br>
+    We check the histogram for the frequency of the runs scored by the batters and bowlers in the
+    dataset.
+    <br><br>
+
+    <img src="asset:lib/assets/images/project_images/data_into_ipl/histogram.png"
+         alt="Histogram Image"/>
+
+    <br><br>
+    We made a list of possible runs that can be scored by a batter and bowler in a delivery as
+    [0,1,2,3,4,5,6,7]. Then we created a classifier model to predict the runs scored by a batter in
+    a
+    delivery and the multiply the run per delivery by 36 to get the total runs scored by the team in
+    the power play.
+</div>
