@@ -9,8 +9,12 @@ import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../chatbot/chatbot.dart';
 import '../../components/home/page_one_button_gradient.dart';
+import '../../components/home/page_one_button_gradient_three.dart';
+import '../../components/home/page_one_button_gradient_two.dart';
 import '../../components/home/page_one_profile_pic_background.dart';
 import 'package:just_the_tooltip/just_the_tooltip.dart';
+
+import '../../components/home/resume_dialog.dart';
 
 class HomeLandingPage extends StatelessWidget {
   const HomeLandingPage({super.key});
@@ -92,14 +96,14 @@ class HomeLandingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double width = 1978;
-    double height =  MediaQuery.of(context).size.height;
+    double height = MediaQuery.of(context).size.height;
 
     final tooltipController = JustTheController();
 
     bool isLengthGreaterThanWidth = MediaQuery.of(context).size.height > MediaQuery.of(context).size.width;
 
     Future.delayed(const Duration(milliseconds: 1000), () {
-      if(!isLengthGreaterThanWidth) {
+      if (!isLengthGreaterThanWidth) {
         tooltipController.showTooltip(immediately: false);
       }
     });
@@ -178,7 +182,7 @@ class HomeLandingPage extends StatelessWidget {
                   Container(
                     margin: const EdgeInsets.only(top: 20),
                     height: 80,
-                    width: 625,
+                    width: 590,
                     decoration: BoxDecoration(color: Colors.grey[200], borderRadius: BorderRadius.circular(40)),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -221,80 +225,144 @@ class HomeLandingPage extends StatelessWidget {
                           iconSize: 45,
                           color: Colors.green,
                         ),
-                        JustTheTooltip(
-                          controller: tooltipController,
-                          barrierDismissible: false,
-                          content: const Padding(
-                            padding: EdgeInsets.all(16.0),
-                            child: Text(
-                              'Chat with Aadarsh AI (Alpha)',
-                            ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 50),
+                  SizedBox(
+                    width: 600,
+                    height: 50,
+                    child: Row(
+                      children: [
+                        SizedBox(
+                          width: 200,
+                          height: 50,
+                          child: Stack(
+                            children: [
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(10.0),
+                                // Adjust the border radius as needed
+                                child: CustomPaint(
+                                  size: Size(width, (width * 1).toDouble()),
+                                  painter: ButtonGradient(),
+                                ), // Your custom paint widget
+                              ), // Your custom paint widget
+                              SizedBox(
+                                width: 200,
+                                height: 50,
+                                child: TextButton(
+                                  onPressed: () => Provider.of<ScrollProvider>(context, listen: false)
+                                      .scrollToProjects(scrollProvider.scrollKeyHomePage),
+                                  style: TextButton.styleFrom(
+                                    backgroundColor: Colors.transparent,
+                                    padding: EdgeInsets.zero,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(10.0),
+                                    ),
+                                    elevation: 0,
+                                  ),
+                                  child: Text(
+                                    "See My Work",
+                                    style: TextStyle(fontSize: 20, color: Colors.grey[100]),
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
-                          child: IconButton(
-                            onPressed: () => showDialog(
-                              context: context,
-                              builder: (BuildContext context) {
-                                return const ChatGPTDialog();
-                              },
-                            ),
-                            icon: SizedBox(
-                              width: 55,
-                              height: 55,
-                              child: Image.asset('lib/assets/icons/chatbot.png'),
-                            ),
-                            color: Colors.orange,
+                        ),
+                        const SizedBox(width: 100),
+                        SizedBox(
+                          width: 200,
+                          height: 50,
+                          child: Stack(
+                            children: [
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(10.0),
+                                // Adjust the border radius as needed
+                                child: CustomPaint(
+                                  size: Size(width, (width * 1).toDouble()),
+                                  painter: ButtonGradientTwo(),
+                                ), // Your custom paint widget
+                              ), // Your custom paint widget
+                              SizedBox(
+                                width: 200,
+                                height: 50,
+                                child: TextButton(
+                                  onPressed: () => showDialog(
+                                    context: context,
+                                    builder: (BuildContext context) {
+                                      return const ResumeDialog();
+                                    },
+                                  ),
+                                  style: TextButton.styleFrom(
+                                    backgroundColor: Colors.transparent,
+                                    padding: EdgeInsets.zero,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(10.0),
+                                    ),
+                                    elevation: 0,
+                                  ),
+                                  child: Text(
+                                    "Resume",
+                                    style: TextStyle(fontSize: 20, color: Colors.grey[100]),
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                       ],
                     ),
                   ),
                   const SizedBox(height: 50),
-                  Container(
-                    width: 200,
-                    height: 50,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(5.0),
-                      color: Colors.transparent,
-                      // Set the background color to transparent
-                      boxShadow: const [
-                        BoxShadow(
-                          color: Colors.grey,
-                          offset: Offset(0, 2),
-                          blurRadius: 4.0,
-                        ),
-                      ],
+                  JustTheTooltip(
+                    controller: tooltipController,
+                    barrierDismissible: false,
+                    content: const Padding(
+                      padding: EdgeInsets.all(16.0),
+                      child: Text(
+                        'Chat with Aadarsh AI',
+                      ),
                     ),
-                    child: Stack(
-                      children: [
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(10.0),
-                          // Adjust the border radius as needed
-                          child: CustomPaint(
-                            size: Size(width, (width * 1).toDouble()),
-                            painter: ButtonGradient(),
+                    child: SizedBox(
+                      width: 200,
+                      height: 50,
+                      child: Stack(
+                        children: [
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(10.0),
+                            // Adjust the border radius as needed
+                            child: CustomPaint(
+                              size: Size(width, (width * 1).toDouble()),
+                              painter: ButtonGradientThree(),
+                            ), // Your custom paint widget
                           ), // Your custom paint widget
-                        ), // Your custom paint widget
-                        SizedBox(
-                          width: 200,
-                          height: 50,
-                          child: TextButton(
-                            onPressed: () =>
-                                Provider.of<ScrollProvider>(context, listen: false).scrollToProjects(scrollProvider.scrollKeyHomePage),
-                            style: TextButton.styleFrom(
-                              backgroundColor: Colors.transparent,
-                              padding: EdgeInsets.zero,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10.0),
+                          SizedBox(
+                            width: 200,
+                            height: 50,
+                            child: TextButton(
+                              onPressed: () => showDialog(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return const ChatGPTDialog();
+                                },
                               ),
-                              elevation: 0,
-                            ),
-                            child: Text(
-                              "See My Work",
-                              style: TextStyle(fontSize: 20, color: Colors.grey[100]),
+                              style: TextButton.styleFrom(
+                                backgroundColor: Colors.transparent,
+                                padding: EdgeInsets.zero,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                ),
+                                elevation: 0,
+                              ),
+                              child: Text(
+                                "Chat with me (AI)",
+                                style: TextStyle(fontSize: 20, color: Colors.grey[100]),
+                              ),
                             ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
                 ],
@@ -376,8 +444,8 @@ class HomeLandingPage extends StatelessWidget {
                           width: 200,
                           height: 50,
                           child: TextButton(
-                            onPressed: () =>
-                                Provider.of<ScrollProvider>(context, listen: false).scrollToProjects(scrollProvider.scrollKeyHomePage),
+                            onPressed: () => Provider.of<ScrollProvider>(context, listen: false)
+                                .scrollToProjects(scrollProvider.scrollKeyHomePage),
                             style: TextButton.styleFrom(
                               backgroundColor: Colors.transparent,
                               padding: EdgeInsets.zero,
@@ -418,7 +486,7 @@ class HomeLandingPage extends StatelessWidget {
                           // Adjust the border radius as needed
                           child: CustomPaint(
                             size: Size(width, (width * 1).toDouble()),
-                            painter: ButtonGradient(),
+                            painter: ButtonGradientTwo(),
                           ), // Your custom paint widget
                         ), // Your custom paint widget
                         SizedBox(
@@ -448,6 +516,60 @@ class HomeLandingPage extends StatelessWidget {
                       ],
                     ),
                   ),
+                  const SizedBox(height: 20),
+                  Container(
+                    width: 150,
+                    height: 40,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(5.0),
+                      color: Colors.transparent,
+                      // Set the background color to transparent
+                      boxShadow: const [
+                        BoxShadow(
+                          color: Colors.grey,
+                          offset: Offset(0, 2),
+                          blurRadius: 4.0,
+                        ),
+                      ],
+                    ),
+                    child: Stack(
+                      children: [
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(10.0),
+                          // Adjust the border radius as needed
+                          child: CustomPaint(
+                            size: Size(width, (width * 1).toDouble()),
+                            painter: ButtonGradientThree(),
+                          ), // Your custom paint widget
+                        ), // Your custom paint widget
+                        SizedBox(
+                          width: 200,
+                          height: 50,
+                          child: TextButton(
+                            onPressed: () => showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return const ResumeDialog();
+                              },
+                            ),
+                            style: TextButton.styleFrom(
+                              backgroundColor: Colors.transparent,
+                              padding: EdgeInsets.zero,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10.0),
+                              ),
+                              elevation: 0,
+                            ),
+                            child: Text(
+                              "Resume",
+                              style: TextStyle(fontSize: 16, color: Colors.grey[100]),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 20),
                 ],
               ),
             )
