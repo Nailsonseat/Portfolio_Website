@@ -1,0 +1,74 @@
+<div>
+    <h3>Dataset Descriptions</h3>
+    <ul>
+        <li>
+            <b>Ball by Ball dataset</b> - This dataset contains every ball bowled with bowler mapped
+            to batter, along with details like runs scored, innings, batting team, etc.
+            <br><br>
+            <b>Features:</b>
+            <ul>
+                <li><b>ID:</b> Unique identifier for each match.</li>
+                <li><b>innings:</b> The inning number (1 or 2).</li>
+                <li><b>overs:</b> The over number within the inning.</li>
+                <li><b>ballnumber:</b> The ball number within the over.</li>
+                <li><b>batter:</b> The name of the batter facing the ball.</li>
+                <li><b>bowler:</b> The name of the bowler delivering the ball.</li>
+                <li><b>non-striker:</b> The name of the non-striking batter.</li>
+                <li><b>extra_type:</b> Type of extra (e.g., wide, no-ball), if any.</li>
+                <li><b>batsman_run:</b> Runs scored by the batter off that ball.</li>
+                <li><b>extras_run:</b> Extra runs conceded off that ball.</li>
+                <li><b>total_run:</b> Total runs scored off that ball (batsman_run + extras_run).
+                </li>
+                <li><b>non_boundary:</b> Indicates if the run(s) scored were not from a boundary.
+                </li>
+                <li><b>isWicketDelivery:</b> Indicates if the ball resulted in a wicket.</li>
+                <li><b>player_out:</b> Name of the player who got out, if any.</li>
+                <li><b>kind:</b> Type of dismissal (e.g., bowled, caught).</li>
+                <li><b>fielders_involved:</b> Names of fielders involved in the dismissal.</li>
+                <li><b>BattingTeam:</b> The team batting in that inning.</li>
+            </ul>
+        </li>
+        <br>
+        <li>
+            <b>Match Result dataset</b> - This dataset contains the result of every match played in
+            the IPL, who won, who lost and by what margin.
+            <br><br>
+            <b>Features:</b>
+            <ul>
+                <li><b>ID:</b> Unique identifier for each match.</li>
+                <li><b>City:</b> The city where the match was played.</li>
+                <li><b>Date:</b> The date on which the match was played.</li>
+                <li><b>Season:</b> The IPL season (year).</li>
+                <li><b>MatchNumber:</b> The match number within the season.</li>
+                <li><b>Team1:</b> The first team playing the match.</li>
+                <li><b>Team2:</b> The second team playing the match.</li>
+                <li><b>Venue:</b> The venue where the match was played.</li>
+                <li><b>TossWinner:</b> The team that won the toss.</li>
+                <li><b>TossDecision:</b> The decision made by the toss winner (bat or field).</li>
+                <li><b>SuperOver:</b> Indicates if the match had a Super Over.</li>
+                <li><b>WinningTeam:</b> The team that won the match.</li>
+                <li><b>WonBy:</b> The method by which the match was won (runs or wickets).</li>
+                <li><b>Margin:</b> The margin of victory (number of runs or wickets).</li>
+                <li><b>method:</b> The method of result determination, if any (e.g., DLS method).
+                </li>
+                <li><b>Player_of_Match:</b> The player awarded the Player of the Match.</li>
+                <li><b>Team1Players:</b> List of players in Team1.</li>
+                <li><b>Team2Players:</b> List of players in Team2.</li>
+                <li><b>Umpire1:</b> Name of the first umpire.</li>
+                <li><b>Umpire2:</b> Name of the second umpire.</li>
+            </ul>
+        </li>
+        <br>
+        <li>
+            <b>Player dataset</b> - This dataset contains the details of every player who has played
+            in the IPL, and which team do they play for.
+            <br><br>
+            <b>Features:</b>
+            <ul>
+                <li><b>player:</b> Name of the player.</li>
+                <li><b>Team:</b> The team the player is associated with.</li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
