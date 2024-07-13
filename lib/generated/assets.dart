@@ -98,7 +98,10 @@ class Assets {
   static const String homePageOneBackground = 'lib/components/home/page_one_background.dart';
   static const String homePageOneBackgroundMobile = 'lib/components/home/page_one_background_mobile.dart';
   static const String homePageOneButtonGradient = 'lib/components/home/page_one_button_gradient.dart';
+  static const String homePageOneButtonGradientThree = 'lib/components/home/page_one_button_gradient_three.dart';
+  static const String homePageOneButtonGradientTwo = 'lib/components/home/page_one_button_gradient_two.dart';
   static const String homePageOneProfilePicBackground = 'lib/components/home/page_one_profile_pic_background.dart';
+  static const String homeResumeDialog = 'lib/components/home/resume_dialog.dart';
   static const String hospitalManagementUtilityDescription = 'lib/pages/projects/hospital_management_utility/description.html';
   static const String iconsChatbot = 'lib/assets/icons/chatbot.png';
   static const String iconsSlack = 'lib/assets/icons/slack.png';
