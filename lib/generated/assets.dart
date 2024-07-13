@@ -46,7 +46,11 @@ class Assets {
   static const String classicSnakeOptions = 'lib/assets/images/project_images/classic_snake/options.png';
   static const String constantsProjectConstants = 'lib/constants/project_constants.dart';
   static const String constantsPrompts = 'lib/constants/prompts.dart';
+  static const String dataIntoIplDataset = 'lib/pages/projects/data_into_ipl/dataset.html';
   static const String dataIntoIplDescription = 'lib/pages/projects/data_into_ipl/description.html';
+  static const String dataIntoIplHistogram = 'lib/assets/images/project_images/data_into_ipl/histogram.png';
+  static const String dataIntoIplProject = 'lib/pages/projects/data_into_ipl/project.html';
+  static const String dataIntoIplResults = 'lib/pages/projects/data_into_ipl/results.html';
   static const String ecommerceShoppersBehaviourAndUnderstandingDescription = 'lib/pages/projects/ecommerce_shoppers_behaviour_and_understanding/description.html';
   static const String ecommerceShoppersBehaviourAndUnderstandingECommAccuracy = 'lib/assets/images/project_images/ecommerce_shoppers_behaviour_and_understanding/e_comm_accuracy.png';
   static const String ecommerceShoppersBehaviourAndUnderstandingECommF1 = 'lib/assets/images/project_images/ecommerce_shoppers_behaviour_and_understanding/e_comm_f1.png';
