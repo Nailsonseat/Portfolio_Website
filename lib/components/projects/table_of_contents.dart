@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:portfolio_website/components/projects/project_component.dart';
+import 'package:portfolio_website/components/projects/table_of_contents_component.dart';
 import 'package:provider/provider.dart';
 import '../../providers/project_component_constraint_provider.dart';
 
@@ -64,31 +64,33 @@ class TableOfContents extends StatelessWidget {
           color: fontColor,
         )
       ]);
-      for (String j in tableOfContents[i].subComponents) {
-        contents.addAll([
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Icon(
-                Icons.circle,
-                color: fontColor,
-              ),
-              Container(
-                padding: const EdgeInsets.all(15),
-                child: TextButton(
-                  onPressed: () {},
-                  child: Text(
-                    j,
-                    style: const TextStyle(fontSize: 20),
+      if (tableOfContents[i].subComponents != null) {
+        for (String j in tableOfContents[i].subComponents!) {
+          contents.addAll([
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(
+                  Icons.circle,
+                  color: fontColor,
+                ),
+                Container(
+                  padding: const EdgeInsets.all(15),
+                  child: TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      j,
+                      style: const TextStyle(fontSize: 20),
+                    ),
                   ),
                 ),
-              ),
-            ],
-          ),
-          const Divider(
-            height: 2,
-          ),
-        ]);
+              ],
+            ),
+            const Divider(
+              height: 2,
+            ),
+          ]);
+        }
       }
     }
 
