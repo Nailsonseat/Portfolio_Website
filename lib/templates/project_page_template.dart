@@ -1,26 +1,14 @@
-import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_html/flutter_html.dart';
-import 'package:flutter_html_audio/flutter_html_audio.dart';
-import 'package:flutter_html_iframe/flutter_html_iframe.dart';
-import 'package:flutter_html_svg/flutter_html_svg.dart';
-import 'package:flutter_html_table/flutter_html_table.dart';
-import 'package:flutter_html_video/flutter_html_video.dart';
 import 'package:line_icons/line_icons.dart';
-import 'package:logger/logger.dart';
 import 'package:portfolio_website/components/projects/banner_image.dart';
 import 'package:portfolio_website/components/projects/banner_title.dart';
-import 'package:portfolio_website/components/projects/pdf_section.dart';
-import 'package:portfolio_website/components/projects/project_component.dart';
+import 'package:portfolio_website/components/projects/table_of_contents_component.dart';
 import 'package:portfolio_website/components/projects/table_of_contents.dart';
 import 'package:portfolio_website/components/projects/timeline.dart';
+import 'package:portfolio_website/templates/section_builder.dart';
 import 'package:provider/provider.dart';
 import 'package:responsive_framework/responsive_framework.dart';
-import 'package:url_launcher/url_launcher.dart';
 import '../../components/projects/table_of_contents_header.dart';
-import '../../components/projects/text_section.dart';
-import '../../components/projects/youtube_section.dart';
 import '../../providers/project_component_constraint_provider.dart';
 import '../../providers/scroll_provider.dart';
 
@@ -32,8 +20,8 @@ class ProjectPageTemplate extends StatelessWidget {
     required this.sections,
     required this.tableOfContents,
     required this.timelineIcons,
-    required this.secondaryColor,
-    required this.primaryColor,
+    required this.backgroundShapeColor,
+    required this.foregroundShapeColor,
   });
 
   final List sections;
@@ -41,150 +29,11 @@ class ProjectPageTemplate extends StatelessWidget {
   final String bannerImage;
   final String projectTitle;
   final List<IconData> timelineIcons;
-  final Color secondaryColor;
-  final Color primaryColor;
+  final Color backgroundShapeColor;
+  final Color foregroundShapeColor;
 
   double _projectBannerHeight(double height) => height; //width / 2.193333333; // 900
   double _projectBannerWidth(double width) => 1500; //width / 1.316; // 1500
-
-  Future<String> _loadHtmlFile(String path) async => await rootBundle.loadString(path);
-
-  void _redirect(String link) async {
-    try {
-      if (!await launchUrl(Uri.parse(link))) {
-        throw ('Error launching url');
-      }
-    } catch (error) {
-      Logger().e(error);
-    }
-  }
-
-  List<Container> _buildTextSections(List sections, ProjectComponentsConstraintsProvider componentsConstraintsProvider,
-      bool isLengthGreaterThanWidth) {
-    List<Container> builtSections = [];
-    for (int i = 0; i < sections.length; i++) {
-      builtSections.add(
-        Container(
-          margin: EdgeInsets.symmetric(horizontal: isLengthGreaterThanWidth ? 30 : 56), //width / 35.74), // 56
-          alignment: Alignment.centerLeft,
-          key: componentsConstraintsProvider.titleKeys[i],
-          child: SelectableText(
-            sections[i].title,
-            style: TextStyle(fontSize: isLengthGreaterThanWidth ? 35 : 55), //width / 35.890909), // 55
-          ),
-        ),
-      );
-      if (sections[i] is HtmlSection) {
-        builtSections.add(
-          Container(
-            width: double.infinity,
-            margin: EdgeInsets.symmetric(
-                vertical: isLengthGreaterThanWidth ? 20 : 60, horizontal: isLengthGreaterThanWidth ? 30 : 56),
-            // width / 35.74),
-            padding: isLengthGreaterThanWidth ? const EdgeInsets.all(40) : const EdgeInsets.all(80),
-            //width / 24.675),
-            decoration: BoxDecoration(color: secondaryColor, borderRadius: BorderRadius.circular(30)),
-            child: FutureBuilder<String>(
-              future: _loadHtmlFile(sections[i].bodyPath),
-              builder: (context, snapshot) {
-                if (snapshot.hasData) {
-                  return Consumer<ProjectComponentsConstraintsProvider>(
-                    builder: (context, provider, _) {
-                      return SizedBox(
-                        height: provider.textContainerHeights[i], // Replace with the height from your provider
-                        child: Html(
-                          data: snapshot.data,
-                          style: {
-                            "body": Style(
-                              fontSize: isLengthGreaterThanWidth ? FontSize(12) : FontSize(19.78),
-                            ),
-                            //FontSize(width / 100)), // Adjust the font size as needed
-                            ".techstack": Style(
-                                height: Height(80), //width / 24.966667),
-                                width: Width(80), //width / 24.966667),
-                                margin: Margins.only(right: 20)),
-                            ".techstack-small": Style(
-                                height: Height(92), //width / 21.4307),
-                                width: Width(92), //width / 21.4307),
-                                margin: Margins.only(right: 20)),
-                            ".portrait-img": Style(
-                              height: Height(700), //width / 2.8257),
-                              margin: Margins.only(right: 90), //width / 21.97778),
-                            ),
-                            ".old-new": Style(
-                              padding: HtmlPaddings.only(
-                                left: 56, //width / 35,
-                                right: 56, //width / 35,
-                                bottom: 40,
-                              ),
-                            ),
-                            ".demo-img": Style(
-                              height: Height(700), //width / 2.825714),
-                            )
-                          },
-                          onAnchorTap: (String? url, _, __) => _redirect(url!),
-                          extensions: [
-                            const VideoHtmlExtension(),
-                            const AudioHtmlExtension(),
-                            const IframeHtmlExtension(),
-                            const TableHtmlExtension(),
-                            const SvgHtmlExtension(),
-                            TagWrapExtension(
-                              tagsToWrap: {"body"},
-                              builder: (child) {
-                                return Container(
-                                  key: componentsConstraintsProvider.sectionKeys[i],
-                                  child: child,
-                                );
-                              },
-                            ),
-                          ],
-                        ),
-                      );
-                    },
-                  );
-                } else if (snapshot.hasError) {
-                  return const Center(
-                    child: Text('Error loading HTML file'),
-                  );
-                } else {
-                  return const Center(
-                    child: CircularProgressIndicator(),
-                  );
-                }
-              },
-            ),
-          ),
-        );
-      } else if (sections[i] is YoutubeSection) {
-        builtSections.add(
-          Container(
-            margin: EdgeInsets.symmetric(
-                vertical: isLengthGreaterThanWidth ? 20 : 60, horizontal: isLengthGreaterThanWidth ? 30 : 56),
-            // width / 35.74),
-            padding: isLengthGreaterThanWidth ? const EdgeInsets.all(40) : const EdgeInsets.all(80),
-            //width / 24.675),
-            decoration: BoxDecoration(color: secondaryColor, borderRadius: BorderRadius.circular(30)),
-            child: sections[i],
-          ),
-        );
-      } else if(sections[i] is PDFSection){
-        builtSections.add(
-          Container(
-            margin: EdgeInsets.symmetric(
-                vertical: isLengthGreaterThanWidth ? 20 : 60, horizontal: isLengthGreaterThanWidth ? 30 : 56),
-            // width / 35.74),
-            padding: isLengthGreaterThanWidth ? const EdgeInsets.all(40) : const EdgeInsets.all(80),
-            //width / 24.675),
-            decoration: BoxDecoration(color: secondaryColor, borderRadius: BorderRadius.circular(30)),
-            child: sections[i],
-          ),
-        );
-
-      }
-    }
-    return builtSections;
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -226,7 +75,7 @@ class ProjectPageTemplate extends StatelessWidget {
           ),
           toolbarHeight: scrollProvider.appBarHeight,
           shadowColor: Colors.black,
-          backgroundColor: secondaryColor,
+          backgroundColor: backgroundShapeColor,
           elevation: 1,
         ),
         floatingActionButton: isLengthGreaterThanWidth
@@ -236,19 +85,19 @@ class ProjectPageTemplate extends StatelessWidget {
                     context: context,
                     builder: (_) => AlertDialog(
                       title: const Text('Table of contents', style: TextStyle(fontSize: 30)),
-                      content: TableOfContents(tableOfContents: tableOfContents, fontColor: primaryColor),
+                      content: TableOfContents(tableOfContents: tableOfContents, fontColor: foregroundShapeColor),
                     ),
                   );
                 },
-                backgroundColor: secondaryColor,
+                backgroundColor: backgroundShapeColor,
                 child: const Icon(Icons.menu),
               )
             : null,
         backgroundColor: Colors.white,
         body: RawScrollbar(
           thumbVisibility: true,
-        controller: scrollProvider.detailedProjectScrollController,
-          thumbColor: primaryColor,
+          controller: scrollProvider.detailedProjectScrollController,
+          thumbColor: foregroundShapeColor,
           radius: const Radius.circular(16),
           thickness: 22,
           child: SingleChildScrollView(
@@ -297,7 +146,7 @@ class ProjectPageTemplate extends StatelessWidget {
                                     child: Container(
                                       decoration: BoxDecoration(
                                         borderRadius: const BorderRadius.only(topRight: Radius.circular(50)),
-                                        color: secondaryColor,
+                                        color: backgroundShapeColor,
                                       ),
                                       child: Column(
                                         children: <Widget>[
@@ -310,7 +159,7 @@ class ProjectPageTemplate extends StatelessWidget {
                                               child: CustomPaint(
                                                 size: Size(width * 0.3, (300).toDouble()),
                                                 //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
-                                                painter: TOCHeader(shapeColor: primaryColor),
+                                                painter: TOCHeader(shapeColor: foregroundShapeColor),
                                               ),
                                             ),
                                             Column(
@@ -331,7 +180,7 @@ class ProjectPageTemplate extends StatelessWidget {
                                                   builder: (context, componentsConstraintsProvider, child) {
                                                     return TableOfContents(
                                                       tableOfContents: tableOfContents,
-                                                      fontColor: primaryColor,
+                                                      fontColor: foregroundShapeColor,
                                                     );
                                                   },
                                                 )
@@ -350,10 +199,13 @@ class ProjectPageTemplate extends StatelessWidget {
                                     //width / 35.74), // 100
                                     child: SingleChildScrollView(
                                       child: ProjectTimeLine(
-                                        sections: _buildTextSections(
-                                            sections, componentsConstraintsProvider, isLengthGreaterThanWidth),
+                                        sections: buildSections(
+                                            sections: sections,
+                                            componentsConstraintsProvider: componentsConstraintsProvider,
+                                            isLengthGreaterThanWidth: isLengthGreaterThanWidth,
+                                            sectionBoxColor: backgroundShapeColor),
                                         timelineIcons: timelineIcons,
-                                        timelineBlockColor: primaryColor,
+                                        timelineBlockColor: foregroundShapeColor,
                                       ),
                                     ),
                                   ),
@@ -371,8 +223,9 @@ class ProjectPageTemplate extends StatelessWidget {
                         width: 80, //width / 24.675,
                         height: 80,
                         child: FloatingActionButton(
-                          backgroundColor: secondaryColor,
-                          onPressed: () => scrollProvider.scrollToProjectDescription(_projectBannerHeight(height) + 150),
+                          backgroundColor: backgroundShapeColor,
+                          onPressed: () =>
+                              scrollProvider.scrollToProjectDescription(_projectBannerHeight(height) + 150),
                           // width / 13.16 = 150
                           shape: const CircleBorder(),
                           child: const Icon(
