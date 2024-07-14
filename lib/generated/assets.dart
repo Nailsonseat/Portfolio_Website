@@ -123,6 +123,7 @@ class Assets {
   static const String ondcBuildForBharatLoadingScreen = 'lib/assets/images/project_images/ondc_build_for_bharat/loading_screen.png';
   static const String ondcBuildForBharatMetrics = 'lib/assets/images/project_images/ondc_build_for_bharat/metrics.png';
   static const String ondcBuildForBharatProject = 'lib/pages/projects/ondc_build_for_bharat/project.html';
+  static const String ondcBuildForBharatResults = 'lib/pages/projects/ondc_build_for_bharat/results.html';
   static const String ondcBuildForBharatTeam = 'lib/pages/projects/ondc_build_for_bharat/team.html';
   static const String pagesTestPage = 'lib/pages/test_page.dart';
   static const String portfolioWebsiteDescription = 'lib/pages/projects/portfolio_website/description.html';
