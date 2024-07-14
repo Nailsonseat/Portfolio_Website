@@ -156,7 +156,7 @@ class Assets {
   static const String projectsBannerImage = 'lib/components/projects/banner_image.dart';
   static const String projectsBannerTitle = 'lib/components/projects/banner_title.dart';
   static const String projectsPdfSection = 'lib/components/projects/pdf_section.dart';
-  static const String projectsProjectComponent = 'lib/components/projects/project_component.dart';
+  static const String projectsProjectComponent = 'lib/components/projects/table_of_contents_component.dart';
   static const String projectsTableOfContents = 'lib/components/projects/table_of_contents.dart';
   static const String projectsTableOfContentsHeader = 'lib/components/projects/table_of_contents_header.dart';
   static const String projectsTextSection = 'lib/components/projects/text_section.dart';
@@ -219,9 +219,10 @@ class Assets {
   static const String techStackTensorflow = 'lib/assets/icons/tech_stack/tensorflow.svg';
   static const String techStackVue = 'lib/assets/icons/tech_stack/vue.svg';
   static const String techStackXgboost = 'lib/assets/icons/tech_stack/xgboost.svg';
-  static const String templatesProjectPageTemplate = 'lib/pages/templates/project_page_template.dart';
-  static const String templatesSmallScreenWarningPage = 'lib/pages/templates/small_screen_warning_page.dart';
-  static const String templatesUnderConstructionTemplate = 'lib/pages/templates/under_construction_template.html';
+  static const String templatesProjectPageTemplate = 'lib/templates/project_page_template.dart';
+  static const String templatesSectionBuilder = 'lib/templates/section_builder.dart';
+  static const String templatesSmallScreenWarningPage = 'lib/templates/small_screen_warning_page.dart';
+  static const String templatesUnderConstructionTemplate = 'lib/templates/under_construction_template.html';
   static const String tranceAddSong = 'lib/assets/images/project_images/trance/add_song.png';
   static const String tranceAdminPage = 'lib/assets/images/project_images/trance/admin_page.png';
   static const String tranceCreatorPage = 'lib/assets/images/project_images/trance/creator_page.png';
