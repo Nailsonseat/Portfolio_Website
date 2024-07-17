@@ -245,7 +245,7 @@ List<Project> projects = [
     sections: [
       HtmlSection(title: "Description", bodyPath: 'lib/pages/projects/shell_ai_hackathon/description.html'),
       HtmlSection(title: "Tech Stack", bodyPath: 'lib/pages/projects/shell_ai_hackathon/techstack.html'),
-      HtmlSection(title: "Project", bodyPath: 'lib/pages/projects/shell_ai_hackathon/dataset.html'),
+      HtmlSection(title: "Project", bodyPath: 'lib/pages/projects/shell_ai_hackathon/project.html'),
       HtmlSection(title: "Results", bodyPath: 'lib/pages/projects/shell_ai_hackathon/results.html'),
     ],
     timelineIcons: [

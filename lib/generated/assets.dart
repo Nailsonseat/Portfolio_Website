@@ -156,8 +156,8 @@ class Assets {
   static const String projectsBannerImage = 'lib/components/projects/banner_image.dart';
   static const String projectsBannerTitle = 'lib/components/projects/banner_title.dart';
   static const String projectsPdfSection = 'lib/components/projects/pdf_section.dart';
-  static const String projectsProjectComponent = 'lib/components/projects/table_of_contents_component.dart';
   static const String projectsTableOfContents = 'lib/components/projects/table_of_contents.dart';
+  static const String projectsTableOfContentsComponent = 'lib/components/projects/table_of_contents_component.dart';
   static const String projectsTableOfContentsHeader = 'lib/components/projects/table_of_contents_header.dart';
   static const String projectsTextSection = 'lib/components/projects/text_section.dart';
   static const String projectsTimeline = 'lib/components/projects/timeline.dart';
