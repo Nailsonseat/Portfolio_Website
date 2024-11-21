@@ -136,6 +136,7 @@ class Assets {
   static const String projectBannersECommerceBehaviourUnderstanding = 'lib/assets/images/project_banners/e_commerce_behaviour_understanding.png';
   static const String projectBannersFossOverflow = 'lib/assets/images/project_banners/foss_overflow.png';
   static const String projectBannersFossOverflow2 = 'lib/assets/images/project_banners/foss_overflow_2.png';
+  static const String projectBannersGenAiExchange = 'lib/assets/images/project_banners/gen_ai_exchange.jpg';
   static const String projectBannersGroceryMandi = 'lib/assets/images/project_banners/grocery_mandi.png';
   static const String projectBannersHolaBot = 'lib/assets/images/project_banners/hola_bot.png';
   static const String projectBannersHospitalManagementUtility = 'lib/assets/images/project_banners/hospital_management_utility.png';

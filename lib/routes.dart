@@ -36,6 +36,12 @@ final GoRouter routes = GoRouter(
           ),
           routes: [
             GoRoute(
+              path: 'Gen_AI_Exchange',
+              pageBuilder: (context, state) => MaterialPage(
+                child: getProjectPageTemplate(ProjectNames.googleGenAiExchange),
+              ),
+            ),
+            GoRoute(
               path: 'Acharya_Setu',
               pageBuilder: (context, state) => MaterialPage(
                 child: getProjectPageTemplate(ProjectNames.acharyaSetu),

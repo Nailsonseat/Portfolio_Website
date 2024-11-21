@@ -65,6 +65,21 @@ ProjectPageTemplate getProjectPageTemplate(String title) {
 
 List<Project> projects = [
   Project(
+    title: ProjectNames.googleGenAiExchange,
+    image: 'lib/assets/images/project_banners/gen_ai_exchange.jpg',
+    source: '',
+    pagePath: '/home/Gen_AI_Exchange',
+    briefDescription:
+        'Gen AI Exchange Hackathon by Google, supported by MEITY Startup Hub and Startup India is a 3 month long hackathon which aims to harness the power of AI to unlock real-world business and societal opportunities. This hackathon endeavors to unlock the collective potential of over 13 million developers and leverage the unparalleled capabilities of AI to unlock large-scale business opportunities in India.',
+    buttonSecondaryColor: HexColor('#f2e3dc'),
+    buttonPrimaryColor: HexColor('#d14a3d'),
+    backgroundShapeColor: HexColor('#f2e3dc'),
+    foregroundShapeColor: HexColor('#d14a3d'),
+    sections: [],
+    tableOfContents: [],
+    timelineIcons: [],
+  ),
+  Project(
     title: ProjectNames.samsungSolveForTomorrow,
     image: 'lib/assets/images/project_banners/samsung_solve_for_tomorrow.jpg',
     source: '',
