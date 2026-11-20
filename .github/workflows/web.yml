@@ -1,23 +1,39 @@
-name: Gh-Pages
+name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [ master ]
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: pages-deploy
+  cancel-in-progress: true
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
-      - name: Set up Flutter
-        uses: subosito/flutter-action@v1
-
-      - name: Deploy to GitHub Pages
-        uses: bluefireteam/flutter-gh-pages@v7
+      - uses: subosito/flutter-action@v2
         with:
-          baseHref: /Portfolio_Website/
-          buildDir: build/web
-          customArgs: --dart-define GEMINI_API_KEY=${{ secrets.GEMINI_API_KEY }}
+          channel: stable
+          flutter-version: 3.50.0
+          cache: true
+
+      - run: flutter pub get
+
+      - run: flutter analyze
+
+      - run: flutter test
+
+      - run: flutter build web --release --base-href /Portfolio_Website/
+
+      - uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: build/web
+          publish_branch: gh-pages

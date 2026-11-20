@@ -6,6 +6,7 @@ import 'package:portfolio_website/components/home/page_one_background.dart';
 import 'package:portfolio_website/components/home/page_one_background_mobile.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../chatbot/chatbot.dart';
+import '../../constants/feature_flags.dart';
 import '../../components/home/page_one_button_gradient.dart';
 import '../../components/home/page_one_button_gradient_three.dart';
 import '../../components/home/page_one_button_gradient_two.dart';
@@ -104,7 +105,7 @@ class HomeLandingPage extends StatelessWidget {
     bool isLengthGreaterThanWidth = MediaQuery.of(context).size.height > MediaQuery.of(context).size.width;
 
     Future.delayed(const Duration(milliseconds: 1000), () {
-      if (!isLengthGreaterThanWidth) {
+      if (kChatEnabled && !isLengthGreaterThanWidth) {
         tooltipController.showTooltip(immediately: false);
       }
     });
@@ -312,57 +313,59 @@ class HomeLandingPage extends StatelessWidget {
                       ],
                     ),
                   ),
-                  const SizedBox(height: 50),
-                  JustTheTooltip(
-                    controller: tooltipController,
-                    barrierDismissible: false,
-                    content: const Padding(
-                      padding: EdgeInsets.all(16.0),
-                      child: Text(
-                        'Chat with Aadarsh AI',
+                  if (kChatEnabled) ...[
+                    const SizedBox(height: 50),
+                    JustTheTooltip(
+                      controller: tooltipController,
+                      barrierDismissible: false,
+                      content: const Padding(
+                        padding: EdgeInsets.all(16.0),
+                        child: Text(
+                          'Chat with Aadarsh AI',
+                        ),
                       ),
-                    ),
-                    child: SizedBox(
-                      width: 200,
-                      height: 50,
-                      child: Stack(
-                        children: [
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(10.0),
-                            // Adjust the border radius as needed
-                            child: CustomPaint(
-                              size: Size(width, (width * 1).toDouble()),
-                              painter: ButtonGradientThree(),
+                      child: SizedBox(
+                        width: 200,
+                        height: 50,
+                        child: Stack(
+                          children: [
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(10.0),
+                              // Adjust the border radius as needed
+                              child: CustomPaint(
+                                size: Size(width, (width * 1).toDouble()),
+                                painter: ButtonGradientThree(),
+                              ), // Your custom paint widget
                             ), // Your custom paint widget
-                          ), // Your custom paint widget
-                          SizedBox(
-                            width: 200,
-                            height: 50,
-                            child: TextButton(
-                              onPressed: () => showDialog(
-                                context: context,
-                                builder: (BuildContext context) {
-                                  return const ChatGPTDialog();
-                                },
-                              ),
-                              style: TextButton.styleFrom(
-                                backgroundColor: Colors.transparent,
-                                padding: EdgeInsets.zero,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10.0),
+                            SizedBox(
+                              width: 200,
+                              height: 50,
+                              child: TextButton(
+                                onPressed: () => showDialog(
+                                  context: context,
+                                  builder: (BuildContext context) {
+                                    return const ChatGPTDialog();
+                                  },
                                 ),
-                                elevation: 0,
-                              ),
-                              child: Text(
-                                "Chat with me (AI)",
-                                style: TextStyle(fontSize: 20, color: Colors.grey[100]),
+                                style: TextButton.styleFrom(
+                                  backgroundColor: Colors.transparent,
+                                  padding: EdgeInsets.zero,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10.0),
+                                  ),
+                                  elevation: 0,
+                                ),
+                                child: Text(
+                                  "Chat with me (AI)",
+                                  style: TextStyle(fontSize: 20, color: Colors.grey[100]),
+                                ),
                               ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
-                  ),
+                  ],
                 ],
               ),
             ),
@@ -460,59 +463,61 @@ class HomeLandingPage extends StatelessWidget {
                       ],
                     ),
                   ),
-                  const SizedBox(height: 20),
-                  Container(
-                    width: 180,
-                    height: 40,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(5.0),
-                      color: Colors.transparent,
-                      // Set the background color to transparent
-                      boxShadow: const [
-                        BoxShadow(
-                          color: Colors.grey,
-                          offset: Offset(0, 2),
-                          blurRadius: 4.0,
-                        ),
-                      ],
-                    ),
-                    child: Stack(
-                      children: [
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(10.0),
-                          // Adjust the border radius as needed
-                          child: CustomPaint(
-                            size: Size(width, (width * 1).toDouble()),
-                            painter: ButtonGradientTwo(),
+                  if (kChatEnabled) ...[
+                    const SizedBox(height: 20),
+                    Container(
+                      width: 180,
+                      height: 40,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(5.0),
+                        color: Colors.transparent,
+                        // Set the background color to transparent
+                        boxShadow: const [
+                          BoxShadow(
+                            color: Colors.grey,
+                            offset: Offset(0, 2),
+                            blurRadius: 4.0,
+                          ),
+                        ],
+                      ),
+                      child: Stack(
+                        children: [
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(10.0),
+                            // Adjust the border radius as needed
+                            child: CustomPaint(
+                              size: Size(width, (width * 1).toDouble()),
+                              painter: ButtonGradientTwo(),
+                            ), // Your custom paint widget
                           ), // Your custom paint widget
-                        ), // Your custom paint widget
-                        SizedBox(
-                          width: 200,
-                          height: 50,
-                          child: TextButton(
-                            onPressed: () => showDialog(
-                              context: context,
-                              builder: (BuildContext context) {
-                                return const ChatGPTDialog();
-                              },
-                            ),
-                            style: TextButton.styleFrom(
-                              backgroundColor: Colors.transparent,
-                              padding: EdgeInsets.zero,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10.0),
+                          SizedBox(
+                            width: 200,
+                            height: 50,
+                            child: TextButton(
+                              onPressed: () => showDialog(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return const ChatGPTDialog();
+                                },
                               ),
-                              elevation: 0,
-                            ),
-                            child: Text(
-                              "Chat with me (AI)",
-                              style: TextStyle(fontSize: 16, color: Colors.grey[100]),
+                              style: TextButton.styleFrom(
+                                backgroundColor: Colors.transparent,
+                                padding: EdgeInsets.zero,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                ),
+                                elevation: 0,
+                              ),
+                              child: Text(
+                                "Chat with me (AI)",
+                                style: TextStyle(fontSize: 16, color: Colors.grey[100]),
+                              ),
                             ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
-                  ),
+                  ],
                   const SizedBox(height: 20),
                   Container(
                     width: 150,
