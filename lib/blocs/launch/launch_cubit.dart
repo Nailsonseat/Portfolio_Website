@@ -34,7 +34,7 @@ class LaunchCubit extends Cubit<double> {
 
   Future<void> recordVisit() async {
     try {
-      await _visitorRepository.incrementVisitorCount();
+      await _visitorRepository.recordVisitIfNew();
     } catch (error) {
       Logger().w('Error incrementing visitor count: $error');
     }

@@ -34,14 +34,14 @@ void main() {
     expect: () => const [LaunchCubit.midProgress, LaunchCubit.completeProgress],
   );
 
-  test('recordVisit increments the counter', () async {
-    when(() => repository.incrementVisitorCount()).thenAnswer((_) async {});
+  test('recordVisit records the visit once per browser window', () async {
+    when(() => repository.recordVisitIfNew()).thenAnswer((_) async => true);
     await LaunchCubit(visitorRepository: repository).recordVisit();
-    verify(() => repository.incrementVisitorCount()).called(1);
+    verify(() => repository.recordVisitIfNew()).called(1);
   });
 
   test('recordVisit swallows repository errors', () async {
-    when(() => repository.incrementVisitorCount()).thenThrow(Exception('offline'));
+    when(() => repository.recordVisitIfNew()).thenThrow(Exception('offline'));
     await expectLater(LaunchCubit(visitorRepository: repository).recordVisit(), completes);
   });
 }

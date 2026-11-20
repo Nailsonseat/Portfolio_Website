@@ -70,6 +70,7 @@ dependencies:
   # releases a fix.
   html: ">=0.15.4 <0.15.7"
   http: ^1.6.0
+  shared_preferences: ^2.5.6
 dev_dependencies:
   flutter_test:
     sdk: flutter
