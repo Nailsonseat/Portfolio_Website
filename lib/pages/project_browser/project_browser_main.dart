@@ -1,28 +1,39 @@
 import 'package:animated_toggle_switch/animated_toggle_switch.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:material_ui/material_ui.dart';
+import 'package:portfolio_website/blocs/project_filter/project_filter_bloc.dart';
 import 'package:portfolio_website/pages/project_browser/project_browser_page.dart';
-import 'package:portfolio_website/providers/project_page_provider.dart';
-import 'package:portfolio_website/providers/project_slider_provider.dart';
-import 'package:provider/provider.dart';
-import '../../providers/scroll_provider.dart';
+
+extension on ProjectCategory {
+  String get label => switch (this) {
+        ProjectCategory.all => "All projects",
+        ProjectCategory.development => "Software development",
+        ProjectCategory.machineLearning => "Machine Learning",
+      };
+
+  Color get color => switch (this) {
+        ProjectCategory.all => Colors.tealAccent,
+        ProjectCategory.development => Colors.orange,
+        ProjectCategory.machineLearning => Colors.lightBlueAccent,
+      };
+}
 
 class ProjectPageMain extends StatelessWidget {
-  const ProjectPageMain({super.key});
+  const ProjectPageMain({super.key, required this.sectionKey});
+
+  /// Attached to the "Projects" heading so the home page can scroll to it.
+  final GlobalKey sectionKey;
 
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
     width = width < 1200 ? 1200 : width;
 
-    ProjectPageProvider projectPageProvider = Provider.of<ProjectPageProvider>(context, listen: false);
-
     bool isLengthGreaterThanWidth = MediaQuery.of(context).size.height > MediaQuery.of(context).size.width;
 
     if (isLengthGreaterThanWidth) {
       width = 455;
     }
-
-    ScrollProvider scrollProvider = Provider.of<ScrollProvider>(context, listen: false);
 
     return Container(
       width: width,
@@ -32,7 +43,7 @@ class ProjectPageMain extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              key: scrollProvider.scrollKeyHomePage,
+              key: sectionKey,
               padding: EdgeInsets.only(left: isLengthGreaterThanWidth ? 50 : 150),
               child: const Text(
                 "Projects",
@@ -45,15 +56,15 @@ class ProjectPageMain extends StatelessWidget {
             if (!isLengthGreaterThanWidth)
               Padding(
                 padding: EdgeInsets.only(left: isLengthGreaterThanWidth ? 50 : width / 13.16),
-                child: Consumer<ProjectSliderProvider>(
-                  builder: (_, sliderProvider, __) {
-                    return AnimatedToggleSwitch<int>.size(
+                child: BlocBuilder<ProjectFilterBloc, ProjectFilterState>(
+                  builder: (context, state) {
+                    return AnimatedToggleSwitch<ProjectCategory>.size(
                       height: isLengthGreaterThanWidth ? 50 : 80,
-                      current: sliderProvider.value,
-                      borderColorBuilder: (i) => Colors.black,
-                      values: List<int>.generate(sliderProvider.options.length, (i) => i),
+                      current: state.category,
+                      values: ProjectCategory.values,
+                      loading: state.isTransitioning,
                       iconOpacity: 0.75,
-                      loadingIconBuilder: (_, __) => SizedBox(
+                      loadingIconBuilder: (_, _) => SizedBox(
                         width: width / 65.8,
                         height: width / 65.8,
                         child: CircularProgressIndicator(
@@ -61,23 +72,31 @@ class ProjectPageMain extends StatelessWidget {
                           strokeWidth: width / 493.5,
                         ),
                       ),
-                      borderRadius: BorderRadius.circular(50),
                       indicatorSize: Size.fromWidth(isLengthGreaterThanWidth ? 120 : 300),
-                      boxShadow: const [
-                        BoxShadow(
-                          color: Colors.grey,
-                          offset: Offset(0, 0),
-                          blurRadius: 2.0,
-                        ),
-                      ],
+                      style: ToggleStyle(
+                        borderColor: Colors.black,
+                        borderRadius: BorderRadius.circular(50),
+                        boxShadow: const [
+                          BoxShadow(
+                            color: Colors.grey,
+                            offset: Offset(0, 0),
+                            blurRadius: 2.0,
+                          ),
+                        ],
+                      ),
+                      styleBuilder: (category) => ToggleStyle(indicatorColor: category.color),
                       iconAnimationType: AnimationType.onHover,
                       indicatorAnimationType: AnimationType.onHover,
-                      iconBuilder: (value, size) =>
-                          sliderProvider.optionBuilder(value, width, isLengthGreaterThanWidth),
+                      iconBuilder: (category) => Center(
+                        child: Text(
+                          category.label,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(fontSize: isLengthGreaterThanWidth ? 12 : 20),
+                        ),
+                      ),
                       borderWidth: 0.1,
-                      borderColor: Colors.transparent,
-                      colorBuilder: (i) => sliderProvider.optionColor(i),
-                      onChanged: (i) => sliderProvider.onChanged(i, projectPageProvider.toggleFade),
+                      onChanged: (category) =>
+                          context.read<ProjectFilterBloc>().add(ProjectCategorySelected(category)),
                     );
                   },
                 ),

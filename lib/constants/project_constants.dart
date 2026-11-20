@@ -1,8 +1,8 @@
 
 
 class ProjectNames{
-  static String googleGenAiExchange = "Google Gen AI Exchange";
-  static String ondcBuildForBharat = "GooglexONDC - Build for Bharat";
+  static String googleGenAiExchange = "Google - Gen AI Exchange";
+  static String ondcBuildForBharat = "Google - ONDC Build for Bharat";
   static String fossOverflow = "FOSS Overflow";
   static String acharyaSetu = "Acharya Setu";
   static String portfolioWebsite = "Portfolio Website";

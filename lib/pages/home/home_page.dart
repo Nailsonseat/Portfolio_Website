@@ -1,11 +1,9 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:logger/logger.dart';
 import 'package:portfolio_website/components/home/page_one_background.dart';
 import 'package:portfolio_website/components/home/page_one_background_mobile.dart';
-import 'package:portfolio_website/providers/scroll_provider.dart';
-import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../chatbot/chatbot.dart';
 import '../../components/home/page_one_button_gradient.dart';
@@ -17,7 +15,10 @@ import 'package:just_the_tooltip/just_the_tooltip.dart';
 import '../../components/home/resume_dialog.dart';
 
 class HomeLandingPage extends StatelessWidget {
-  const HomeLandingPage({super.key});
+  const HomeLandingPage({super.key, required this.onViewProjectsPressed});
+
+  /// Called by the "projects" buttons to scroll the home page to the project browser.
+  final VoidCallback onViewProjectsPressed;
 
   void _redirectMyDiscord() async {
     try {
@@ -112,8 +113,6 @@ class HomeLandingPage extends StatelessWidget {
       width = 455;
     }
 
-    ScrollProvider scrollProvider = Provider.of<ScrollProvider>(context, listen: false);
-
     return Container(
       height: height,
       decoration: const BoxDecoration(
@@ -138,7 +137,7 @@ class HomeLandingPage extends StatelessWidget {
                 shape: BoxShape.circle,
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.grey.withOpacity(0.5),
+                    color: Colors.grey.withValues(alpha: 0.5),
                     spreadRadius: 3,
                     blurRadius: 5,
                     offset: const Offset(0, 3),
@@ -251,8 +250,7 @@ class HomeLandingPage extends StatelessWidget {
                                 width: 200,
                                 height: 50,
                                 child: TextButton(
-                                  onPressed: () => Provider.of<ScrollProvider>(context, listen: false)
-                                      .scrollToProjects(scrollProvider.scrollKeyHomePage),
+                                  onPressed: onViewProjectsPressed,
                                   style: TextButton.styleFrom(
                                     backgroundColor: Colors.transparent,
                                     padding: EdgeInsets.zero,
@@ -444,8 +442,7 @@ class HomeLandingPage extends StatelessWidget {
                           width: 200,
                           height: 50,
                           child: TextButton(
-                            onPressed: () => Provider.of<ScrollProvider>(context, listen: false)
-                                .scrollToProjects(scrollProvider.scrollKeyHomePage),
+                            onPressed: onViewProjectsPressed,
                             style: TextButton.styleFrom(
                               backgroundColor: Colors.transparent,
                               padding: EdgeInsets.zero,

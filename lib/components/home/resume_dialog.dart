@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:logger/logger.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -36,7 +36,7 @@ class ResumeDialog extends StatelessWidget {
                       'https://drive.google.com/file/d/1c2p5wzAOQEXowhkHVuLBzKb9YSK46nkf/view?usp=sharing'),
                   style: ButtonStyle(
                     padding: WidgetStateProperty.all(const EdgeInsets.all(20)),
-                    shape: MaterialStateProperty.all(
+                    shape: WidgetStateProperty.all(
                       RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10.0),
                       ),
@@ -57,7 +57,7 @@ class ResumeDialog extends StatelessWidget {
                       'https://drive.google.com/file/d/1HRHnCNhIpIO-I6MnqFODW7WH9Y050xEN/view?usp=sharing'),
                   style: ButtonStyle(
                     padding: WidgetStateProperty.all(const EdgeInsets.all(20)),
-                    shape: MaterialStateProperty.all(
+                    shape: WidgetStateProperty.all(
                       RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10.0),
                       ),
@@ -74,6 +74,5 @@ class ResumeDialog extends StatelessWidget {
         ),
       ),
     );
-    ;
   }
 }

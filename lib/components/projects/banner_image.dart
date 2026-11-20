@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 class BannerImage extends StatelessWidget {
   const BannerImage({super.key, required this.height, required this.width, required this.image});

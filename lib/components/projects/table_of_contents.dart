@@ -1,20 +1,23 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:go_router/go_router.dart';
 import 'package:portfolio_website/components/projects/table_of_contents_component.dart';
-import 'package:provider/provider.dart';
-import '../../providers/project_component_constraint_provider.dart';
 
 class TableOfContents extends StatelessWidget {
-  const TableOfContents({super.key, required this.tableOfContents, required this.fontColor});
+  const TableOfContents({
+    super.key,
+    required this.tableOfContents,
+    required this.titleKeys,
+    required this.fontColor,
+  });
 
   final List<TableOfContentsComponent> tableOfContents;
+
+  /// Keys of the section titles, used to scroll a section into view.
+  final List<GlobalKey> titleKeys;
   final Color fontColor;
 
   @override
   Widget build(BuildContext context) {
-    ProjectComponentsConstraintsProvider componentsConstraintsProvider =
-        Provider.of<ProjectComponentsConstraintsProvider>(context, listen: false);
-
     bool isLengthGreaterThanWidth = MediaQuery.of(context).size.height > MediaQuery.of(context).size.width;
 
     List<Widget> contents = [];
@@ -31,12 +34,15 @@ class TableOfContents extends StatelessWidget {
               ),
             ),
             onPressed: () {
-              Scrollable.ensureVisible(
-                componentsConstraintsProvider.titleKeys[i].currentContext!,
-                duration: const Duration(milliseconds: 500),
-                curve: Curves.easeInOut,
-                alignment: 0.05,
-              );
+              final titleContext = i < titleKeys.length ? titleKeys[i].currentContext : null;
+              if (titleContext != null) {
+                Scrollable.ensureVisible(
+                  titleContext,
+                  duration: const Duration(milliseconds: 500),
+                  curve: Curves.easeInOut,
+                  alignment: 0.05,
+                );
+              }
               if (isLengthGreaterThanWidth) context.pop();
             },
             child: Row(

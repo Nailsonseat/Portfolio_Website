@@ -163,12 +163,6 @@ class Assets {
   static const String projectsTextSection = 'lib/components/projects/text_section.dart';
   static const String projectsTimeline = 'lib/components/projects/timeline.dart';
   static const String projectsYoutubeSection = 'lib/components/projects/youtube_section.dart';
-  static const String providersChatbotProvider = 'lib/providers/chatbot_provider.dart';
-  static const String providersLaunchPageAnimationProvider = 'lib/providers/launch_page_animation_provider.dart';
-  static const String providersProjectComponentConstraintProvider = 'lib/providers/project_component_constraint_provider.dart';
-  static const String providersProjectPageProvider = 'lib/providers/project_page_provider.dart';
-  static const String providersProjectSliderProvider = 'lib/providers/project_slider_provider.dart';
-  static const String providersScrollProvider = 'lib/providers/scroll_provider.dart';
   static const String samsungSolveForTomorrowCertificate = 'lib/assets/images/project_images/samsung_solve_for_tomorrow/certificate.png';
   static const String samsungSolveForTomorrowDescription = 'lib/pages/projects/samsung_solve_for_tomorrow/description.html';
   static const String samsungSolveForTomorrowJourney = 'lib/pages/projects/samsung_solve_for_tomorrow/journey.html';

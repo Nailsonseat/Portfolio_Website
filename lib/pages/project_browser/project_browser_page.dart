@@ -1,6 +1,6 @@
-import 'package:flutter/material.dart';
-import 'package:portfolio_website/providers/project_slider_provider.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:material_ui/material_ui.dart';
+import 'package:portfolio_website/blocs/project_filter/project_filter_bloc.dart';
 import 'browser_pages/all_projects_page.dart';
 import 'browser_pages/developments_projects_page.dart';
 import 'browser_pages/ml_projects_page.dart';
@@ -10,15 +10,16 @@ class ProjectPageBrowser extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<ProjectSliderProvider>(
-      builder: (_, sliderProvider, __) {
-        if (sliderProvider.value == 0) {
-          return const AllProjectsPage();
-        } else if (sliderProvider.value == 1) {
-          return const DevelopmentProjectsPage();
-        } else {
-          return const MLProjectsPage();
-        }
+    return BlocBuilder<ProjectFilterBloc, ProjectFilterState>(
+      builder: (_, state) {
+        return Opacity(
+          opacity: state.isTransitioning ? 0.5 : 1,
+          child: switch (state.category) {
+            ProjectCategory.all => const AllProjectsPage(),
+            ProjectCategory.development => const DevelopmentProjectsPage(),
+            ProjectCategory.machineLearning => const MLProjectsPage(),
+          },
+        );
       },
     );
   }

@@ -1,14 +1,11 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_html/flutter_html.dart';
-import 'package:flutter_html_audio/flutter_html_audio.dart';
-import 'package:flutter_html_iframe/flutter_html_iframe.dart';
 import 'package:flutter_html_svg/flutter_html_svg.dart';
 import 'package:flutter_html_table/flutter_html_table.dart';
-import 'package:flutter_html_video/flutter_html_video.dart';
 import 'package:logger/logger.dart';
-import 'package:portfolio_website/providers/project_component_constraint_provider.dart';
-import 'package:provider/provider.dart';
+import 'package:portfolio_website/blocs/project_page/section_layout_cubit.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../components/projects/pdf_section.dart';
 import '../components/projects/text_section.dart';
@@ -28,7 +25,8 @@ Future<String> _loadHtmlFile(String path) async => await rootBundle.loadString(p
 
 List<Container> buildSections(
     {required List sections,
-    required ProjectComponentsConstraintsProvider componentsConstraintsProvider,
+    required List<GlobalKey> sectionKeys,
+    required List<GlobalKey> titleKeys,
     required bool isLengthGreaterThanWidth,
     required Color sectionBoxColor}) {
   List<Container> builtSections = [];
@@ -37,7 +35,7 @@ List<Container> buildSections(
       Container(
         margin: EdgeInsets.symmetric(horizontal: isLengthGreaterThanWidth ? 30 : 56), //width / 35.74), // 56
         alignment: Alignment.centerLeft,
-        key: componentsConstraintsProvider.titleKeys[i],
+        key: titleKeys[i],
         child: SelectableText(
           sections[i].title,
           style: TextStyle(fontSize: isLengthGreaterThanWidth ? 35 : 55), //width / 35.890909), // 55
@@ -58,10 +56,11 @@ List<Container> buildSections(
             future: _loadHtmlFile(sections[i].bodyPath),
             builder: (context, snapshot) {
               if (snapshot.hasData) {
-                return Consumer<ProjectComponentsConstraintsProvider>(
-                  builder: (context, provider, _) {
+                return BlocSelector<SectionLayoutCubit, SectionLayoutState, double>(
+                  selector: (state) => state.heights[i],
+                  builder: (context, sectionHeight) {
                     return SizedBox(
-                      height: provider.textContainerHeights[i], // Replace with the height from your provider
+                      height: sectionHeight,
                       child: Html(
                         data: snapshot.data,
                         style: {
@@ -97,18 +96,15 @@ List<Container> buildSections(
                             display: Display.block,
                           ),
                         },
-                        onAnchorTap: (String? url, _, __) => _redirect(url!),
+                        onAnchorTap: (String? url, _, _) => _redirect(url!),
                         extensions: [
-                          const VideoHtmlExtension(),
-                          const AudioHtmlExtension(),
-                          const IframeHtmlExtension(),
                           const TableHtmlExtension(),
                           const SvgHtmlExtension(),
                           TagWrapExtension(
                             tagsToWrap: {"body"},
                             builder: (child) {
                               return Container(
-                                key: componentsConstraintsProvider.sectionKeys[i],
+                                key: sectionKeys[i],
                                 child: child,
                               );
                             },

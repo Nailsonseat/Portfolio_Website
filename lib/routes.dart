@@ -1,33 +1,40 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:portfolio_website/all_projects.dart';
 import 'package:portfolio_website/constants/project_constants.dart';
 import 'package:portfolio_website/pages/home/home_main.dart';
 import 'package:portfolio_website/pages/launch/launch_page.dart';
-import 'package:portfolio_website/providers/launch_page_animation_provider.dart';
-import 'package:portfolio_website/providers/project_slider_provider.dart';
-import 'package:provider/provider.dart';
+import 'package:portfolio_website/blocs/home/scroll_to_top_cubit.dart';
+import 'package:portfolio_website/blocs/launch/launch_cubit.dart';
+import 'package:portfolio_website/blocs/project_filter/project_filter_bloc.dart';
+import 'package:portfolio_website/data/visitor_repository.dart';
 
 final GoRouter routes = GoRouter(
   initialLocation: '/',
   routes: [
     GoRoute(
       path: '/',
-      pageBuilder: (context, state) =>
-          MaterialPage(child: ChangeNotifierProvider(child: const LaunchPage(), create: (_) => LaunchPageProvider())),
+      pageBuilder: (context, state) => MaterialPage(
+        child: BlocProvider(
+          create: (context) => LaunchCubit(visitorRepository: context.read<VisitorRepository>())..startProgress(),
+          child: const LaunchPage(),
+        ),
+      ),
       routes: [
         GoRoute(
           path: 'home',
           pageBuilder: (context, state) => CustomTransitionPage(
-            child: MultiProvider(
+            child: MultiBlocProvider(
               providers: [
-                ChangeNotifierProvider(create: (_) => ProjectSliderProvider()),
+                BlocProvider(create: (_) => ProjectFilterBloc()),
+                BlocProvider(create: (_) => ScrollToTopCubit()),
               ],
               child: const HomeMain(),
             ),
             key: state.pageKey,
             transitionDuration: const Duration(milliseconds: 1000),
-            transitionsBuilder: (_, animation, ___, child) {
+            transitionsBuilder: (_, animation, _, child) {
               return FadeTransition(
                 opacity: CurveTween(curve: Curves.easeInOut).animate(animation),
                 child: child,

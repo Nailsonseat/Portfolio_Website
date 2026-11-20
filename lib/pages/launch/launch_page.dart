@@ -1,10 +1,10 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:go_router/go_router.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
-import 'package:portfolio_website/providers/launch_page_animation_provider.dart';
-import 'package:provider/provider.dart';
+import 'package:portfolio_website/blocs/launch/launch_cubit.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 class LaunchPage extends StatelessWidget {
@@ -12,10 +12,6 @@ class LaunchPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      Provider.of<LaunchPageProvider>(context, listen: false).startAnimation();
-    });
-
     bool isLengthGreaterThanWidth = MediaQuery.of(context).size.height > MediaQuery.of(context).size.width;
 
     if (isLengthGreaterThanWidth) {
@@ -73,8 +69,7 @@ class LaunchPage extends StatelessWidget {
                           ),
                           AnimatedTextKit(
                             onFinished: () {
-                              Provider.of<LaunchPageProvider>(context, listen: false)
-                                  .incrementVisitorCount();
+                              context.read<LaunchCubit>().recordVisit();
                                 context.go('/home');
                             },
                             repeatForever: false,
@@ -96,8 +91,8 @@ class LaunchPage extends StatelessWidget {
                             ],
                           ),
                           const Spacer(),
-                          Consumer<LaunchPageProvider>(
-                            builder: (_, animationProvider, __) {
+                          BlocBuilder<LaunchCubit, double>(
+                            builder: (_, progress) {
                               return CircularPercentIndicator(
                                 addAutomaticKeepAlive: true,
                                 radius: 25,
@@ -105,7 +100,7 @@ class LaunchPage extends StatelessWidget {
                                 animationDuration: 1000,
                                 lineWidth: 5,
                                 animateFromLastPercent: true,
-                                percent: animationProvider.percent,
+                                percent: progress,
                                 circularStrokeCap: CircularStrokeCap.butt,
                                 progressColor: Colors.grey[200],
                               );
@@ -197,8 +192,7 @@ class LaunchPage extends StatelessWidget {
                                         ),
                                         AnimatedTextKit(
                                           onFinished: () {
-                                            Provider.of<LaunchPageProvider>(context, listen: false)
-                                                .incrementVisitorCount();
+                                            context.read<LaunchCubit>().recordVisit();
                                               context.go('/home');
                                           },
                                           repeatForever: false,
@@ -240,8 +234,8 @@ class LaunchPage extends StatelessWidget {
                     color: Colors.grey[200],
                     child: Align(
                       alignment: Alignment.centerLeft,
-                      child: Consumer<LaunchPageProvider>(
-                        builder: (_, animationProvider, __) {
+                      child: BlocBuilder<LaunchCubit, double>(
+                        builder: (_, progress) {
                           return CircularPercentIndicator(
                             addAutomaticKeepAlive: true,
                             radius: 60,
@@ -249,7 +243,7 @@ class LaunchPage extends StatelessWidget {
                             animationDuration: 1000,
                             lineWidth: 10,
                             animateFromLastPercent: true,
-                            percent: animationProvider.percent,
+                            percent: progress,
                             circularStrokeCap: CircularStrokeCap.butt,
                             progressColor: Colors.grey[200],
                           );

@@ -1,4 +1,7 @@
-import 'package:flutter/material.dart';
+import 'dart:async';
+
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:portfolio_website/components/projects/banner_image.dart';
 import 'package:portfolio_website/components/projects/banner_title.dart';
@@ -6,11 +9,11 @@ import 'package:portfolio_website/components/projects/table_of_contents_componen
 import 'package:portfolio_website/components/projects/table_of_contents.dart';
 import 'package:portfolio_website/components/projects/timeline.dart';
 import 'package:portfolio_website/templates/section_builder.dart';
-import 'package:provider/provider.dart';
 import 'package:responsive_framework/responsive_framework.dart';
-import '../../components/projects/table_of_contents_header.dart';
-import '../../providers/project_component_constraint_provider.dart';
-import '../../providers/scroll_provider.dart';
+import '../blocs/project_page/section_layout_cubit.dart';
+import '../blocs/project_page/table_of_contents_offset_cubit.dart';
+import '../components/projects/table_of_contents_header.dart';
+import '../constants/layout.dart';
 
 class ProjectPageTemplate extends StatelessWidget {
   const ProjectPageTemplate({
@@ -32,29 +35,121 @@ class ProjectPageTemplate extends StatelessWidget {
   final Color backgroundShapeColor;
   final Color foregroundShapeColor;
 
+  @override
+  Widget build(BuildContext context) {
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (_) => TableOfContentsOffsetCubit()),
+        BlocProvider(create: (_) => SectionLayoutCubit(sectionCount: sections.length)),
+      ],
+      child: _ProjectPageView(page: this),
+    );
+  }
+}
+
+class _ProjectPageView extends StatefulWidget {
+  const _ProjectPageView({required this.page});
+
+  final ProjectPageTemplate page;
+
+  @override
+  State<_ProjectPageView> createState() => _ProjectPageViewState();
+}
+
+class _ProjectPageViewState extends State<_ProjectPageView> {
+  static const int _measurePasses = 10;
+  static const Duration _measureInterval = Duration(milliseconds: 500);
+
+  final ScrollController _scrollController = ScrollController();
+  late final List<GlobalKey> _sectionKeys = List.generate(widget.page.sections.length, (_) => GlobalKey());
+  late final List<GlobalKey> _titleKeys = List.generate(widget.page.sections.length, (_) => GlobalKey());
+  Timer? _measureTimer;
+  Size? _lastScreenSize;
+  double _bannerHeight = 0;
+
   double _projectBannerHeight(double height) => height; //width / 2.193333333; // 900
   double _projectBannerWidth(double width) => 1500; //width / 1.316; // 1500
 
+  /// Screen height clamped to the minimum the layout is designed for.
+  double _layoutHeight(Size screenSize) => screenSize.height < 1048 ? 1048 : screenSize.height;
+
+  @override
+  void initState() {
+    super.initState();
+    _scrollController.addListener(_onScroll);
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    // HTML sections reflow when the screen size changes, so re-measure them.
+    final screenSize = MediaQuery.sizeOf(context);
+    if (screenSize != _lastScreenSize) {
+      _lastScreenSize = screenSize;
+      _bannerHeight = _projectBannerHeight(_layoutHeight(screenSize));
+      _startMeasuringSections();
+    }
+  }
+
+  @override
+  void dispose() {
+    _measureTimer?.cancel();
+    _scrollController.dispose();
+    super.dispose();
+  }
+
+  void _onScroll() {
+    context
+        .read<TableOfContentsOffsetCubit>()
+        .onScrolled(offset: _scrollController.offset, bannerHeight: _bannerHeight);
+  }
+
+  /// Rendered HTML heights aren't known until images and fonts settle, so
+  /// sample them a few times after layout.
+  void _startMeasuringSections() {
+    _measureTimer?.cancel();
+    var passes = 0;
+    _measureTimer = Timer.periodic(_measureInterval, (timer) {
+      if (passes++ >= _measurePasses) {
+        timer.cancel();
+        return;
+      }
+      _measureSections();
+    });
+  }
+
+  void _measureSections() {
+    context.read<SectionLayoutCubit>().updateHeights([
+      for (final key in _sectionKeys)
+        switch (key.currentContext?.findRenderObject()) {
+          final RenderBox box when box.hasSize => box.size.height,
+          _ => null,
+        },
+    ]);
+  }
+
+  void _scrollToProjectDescription(double position) {
+    _scrollController.animateTo(
+      position,
+      duration: const Duration(milliseconds: 500),
+      curve: Curves.easeInOut,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
+    final ProjectPageTemplate(
+      :projectTitle,
+      :bannerImage,
+      :sections,
+      :tableOfContents,
+      :timelineIcons,
+      :backgroundShapeColor,
+      :foregroundShapeColor,
+    ) = widget.page;
+
     double width = 1978;
-    double height = MediaQuery.of(context).size.height < 1048 ? 1048 : MediaQuery.of(context).size.height;
-
-    ScrollProvider scrollProvider = Provider.of<ScrollProvider>(context, listen: false);
-    ProjectComponentsConstraintsProvider componentsConstraintsProvider =
-        Provider.of<ProjectComponentsConstraintsProvider>(context, listen: false);
-
-    scrollProvider.bannerHeight = _projectBannerHeight(height);
-    scrollProvider.width = width;
-
-    componentsConstraintsProvider.initHeights(sections.length);
-    componentsConstraintsProvider.sectionKeys = List.generate(sections.length, (index) => GlobalKey());
-    componentsConstraintsProvider.titleKeys = List.generate(sections.length, (index) => GlobalKey());
-
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      scrollProvider.tableOfContentsListener(scrollProvider.bannerHeight, width);
-      componentsConstraintsProvider.startRenderTimer();
-    });
+    double height = _layoutHeight(MediaQuery.sizeOf(context));
 
     bool isLengthGreaterThanWidth = MediaQuery.of(context).size.height > MediaQuery.of(context).size.width;
 
@@ -73,7 +168,7 @@ class ProjectPageTemplate extends StatelessWidget {
             projectTitle,
             style: const TextStyle(fontSize: 25), //width / 79.12),
           ),
-          toolbarHeight: scrollProvider.appBarHeight,
+          toolbarHeight: kAppBarHeight,
           shadowColor: Colors.black,
           backgroundColor: backgroundShapeColor,
           elevation: 1,
@@ -85,7 +180,11 @@ class ProjectPageTemplate extends StatelessWidget {
                     context: context,
                     builder: (_) => AlertDialog(
                       title: const Text('Table of contents', style: TextStyle(fontSize: 30)),
-                      content: TableOfContents(tableOfContents: tableOfContents, fontColor: foregroundShapeColor),
+                      content: TableOfContents(
+                        tableOfContents: tableOfContents,
+                        titleKeys: _titleKeys,
+                        fontColor: foregroundShapeColor,
+                      ),
                     ),
                   );
                 },
@@ -96,12 +195,12 @@ class ProjectPageTemplate extends StatelessWidget {
         backgroundColor: Colors.white,
         body: RawScrollbar(
           thumbVisibility: true,
-          controller: scrollProvider.detailedProjectScrollController,
+          controller: _scrollController,
           thumbColor: foregroundShapeColor,
           radius: const Radius.circular(16),
           thickness: 22,
           child: SingleChildScrollView(
-            controller: scrollProvider.detailedProjectScrollController,
+            controller: _scrollController,
             scrollDirection: Axis.vertical,
             child: SingleChildScrollView(
               scrollDirection: Axis.horizontal,
@@ -129,7 +228,7 @@ class ProjectPageTemplate extends StatelessWidget {
                             color: Colors.white,
                             boxShadow: [
                               BoxShadow(
-                                color: Colors.grey.withOpacity(0.5),
+                                color: Colors.grey.withValues(alpha: 0.5),
                                 spreadRadius: 5,
                                 blurRadius: 10,
                                 offset: const Offset(0, 3), // changes the position of the shadow
@@ -150,9 +249,9 @@ class ProjectPageTemplate extends StatelessWidget {
                                       ),
                                       child: Column(
                                         children: <Widget>[
-                                          Consumer<ScrollProvider>(builder: (_, scrollProvider, __) {
-                                            return SizedBox(height: 0 + scrollProvider.tableOfContentsOffset);
-                                          }),
+                                          BlocBuilder<TableOfContentsOffsetCubit, double>(
+                                            builder: (_, offset) => SizedBox(height: offset),
+                                          ),
                                           Stack(children: [
                                             ClipRRect(
                                               borderRadius: const BorderRadius.only(topRight: Radius.circular(50)),
@@ -176,14 +275,11 @@ class ProjectPageTemplate extends StatelessWidget {
                                                     ),
                                                   ),
                                                 ),
-                                                Consumer<ProjectComponentsConstraintsProvider>(
-                                                  builder: (context, componentsConstraintsProvider, child) {
-                                                    return TableOfContents(
-                                                      tableOfContents: tableOfContents,
-                                                      fontColor: foregroundShapeColor,
-                                                    );
-                                                  },
-                                                )
+                                                TableOfContents(
+                                                  tableOfContents: tableOfContents,
+                                                  titleKeys: _titleKeys,
+                                                  fontColor: foregroundShapeColor,
+                                                ),
                                               ],
                                             ),
                                           ]),
@@ -201,7 +297,8 @@ class ProjectPageTemplate extends StatelessWidget {
                                       child: ProjectTimeLine(
                                         sections: buildSections(
                                             sections: sections,
-                                            componentsConstraintsProvider: componentsConstraintsProvider,
+                                            sectionKeys: _sectionKeys,
+                                            titleKeys: _titleKeys,
                                             isLengthGreaterThanWidth: isLengthGreaterThanWidth,
                                             sectionBoxColor: backgroundShapeColor),
                                         timelineIcons: timelineIcons,
@@ -225,7 +322,7 @@ class ProjectPageTemplate extends StatelessWidget {
                         child: FloatingActionButton(
                           backgroundColor: backgroundShapeColor,
                           onPressed: () =>
-                              scrollProvider.scrollToProjectDescription(_projectBannerHeight(height) + 150),
+                              _scrollToProjectDescription(_projectBannerHeight(height) + 150),
                           // width / 13.16 = 150
                           shape: const CircleBorder(),
                           child: const Icon(

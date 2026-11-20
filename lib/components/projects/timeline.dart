@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:timelines/timelines.dart';
+import 'package:material_ui/material_ui.dart';
+import 'package:timelines_plus/timelines_plus.dart';
 
 class ProjectTimeLine extends StatelessWidget {
   const ProjectTimeLine(

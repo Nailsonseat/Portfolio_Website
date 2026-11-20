@@ -1,13 +1,33 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_gemini/flutter_gemini.dart';
+import 'package:material_ui/material_ui.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:portfolio_website/providers/chatbot_provider.dart';
-import 'package:provider/provider.dart';
+import 'package:portfolio_website/blocs/chat/chat_bloc.dart';
+import 'package:portfolio_website/data/chat_message.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
-class ChatGPTDialog extends StatelessWidget {
+class ChatGPTDialog extends StatefulWidget {
   const ChatGPTDialog({super.key});
+
+  @override
+  State<ChatGPTDialog> createState() => _ChatGPTDialogState();
+}
+
+class _ChatGPTDialogState extends State<ChatGPTDialog> {
+  final TextEditingController _promptController = TextEditingController();
+
+  @override
+  void dispose() {
+    _promptController.dispose();
+    super.dispose();
+  }
+
+  void _send() {
+    final chatBloc = context.read<ChatBloc>();
+    if (chatBloc.state.isSending) return;
+    chatBloc.add(ChatMessageSent(_promptController.text));
+    _promptController.clear();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -67,9 +87,9 @@ class ChatGPTDialog extends StatelessWidget {
                 ],
               ),
               Expanded(
-                child: Consumer<ChatBotProvider>(
-                  builder: (_, chatBot, __) {
-                    List<Content> messages = chatBot.messages;
+                child: BlocSelector<ChatBloc, ChatState, List<ChatMessage>>(
+                  selector: (state) => state.messages,
+                  builder: (_, messages) {
                     return ListView.builder(
                       reverse: true,
                       itemCount: messages.length,
@@ -83,7 +103,7 @@ class ChatGPTDialog extends StatelessWidget {
                             color: Colors.grey[100],
                           ),
                           child: ListTile(
-                            title: Text(messages[reversedIndex].parts?.last.text ?? '',
+                            title: Text(messages[reversedIndex].text,
                                 style: isLengthGreaterThanWidth ? const TextStyle(fontSize: 16) : null),
                           ),
                         );
@@ -92,19 +112,32 @@ class ChatGPTDialog extends StatelessWidget {
                   },
                 ),
               ),
+              BlocSelector<ChatBloc, ChatState, bool>(
+                selector: (state) => state.status == ChatStatus.failure,
+                builder: (_, failed) => failed
+                    ? const Padding(
+                        padding: EdgeInsets.only(top: 4),
+                        child: Text(
+                          "Couldn't reach Aadarsh AI. Please try again.",
+                          style: TextStyle(color: Colors.redAccent),
+                        ),
+                      )
+                    : const SizedBox.shrink(),
+              ),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 8.0),
                 child: Row(
                   children: [
                     Expanded(
                       flex: isLengthGreaterThanWidth ? 9 : 7,
-                      child: Consumer<ChatBotProvider>(
-                        builder: (_, chatBot, __) {
+                      child: BlocSelector<ChatBloc, ChatState, bool>(
+                        selector: (state) => state.isSending,
+                        builder: (_, isSending) {
                           return TextFormField(
                             maxLines: 1,
-                            controller: chatBot.promptEditingController,
-                            enabled: !chatBot.isSending,
-                            onFieldSubmitted: (_) => chatBot.isSending ? null : chatBot.generate(),
+                            controller: _promptController,
+                            enabled: !isSending,
+                            onFieldSubmitted: (_) => _send(),
                             decoration: InputDecoration(
                               contentPadding: const EdgeInsets.all(21),
                               border: OutlineInputBorder(
@@ -121,11 +154,12 @@ class ChatGPTDialog extends StatelessWidget {
                     const SizedBox(width: 8),
                     Expanded(
                       flex: isLengthGreaterThanWidth ? 2 : 1,
-                      child: Consumer<ChatBotProvider>(
-                        builder: (_, chatBot, __) {
+                      child: BlocSelector<ChatBloc, ChatState, bool>(
+                        selector: (state) => state.isSending,
+                        builder: (_, isSending) {
                           if (isLengthGreaterThanWidth) {
                             return IconButton(
-                              onPressed: () => chatBot.isSending ? null : chatBot.generate(),
+                              onPressed: _send,
                               style: ButtonStyle(
                                 minimumSize: WidgetStateProperty.all<Size>(const Size.fromHeight(55)),
                                 backgroundColor: WidgetStateProperty.all<Color>(Colors.lightBlueAccent),
@@ -136,7 +170,7 @@ class ChatGPTDialog extends StatelessWidget {
                                   ),
                                 ),
                               ),
-                              icon: chatBot.isSending
+                              icon: isSending
                                   ? const SizedBox(
                                       width: 20,
                                       height: 20,
@@ -149,7 +183,7 @@ class ChatGPTDialog extends StatelessWidget {
                             );
                           }
                           return ElevatedButton(
-                            onPressed: () => chatBot.isSending ? null : chatBot.generate(),
+                            onPressed: _send,
                             style: ButtonStyle(
                               minimumSize: WidgetStateProperty.all<Size>(const Size.fromHeight(68)),
                               backgroundColor: WidgetStateProperty.all<Color>(Colors.lightBlueAccent),
@@ -160,7 +194,7 @@ class ChatGPTDialog extends StatelessWidget {
                                 ),
                               ),
                             ),
-                            child: chatBot.isSending
+                            child: isSending
                                 ? const SizedBox(
                                     width: 20,
                                     height: 20,

@@ -19,7 +19,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: '>=3.0.5 <4.0.0'
+  sdk: ^3.10.0
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -36,38 +36,42 @@ dependencies:
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^1.0.6
+  cupertino_icons: ^2.0.0
   flutter_animate: ^4.2.0+1
   animated_text_kit: ^4.2.2
   percent_indicator: ^4.2.3
-  provider: ^6.0.5
   auto_size_text: ^3.0.0
-  go_router: ^10.1.2
-  google_fonts: ^5.1.0
+  go_router: ^18.1.4
+  google_fonts: ^9.0.0
   line_icons: ^2.0.3
   url_launcher: ^6.1.14
   logger: ^2.0.2
-  animated_toggle_switch: ^0.7.0
-  timelines: ^0.1.0
+  animated_toggle_switch: ^0.8.7
   ionicons: ^0.2.2
-  eva_icons_flutter: ^3.1.0
+  eva_icons_flutter: ^4.0.0
   hexcolor: ^3.0.1
   flutter_html: ^3.0.0-beta.2
   flutter_html_svg: ^3.0.0-beta.2
   flutter_html_table: ^3.0.0-beta.2
-  firebase_core: ^2.16.0
-  firebase_analytics: ^10.5.0
-  cloud_firestore: ^4.9.2
+  firebase_core: ^5.2.0
+  firebase_analytics: ^13.1.0
+  cloud_firestore: ^7.2.0
   responsive_framework: ^1.4.0
   universal_html: ^2.2.4
-  flutter_gemini: ^2.0.3
+  flutter_gemini: ^3.0.0
   just_the_tooltip: ^0.0.12
-  flutter_html_audio: ^3.0.0-beta.2
-  flutter_html_iframe: ^3.0.0-beta.2
-  flutter_html_video: ^3.0.0-beta.2
-  youtube_player_iframe: ^5.1.3
-  syncfusion_flutter_pdfviewer: ^26.1.41
+  youtube_player_iframe: ^6.0.3
+  syncfusion_flutter_pdfviewer: ^35.2.12
+  flutter_bloc: ^9.1.1
+  equatable: ^3.0.0
+  material_ui: ^1.11.1
 
+  bloc_concurrency: ^0.3.0
+  timelines_plus: ^2.0.1
+  # flutter_html 3.0.0 calls a top-level `matches()` from html's src/ that
+  # html 0.15.7 removed, which breaks web compilation. Lift once flutter_html
+  # releases a fix.
+  html: ">=0.15.4 <0.15.7"
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -77,7 +81,9 @@ dev_dependencies:
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-  flutter_lints: ^4.0.0
+  flutter_lints: ^6.0.0
+  bloc_test: ^10.0.0
+  mocktail: ^1.0.5
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
