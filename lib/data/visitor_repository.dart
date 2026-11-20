@@ -1,18 +1,46 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'dart:convert';
 
-/// Reads and updates the home page visitor counter stored in Firestore.
+import 'package:http/http.dart' as http;
+
+/// Reads and increments the visitor counter hosted on counterapi.dev.
+///
+/// The counter URL contains no secret, so it is safe to ship in the web bundle.
 class VisitorRepository {
-  VisitorRepository({FirebaseFirestore? firestore}) : _firestore = firestore;
+  VisitorRepository({http.Client? client, DateTime Function()? clock})
+      : _client = client ?? http.Client(),
+        _clock = clock ?? DateTime.now;
 
-  final FirebaseFirestore? _firestore;
+  static const String counterUrl = 'https://api.counterapi.dev/v2/aadarsh-portfolio/portfolio-website-visitor-counter';
 
-  DocumentReference<Map<String, dynamic>> get _counterDoc =>
-      (_firestore ?? FirebaseFirestore.instance).collection('visitor_counts').doc('home_page_visitors');
+  /// Visits recorded before the counter moved here from Firestore.
+  static const int legacyVisitorCount = 786;
 
-  /// Atomically increments the counter, creating the document if it is missing.
-  Future<void> incrementVisitorCount() => _counterDoc.set({'count': FieldValue.increment(1)}, SetOptions(merge: true));
+  final http.Client _client;
+  final DateTime Function() _clock;
 
-  /// Emits the current visitor count whenever it changes.
-  Stream<int> watchVisitorCount() =>
-      _counterDoc.snapshots().map((snapshot) => (snapshot.data()?['count'] as num?)?.toInt() ?? 0);
+  /// counterapi.dev responses are cached by Cloudflare for hours, so every
+  /// request carries a unique query parameter to reach the real counter.
+  Uri _uri(String path) =>
+      Uri.parse('$counterUrl$path').replace(queryParameters: {'t': '${_clock().microsecondsSinceEpoch}'});
+
+  /// Records one visit.
+  Future<void> incrementVisitorCount() async {
+    final response = await _client.get(_uri('/up'));
+    if (response.statusCode != 200) {
+      throw http.ClientException('Counter increment failed (${response.statusCode})', response.request?.url);
+    }
+  }
+
+  /// Total visits, including those recorded before the move from Firestore.
+  ///
+  /// The service applies increments with a short delay, so a visit made
+  /// moments ago may not be reflected yet.
+  Future<int> fetchVisitorCount() async {
+    final response = await _client.get(_uri(''));
+    if (response.statusCode != 200) {
+      throw http.ClientException('Counter read failed (${response.statusCode})', response.request?.url);
+    }
+    final data = (jsonDecode(response.body) as Map<String, dynamic>)['data'] as Map<String, dynamic>;
+    return legacyVisitorCount + (data['up_count'] as num).toInt();
+  }
 }

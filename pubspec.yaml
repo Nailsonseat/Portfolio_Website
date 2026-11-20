@@ -53,9 +53,6 @@ dependencies:
   flutter_html: ^3.0.0-beta.2
   flutter_html_svg: ^3.0.0-beta.2
   flutter_html_table: ^3.0.0-beta.2
-  firebase_core: ^5.2.0
-  firebase_analytics: ^13.1.0
-  cloud_firestore: ^7.2.0
   responsive_framework: ^1.4.0
   universal_html: ^2.2.4
   flutter_gemini: ^3.0.0
@@ -72,6 +69,7 @@ dependencies:
   # html 0.15.7 removed, which breaks web compilation. Lift once flutter_html
   # releases a fix.
   html: ">=0.15.4 <0.15.7"
+  http: ^1.6.0
 dev_dependencies:
   flutter_test:
     sdk: flutter

@@ -7,7 +7,7 @@ import 'package:portfolio_website/pages/home/home_page.dart';
 import 'package:portfolio_website/pages/about_me/about_me_page.dart';
 import 'package:portfolio_website/blocs/home/scroll_to_top_cubit.dart';
 import 'package:portfolio_website/constants/layout.dart';
-import 'package:portfolio_website/data/visitor_repository.dart';
+import 'package:portfolio_website/blocs/home/visitor_count_cubit.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import '../project_browser/project_browser_main.dart';
 
@@ -21,7 +21,6 @@ class HomeMain extends StatefulWidget {
 class _HomeMainState extends State<HomeMain> {
   final ScrollController _scrollController = ScrollController();
   final GlobalKey _projectsSectionKey = GlobalKey();
-  late final Stream<int> _visitorCount = context.read<VisitorRepository>().watchVisitorCount();
 
   @override
   void initState() {
@@ -83,13 +82,13 @@ class _HomeMainState extends State<HomeMain> {
                   )
                 : null,
             actions: [
-              StreamBuilder<int>(
-                stream: _visitorCount,
-                builder: (context, snapshot) {
-                  if (!snapshot.hasData) {
+              BlocBuilder<VisitorCountCubit, VisitorCountState>(
+                builder: (context, state) {
+                  if (state.failed) return const SizedBox.shrink();
+                  final count = state.count;
+                  if (count == null) {
                     return const CircularProgressIndicator();
                   }
-                  final count = snapshot.data!;
                   return ElevatedButton(
                     onPressed: () => showDialog(
                       context: context,

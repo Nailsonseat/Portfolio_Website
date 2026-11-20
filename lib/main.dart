@@ -1,4 +1,3 @@
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gemini/flutter_gemini.dart';
 import 'package:material_ui/material_ui.dart';
@@ -7,12 +6,10 @@ import 'package:portfolio_website/data/chat_repository.dart';
 import 'package:portfolio_website/data/visitor_repository.dart';
 import 'package:portfolio_website/routes.dart';
 import 'package:responsive_framework/responsive_framework.dart';
-import 'firebase_options.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   Gemini.init(apiKey: const String.fromEnvironment('GEMINI_API_KEY'));
-  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(const MyApp());
 }
 

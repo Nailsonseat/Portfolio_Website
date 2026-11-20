@@ -7,6 +7,7 @@ import 'package:portfolio_website/pages/home/home_main.dart';
 import 'package:portfolio_website/pages/launch/launch_page.dart';
 import 'package:portfolio_website/blocs/home/scroll_to_top_cubit.dart';
 import 'package:portfolio_website/blocs/launch/launch_cubit.dart';
+import 'package:portfolio_website/blocs/home/visitor_count_cubit.dart';
 import 'package:portfolio_website/blocs/project_filter/project_filter_bloc.dart';
 import 'package:portfolio_website/data/visitor_repository.dart';
 
@@ -29,6 +30,9 @@ final GoRouter routes = GoRouter(
               providers: [
                 BlocProvider(create: (_) => ProjectFilterBloc()),
                 BlocProvider(create: (_) => ScrollToTopCubit()),
+                BlocProvider(
+                  create: (context) => VisitorCountCubit(visitorRepository: context.read<VisitorRepository>())..load(),
+                ),
               ],
               child: const HomeMain(),
             ),
