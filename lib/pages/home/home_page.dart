@@ -31,18 +31,6 @@ class HomeLandingPage extends StatelessWidget {
     }
   }
 
-  void _redirectMyWhatsapp() async {
-    String number = '910000000000';
-    String message = '?text=Hi%20my%20name%20is';
-    try {
-      if (!await launchUrl(Uri.parse('https://wa.me/$number$message'))) {
-        throw ('Error launching url');
-      }
-    } catch (error) {
-      Logger().e(error);
-    }
-  }
-
   void _sendMeMail() async {
     String view = 'cm'; // Compose view
     String fullscreen = '1'; // Fullscreen view
@@ -218,12 +206,6 @@ class HomeLandingPage extends StatelessWidget {
                           icon: const Icon(LineIcons.discord),
                           iconSize: 45,
                           color: Colors.indigoAccent,
-                        ),
-                        IconButton(
-                          onPressed: () => _redirectMyWhatsapp(),
-                          icon: const Icon(LineIcons.whatSApp),
-                          iconSize: 45,
-                          color: Colors.green,
                         ),
                       ],
                     ),
